@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>About | Sir Tho Saradhaga</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff0a8;
+    color: #17265c;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* =========================================================
+   SIMPLE TOP BAR
+========================================================= */
+
+.top-bar {
+
+    width: 100%;
+
+    background: #182b62;
+
+    padding: 16px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+.logo {
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 24px;
+
+    line-height: 0.8;
+
+    font-weight: 800;
+
+    color: #ffd83d;
+
+    letter-spacing: 0.5px;
+}
+
+
+.logo small {
+
+    display: block;
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    margin-top: 8px;
+}
+
+
+.back-home {
+
+    background: #ff6374;
+
+    color: white;
+
+    padding: 9px 18px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+
+.back-home:hover {
+
+    background: #ff4559;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero {
+
+    min-height: 620px;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 20%,
+            #ffcf33 0,
+            #ffcf33 90px,
+            transparent 91px
+        ),
+
+        radial-gradient(
+            circle at 92% 15%,
+            #ff7f91 0,
+            #ff7f91 100px,
+            transparent 101px
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff0a8,
+            #ffcfdf 52%,
+            #9ee9ff
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.about-hero::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    left: 6%;
+
+    bottom: 45px;
+
+    font-size: 80px;
+
+    color: #ff6374;
+
+    transform: rotate(-15deg);
+}
+
+
+.about-hero::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    right: 7%;
+
+    bottom: 80px;
+
+    font-size: 100px;
+
+    color: #7b62ff;
+
+    transform: rotate(20deg);
+}
+
+
+.hero-inner {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 70px 35px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+.hero-left {
+
+    max-width: 650px;
+}
+
+
+.hero-tag {
+
+    display: inline-block;
+
+    background: #182b62;
+
+    color: #ffd83d;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        5px 5px 0 #ff6374;
+}
+
+
+.hero-left h1 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 67px;
+
+    line-height: 0.98;
+
+    color: #182b62;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-left h1 span {
+
+    color: #ff5368;
+
+    position: relative;
+}
+
+
+.hero-left p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #3f4969;
+
+    max-width: 590px;
+
+    margin-bottom: 28px;
+}
+
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: #ff5368;
+
+    color: white;
+
+    padding: 14px 25px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 7px 0 #c9344a;
+
+    transition: 0.2s;
+}
+
+
+.hero-button:hover {
+
+    transform: translateY(4px);
+
+    box-shadow:
+        0 3px 0 #c9344a;
+}
+
+
+
+/* HERO ILLUSTRATION */
+
+.hero-art {
+
+    height: 410px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.big-circle {
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 10px solid #182b62;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 145px;
+
+    box-shadow:
+        15px 18px 0 #ff6374;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.art-card {
+
+    position: absolute;
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 35px;
+
+    border: 4px solid #182b62;
+
+    box-shadow:
+        6px 7px 0 #182b62;
+
+    z-index: 4;
+
+    animation: bounce 3s ease-in-out infinite;
+}
+
+
+.art-one {
+
+    background: #ffd83d;
+
+    top: 20px;
+
+    left: 50px;
+}
+
+
+.art-two {
+
+    background: #72e0ff;
+
+    top: 55px;
+
+    right: 25px;
+
+    animation-delay: .5s;
+}
+
+
+.art-three {
+
+    background: #ff91a2;
+
+    bottom: 35px;
+
+    left: 70px;
+
+    animation-delay: 1s;
+}
+
+
+.art-four {
+
+    background: #9bea70;
+
+    bottom: 10px;
+
+    right: 55px;
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes bounce {
+
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+
+.section {
+
+    padding: 90px 25px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.section-heading {
+
+    max-width: 800px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+
+.section-heading .mini {
+
+    display: inline-block;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    color: #ff5368;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+
+.section-heading h2 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 48px;
+
+    line-height: 1.05;
+
+    color: #182b62;
+
+    margin-bottom: 12px;
+}
+
+
+.section-heading p {
+
+    color: #515b76;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   WHY SECTION
+========================================================= */
+
+.why-section {
+
+    background: #72e0ff;
+}
+
+
+.why-section::before {
+
+    content: "💭";
+
+    position: absolute;
+
+    right: 4%;
+
+    top: 30px;
+
+    font-size: 90px;
+
+    opacity: 0.5;
+}
+
+
+.why-cards {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.why-card {
+
+    min-height: 280px;
+
+    padding: 30px 25px;
+
+    border-radius: 30px;
+
+    border: 4px solid #182b62;
+
+    box-shadow:
+        9px 10px 0 #182b62;
+
+    transition: 0.25s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.why-card:hover {
+
+    transform: translateY(-8px);
+}
+
+
+.why-card:nth-child(1) {
+
+    background: #ffd83d;
+
+    transform: rotate(-2deg);
+}
+
+
+.why-card:nth-child(2) {
+
+    background: #ff7f91;
+
+    transform: rotate(1deg);
+}
+
+
+.why-card:nth-child(3) {
+
+    background: #9bea70;
+
+    transform: rotate(-1deg);
+}
+
+
+.why-icon {
+
+    font-size: 62px;
+
+    margin-bottom: 12px;
+}
+
+
+.why-card h3 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: #182b62;
+
+    font-size: 29px;
+
+    margin-bottom: 7px;
+}
+
+
+.why-card p {
+
+    color: #28355f;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features-section {
+
+    background: #ff91b1;
+}
+
+
+.features-section .section-heading .mini {
+
+    color: #182b62;
+}
+
+
+.feature-grid {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 17px;
+}
+
+
+.feature-card {
+
+    min-height: 220px;
+
+    padding: 25px 15px;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    border: 4px solid #182b62;
+
+    box-shadow:
+        7px 8px 0 #182b62;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: 0.25s;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-8px) rotate(1deg);
+}
+
+
+.feature-card:nth-child(1) {
+
+    background: #ffd83d;
+}
+
+
+.feature-card:nth-child(2) {
+
+    background: #72e0ff;
+}
+
+
+.feature-card:nth-child(3) {
+
+    background: #9bea70;
+}
+
+
+.feature-card:nth-child(4) {
+
+    background: #c7a4ff;
+}
+
+
+.feature-card:nth-child(5) {
+
+    background: #ffb86b;
+}
+
+
+.feature-card .emoji {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+.feature-card h3 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 22px;
+
+    color: #182b62;
+
+    margin-bottom: 5px;
+}
+
+
+.feature-card p {
+
+    color: #27345d;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+
+/* =========================================================
+   BELIEF SECTION
+========================================================= */
+
+.belief-section {
+
+    background: #9bea70;
+
+    text-align: center;
+}
+
+
+.belief-box {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    background: #182b62;
+
+    border-radius: 40px;
+
+    padding: 55px 40px;
+
+    color: white;
+
+    border: 6px solid #ffd83d;
+
+    box-shadow:
+        12px 13px 0 #ff5368;
+
+    position: relative;
+}
+
+
+.belief-box h2 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: #ffd83d;
+
+    font-size: 46px;
+
+    margin-bottom: 18px;
+}
+
+
+.quote {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: white;
+
+    font-size: 28px;
+
+    margin-bottom: 35px;
+}
+
+
+.belief-points {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    text-align: left;
+}
+
+
+.belief-point {
+
+    background: #30488c;
+
+    border-radius: 15px;
+
+    padding: 15px 17px;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+.belief-point span {
+
+    color: #ffd83d;
+
+    font-size: 18px;
+
+    margin-right: 7px;
+}
+
+
+
+/* =========================================================
+   WHO IS IT FOR
+========================================================= */
+
+.audience-section {
+
+    background: #ffe45e;
+}
+
+
+.audience-grid {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.audience-card {
+
+    padding: 30px 15px;
+
+    min-height: 180px;
+
+    border-radius: 30px;
+
+    border: 4px solid #182b62;
+
+    box-shadow:
+        7px 8px 0 #182b62;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+
+.audience-card:hover {
+
+    transform: scale(1.05);
+}
+
+
+.audience-card:nth-child(1) {
+
+    background: #ff8a9c;
+}
+
+
+.audience-card:nth-child(2) {
+
+    background: #72e0ff;
+}
+
+
+.audience-card:nth-child(3) {
+
+    background: #9bea70;
+}
+
+
+.audience-card:nth-child(4) {
+
+    background: #c7a4ff;
+}
+
+
+.audience-card .emoji {
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+}
+
+
+.audience-card h3 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: #182b62;
+
+    font-size: 21px;
+}
+
+
+
+/* =========================================================
+   LEARNING JOURNEY
+========================================================= */
+
+.journey-section {
+
+    background: #c7a4ff;
+}
+
+
+.journey {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+.journey-step {
+
+    width: 155px;
+
+    height: 150px;
+
+    border-radius: 28px;
+
+    background: #ffd83d;
+
+    border: 4px solid #182b62;
+
+    box-shadow:
+        7px 8px 0 #182b62;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: 0.25s;
+}
+
+
+.journey-step:nth-child(3) {
+
+    background: #72e0ff;
+}
+
+
+.journey-step:nth-child(5) {
+
+    background: #9bea70;
+}
+
+
+.journey-step:nth-child(7) {
+
+    background: #ff91b1;
+}
+
+
+.journey-step:nth-child(9) {
+
+    background: #ffad65;
+}
+
+
+.journey-step:hover {
+
+    transform: translateY(-8px);
+}
+
+
+.journey-step .emoji {
+
+    font-size: 42px;
+
+    margin-bottom: 5px;
+}
+
+
+.journey-step h3 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: #182b62;
+
+    font-size: 21px;
+}
+
+
+.journey-arrow {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: #182b62;
+}
+
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.cta-section {
+
+    background:
+
+        radial-gradient(
+            circle at 10% 50%,
+            #ffd83d 0,
+            #ffd83d 100px,
+            transparent 101px
+        ),
+
+        radial-gradient(
+            circle at 90% 40%,
+            #72e0ff 0,
+            #72e0ff 120px,
+            transparent 121px
+        ),
+
+        #ff6f86;
+
+    padding: 90px 25px;
+
+    text-align: center;
+}
+
+
+.cta-box {
+
+    max-width: 800px;
+
+    margin: auto;
+}
+
+
+.cta-box .emoji {
+
+    font-size: 60px;
+
+    margin-bottom: 8px;
+}
+
+
+.cta-box h2 {
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: white;
+
+    font-size: 55px;
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+}
+
+
+.cta-box p {
+
+    color: white;
+
+    font-size: 15px;
+
+    margin-bottom: 28px;
+}
+
+
+.cta-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.cta-btn {
+
+    padding: 14px 25px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+
+.cta-primary {
+
+    background: #182b62;
+
+    color: white;
+
+    box-shadow:
+        0 5px 0 #091431;
+}
+
+
+.cta-secondary {
+
+    background: #ffd83d;
+
+    color: #182b62;
+
+    box-shadow:
+        0 5px 0 #b28c00;
+}
+
+
+.cta-btn:hover {
+
+    transform: translateY(4px);
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #182b62;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+
+.footer-logo {
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 25px;
+
+    color: #ffd83d;
+
+    font-weight: 800;
+}
+
+
+footer p {
+
+    font-size: 12px;
+
+    opacity: 0.8;
+
+    margin-top: 5px;
+}
+
+
+.footer-links {
+
+    margin-top: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.footer-links a {
+
+    color: white;
+
+    font-size: 12px;
+}
+
+
+.footer-links a:hover {
+
+    color: #ffd83d;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .feature-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .hero-left h1 {
+
+        font-size: 55px;
+    }
+
+
+    .audience-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .hero-inner {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+
+    .hero-left {
+
+        margin: auto;
+    }
+
+
+    .hero-left p {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .hero-art {
+
+        height: 330px;
+    }
+
+
+    .why-cards {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .belief-points {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .journey-arrow {
+
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .top-bar {
+
+        padding: 14px 18px;
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+
+    .about-hero {
+
+        min-height: auto;
+    }
+
+
+    .hero-inner {
+
+        padding: 60px 20px;
+    }
+
+
+    .hero-left h1 {
+
+        font-size: 43px;
+    }
+
+
+    .hero-left p {
+
+        font-size: 15px;
+    }
+
+
+    .big-circle {
+
+        width: 240px;
+
+        height: 240px;
+
+        font-size: 105px;
+    }
+
+
+    .art-card {
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 28px;
+    }
+
+
+    .section {
+
+        padding: 65px 18px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 37px;
+    }
+
+
+    .feature-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .audience-grid {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .belief-box {
+
+        padding: 40px 20px;
+    }
+
+
+    .belief-box h2 {
+
+        font-size: 37px;
+    }
+
+
+    .quote {
+
+        font-size: 22px;
+    }
+
+
+    .cta-box h2 {
+
+        font-size: 42px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .feature-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .audience-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .journey-step {
+
+        width: 140px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="top-bar">
+
+    <a href="index.html" class="logo">
+
+        SIR THO<br>
+        SARADHAGA
+
+        <small>
+            LEARN • LAUGH • GROW
+        </small>
+
+    </a>
+
+
+    <a href="index.html" class="back-home">
+
+        ← Back to Home
+
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="about-hero">
+
+    <div class="hero-inner">
+
+
+        <div class="hero-left">
+
+            <div class="hero-tag">
+
+                🌟 WELCOME TO OUR WORLD
+
+            </div>
+
+
+            <h1>
+
+                Learning is more fun
+                when you know the
+                <span>WHY!</span>
+
+            </h1>
+
+
+            <p>
+
+                Sir Tho Saradhaga is a colourful learning
+                space where curious minds can watch,
+                explore, ask questions and discover
+                something new every day. 🚀
+
+            </p>
+
+
+            <a
+                href="videos.html"
+                class="hero-button"
+            >
+
+                🎥 Start Exploring →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="hero-art">
+
+
+            <div class="big-circle">
+
+                🧑‍🎓
+
+            </div>
+
+
+            <div class="art-card art-one">
+                📚
+            </div>
+
+
+            <div class="art-card art-two">
+                💡
+            </div>
+
+
+            <div class="art-card art-three">
+                ✏️
+            </div>
+
+
+            <div class="art-card art-four">
+                🚀
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY WE STARTED
+===================================================== -->
+
+<section class="section why-section">
+
+
+    <div class="section-heading">
+
+        <div class="mini">
+            OUR IDEA 🎯
+        </div>
+
+        <h2>
+            Why did we start?
+        </h2>
+
+        <p>
+
+            Because learning doesn't have to feel
+            difficult or boring!
+
+        </p>
+
+    </div>
+
+
+
+    <div class="why-cards">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                💡
+            </div>
+
+            <h3>
+                Understand
+            </h3>
+
+            <p>
+
+                Don't just memorise.
+                Understand what something
+                really means.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                😊
+            </div>
+
+            <h3>
+                Enjoy
+            </h3>
+
+            <p>
+
+                Learning becomes exciting
+                when concepts are connected
+                to everyday life.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🚀
+            </div>
+
+            <h3>
+                Grow
+            </h3>
+
+            <p>
+
+                Keep learning, keep asking
+                questions and keep growing
+                every day.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHAT YOU CAN FIND
+===================================================== -->
+
+<section class="section features-section">
+
+
+    <div class="section-heading">
+
+        <div class="mini">
+            EXPLORE 📚
+        </div>
+
+        <h2>
+            What's waiting for you?
+        </h2>
+
+        <p>
+
+            Explore different ways to learn
+            and have fun while doing it!
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="emoji">
+                🎥
+            </div>
+
+            <h3>
+                Videos
+            </h3>
+
+            <p>
+                Short and simple explanations.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="emoji">
+                📝
+            </div>
+
+            <h3>
+                Notes
+            </h3>
+
+            <p>
+                Easy study material.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="emoji">
+                🧠
+            </div>
+
+            <h3>
+                Quizzes
+            </h3>
+
+            <p>
+                Test your knowledge.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="emoji">
+                ❓
+            </div>
+
+            <h3>
+                Questions
+            </h3>
+
+            <p>
+                Clear your doubts.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="emoji">
+                🌱
+            </div>
+
+            <h3>
+                Explore
+            </h3>
+
+            <p>
+                Discover new ideas.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHAT WE BELIEVE
+===================================================== -->
+
+<section class="section belief-section">
+
+
+    <div class="belief-box">
+
+
+        <h2>
+            🌍 What We Believe
+        </h2>
+
+
+        <div class="quote">
+
+            “Every question is the beginning
+            of learning.”
+
+        </div>
+
+
+        <div class="belief-points">
+
+
+            <div class="belief-point">
+
+                <span>✓</span>
+
+                Questions are a part of learning.
+
+            </div>
+
+
+            <div class="belief-point">
+
+                <span>✓</span>
+
+                Understanding is more important
+                than memorising.
+
+            </div>
+
+
+            <div class="belief-point">
+
+                <span>✓</span>
+
+                Difficult concepts can be made simple.
+
+            </div>
+
+
+            <div class="belief-point">
+
+                <span>✓</span>
+
+                Curiosity helps us discover new things.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHO IS IT FOR
+===================================================== -->
+
+<section class="section audience-section">
+
+
+    <div class="section-heading">
+
+        <div class="mini">
+            EVERYONE IS WELCOME 🌟
+        </div>
+
+        <h2>
+            Who is this for?
+        </h2>
+
+        <p>
+
+            If you're curious, you're already
+            part of the journey!
+
+        </p>
+
+    </div>
+
+
+
+    <div class="audience-grid">
+
+
+        <div class="audience-card">
+
+            <div class="emoji">
+                🎒
+            </div>
+
+            <h3>
+                School Students
+            </h3>
+
+        </div>
+
+
+        <div class="audience-card">
+
+            <div class="emoji">
+                🎓
+            </div>
+
+            <h3>
+                College Students
+            </h3>
+
+        </div>
+
+
+        <div class="audience-card">
+
+            <div class="emoji">
+                🧠
+            </div>
+
+            <h3>
+                Curious Learners
+            </h3>
+
+        </div>
+
+
+        <div class="audience-card">
+
+            <div class="emoji">
+                🌎
+            </div>
+
+            <h3>
+                Lifelong Learners
+            </h3>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LEARNING JOURNEY
+===================================================== -->
+
+<section class="section journey-section">
+
+
+    <div class="section-heading">
+
+        <div class="mini">
+            YOUR JOURNEY 🚀
+        </div>
+
+        <h2>
+            Learn. Explore. Grow.
+        </h2>
+
+        <p>
+
+            A simple journey from curiosity
+            to understanding.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="journey">
+
+
+        <div class="journey-step">
+
+            <div class="emoji">
+                🎥
+            </div>
+
+            <h3>
+                Watch
+            </h3>
+
+        </div>
+
+
+        <div class="journey-arrow">
+            →
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="emoji">
+                📝
+            </div>
+
+            <h3>
+                Learn
+            </h3>
+
+        </div>
+
+
+        <div class="journey-arrow">
+            →
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="emoji">
+                🧠
+            </div>
+
+            <h3>
+                Practice
+            </h3>
+
+        </div>
+
+
+        <div class="journey-arrow">
+            →
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="emoji">
+                ❓
+            </div>
+
+            <h3>
+                Ask
+            </h3>
+
+        </div>
+
+
+        <div class="journey-arrow">
+            →
+        </div>
+
+
+        <div class="journey-step">
+
+            <div class="emoji">
+                🚀
+            </div>
+
+            <h3>
+                Grow
+            </h3>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="cta-section">
+
+
+    <div class="cta-box">
+
+
+        <div class="emoji">
+            🌟
+        </div>
+
+
+        <h2>
+            Ready to Learn Something New?
+        </h2>
+
+
+        <p>
+
+            Pick a topic. Watch a video.
+            Ask a question. Keep growing! 💛
+
+        </p>
+
+
+        <div class="cta-buttons">
+
+
+            <a
+                href="videos.html"
+                class="cta-btn cta-primary"
+            >
+
+                🎥 Explore Videos
+
+            </a>
+
+
+            <a
+                href="index.html#subjects"
+                class="cta-btn cta-secondary"
+            >
+
+                📚 Explore Subjects
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-logo">
+
+        SIR THO SARADHAGA
+
+    </div>
+
+
+    <p>
+        Learn • Laugh • Grow
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="videos.html">
+            Videos
+        </a>
+
+        <a href="index.html#subjects">
+            Subjects
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </div>
+
+
+</footer>
+
+
+</body>
+
+</html>

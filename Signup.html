@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Sir Tho Saradhaga</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+
+            background: #fff4d6;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .circle {
+
+            position: absolute;
+
+            border-radius: 50%;
+        }
+
+
+        .circle.one {
+
+            width: 300px;
+            height: 300px;
+
+            background: #ffd84d;
+
+            top: -120px;
+            right: -90px;
+        }
+
+
+        .circle.two {
+
+            width: 230px;
+            height: 230px;
+
+            background: #ff6b8a;
+
+            bottom: -100px;
+            left: -70px;
+        }
+
+
+        .circle.three {
+
+            width: 120px;
+            height: 120px;
+
+            background: #61d4ff;
+
+            top: 10%;
+            left: 7%;
+        }
+
+
+        .circle.four {
+
+            width: 100px;
+            height: 100px;
+
+            background: #9be564;
+
+            bottom: 12%;
+            right: 8%;
+        }
+
+
+        /* =========================
+           DECORATIONS
+        ========================= */
+
+        .decoration {
+
+            position: absolute;
+
+            font-size: 42px;
+
+            z-index: 2;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+
+        .book {
+
+            top: 8%;
+            right: 15%;
+        }
+
+
+        .bulb {
+
+            top: 35%;
+            left: 4%;
+
+            animation-delay: .5s;
+        }
+
+
+        .pencil {
+
+            bottom: 12%;
+            right: 14%;
+
+            animation-delay: 1s;
+        }
+
+
+        .rocket {
+
+            bottom: 12%;
+            left: 12%;
+
+            animation-delay: 1.5s;
+        }
+
+
+        .star {
+
+            top: 20%;
+            left: 20%;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px)
+                    rotate(5deg);
+            }
+
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .signup-card {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            min-height: 680px;
+
+            background: white;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            display: grid;
+
+            grid-template-columns:
+                45% 55%;
+
+            position: relative;
+
+            z-index: 5;
+
+            box-shadow:
+                0 20px 60px
+                rgba(39,51,89,.20);
+        }
+
+
+        /* =========================
+           LEFT
+        ========================= */
+
+        .left-side {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #182b62,
+                    #3154ad,
+                    #6b55d9
+                );
+
+            color: white;
+
+            padding: 55px 45px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+            color: #ffd84d;
+
+            margin-bottom: 30px;
+        }
+
+
+        .left-side h1 {
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+
+        .left-side p {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            color: #eef2ff;
+
+            max-width: 390px;
+        }
+
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+        }
+
+
+        .benefit {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 16px;
+        }
+
+
+        .benefit-icon {
+
+            width: 42px;
+            height: 42px;
+
+            background:
+                rgba(255,255,255,.15);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           RIGHT
+        ========================= */
+
+        .right-side {
+
+            padding: 45px 60px;
+
+            background: #fffdf8;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .right-side h2 {
+
+            font-size: 36px;
+
+            color: #182b62;
+
+            margin-bottom: 7px;
+        }
+
+
+        .subtitle {
+
+            color: #777;
+
+            margin-bottom: 25px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+
+            margin-bottom: 14px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #27304f;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-group > input {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 2px solid #e5e7ef;
+
+            border-radius: 13px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            background: white;
+        }
+
+
+        .form-group > input:focus {
+
+            border-color: #5b6ee1;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(91,110,225,.10);
+        }
+
+
+        /* =========================
+           PASSWORD WRAPPER
+        ========================= */
+
+        .password-input {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+
+        .password-input input {
+
+            width: 100%;
+
+            padding: 13px 50px 13px 15px;
+
+            border: 2px solid #e5e7ef;
+
+            border-radius: 13px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            background: white;
+        }
+
+
+        .password-input input:focus {
+
+            border-color: #5b6ee1;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(91,110,225,.10);
+        }
+
+
+        /* REAL EYE */
+
+        .eye-btn {
+
+            position: absolute;
+
+            right: 10px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 34px;
+            height: 34px;
+
+            border: none;
+
+            background: transparent;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 19px;
+
+            color: #536078;
+
+            padding: 0;
+
+            z-index: 10;
+        }
+
+
+        .eye-btn:hover {
+
+            color: #273f91;
+
+            transform:
+                translateY(-50%)
+                scale(1.12);
+        }
+
+
+        /* =========================
+           PASSWORD RULES
+        ========================= */
+
+        .password-rules {
+
+            margin-top: 8px;
+
+            margin-bottom: 5px;
+
+            padding: 10px 13px;
+
+            border-radius: 12px;
+
+            background: #f4f6ff;
+
+            font-size: 12px;
+        }
+
+
+        .password-rules p {
+
+            margin: 3px 0;
+        }
+
+
+        .invalid {
+
+            color: #e05263;
+        }
+
+
+        .valid {
+
+            color: #2b9b62;
+        }
+
+
+        /* =========================
+           TERMS
+        ========================= */
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            margin: 15px 0 18px;
+
+            font-size: 12px;
+
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+
+        .terms input {
+
+            margin-top: 3px;
+        }
+
+
+        .terms a {
+
+            color: #e94f64;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .signup-submit {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 14px;
+
+            padding: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff5f6d,
+                    #ff8a5b
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(255,95,109,.25);
+
+            transition: .2s;
+        }
+
+
+        .signup-submit:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(255,95,109,.35);
+        }
+
+
+        /* =========================
+           LINKS
+        ========================= */
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            color: #666;
+        }
+
+
+        .login-text a {
+
+            color: #e94f64;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #273f91;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .signup-card {
+
+                grid-template-columns: 1fr;
+
+                max-width: 550px;
+            }
+
+            .left-side {
+
+                padding: 40px;
+            }
+
+            .left-side h1 {
+
+                font-size: 32px;
+            }
+
+            .right-side {
+
+                padding: 40px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .page {
+
+                padding: 15px;
+            }
+
+            .left-side,
+            .right-side {
+
+                padding: 30px 25px;
+            }
+
+            .left-side h1 {
+
+                font-size: 28px;
+            }
+
+            .right-side h2 {
+
+                font-size: 30px;
+            }
+
+            .decoration {
+
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- BACKGROUND -->
+
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+    <div class="circle four"></div>
+
+    <div class="decoration book">📚</div>
+    <div class="decoration bulb">💡</div>
+    <div class="decoration pencil">✏️</div>
+    <div class="decoration rocket">🚀</div>
+    <div class="decoration star">⭐</div>
+
+
+    <!-- CARD -->
+
+    <div class="signup-card">
+
+
+        <!-- LEFT -->
+
+        <div class="left-side">
+
+            <div class="logo">
+                SIR THO SARADHAGA
+            </div>
+
+
+            <h1>
+                Start Your Learning Journey! 🚀
+            </h1>
+
+
+            <p>
+                Create your account and discover
+                interesting videos, notes, quizzes
+                and lots of new things to learn! 🌈
+            </p>
+
+
+            <div class="benefits">
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        📚
+                    </div>
+
+                    Learn interesting topics
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🎯
+                    </div>
+
+                    Test your knowledge
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        💡
+                    </div>
+
+                    Stay curious
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🌟
+                    </div>
+
+                    Grow every day
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="right-side">
+
+
+            <h2>
+                Create Account 🎓
+            </h2>
+
+
+            <p class="subtitle">
+                Let's get you started!
+            </p>
+
+
+            <form id="signupForm">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="signupEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="signupPassword">
+                        Create Password
+                    </label>
+
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a strong password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            id="signupEye"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+
+                    <div class="password-rules">
+
+                        <p
+                            id="lengthRule"
+                            class="invalid"
+                        >
+                            ✕ At least 8 characters
+                        </p>
+
+                        <p
+                            id="upperRule"
+                            class="invalid"
+                        >
+                            ✕ One uppercase letter
+                        </p>
+
+                        <p
+                            id="lowerRule"
+                            class="invalid"
+                        >
+                            ✕ One lowercase letter
+                        </p>
+
+                        <p
+                            id="numberRule"
+                            class="invalid"
+                        >
+                            ✕ One number
+                        </p>
+
+                        <p
+                            id="specialRule"
+                            class="invalid"
+                        >
+                            ✕ One special character
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Enter password again"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            id="confirmEye"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                    >
+
+                    <span>
+
+                        I agree to the
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+
+                        and
+
+                        <a href="#">
+                            Privacy Policy
+                        </a>.
+
+                    </span>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="signup-submit"
+                >
+                    Create My Account 🎉
+                </button>
+
+            </form>
+
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   PASSWORD SHOW/HIDE
+========================= */
+
+function setupPasswordToggle(
+    inputId,
+    buttonId
+) {
+
+    const input =
+        document.getElementById(inputId);
+
+    const button =
+        document.getElementById(buttonId);
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+            if (
+                input.type ===
+                "password"
+            ) {
+
+                input.type = "text";
+
+                button.textContent =
+                    "🙈";
+
+            } else {
+
+                input.type =
+                    "password";
+
+                button.textContent =
+                    "👁";
+
+            }
+
+        }
+    );
+
+}
+
+
+setupPasswordToggle(
+    "signupPassword",
+    "signupEye"
+);
+
+
+setupPasswordToggle(
+    "confirmPassword",
+    "confirmEye"
+);
+
+
+/* =========================
+   PASSWORD RULES
+========================= */
+
+const password =
+    document.getElementById(
+        "signupPassword"
+    );
+
+
+const lengthRule =
+    document.getElementById(
+        "lengthRule"
+    );
+
+
+const upperRule =
+    document.getElementById(
+        "upperRule"
+    );
+
+
+const lowerRule =
+    document.getElementById(
+        "lowerRule"
+    );
+
+
+const numberRule =
+    document.getElementById(
+        "numberRule"
+    );
+
+
+const specialRule =
+    document.getElementById(
+        "specialRule"
+    );
+
+
+function updateRule(
+    element,
+    valid,
+    text
+) {
+
+    if (valid) {
+
+        element.textContent =
+            "✓ " + text;
+
+        element.classList.remove(
+            "invalid"
+        );
+
+        element.classList.add(
+            "valid"
+        );
+
+    } else {
+
+        element.textContent =
+            "✕ " + text;
+
+        element.classList.remove(
+            "valid"
+        );
+
+        element.classList.add(
+            "invalid"
+        );
+
+    }
+
+}
+
+
+password.addEventListener(
+    "input",
+    function () {
+
+        const value =
+            password.value;
+
+
+        updateRule(
+            lengthRule,
+            value.length >= 8,
+            "At least 8 characters"
+        );
+
+
+        updateRule(
+            upperRule,
+            /[A-Z]/.test(value),
+            "One uppercase letter"
+        );
+
+
+        updateRule(
+            lowerRule,
+            /[a-z]/.test(value),
+            "One lowercase letter"
+        );
+
+
+        updateRule(
+            numberRule,
+            /[0-9]/.test(value),
+            "One number"
+        );
+
+
+        updateRule(
+            specialRule,
+            /[^A-Za-z0-9]/.test(value),
+            "One special character"
+        );
+
+    }
+);
+
+
+/* =========================
+   CREATE ACCOUNT
+========================= */
+
+const signupForm =
+    document.getElementById(
+        "signupForm"
+    );
+
+
+signupForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+                .getElementById(
+                    "fullName"
+                )
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById(
+                    "signupEmail"
+                )
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const passwordValue =
+            document
+                .getElementById(
+                    "signupPassword"
+                )
+                .value;
+
+
+        const confirmValue =
+            document
+                .getElementById(
+                    "confirmPassword"
+                )
+                .value;
+
+
+        const terms =
+            document
+                .getElementById(
+                    "terms"
+                )
+                .checked;
+
+
+        /* NAME */
+
+        if (name.length < 2) {
+
+            alert(
+                "Please enter your full name."
+            );
+
+            return;
+        }
+
+
+        /* EMAIL */
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(email)
+        ) {
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            return;
+        }
+
+
+        /* PASSWORD */
+
+        const strongPassword =
+            passwordValue.length >= 8 &&
+            /[A-Z]/.test(passwordValue) &&
+            /[a-z]/.test(passwordValue) &&
+            /[0-9]/.test(passwordValue) &&
+            /[^A-Za-z0-9]/.test(
+                passwordValue
+            );
+
+
+        if (!strongPassword) {
+
+            alert(
+                "Please satisfy all password requirements."
+            );
+
+            return;
+        }
+
+
+        /* CONFIRM */
+
+        if (
+            passwordValue !==
+            confirmValue
+        ) {
+
+            alert(
+                "Passwords do not match."
+            );
+
+            return;
+        }
+
+
+        /* TERMS */
+
+        if (!terms) {
+
+            alert(
+                "Please agree to the Terms & Conditions and Privacy Policy."
+            );
+
+            return;
+        }
+
+
+        /* =========================
+           SAVE ACCOUNT
+        ========================= */
+
+        const user = {
+
+            name: name,
+
+            email: email,
+
+            password: passwordValue
+
+        };
+
+
+        localStorage.setItem(
+            "sirThoUser",
+            JSON.stringify(user)
+        );
+
+
+        /* LOGIN USER */
+
+        localStorage.setItem(
+            "sirThoLoggedIn",
+            "true"
+        );
+
+
+        /* GO HOME */
+
+        window.location.href =
+            "student-profile.html";
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

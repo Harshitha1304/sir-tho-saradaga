@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Sir Tho Saradhaga</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: #fff4d6;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           BACKGROUND CIRCLES
+        ========================= */
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle.one {
+            width: 300px;
+            height: 300px;
+            background: #ffd84d;
+
+            top: -120px;
+            left: -90px;
+        }
+
+        .circle.two {
+            width: 230px;
+            height: 230px;
+            background: #ff6b6b;
+
+            bottom: -100px;
+            right: -70px;
+        }
+
+        .circle.three {
+            width: 140px;
+            height: 140px;
+            background: #61d4ff;
+
+            top: 80px;
+            right: 8%;
+        }
+
+        .circle.four {
+            width: 100px;
+            height: 100px;
+            background: #9be564;
+
+            bottom: 100px;
+            left: 8%;
+        }
+
+
+        /* =========================
+           DECORATIONS
+        ========================= */
+
+        .decoration {
+            position: absolute;
+            z-index: 2;
+
+            font-size: 42px;
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .book {
+            top: 12%;
+            left: 10%;
+        }
+
+        .bulb {
+            top: 15%;
+            right: 17%;
+
+            animation-delay: .5s;
+        }
+
+        .pencil {
+            bottom: 15%;
+            left: 16%;
+
+            animation-delay: 1s;
+        }
+
+        .rocket {
+            bottom: 12%;
+            right: 12%;
+
+            animation-delay: 1.5s;
+        }
+
+        .star {
+            top: 40%;
+            left: 4%;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(5deg);
+            }
+
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .login-card {
+
+            width: 100%;
+            max-width: 1050px;
+            min-height: 620px;
+
+            background: white;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            display: grid;
+            grid-template-columns: 48% 52%;
+
+            position: relative;
+            z-index: 5;
+
+            box-shadow:
+                0 20px 60px rgba(39, 51, 89, .20);
+        }
+
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .left-side {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #182b62,
+                    #27469d,
+                    #4c62d8
+                );
+
+            color: white;
+
+            padding: 55px 45px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .left-side::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.08);
+
+            top: -100px;
+            right: -80px;
+        }
+
+
+        .left-side::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,216,70,.15);
+
+            bottom: -70px;
+            left: -50px;
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+            font-weight: 800;
+
+            color: #ffd84d;
+
+            margin-bottom: 30px;
+        }
+
+
+        .left-side h1 {
+
+            font-size: 42px;
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+
+        .left-side p {
+
+            font-size: 18px;
+            line-height: 1.6;
+
+            color: #eef2ff;
+
+            max-width: 380px;
+        }
+
+
+        /* =========================
+           LEARNING ICONS
+        ========================= */
+
+        .learning-icons {
+
+            display: flex;
+            gap: 18px;
+
+            margin-top: 40px;
+        }
+
+
+        .learning-icon {
+
+            width: 65px;
+            height: 65px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+        }
+
+
+        .icon-yellow {
+            background: #ffd84d;
+        }
+
+        .icon-pink {
+            background: #ff6b8a;
+        }
+
+        .icon-green {
+            background: #78d98b;
+        }
+
+
+        /* =========================
+           RIGHT SIDE
+        ========================= */
+
+        .right-side {
+
+            padding: 55px 65px;
+
+            background: #fffdf8;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .right-side h2 {
+
+            font-size: 38px;
+
+            color: #182b62;
+
+            margin-bottom: 8px;
+        }
+
+
+        .subtitle {
+
+            color: #777;
+
+            margin-bottom: 30px;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #27304f;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            padding: 15px 17px;
+
+            border: 2px solid #e5e7ef;
+
+            border-radius: 14px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: white;
+
+            transition: .2s;
+        }
+
+
+        .form-group input:focus {
+
+            border-color: #5b6ee1;
+
+            box-shadow:
+                0 0 0 4px rgba(91,110,225,.10);
+        }
+
+
+        /* =========================
+           PASSWORD INPUT
+        ========================= */
+
+        .password-input {
+
+            position: relative;
+
+            width: 100%;
+        }
+
+
+        .password-input input {
+
+            width: 100%;
+
+            padding-right: 52px;
+        }
+
+
+        /* REAL EYE BUTTON */
+
+        .eye-btn {
+
+            position: absolute;
+
+            right: 12px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 34px;
+            height: 34px;
+
+            border: none;
+
+            background: transparent;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 19px;
+
+            color: #536078;
+
+            padding: 0;
+
+            z-index: 10;
+
+            transition: .2s;
+        }
+
+
+        .eye-btn:hover {
+
+            color: #273f91;
+
+            transform:
+                translateY(-50%)
+                scale(1.12);
+        }
+
+
+        /* =========================
+           OPTIONS
+        ========================= */
+
+        .form-options {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin: 5px 0 24px;
+
+            font-size: 13px;
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #666;
+        }
+
+
+        .forgot {
+
+            color: #e94f64;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-submit {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 14px;
+
+            padding: 16px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff5f6d,
+                    #ff8a5b
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(255,95,109,.25);
+
+            transition: .2s;
+        }
+
+
+        .login-submit:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(255,95,109,.35);
+        }
+
+
+        /* =========================
+           DIVIDER
+        ========================= */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 25px 0;
+
+            color: #aaa;
+
+            font-size: 13px;
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            height: 1px;
+
+            flex: 1;
+
+            background: #ddd;
+        }
+
+
+        /* =========================
+           SIGNUP
+        ========================= */
+
+        .signup-text {
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        .signup-text a {
+
+            color: #e94f64;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #273f91;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .login-card {
+
+                grid-template-columns: 1fr;
+
+                max-width: 550px;
+            }
+
+            .left-side {
+
+                padding: 40px;
+            }
+
+            .left-side h1 {
+
+                font-size: 32px;
+            }
+
+            .right-side {
+
+                padding: 40px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .page {
+
+                padding: 15px;
+            }
+
+            .left-side,
+            .right-side {
+
+                padding: 30px 25px;
+            }
+
+            .left-side h1 {
+
+                font-size: 28px;
+            }
+
+            .right-side h2 {
+
+                font-size: 30px;
+            }
+
+            .decoration {
+
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+    <!-- BACKGROUND DECORATIONS -->
+
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+    <div class="circle four"></div>
+
+    <div class="decoration book">📚</div>
+    <div class="decoration bulb">💡</div>
+    <div class="decoration pencil">✏️</div>
+    <div class="decoration rocket">🚀</div>
+    <div class="decoration star">⭐</div>
+
+
+    <!-- LOGIN CARD -->
+
+    <div class="login-card">
+
+
+        <!-- LEFT -->
+
+        <div class="left-side">
+
+            <div class="logo">
+                SIR THO SARADHAGA
+            </div>
+
+            <h1>
+                Welcome Back! 👋
+            </h1>
+
+            <p>
+                Ready to learn something new today?
+                Come back, explore, ask questions
+                and keep your curiosity alive! 🌟
+            </p>
+
+
+            <div class="learning-icons">
+
+                <div class="learning-icon icon-yellow">
+                    💡
+                </div>
+
+                <div class="learning-icon icon-pink">
+                    📖
+                </div>
+
+                <div class="learning-icon icon-green">
+                    🚀
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="right-side">
+
+            <h2>
+                Let's Learn! 🎓
+            </h2>
+
+            <p class="subtitle">
+                Login to continue your learning journey.
+            </p>
+
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            id="loginEye"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="form-options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        Remember me
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot"
+                        onclick="return false;"
+                    >
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    Login 🚀
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <p class="signup-text">
+
+                New to Sir Tho Saradhaga?
+
+                <a href="Signup.html">
+                    Create an Account
+                </a>
+
+            </p>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   SHOW / HIDE PASSWORD
+========================= */
+
+const passwordInput =
+    document.getElementById("password");
+
+const loginEye =
+    document.getElementById("loginEye");
+
+
+loginEye.addEventListener(
+    "click",
+    function () {
+
+        if (
+            passwordInput.type ===
+            "password"
+        ) {
+
+            passwordInput.type =
+                "text";
+
+            loginEye.textContent =
+                "🙈";
+
+            loginEye.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            passwordInput.type =
+                "password";
+
+            loginEye.textContent =
+                "👁";
+
+            loginEye.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   LOGIN
+========================= */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+
+loginForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const password =
+            passwordInput.value;
+
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!emailPattern.test(email)) {
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            return;
+        }
+
+
+        if (password.length < 8) {
+
+            alert(
+                "Password must contain at least 8 characters."
+            );
+
+            return;
+        }
+
+
+        /* Get saved account */
+
+        const savedUser =
+            JSON.parse(
+                localStorage.getItem(
+                    "sirThoUser"
+                )
+            );
+
+
+        if (!savedUser) {
+
+            alert(
+                "No account found.\n\n" +
+                "Please create an account first."
+            );
+
+            return;
+        }
+
+
+        /* Check email */
+
+        if (
+            savedUser.email !== email
+        ) {
+
+            alert(
+                "Email address is incorrect."
+            );
+
+            return;
+        }
+
+
+        /* Check password */
+
+        if (
+            savedUser.password !== password
+        ) {
+
+            alert(
+                "Password is incorrect."
+            );
+
+            return;
+        }
+
+
+        /* LOGIN SUCCESS */
+
+        localStorage.setItem(
+            "sirThoLoggedIn",
+            "true"
+        );
+
+
+        /* Go to landing page */
+
+        window.location.href =
+            "index.html";
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

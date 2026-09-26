@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Learning Profile | Sir Tho Saradhaga</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: #fff5d9;
+            color: #202b55;
+        }
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            padding: 30px 20px 50px;
+        }
+
+        /* =========================
+           BACKGROUND CIRCLES
+        ========================= */
+
+        .circle {
+            position: fixed;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .circle-one {
+            width: 260px;
+            height: 260px;
+            background: #ffd84d;
+            top: -100px;
+            left: -80px;
+        }
+
+        .circle-two {
+            width: 220px;
+            height: 220px;
+            background: #ff7186;
+            bottom: -90px;
+            right: -60px;
+        }
+
+        .circle-three {
+            width: 120px;
+            height: 120px;
+            background: #62d5ff;
+            top: 25%;
+            right: 5%;
+        }
+
+        .circle-four {
+            width: 90px;
+            height: 90px;
+            background: #91e56c;
+            bottom: 18%;
+            left: 4%;
+        }
+
+        /* =========================
+           DECORATIONS
+        ========================= */
+
+        .decoration {
+            position: fixed;
+            z-index: 1;
+            font-size: 38px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .dec-one {
+            top: 10%;
+            left: 8%;
+        }
+
+        .dec-two {
+            top: 12%;
+            right: 12%;
+            animation-delay: .5s;
+        }
+
+        .dec-three {
+            bottom: 12%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .dec-four {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+
+        }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .profile-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+
+            position: relative;
+            z-index: 5;
+
+            background: white;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(38, 49, 90, .18);
+
+            overflow: hidden;
+        }
+
+        /* =========================
+           TOP HEADER
+        ========================= */
+
+        .profile-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #182b62,
+                    #3557b5,
+                    #6658d8
+                );
+
+            color: white;
+
+            padding: 35px 45px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.08);
+
+            right: -50px;
+            top: -70px;
+        }
+
+        .logo {
+            color: #ffd84d;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .profile-header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .profile-header p {
+            color: #eef2ff;
+            font-size: 15px;
+        }
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-section {
+            margin-top: 22px;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 7px;
+            color: #e6eaff;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,.25);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 70%;
+            height: 100%;
+            background: #ffd84d;
+            border-radius: 20px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .profile-form {
+            padding: 40px 50px 45px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 21px;
+            color: #182b62;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           FORM GROUP
+        ========================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #27304f;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px 15px;
+
+            border: 2px solid #e3e6ef;
+            border-radius: 13px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            background: white;
+
+            color: #27304f;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #5b6ee1;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(91,110,225,.10);
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* =========================
+           OPTION CARDS
+        ========================= */
+
+        .option-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .option-card {
+            position: relative;
+        }
+
+        .option-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-card label {
+            min-height: 65px;
+
+            border: 2px solid #e4e7ef;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 10px;
+
+            cursor: pointer;
+
+            background: #fff;
+
+            color: #404a68;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            transition: .2s;
+        }
+
+        .option-card label:hover {
+            transform: translateY(-2px);
+            border-color: #8b96d9;
+            background: #f8f9ff;
+        }
+
+        .option-card input:checked + label {
+            border-color: #ff6674;
+            background: #fff0f2;
+            color: #e94f64;
+            box-shadow:
+                0 5px 15px
+                rgba(255,102,116,.12);
+        }
+
+        /* =========================
+           INTEREST OPTIONS
+        ========================= */
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 12px;
+        }
+
+        .interest-card {
+            position: relative;
+        }
+
+        .interest-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .interest-card label {
+            min-height: 85px;
+
+            border: 2px solid #e4e7ef;
+
+            border-radius: 16px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            cursor: pointer;
+
+            background: white;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #404a68;
+
+            transition: .2s;
+        }
+
+        .interest-card label span {
+            font-size: 26px;
+        }
+
+        .interest-card label:hover {
+            transform: translateY(-2px);
+            border-color: #7d8de2;
+        }
+
+        .interest-card input:checked + label {
+            background: #eef0ff;
+            border-color: #596bdd;
+            color: #3547a0;
+        }
+
+        /* =========================
+           LEARNING STYLE
+        ========================= */
+
+        .learning-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .continue-button {
+            width: 100%;
+
+            border: none;
+
+            border-radius: 15px;
+
+            padding: 17px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff5f6d,
+                    #ff8a5b
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(255,95,109,.25);
+
+            transition: .2s;
+        }
+
+        .continue-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(255,95,109,.35);
+        }
+
+        .skip-text {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .skip-text a {
+            color: #5367c8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .option-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .interest-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 10px;
+            }
+
+            .profile-header {
+                padding: 30px 25px;
+            }
+
+            .profile-header h1 {
+                font-size: 26px;
+            }
+
+            .profile-form {
+                padding: 30px 22px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .option-grid,
+            .interest-grid,
+            .learning-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .decoration {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+
+            .option-grid,
+            .interest-grid,
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+    <!-- BACKGROUND -->
+
+    <div class="circle circle-one"></div>
+    <div class="circle circle-two"></div>
+    <div class="circle circle-three"></div>
+    <div class="circle circle-four"></div>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="decoration dec-one">⭐</div>
+    <div class="decoration dec-two">💡</div>
+    <div class="decoration dec-three">📚</div>
+    <div class="decoration dec-four">🚀</div>
+
+
+    <!-- PROFILE CONTAINER -->
+
+    <div class="profile-container">
+
+
+        <!-- HEADER -->
+
+        <div class="profile-header">
+
+            <div class="logo">
+                SIR THO SARADHAGA
+            </div>
+
+            <h1>
+                Let's Get to Know You! 🌟
+            </h1>
+
+            <p>
+                Tell us a little about yourself so we
+                can make your learning journey more fun.
+            </p>
+
+
+            <div class="progress-section">
+
+                <div class="progress-top">
+
+                    <span>
+                        Your learning profile
+                    </span>
+
+                    <span>
+                        Step 2 of 2
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form
+            class="profile-form"
+            id="profileForm"
+        >
+
+
+            <!-- =========================
+                 ABOUT YOU
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    👋 About You
+                </h2>
+
+                <p class="section-subtitle">
+                    Just a few basic details.
+                </p>
+
+
+                <div class="two-columns">
+
+
+                    <div class="form-group">
+
+                        <label for="studentName">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            min="5"
+                            max="100"
+                            placeholder="Your age"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="classLevel">
+                        Which class are you in?
+                    </label>
+
+                    <select id="classLevel">
+
+                        <option value="">
+                            Select your class
+                        </option>
+
+                        <option value="6">
+                            6th Class
+                        </option>
+
+                        <option value="7">
+                            7th Class
+                        </option>
+
+                        <option value="8">
+                            8th Class
+                        </option>
+
+                        <option value="9">
+                            9th Class
+                        </option>
+
+                        <option value="10">
+                            10th Class
+                        </option>
+
+                        <option value="11">
+                            11th Class
+                        </option>
+
+                        <option value="12">
+                            12th Class
+                        </option>
+
+                        <option value="intermediate">
+                            Intermediate
+                        </option>
+
+                        <option value="college">
+                            College
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SUBJECTS
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    📚 Which subjects do you enjoy?
+                </h2>
+
+                <p class="section-subtitle">
+                    Choose one or more.
+                </p>
+
+
+                <div class="option-grid">
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoyScience"
+                            name="enjoySubjects"
+                            value="Science"
+                        >
+
+                        <label for="enjoyScience">
+                            🔬 Science
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoyMath"
+                            name="enjoySubjects"
+                            value="Mathematics"
+                        >
+
+                        <label for="enjoyMath">
+                            ➗ Mathematics
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoyEnglish"
+                            name="enjoySubjects"
+                            value="English"
+                        >
+
+                        <label for="enjoyEnglish">
+                            📖 English
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoySocial"
+                            name="enjoySubjects"
+                            value="Social Studies"
+                        >
+
+                        <label for="enjoySocial">
+                            🌍 Social Studies
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoyComputer"
+                            name="enjoySubjects"
+                            value="Computer Science"
+                        >
+
+                        <label for="enjoyComputer">
+                            💻 Computer Science
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            id="enjoyTelugu"
+                            name="enjoySubjects"
+                            value="Telugu"
+                        >
+
+                        <label for="enjoyTelugu">
+                            📝 Telugu
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 DIFFICULT SUBJECTS
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    💭 Which subjects are difficult for you?
+                </h2>
+
+                <p class="section-subtitle">
+                    This helps us understand where you may need more support.
+                </p>
+
+
+                <div class="option-grid">
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="Science"
+                            id="weakScience"
+                        >
+
+                        <label for="weakScience">
+                            🔬 Science
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="Mathematics"
+                            id="weakMath"
+                        >
+
+                        <label for="weakMath">
+                            ➗ Mathematics
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="English"
+                            id="weakEnglish"
+                        >
+
+                        <label for="weakEnglish">
+                            📖 English
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="Social Studies"
+                            id="weakSocial"
+                        >
+
+                        <label for="weakSocial">
+                            🌍 Social Studies
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="Computer Science"
+                            id="weakComputer"
+                        >
+
+                        <label for="weakComputer">
+                            💻 Computer Science
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="weakSubjects"
+                            value="Telugu"
+                            id="weakTelugu"
+                        >
+
+                        <label for="weakTelugu">
+                            📝 Telugu
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 INTERESTS
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    🌟 What would you like to learn more about?
+                </h2>
+
+                <p class="section-subtitle">
+                    Pick the topics that make you curious.
+                </p>
+
+
+                <div class="interest-grid">
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Science"
+                            id="interestScience"
+                        >
+
+                        <label for="interestScience">
+
+                            <span>🔬</span>
+
+                            Science
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Technology"
+                            id="interestTechnology"
+                        >
+
+                        <label for="interestTechnology">
+
+                            <span>💻</span>
+
+                            Technology
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="World"
+                            id="interestWorld"
+                        >
+
+                        <label for="interestWorld">
+
+                            <span>🌍</span>
+
+                            World
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Civics"
+                            id="interestCivics"
+                        >
+
+                        <label for="interestCivics">
+
+                            <span>🏛️</span>
+
+                            Civics
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="History"
+                            id="interestHistory"
+                        >
+
+                        <label for="interestHistory">
+
+                            <span>📜</span>
+
+                            History
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Health"
+                            id="interestHealth"
+                        >
+
+                        <label for="interestHealth">
+
+                            <span>🩺</span>
+
+                            Health
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Finance"
+                            id="interestFinance"
+                        >
+
+                        <label for="interestFinance">
+
+                            <span>💰</span>
+
+                            Money
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="interest-card">
+
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="Psychology"
+                            id="interestPsychology"
+                        >
+
+                        <label for="interestPsychology">
+
+                            <span>🧠</span>
+
+                            Psychology
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LEARNING STYLE
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    🎯 How do you like learning?
+                </h2>
+
+                <p class="section-subtitle">
+                    Choose the ways you enjoy learning most.
+                </p>
+
+
+                <div class="learning-grid">
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="learningStyle"
+                            value="Videos"
+                            id="styleVideos"
+                        >
+
+                        <label for="styleVideos">
+                            🎥 I like learning through videos
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="learningStyle"
+                            value="Notes"
+                            id="styleNotes"
+                        >
+
+                        <label for="styleNotes">
+                            📖 I like reading notes
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="learningStyle"
+                            value="Quizzes"
+                            id="styleQuizzes"
+                        >
+
+                        <label for="styleQuizzes">
+                            🧩 I like quizzes
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="learningStyle"
+                            value="Simple Explanations"
+                            id="styleSimple"
+                        >
+
+                        <label for="styleSimple">
+                            💡 I like simple explanations
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 LEARNING GOAL
+            ========================= -->
+
+            <div class="section">
+
+                <h2 class="section-title">
+                    🚀 What do you want to improve?
+                </h2>
+
+                <p class="section-subtitle">
+                    Pick what matters most to you.
+                </p>
+
+
+                <div class="option-grid">
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="School Studies"
+                            id="goalSchool"
+                        >
+
+                        <label for="goalSchool">
+                            📚 School Studies
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="General Knowledge"
+                            id="goalGK"
+                        >
+
+                        <label for="goalGK">
+                            🧠 General Knowledge
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="Exam Preparation"
+                            id="goalExam"
+                        >
+
+                        <label for="goalExam">
+                            🎯 Exam Preparation
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="Communication"
+                            id="goalCommunication"
+                        >
+
+                        <label for="goalCommunication">
+                            💬 Communication
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="Technology Skills"
+                            id="goalTechnology"
+                        >
+
+                        <label for="goalTechnology">
+                            💻 Technology Skills
+                        </label>
+
+                    </div>
+
+
+                    <div class="option-card">
+
+                        <input
+                            type="checkbox"
+                            name="goals"
+                            value="Curiosity"
+                            id="goalCuriosity"
+                        >
+
+                        <label for="goalCuriosity">
+                            ✨ Just Curious!
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SUBMIT
+            ========================= -->
+
+            <button
+                type="submit"
+                class="continue-button"
+            >
+                Save My Profile & Continue 🚀
+            </button>
+
+
+            <p class="skip-text">
+                You can update these details later.
+                <a href="index.html">
+                    Skip for now
+                </a>
+            </p>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       LOAD USER NAME
+    ========================= */
+
+    const savedUser =
+        JSON.parse(
+            localStorage.getItem("sirThoUser")
+        );
+
+
+    const studentName =
+        document.getElementById("studentName");
+
+
+    if (savedUser && savedUser.name) {
+
+        studentName.value =
+            savedUser.name;
+
+    }
+
+
+    /* =========================
+       PROFILE FORM
+    ========================= */
+
+    const profileForm =
+        document.getElementById(
+            "profileForm"
+        );
+
+
+    profileForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /* =========================
+               BASIC DETAILS
+            ========================= */
+
+            const name =
+                studentName.value.trim();
+
+
+            const age =
+                document.getElementById(
+                    "age"
+                ).value;
+
+
+            const classLevel =
+                document.getElementById(
+                    "classLevel"
+                ).value;
+
+
+            /* =========================
+               GET CHECKED VALUES
+            ========================= */
+
+            function getSelected(
+                name
+            ) {
+
+                return Array.from(
+                    document.querySelectorAll(
+                        'input[name="' +
+                        name +
+                        '"]:checked'
+                    )
+                ).map(
+                    function (item) {
+                        return item.value;
+                    }
+                );
+
+            }
+
+
+            const enjoyedSubjects =
+                getSelected(
+                    "enjoySubjects"
+                );
+
+
+            const weakSubjects =
+                getSelected(
+                    "weakSubjects"
+                );
+
+
+            const interests =
+                getSelected(
+                    "interests"
+                );
+
+
+            const learningStyle =
+                getSelected(
+                    "learningStyle"
+                );
+
+
+            const goals =
+                getSelected(
+                    "goals"
+                );
+
+
+            /* =========================
+               PROFILE OBJECT
+            ========================= */
+
+            const profile = {
+
+                name: name,
+
+                age: age,
+
+                classLevel: classLevel,
+
+                enjoyedSubjects:
+                    enjoyedSubjects,
+
+                weakSubjects:
+                    weakSubjects,
+
+                interests:
+                    interests,
+
+                learningStyle:
+                    learningStyle,
+
+                goals:
+                    goals
+
+            };
+
+
+            /* =========================
+               SAVE PROFILE
+            ========================= */
+
+            localStorage.setItem(
+                "sirThoProfile",
+                JSON.stringify(profile)
+            );
+
+
+            /* Make sure user remains logged in */
+
+            localStorage.setItem(
+                "sirThoLoggedIn",
+                "true"
+            );
+
+
+            /* =========================
+               UPDATE USER NAME
+            ========================= */
+
+            if (savedUser) {
+
+                savedUser.name = name;
+
+                localStorage.setItem(
+                    "sirThoUser",
+                    JSON.stringify(
+                        savedUser
+                    )
+                );
+
+            }
+
+
+            /* =========================
+               GO HOME
+            ========================= */
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
