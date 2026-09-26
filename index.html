@@ -58,7 +58,7 @@
 
         <!-- NAVIGATION -->
 
-        <nav class="nav-links">
+        <nav class="nav-links" id="navLinks">
 
             <a href="#home" class="active">
                 Home
@@ -68,7 +68,7 @@
                 Videos
             </a>
 
-            <a href="#subjects">
+            <a href="subjects.html">
                 Subjects
             </a>
 
@@ -87,7 +87,7 @@
         </nav>
 
 
-        <!-- SEARCH + LOGIN -->
+        <!-- SEARCH + LOGIN + MOBILE MENU -->
 
         <div class="nav-right">
 
@@ -102,9 +102,22 @@
 
             </div>
 
+
             <a href="login.html" class="login-btn">
-                    Login
-                </a>
+                Login
+            </a>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
 
         </div>
 
@@ -121,7 +134,7 @@
 <section class="hero" id="home">
 
 
-    <!-- ONLY ONE HERO IMAGE -->
+    <!-- HERO IMAGE -->
 
     <img
         class="hero-background"
@@ -282,23 +295,45 @@
 
 
 
+<!-- =====================================================
+     SPECIAL FOOTER
+===================================================== -->
+
 <footer class="special-footer" id="about">
 
+
     <!-- Floating decorations -->
-    <div class="footer-star star-one">⭐</div>
-    <div class="footer-star star-two">✨</div>
-    <div class="footer-star star-three">💡</div>
-    <div class="footer-star star-four">📚</div>
+
+    <div class="footer-star star-one">
+        ⭐
+    </div>
+
+    <div class="footer-star star-two">
+        ✨
+    </div>
+
+    <div class="footer-star star-three">
+        💡
+    </div>
+
+    <div class="footer-star star-four">
+        📚
+    </div>
+
 
     <div class="footer-container">
 
-        <!-- Brand -->
+
+        <!-- BRAND -->
+
         <div class="footer-brand">
 
             <div class="footer-logo">
+
                 SIR THO
                 <br>
                 SARADHAGA
+
             </div>
 
             <div class="footer-line"></div>
@@ -308,38 +343,62 @@
             </p>
 
             <p class="footer-description">
+
                 Simple explanations, interesting ideas
                 and a little curiosity every day! 💡
+
             </p>
 
         </div>
 
 
-        <!-- Quick Links -->
+
+        <!-- QUICK LINKS -->
+
         <div class="footer-links">
 
-            <h3>Explore 🚀</h3>
+            <h3>
+                Explore 🚀
+            </h3>
 
-            <a href="index.html">🏠 Home</a>
-            <a href="videos.html">🎬 Videos</a>
-            <a href="subjects.html">📚 Subjects</a>
-            <a href="about.html">💛 About</a>
+            <a href="index.html">
+                🏠 Home
+            </a>
+
+            <a href="videos.html">
+                🎬 Videos
+            </a>
+
+            <a href="subjects.html">
+                📚 Subjects
+            </a>
+
+            <a href="about.html">
+                💛 About
+            </a>
 
         </div>
 
 
-        <!-- Social -->
+
+        <!-- SOCIAL -->
+
         <div class="footer-social">
 
-            <h3>Let's Connect! 💬</h3>
+            <h3>
+                Let's Connect! 💬
+            </h3>
 
             <p>
                 Follow, watch and learn with us.
             </p>
 
+
             <div class="social-icons">
 
-                <!-- YouTube -->
+
+                <!-- YOUTUBE -->
+
                 <a
                     href="https://youtube.com/@sirthosaradhaga?si=3q7nKVHAidCwUAwp"
                     target="_blank"
@@ -350,7 +409,9 @@
                     ▶
                 </a>
 
-                <!-- Instagram -->
+
+                <!-- INSTAGRAM -->
+
                 <a
                     href="https://www.instagram.com/sir_tho_saradhaga?stkn=YzZqYnp2bDk3ZWxz"
                     target="_blank"
@@ -361,7 +422,9 @@
                     ◎
                 </a>
 
-                <!-- Email -->
+
+                <!-- EMAIL -->
+
                 <a
                     href="mailto:bandhilavijaysekhar@gmail.com"
                     class="social email"
@@ -372,6 +435,7 @@
 
             </div>
 
+
             <p class="social-text">
                 Stay curious. Keep learning. 🌟
             </p>
@@ -381,7 +445,9 @@
     </div>
 
 
-    <!-- Bottom -->
+
+    <!-- FOOTER BOTTOM -->
+
     <div class="footer-bottom">
 
         <div>
@@ -394,4 +460,90 @@
 
     </div>
 
+
 </footer>
+
+
+
+<!-- =====================================================
+     MOBILE MENU JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navLinks.classList.toggle(
+                "mobile-open"
+            );
+
+
+            if (
+                navLinks.classList.contains(
+                    "mobile-open"
+                )
+            ) {
+
+                menuToggle.textContent = "✕";
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Close menu"
+                );
+
+            } else {
+
+                menuToggle.textContent = "☰";
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* CLOSE MENU AFTER CLICKING A LINK */
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navLinks.classList.remove(
+                        "mobile-open"
+                    );
+
+                    menuToggle.textContent = "☰";
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open menu"
+                    );
+
+                }
+            );
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
