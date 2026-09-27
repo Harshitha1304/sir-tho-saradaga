@@ -18,8 +18,2493 @@
           crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    color: #102238;
+
+    background: #f4f7f8;
+
+    overflow-x: hidden;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-bar {
+
+    position: relative;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 6%;
+
+    background: rgba(255,255,255,0.92);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(14,45,66,0.08);
+
+    box-shadow:
+        0 5px 25px rgba(14,45,66,0.05);
+}
+
+
+.logo {
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    line-height: .82;
+
+}
+
+
+.logo small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #e5ae08;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    background: #f5c329;
+
+    color: #0e2d42;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 18px rgba(245,195,41,0.25);
+
+    transition: .3s ease;
+}
+
+
+.home-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(245,195,41,0.35);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.quiz-hero {
+
+    position: relative;
+
+    min-height: 390px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 12% 30%,
+            rgba(245,195,41,0.45),
+            transparent 17%
+        ),
+
+        radial-gradient(
+            circle at 88% 25%,
+            rgba(61,190,225,0.38),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 70% 90%,
+            rgba(255,105,150,0.30),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0b3047,
+            #124b67 48%,
+            #0b3047
+        );
+}
+
+
+/* =========================================================
+   HERO GLOW ORBS
+========================================================= */
+
+.hero-orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(1px);
+}
+
+
+.hero-orb.one {
+
+    width: 330px;
+    height: 330px;
+
+    left: -130px;
+    top: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,195,41,0.38),
+            transparent 68%
+        );
+
+    animation:
+        orbMove 8s ease-in-out infinite;
+}
+
+
+.hero-orb.two {
+
+    width: 380px;
+    height: 380px;
+
+    right: -150px;
+    bottom: -180px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(44,184,222,0.34),
+            transparent 68%
+        );
+
+    animation:
+        orbMove 10s ease-in-out infinite reverse;
+}
+
+
+.hero-orb.three {
+
+    width: 210px;
+    height: 210px;
+
+    left: 42%;
+    top: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,91,135,0.25),
+            transparent 68%
+        );
+
+    animation:
+        orbMove 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.quiz-hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 800px;
+
+    padding: 50px 20px;
+
+    animation:
+        heroReveal .9s ease both;
+}
+
+
+.quiz-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 19px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.13);
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(12px);
+
+    color: #f5c329;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.12);
+}
+
+
+.quiz-hero h1 {
+
+    margin-top: 17px;
+
+    color: white;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size:
+        clamp(48px, 8vw, 78px);
+
+    line-height: .95;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+
+.quiz-hero h1 span {
+
+    color: #f5c329;
+
+    position: relative;
+}
+
+
+.quiz-hero h1 span::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+
+    right: 5%;
+
+    bottom: -7px;
+
+    height: 5px;
+
+    border-radius: 20px;
+
+    background: #f5c329;
+
+    animation:
+        underlinePulse 2s ease-in-out infinite;
+}
+
+
+.quiz-hero p {
+
+    margin-top: 22px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.quiz-pills {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.quiz-pills span {
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    border:
+        1px solid rgba(255,255,255,0.20);
+
+    background:
+        rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(10px);
+
+    animation:
+        pillFloat 3s ease-in-out infinite;
+}
+
+
+.quiz-pills span:nth-child(2) {
+    animation-delay: .5s;
+}
+
+
+.quiz-pills span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+
+/* =========================================================
+   FLOATING OBJECTS
+========================================================= */
+
+.floating {
+
+    position: absolute;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    font-size: 42px;
+
+    filter:
+        drop-shadow(
+            0 8px 12px rgba(0,0,0,0.15)
+        );
+
+    animation:
+        floatingObject 4.5s ease-in-out infinite;
+}
+
+
+.q-one {
+
+    left: 7%;
+    top: 24%;
+}
+
+
+.q-two {
+
+    right: 10%;
+    top: 20%;
+
+    animation-delay: .7s;
+}
+
+
+.q-three {
+
+    left: 15%;
+    bottom: 18%;
+
+    animation-delay: 1.3s;
+}
+
+
+.q-four {
+
+    right: 7%;
+    bottom: 23%;
+
+    animation-delay: 1.8s;
+}
+
+
+.q-five {
+
+    left: 25%;
+    top: 12%;
+
+    animation-delay: 2.3s;
+}
+
+
+.q-six {
+
+    right: 25%;
+    bottom: 11%;
+
+    animation-delay: 2.8s;
+}
+
+
+.q-seven {
+
+    left: 45%;
+    top: 8%;
+
+    font-size: 25px;
+
+    animation-delay: 1.1s;
+}
+
+
+.q-eight {
+
+    right: 43%;
+    bottom: 8%;
+
+    font-size: 27px;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================================================
+   QUIZ SUBJECT SECTION
+========================================================= */
+
+.quiz-section {
+
+    position: relative;
+
+    padding: 75px 6% 90px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 0% 30%,
+            rgba(245,195,41,0.13),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 100% 70%,
+            rgba(41,167,211,0.14),
+            transparent 25%
+        ),
+
+        #f8fbfc;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.section-decoration {
+
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.deco-star {
+
+    color: #f5c329;
+
+    font-size: 28px;
+
+    animation:
+        starBounce 3s ease-in-out infinite;
+}
+
+
+.deco-book {
+
+    font-size: 48px;
+
+    filter:
+        drop-shadow(
+            0 8px 8px rgba(14,45,66,0.12)
+        );
+
+    animation:
+        bookFloat 5s ease-in-out infinite;
+}
+
+
+.deco-planet {
+
+    font-size: 43px;
+
+    animation:
+        planetFloat 6s ease-in-out infinite;
+}
+
+
+.deco-pencil {
+
+    font-size: 32px;
+
+    animation:
+        pencilFloat 4s ease-in-out infinite;
+}
+
+
+.deco-1 {
+    left: 3%;
+    top: 12%;
+}
+
+
+.deco-2 {
+    right: 4%;
+    top: 18%;
+}
+
+
+.deco-3 {
+    left: 5%;
+    bottom: 14%;
+}
+
+
+.deco-4 {
+    right: 5%;
+    bottom: 9%;
+}
+
+
+.deco-5 {
+    left: 20%;
+    top: 8%;
+}
+
+
+.deco-6 {
+    right: 20%;
+    bottom: 7%;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.quiz-intro {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 900px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+
+.intro-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #0e2d42;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.intro-label span {
+
+    width: 32px;
+    height: 4px;
+
+    border-radius: 20px;
+
+    background: #f5c329;
+}
+
+
+.quiz-intro h2 {
+
+    margin-top: 10px;
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size:
+        clamp(35px, 5vw, 50px);
+
+    line-height: 1;
+
+    font-weight: 800;
+}
+
+
+.quiz-intro h2 span {
+
+    color: #e5ae08;
+}
+
+
+.quiz-intro p {
+
+    max-width: 600px;
+
+    margin: 13px auto 0;
+
+    color: #637482;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUBJECT GRID
+========================================================= */
+
+.quiz-grid {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 1120px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   SUBJECT CARD
+========================================================= */
+
+.quiz-card {
+
+    position: relative;
+
+    min-height: 305px;
+
+    padding: 25px;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border:
+        1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 15px 35px rgba(14,45,66,0.12);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        box-shadow .45s ease;
+
+    animation:
+        cardReveal .75s ease both;
+}
+
+
+.quiz-card:nth-child(1) {
+    animation-delay: .05s;
+}
+
+.quiz-card:nth-child(2) {
+    animation-delay: .12s;
+}
+
+.quiz-card:nth-child(3) {
+    animation-delay: .19s;
+}
+
+.quiz-card:nth-child(4) {
+    animation-delay: .26s;
+}
+
+.quiz-card:nth-child(5) {
+    animation-delay: .33s;
+}
+
+.quiz-card:nth-child(6) {
+    animation-delay: .40s;
+}
+
+
+/* CARD COLORS */
+
+.science {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd429,
+            #ffb51b
+        );
+}
+
+
+.maths {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff668f,
+            #ff4775
+        );
+}
+
+
+.biology {
+
+    background:
+        linear-gradient(
+            135deg,
+            #34d89b,
+            #11b878
+        );
+}
+
+
+.history {
+
+    background:
+        linear-gradient(
+            135deg,
+            #35c9f2,
+            #159fd0
+        );
+}
+
+
+.civics {
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b70ff,
+            #7045df
+        );
+}
+
+
+.general {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9848,
+            #f36b27
+        );
+}
+
+
+/* CARD GLOW */
+
+.quiz-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -60px;
+    top: -65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.20);
+
+    transition:
+        transform .5s ease;
+}
+
+
+.quiz-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    left: -40px;
+    bottom: -35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    transition:
+        transform .5s ease;
+}
+
+
+.quiz-card:hover {
+
+    transform:
+        translateY(-12px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 25px 50px rgba(14,45,66,0.20);
+}
+
+
+.quiz-card:hover::before {
+
+    transform:
+        scale(1.5);
+}
+
+
+.quiz-card:hover::after {
+
+    transform:
+        scale(1.4);
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.quiz-icon {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    font-size: 31px;
+
+    box-shadow:
+        0 9px 18px rgba(0,0,0,0.12);
+
+    transition:
+        transform .4s ease;
+}
+
+
+.quiz-card:hover .quiz-icon {
+
+    transform:
+        rotate(-8deg)
+        scale(1.1);
+}
+
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
+
+.quiz-number {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 17px;
+
+    color:
+        rgba(14,45,66,0.62);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+
+.quiz-card h3 {
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: 4px;
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 29px;
+
+    line-height: 1;
+
+    font-weight: 800;
+}
+
+
+.quiz-card p {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 250px;
+
+    margin-top: 10px;
+
+    color:
+        rgba(14,45,66,0.77);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+.start-button {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 25px;
+    bottom: 23px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    border: 0;
+
+    border-radius: 30px;
+
+    padding: 10px 18px;
+
+    background: #0e2d42;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 17px rgba(14,45,66,0.20);
+
+    transition: .3s ease;
+}
+
+
+.start-button span {
+
+    color: #f5c329;
+
+    font-size: 17px;
+
+    transition: .3s ease;
+}
+
+
+.quiz-card:hover .start-button {
+
+    background: #ffffff;
+
+    color: #0e2d42;
+
+}
+
+
+.quiz-card:hover .start-button span {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   QUIZ SCREEN OVERLAY
+========================================================= */
+
+.quiz-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(245,195,41,0.28),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(36,178,218,0.25),
+            transparent 25%
+        ),
+
+        rgba(7,30,45,0.93);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.quiz-screen.show {
+
+    display: flex;
+
+    animation:
+        screenFade .35s ease;
+}
+
+
+/* =========================================================
+   QUIZ BOX
+========================================================= */
+
+.quiz-box {
+
+    position: relative;
+
+    width: min(820px, 100%);
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f3f9fb
+        );
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,0.35);
+
+    animation:
+        quizBoxIn .45s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   QUIZ HEADER
+========================================================= */
+
+.quiz-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+.quiz-subject-title {
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+
+.question-counter {
+
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    background: #f5c329;
+
+    color: #0e2d42;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-track {
+
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #dce8ed;
+
+    margin-bottom: 25px;
+}
+
+
+.progress-fill {
+
+    width: 10%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f5c329,
+            #ff7a45
+        );
+
+    transition:
+        width .45s ease;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.question-number {
+
+    color: #e5ae08;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+
+.question-text {
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size:
+        clamp(24px, 4vw, 34px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 13px;
+}
+
+
+.option {
+
+    position: relative;
+
+    min-height: 64px;
+
+    padding: 15px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        2px solid #dbe6eb;
+
+    border-radius: 17px;
+
+    background: white;
+
+    color: #294458;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.option-letter {
+
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #edf4f7;
+
+    color: #0e2d42;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.option:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color: #f5c329;
+
+    box-shadow:
+        0 10px 22px rgba(14,45,66,0.09);
+}
+
+
+.option.selected {
+
+    border-color: #f5c329;
+
+    background:
+        #fff8d9;
+
+    transform:
+        scale(1.015);
+
+    box-shadow:
+        0 8px 20px rgba(245,195,41,0.18);
+}
+
+
+.option.selected .option-letter {
+
+    background: #f5c329;
+}
+
+
+.option.correct {
+
+    border-color: #19b879;
+
+    background: #e8fff5;
+
+    color: #087a50;
+}
+
+
+.option.correct .option-letter {
+
+    background: #19b879;
+
+    color: white;
+}
+
+
+.option.wrong {
+
+    border-color: #f05a67;
+
+    background: #fff0f2;
+
+    color: #c53344;
+
+    animation:
+        wrongShake .4s ease;
+}
+
+
+.option.wrong .option-letter {
+
+    background: #f05a67;
+
+    color: white;
+}
+
+
+/* =========================================================
+   QUIZ BOTTOM
+========================================================= */
+
+.quiz-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+
+.quiz-message {
+
+    color: #70808a;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.next-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 22px;
+
+    border: 0;
+
+    border-radius: 30px;
+
+    background: #0e2d42;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+    opacity: .5;
+
+    pointer-events: none;
+}
+
+
+.next-button.ready {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+.next-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #174d68;
+
+    box-shadow:
+        0 10px 22px rgba(14,45,66,0.20);
+}
+
+
+/* =========================================================
+   CLOSE QUIZ
+========================================================= */
+
+.close-quiz {
+
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    width: 36px;
+    height: 36px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #edf4f7;
+
+    color: #0e2d42;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    z-index: 5;
+}
+
+
+.close-quiz:hover {
+
+    background: #f05a67;
+
+    color: white;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   RESULT SCREEN
+========================================================= */
+
+.result-screen {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 25px 10px 10px;
+}
+
+
+.result-screen.show {
+
+    display: block;
+
+    animation:
+        resultReveal .6s ease;
+}
+
+
+.result-trophy {
+
+    font-size: 70px;
+
+    animation:
+        trophyBounce 1.8s ease-in-out infinite;
+}
+
+
+.result-screen h2 {
+
+    margin-top: 10px;
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 42px;
+
+    line-height: 1;
+}
+
+
+.result-screen h2 span {
+
+    color: #e5ae08;
+}
+
+
+.score-circle {
+
+    width: 150px;
+    height: 150px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #f5c329 0deg,
+            #ff7a45 220deg,
+            #e7eef1 220deg
+        );
+
+    box-shadow:
+        0 15px 35px rgba(14,45,66,0.13);
+}
+
+
+.score-inner {
+
+    width: 122px;
+    height: 122px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+
+.score-number {
+
+    color: #0e2d42;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 37px;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+.score-label {
+
+    color: #758590;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.result-message {
+
+    color: #647680;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 500px;
+
+    margin: auto;
+}
+
+
+.result-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.result-button {
+
+    padding: 11px 20px;
+
+    border: 0;
+
+    border-radius: 30px;
+
+    background: #0e2d42;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+
+.result-button.secondary {
+
+    background: #f5c329;
+
+    color: #0e2d42;
+}
+
+
+.result-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 22px rgba(14,45,66,0.18);
+}
+
+
+/* =========================================================
+   CHALLENGE SECTION
+========================================================= */
+
+.challenge-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 75px 6%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0e2d42,
+            #164f6b
+        );
+}
+
+
+.challenge-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: -150px;
+    top: -160px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,195,41,0.25),
+            transparent 70%
+        );
+
+    animation:
+        orbMove 8s ease-in-out infinite;
+}
+
+
+.challenge-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    bottom: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(40,184,220,0.25),
+            transparent 70%
+        );
+
+    animation:
+        orbMove 10s ease-in-out infinite reverse;
+}
+
+
+.challenge-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+.challenge-icon {
+
+    font-size: 60px;
+
+    animation:
+        trophyBounce 2s ease-in-out infinite;
+}
+
+
+.challenge-content h2 {
+
+    margin-top: 8px;
+
+    color: white;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size:
+        clamp(35px, 5vw, 52px);
+
+    line-height: 1;
+}
+
+
+.challenge-content p {
+
+    margin-top: 12px;
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 13px;
+}
+
+
+.challenge-content strong {
+
+    color: #f5c329;
+}
+
+
+.challenge-points {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 30px;
+}
+
+
+.challenge-point {
+
+    width: 155px;
+
+    padding: 17px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    border:
+        1px solid rgba(255,255,255,0.14);
+
+    backdrop-filter: blur(10px);
+
+    transition: .3s ease;
+}
+
+
+.challenge-point:hover {
+
+    transform:
+        translateY(-7px);
+
+    background:
+        rgba(255,255,255,0.14);
+}
+
+
+.challenge-point span {
+
+    display: block;
+
+    color: #f5c329;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 800;
+}
+
+
+.challenge-point strong {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: white;
+
+    font-size: 12px;
+}
+
+
+.challenge-point small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.quiz-footer {
+
+    padding: 38px 6% 22px;
+
+    background: #081f2e;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+.footer-logo {
+
+    color: #f5c329;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    line-height: .85;
+}
+
+
+.quiz-footer p {
+
+    margin-top: 9px;
+
+    color:
+        rgba(255,255,255,0.60);
+
+    font-size: 11px;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin: 20px 0;
+}
+
+
+.footer-links a {
+
+    color:
+        rgba(255,255,255,0.75);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: .25s ease;
+}
+
+
+.footer-links a:hover {
+
+    color: #f5c329;
+}
+
+
+.copyright {
+
+    padding-top: 17px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.10);
+
+    color:
+        rgba(255,255,255,0.42);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes orbMove {
+
+    0%,
+    100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(30px,-25px)
+            scale(1.12);
+    }
+}
+
+
+@keyframes underlinePulse {
+
+    0%,
+    100% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(.72);
+    }
+}
+
+
+@keyframes pillFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+@keyframes floatingObject {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(7deg);
+    }
+}
+
+
+@keyframes starBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(25deg);
+    }
+}
+
+
+@keyframes bookFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-22px)
+            rotate(5deg);
+    }
+}
+
+
+@keyframes planetFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(15deg);
+    }
+}
+
+
+@keyframes pencilFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-20deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(-5deg);
+    }
+}
+
+
+@keyframes cardReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes screenFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes quizBoxIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes wrongShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+}
+
+
+@keyframes resultReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.85)
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes trophyBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-13px)
+            rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .quiz-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+    }
+
+
+    .floating {
+
+        font-size: 32px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .top-bar {
+
+        padding:
+            13px 18px;
+    }
+
+
+    .logo {
+
+        font-size: 19px;
+    }
+
+
+    .home-button {
+
+        padding:
+            8px 14px;
+    }
+
+
+    .quiz-hero {
+
+        min-height: 360px;
+    }
+
+
+    .quiz-hero h1 {
+
+        font-size: 50px;
+    }
+
+
+    .quiz-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .quiz-section {
+
+        padding:
+            60px 18px 70px;
+    }
+
+
+    .deco-book,
+    .deco-planet,
+    .deco-pencil {
+
+        opacity: .5;
+
+        transform: scale(.7);
+    }
+
+
+    .quiz-box {
+
+        padding: 23px 18px;
+
+        max-height: 94vh;
+    }
+
+
+    .options {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .question-text {
+
+        font-size: 26px;
+    }
+
+
+    .quiz-bottom {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .next-button {
+
+        justify-content: center;
+
+        width: 100%;
+    }
+
+
+    .challenge-section {
+
+        padding:
+            60px 18px;
+    }
+
+
+    .challenge-point {
+
+        width: 135px;
+    }
+
+
+    .floating.q-one,
+    .floating.q-four {
+
+        display: none;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -27,9 +2512,9 @@
 <body>
 
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header class="top-bar">
 
@@ -47,38 +2532,76 @@
 
 
     <a href="index.html" class="home-button">
+
         ← Home
+
     </a>
 
 </header>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section class="quiz-hero">
 
 
-    <div class="floating q-one">❓</div>
-    <div class="floating q-two">⭐</div>
-    <div class="floating q-three">🧠</div>
-    <div class="floating q-four">💡</div>
-    <div class="floating q-five">🎯</div>
-    <div class="floating q-six">📚</div>
+    <div class="hero-orb one"></div>
+
+    <div class="hero-orb two"></div>
+
+    <div class="hero-orb three"></div>
+
+
+    <div class="floating q-one">
+        ❓
+    </div>
+
+    <div class="floating q-two">
+        ⭐
+    </div>
+
+    <div class="floating q-three">
+        🧠
+    </div>
+
+    <div class="floating q-four">
+        💡
+    </div>
+
+    <div class="floating q-five">
+        🎯
+    </div>
+
+    <div class="floating q-six">
+        📚
+    </div>
+
+    <div class="floating q-seven">
+        ✨
+    </div>
+
+    <div class="floating q-eight">
+        🚀
+    </div>
 
 
     <div class="quiz-hero-content">
 
+
         <div class="quiz-badge">
+
             🧠 THINK • PLAY • LEARN
+
         </div>
 
 
         <h1>
 
             Ready for a
+
             <span>Quiz?</span>
 
             🎯
@@ -88,22 +2611,32 @@
 
         <p>
 
-            Test what you know, discover what you don't,
+            Pick a subject, answer 10 questions,
+            and see how much you know!
+
             <br>
-            and learn something new along the way! 🌈
+
+            Learn something new with every quiz.
 
         </p>
 
 
         <div class="quiz-pills">
 
-            <span>⚡ Quick Questions</span>
+            <span>
+                ⚡ 10 Questions
+            </span>
 
-            <span>🧠 Think Smart</span>
+            <span>
+                🧠 4 Options
+            </span>
 
-            <span>🏆 Challenge Yourself</span>
+            <span>
+                🏆 Get Your Score
+            </span>
 
         </div>
+
 
     </div>
 
@@ -111,229 +2644,370 @@
 
 
 
-<!-- =====================================================
-     QUIZ INTRO
-===================================================== -->
+<!-- =========================================================
+     SUBJECT SECTION
+========================================================= -->
 
 <section class="quiz-section">
 
 
+    <!-- DECORATIONS -->
+
+    <div class="section-decoration deco-book deco-1">
+        📚
+    </div>
+
+
+    <div class="section-decoration deco-planet deco-2">
+        🪐
+    </div>
+
+
+    <div class="section-decoration deco-pencil deco-3">
+        ✏️
+    </div>
+
+
+    <div class="section-decoration deco-book deco-4">
+        📖
+    </div>
+
+
+    <div class="section-decoration deco-star deco-5">
+        ✦
+    </div>
+
+
+    <div class="section-decoration deco-star deco-6">
+        ✨
+    </div>
+
+
+
+    <!-- INTRO -->
+
     <div class="quiz-intro">
 
-        <div class="intro-icon">
-            🚀
-        </div>
 
+        <div class="intro-label">
 
-        <div>
+            <span></span>
 
-            <h2>
-                Pick a subject and
-                <span>start exploring!</span>
-            </h2>
+            CHOOSE YOUR SUBJECT
 
-            <p>
-                Choose what you want to practise today.
-                More subjects and quizzes can be added as
-                the website grows.
-            </p>
+            <span></span>
 
         </div>
+
+
+        <h2>
+
+            Pick a subject and
+
+            <span>start exploring!</span>
+
+        </h2>
+
+
+        <p>
+
+            Each quiz contains 10 questions.
+            Choose a subject and challenge yourself.
+
+        </p>
+
 
     </div>
 
 
 
-    <!-- =================================================
-         SUBJECT QUIZ OPTIONS
-    ================================================== -->
+    <!-- =====================================================
+         SUBJECT CARDS
+    ====================================================== -->
 
     <div class="quiz-grid">
 
 
-        <div class="quiz-card science">
+        <!-- SCIENCE -->
+
+        <div
+            class="quiz-card science"
+            onclick="startQuiz('Science')"
+        >
 
             <div class="quiz-icon">
                 🔬
             </div>
 
+
             <div class="quiz-number">
                 QUIZ 01
             </div>
+
 
             <h3>
                 Science
             </h3>
 
+
             <p>
-                Explore the world of
-                science and discover
-                how things work.
+
+                Discover matter, energy,
+                experiments and how the world works.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('Science')"
+                onclick="event.stopPropagation(); startQuiz('Science')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <div class="quiz-card maths">
+        <!-- MATHEMATICS -->
+
+        <div
+            class="quiz-card maths"
+            onclick="startQuiz('Mathematics')"
+        >
 
             <div class="quiz-icon">
                 🧮
             </div>
 
+
             <div class="quiz-number">
                 QUIZ 02
             </div>
+
 
             <h3>
                 Mathematics
             </h3>
 
+
             <p>
-                Numbers, patterns,
-                logic and problem
-                solving.
+
+                Numbers, patterns, logic,
+                calculations and problem solving.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('Mathematics')"
+                onclick="event.stopPropagation(); startQuiz('Mathematics')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <div class="quiz-card history">
+        <!-- BIOLOGY -->
+
+        <div
+            class="quiz-card biology"
+            onclick="startQuiz('Biology')"
+        >
 
             <div class="quiz-icon">
-                🏺
+                🧬
             </div>
+
 
             <div class="quiz-number">
                 QUIZ 03
             </div>
 
+
             <h3>
-                History
+                Biology
             </h3>
 
+
             <p>
-                Travel through time
-                and test your
-                historical knowledge.
+
+                Explore cells, organs,
+                plants, animals and the human body.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('History')"
+                onclick="event.stopPropagation(); startQuiz('Biology')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <div class="quiz-card civics">
+        <!-- HISTORY -->
+
+        <div
+            class="quiz-card history"
+            onclick="startQuiz('History')"
+        >
 
             <div class="quiz-icon">
-                🏛️
+                🏺
             </div>
+
 
             <div class="quiz-number">
                 QUIZ 04
             </div>
 
+
             <h3>
-                Civics
+                History
             </h3>
 
+
             <p>
-                Learn about society,
-                government and
-                citizenship.
+
+                Travel through time and
+                explore important events and people.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('Civics')"
+                onclick="event.stopPropagation(); startQuiz('History')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <div class="quiz-card technology">
+        <!-- CIVICS -->
+
+        <div
+            class="quiz-card civics"
+            onclick="startQuiz('Civics')"
+        >
 
             <div class="quiz-icon">
-                💻
+                🏛️
             </div>
+
 
             <div class="quiz-number">
                 QUIZ 05
             </div>
 
+
             <h3>
-                Technology
+                Civics
             </h3>
 
+
             <p>
-                Computers, internet,
-                AI and the digital
-                world.
+
+                Learn about democracy,
+                government, rights and citizenship.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('Technology')"
+                onclick="event.stopPropagation(); startQuiz('Civics')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
 
 
 
-        <div class="quiz-card general">
+        <!-- GENERAL KNOWLEDGE -->
+
+        <div
+            class="quiz-card general"
+            onclick="startQuiz('General Knowledge')"
+        >
 
             <div class="quiz-icon">
                 🌎
             </div>
 
+
             <div class="quiz-number">
                 QUIZ 06
             </div>
+
 
             <h3>
                 General Knowledge
             </h3>
 
+
             <p>
-                Interesting facts
-                about the world
-                around us.
+
+                Interesting facts about
+                our world, space, nature and more.
+
             </p>
+
 
             <button
                 class="start-button"
-                onclick="startQuiz('General Knowledge')"
+                onclick="event.stopPropagation(); startQuiz('General Knowledge')"
             >
-                Start Quiz →
+
+                Start Quiz
+
+                <span>
+                    →
+                </span>
+
             </button>
 
         </div>
+
 
     </div>
 
@@ -341,23 +3015,15 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      CHALLENGE SECTION
-===================================================== -->
+========================================================= -->
 
 <section class="challenge-section">
 
 
-    <div class="challenge-decoration left">
-        🧩
-    </div>
-
-    <div class="challenge-decoration right">
-        🌟
-    </div>
-
-
     <div class="challenge-content">
+
 
         <div class="challenge-icon">
             🏆
@@ -365,41 +3031,77 @@
 
 
         <h2>
-
             Think you know it all?
-
         </h2>
 
 
         <p>
 
             Don't just learn.
-            <strong>Challenge yourself!</strong>
+
+            <strong>
+                Challenge yourself!
+            </strong>
 
         </p>
 
 
         <div class="challenge-points">
 
-            <div>
-                <span>01</span>
-                <strong>Choose</strong>
-                <small>your subject</small>
+
+            <div class="challenge-point">
+
+                <span>
+                    01
+                </span>
+
+                <strong>
+                    Choose
+                </strong>
+
+                <small>
+                    your subject
+                </small>
+
             </div>
 
-            <div>
-                <span>02</span>
-                <strong>Answer</strong>
-                <small>the questions</small>
+
+            <div class="challenge-point">
+
+                <span>
+                    02
+                </span>
+
+                <strong>
+                    Answer
+                </strong>
+
+                <small>
+                    10 questions
+                </small>
+
             </div>
 
-            <div>
-                <span>03</span>
-                <strong>Discover</strong>
-                <small>your learning</small>
+
+            <div class="challenge-point">
+
+                <span>
+                    03
+                </span>
+
+                <strong>
+                    Discover
+                </strong>
+
+                <small>
+                    your score
+                </small>
+
             </div>
+
 
         </div>
+
 
     </div>
 
@@ -407,56 +3109,204 @@
 
 
 
-<!-- =====================================================
-     QUIZ POPUP
-===================================================== -->
+<!-- =========================================================
+     QUIZ SCREEN
+========================================================= -->
 
 <div
-    id="quizPopup"
-    class="quiz-popup"
+    id="quizScreen"
+    class="quiz-screen"
 >
 
-    <div class="popup-box">
+
+    <div class="quiz-box">
+
 
         <button
-            class="close-popup"
-            onclick="closePopup()"
+            class="close-quiz"
+            onclick="closeQuiz()"
         >
             ×
         </button>
 
 
-        <div class="popup-icon">
-            🎯
+
+        <!-- QUIZ AREA -->
+
+        <div id="quizArea">
+
+
+            <div class="quiz-top">
+
+
+                <div
+                    id="quizSubjectTitle"
+                    class="quiz-subject-title"
+                >
+                    Science Quiz
+                </div>
+
+
+                <div
+                    id="questionCounter"
+                    class="question-counter"
+                >
+                    1 / 10
+                </div>
+
+
+            </div>
+
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+
+
+            <div
+                id="questionNumber"
+                class="question-number"
+            >
+                QUESTION 01
+            </div>
+
+
+            <div
+                id="questionText"
+                class="question-text"
+            >
+                Question goes here
+            </div>
+
+
+            <div
+                id="options"
+                class="options"
+            ></div>
+
+
+
+            <div class="quiz-bottom">
+
+
+                <div
+                    id="quizMessage"
+                    class="quiz-message"
+                >
+                    Choose one answer to continue.
+                </div>
+
+
+                <button
+                    id="nextButton"
+                    class="next-button"
+                    onclick="nextQuestion()"
+                >
+
+                    Next
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
         </div>
 
 
-        <h2>
-            <span id="selectedSubject">
-                Science
-            </span>
-            Quiz
-        </h2>
 
+        <!-- RESULT -->
 
-        <p>
-
-            Your quiz area is ready! 🎉
-
-            <br>
-
-            This is where the real questions,
-            timer, score and results will appear.
-
-        </p>
-
-
-        <button
-            class="popup-button"
-            onclick="closePopup()"
+        <div
+            id="resultScreen"
+            class="result-screen"
         >
-            Got it! 👍
-        </button>
+
+
+            <div class="result-trophy">
+                🏆
+            </div>
+
+
+            <h2>
+
+                Quiz
+
+                <span>
+                    Complete!
+                </span>
+
+            </h2>
+
+
+            <div class="score-circle">
+
+
+                <div class="score-inner">
+
+
+                    <div
+                        id="scoreNumber"
+                        class="score-number"
+                    >
+                        0/10
+                    </div>
+
+
+                    <div class="score-label">
+                        YOUR SCORE
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <p
+                id="resultMessage"
+                class="result-message"
+            >
+                Great job!
+            </p>
+
+
+            <div class="result-buttons">
+
+
+                <button
+                    class="result-button"
+                    onclick="restartQuiz()"
+                >
+                    🔄 Try Again
+                </button>
+
+
+                <button
+                    class="result-button secondary"
+                    onclick="backToSubjects()"
+                >
+                    📚 Choose Subject
+                </button>
+
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
@@ -464,9 +3314,9 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="quiz-footer">
 
@@ -481,7 +3331,7 @@
 
 
     <p>
-        Learn • Laugh • Grow 🌈
+        Learn • Laugh • Grow
     </p>
 
 
@@ -499,37 +3349,16 @@
             Subjects
         </a>
 
+        <a href="quiz.html">
+            Quizzes
+        </a>
+
         <a href="ask-question.html">
             Ask a Question
         </a>
 
         <a href="about.html">
             About
-        </a>
-
-    </div>
-
-
-    <div class="footer-social">
-
-        <a
-            href="YOUR_YOUTUBE_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ▶
-        </a>
-
-        <a
-            href="YOUR_INSTAGRAM_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ◎
-        </a>
-
-        <a href="mailto:YOUR_EMAIL@gmail.com">
-            ✉
         </a>
 
     </div>
@@ -542,1321 +3371,1542 @@
 
     </div>
 
+
 </footer>
 
 
 
 <script>
 
-/* =====================================================
-   QUIZ POPUP
-===================================================== */
+/* =========================================================
+   QUIZ DATA
+========================================================= */
+
+/*
+   Every subject has exactly 10 questions.
+   Every question has exactly 4 options.
+*/
+
+
+const quizData = {
+
+
+    /* =====================================================
+       SCIENCE
+    ===================================================== */
+
+    "Science": [
+
+        {
+            question:
+                "Which form of energy is produced by a moving object?",
+
+            options: [
+                "Kinetic energy",
+                "Chemical energy",
+                "Nuclear energy",
+                "Sound energy"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "What happens to water when it reaches 100°C at normal atmospheric pressure?",
+
+            options: [
+                "It freezes",
+                "It boils",
+                "It becomes ice",
+                "It disappears instantly"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which gas do humans need for respiration?",
+
+            options: [
+                "Carbon dioxide",
+                "Nitrogen",
+                "Oxygen",
+                "Hydrogen"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which force pulls objects toward Earth?",
+
+            options: [
+                "Magnetic force",
+                "Gravitational force",
+                "Frictional force",
+                "Electrical force"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which state of matter has a fixed shape and fixed volume?",
+
+            options: [
+                "Solid",
+                "Liquid",
+                "Gas",
+                "Plasma only"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "What is the main source of energy for Earth?",
+
+            options: [
+                "The Moon",
+                "The Sun",
+                "Wind",
+                "Oceans"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which instrument is commonly used to measure temperature?",
+
+            options: [
+                "Barometer",
+                "Thermometer",
+                "Ammeter",
+                "Compass"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "What is the process by which liquid changes into gas?",
+
+            options: [
+                "Condensation",
+                "Freezing",
+                "Evaporation",
+                "Melting"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which material is generally a good conductor of electricity?",
+
+            options: [
+                "Copper",
+                "Rubber",
+                "Plastic",
+                "Wood"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Which part of a plant mainly absorbs water from the soil?",
+
+            options: [
+                "Flower",
+                "Root",
+                "Fruit",
+                "Leaf"
+            ],
+
+            answer: 1
+        }
+
+    ],
+
+
+
+    /* =====================================================
+       MATHEMATICS
+    ===================================================== */
+
+    "Mathematics": [
+
+        {
+            question:
+                "What is 12 × 8?",
+
+            options: [
+                "86",
+                "96",
+                "108",
+                "88"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "What is the square of 9?",
+
+            options: [
+                "18",
+                "72",
+                "81",
+                "99"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What is 25% of 200?",
+
+            options: [
+                "25",
+                "40",
+                "50",
+                "75"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which number is a prime number?",
+
+            options: [
+                "21",
+                "27",
+                "29",
+                "33"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What is the perimeter of a square with side 5 cm?",
+
+            options: [
+                "10 cm",
+                "15 cm",
+                "20 cm",
+                "25 cm"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What is 3/4 expressed as a decimal?",
+
+            options: [
+                "0.25",
+                "0.50",
+                "0.75",
+                "1.25"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What is the value of 15 + 27?",
+
+            options: [
+                "32",
+                "40",
+                "42",
+                "44"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "How many degrees are there in a right angle?",
+
+            options: [
+                "45°",
+                "90°",
+                "180°",
+                "360°"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "What is 144 ÷ 12?",
+
+            options: [
+                "10",
+                "11",
+                "12",
+                "14"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "If x + 7 = 15, what is x?",
+
+            options: [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+
+            answer: 2
+        }
+
+    ],
+
+
+
+    /* =====================================================
+       BIOLOGY
+    ===================================================== */
+
+    "Biology": [
+
+        {
+            question:
+                "What is the basic structural and functional unit of life?",
+
+            options: [
+                "Tissue",
+                "Organ",
+                "Cell",
+                "Organ system"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which organ pumps blood throughout the human body?",
+
+            options: [
+                "Lung",
+                "Heart",
+                "Kidney",
+                "Liver"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which organ is mainly responsible for filtering waste from the blood and producing urine?",
+
+            options: [
+                "Heart",
+                "Kidney",
+                "Stomach",
+                "Pancreas"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which green pigment helps plants capture light for photosynthesis?",
+
+            options: [
+                "Hemoglobin",
+                "Melanin",
+                "Chlorophyll",
+                "Keratin"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which organ is primarily responsible for gas exchange in humans?",
+
+            options: [
+                "Lungs",
+                "Stomach",
+                "Kidneys",
+                "Skin"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "What carries oxygen in human blood?",
+
+            options: [
+                "Hemoglobin",
+                "Insulin",
+                "Bile",
+                "Saliva"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Which part of a plant usually performs most photosynthesis?",
+
+            options: [
+                "Root",
+                "Leaf",
+                "Seed",
+                "Flower"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which system controls and coordinates many activities of the human body?",
+
+            options: [
+                "Digestive system",
+                "Nervous system",
+                "Skeletal system",
+                "Respiratory system"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which molecule carries genetic information in most living organisms?",
+
+            options: [
+                "DNA",
+                "Glucose",
+                "Water",
+                "Oxygen"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Which blood cells help the body fight infections?",
+
+            options: [
+                "Red blood cells",
+                "White blood cells",
+                "Platelets",
+                "Plasma cells only"
+            ],
+
+            answer: 1
+        }
+
+    ],
+
+
+
+    /* =====================================================
+       HISTORY
+    ===================================================== */
+
+    "History": [
+
+        {
+            question:
+                "Who is traditionally credited with founding the Maurya Empire?",
+
+            options: [
+                "Ashoka",
+                "Chandragupta Maurya",
+                "Akbar",
+                "Harsha"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which ancient civilization developed around the Nile River?",
+
+            options: [
+                "Egyptian civilization",
+                "Roman civilization",
+                "Mayan civilization",
+                "Viking civilization"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Who was known as the founder of the Mughal Empire in India?",
+
+            options: [
+                "Babur",
+                "Shah Jahan",
+                "Aurangzeb",
+                "Humayun"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "The Taj Mahal was commissioned by which Mughal emperor?",
+
+            options: [
+                "Akbar",
+                "Babur",
+                "Shah Jahan",
+                "Aurangzeb"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which movement was launched by Mahatma Gandhi in 1942?",
+
+            options: [
+                "Quit India Movement",
+                "Swadeshi Movement",
+                "Khilafat Movement",
+                "Civil Disobedience Movement"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "The Indus Valley Civilization is also commonly called the:",
+
+            options: [
+                "Harappan Civilization",
+                "Gupta Civilization",
+                "Vedic Civilization",
+                "Mauryan Civilization"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Who was the first emperor of the Gupta Empire?",
+
+            options: [
+                "Sri Gupta",
+                "Ashoka",
+                "Kanishka",
+                "Samudragupta"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Which European country ruled large parts of India during the colonial period?",
+
+            options: [
+                "Spain",
+                "Portugal",
+                "Britain",
+                "Greece"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "The Battle of Plassey took place in which year?",
+
+            options: [
+                "1757",
+                "1857",
+                "1947",
+                "1764"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "India became independent from British rule in:",
+
+            options: [
+                "1930",
+                "1942",
+                "1947",
+                "1950"
+            ],
+
+            answer: 2
+        }
+
+    ],
+
+
+
+    /* =====================================================
+       CIVICS
+    ===================================================== */
+
+    "Civics": [
+
+        {
+            question:
+                "What is the supreme law of India?",
+
+            options: [
+                "The Constitution",
+                "The Parliament",
+                "The Supreme Court",
+                "The Election Commission"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "India is described in its Constitution as a:",
+
+            options: [
+                "Monarchy",
+                "Sovereign democratic republic",
+                "Military state",
+                "Colonial state"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which institution makes laws for the Union of India?",
+
+            options: [
+                "Parliament",
+                "Police",
+                "Election Commission",
+                "Municipal Corporation"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Which is a Fundamental Right in the Indian Constitution?",
+
+            options: [
+                "Right to Equality",
+                "Right to Unlimited Wealth",
+                "Right to Any Job",
+                "Right to Ignore Laws"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "Who is the constitutional head of the Union of India?",
+
+            options: [
+                "Prime Minister",
+                "President",
+                "Chief Justice",
+                "Speaker"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which body conducts elections in India?",
+
+            options: [
+                "Election Commission of India",
+                "Finance Commission",
+                "Planning Commission",
+                "Union Public Service Commission"
+            ],
+
+            answer: 0
+        },
+
+
+        {
+            question:
+                "What is the minimum voting age for Indian citizens?",
+
+            options: [
+                "16 years",
+                "18 years",
+                "21 years",
+                "25 years"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which house of Parliament is also called the House of the People?",
+
+            options: [
+                "Rajya Sabha",
+                "Lok Sabha",
+                "Vidhan Sabha",
+                "Legislative Council"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which court is the highest court in India?",
+
+            options: [
+                "High Court",
+                "District Court",
+                "Supreme Court",
+                "Sessions Court"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What does democracy mainly involve?",
+
+            options: [
+                "Rule by one person only",
+                "Participation of people in government",
+                "Rule without elections",
+                "Rule by the military"
+            ],
+
+            answer: 1
+        }
+
+    ],
+
+
+
+    /* =====================================================
+       GENERAL KNOWLEDGE
+    ===================================================== */
+
+    "General Knowledge": [
+
+        {
+            question:
+                "Which is the largest planet in our Solar System?",
+
+            options: [
+                "Earth",
+                "Mars",
+                "Jupiter",
+                "Saturn"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which is the largest ocean on Earth?",
+
+            options: [
+                "Atlantic Ocean",
+                "Indian Ocean",
+                "Pacific Ocean",
+                "Arctic Ocean"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "What is the capital of India?",
+
+            options: [
+                "Mumbai",
+                "New Delhi",
+                "Hyderabad",
+                "Bengaluru"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which planet is known as the Red Planet?",
+
+            options: [
+                "Venus",
+                "Mars",
+                "Mercury",
+                "Neptune"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "How many continents are there commonly recognized on Earth?",
+
+            options: [
+                "Five",
+                "Six",
+                "Seven",
+                "Eight"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which is the fastest land animal?",
+
+            options: [
+                "Lion",
+                "Cheetah",
+                "Horse",
+                "Tiger"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which gas makes up the largest portion of Earth's atmosphere?",
+
+            options: [
+                "Oxygen",
+                "Carbon dioxide",
+                "Nitrogen",
+                "Hydrogen"
+            ],
+
+            answer: 2
+        },
+
+
+        {
+            question:
+                "Which is the largest mammal in the world?",
+
+            options: [
+                "Elephant",
+                "Blue whale",
+                "Giraffe",
+                "Hippopotamus"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which instrument is used to find direction?",
+
+            options: [
+                "Thermometer",
+                "Compass",
+                "Barometer",
+                "Microscope"
+            ],
+
+            answer: 1
+        },
+
+
+        {
+            question:
+                "Which natural satellite orbits Earth?",
+
+            options: [
+                "Mars",
+                "The Moon",
+                "The Sun",
+                "Venus"
+            ],
+
+            answer: 1
+        }
+
+    ]
+
+};
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentSubject = "";
+
+let currentQuestions = [];
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+
+/* =========================================================
+   START QUIZ
+========================================================= */
 
 function startQuiz(subject) {
 
-    document.getElementById(
-        "selectedSubject"
-    ).textContent = subject;
+
+    currentSubject = subject;
+
+    currentQuestions =
+        quizData[subject];
+
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    selectedAnswer = null;
+
 
     document.getElementById(
-        "quizPopup"
+        "quizScreen"
     ).classList.add("show");
+
+
+    document.getElementById(
+        "quizArea"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "resultScreen"
+    ).classList.remove("show");
+
+
+    document.getElementById(
+        "quizSubjectTitle"
+    ).textContent =
+        subject + " Quiz";
+
+
+    loadQuestion();
 
 }
 
 
-function closePopup() {
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+
+    selectedAnswer = null;
+
+
+    const question =
+        currentQuestions[currentQuestion];
+
 
     document.getElementById(
-        "quizPopup"
+        "questionCounter"
+    ).textContent =
+
+        (currentQuestion + 1)
+        + " / "
+        + currentQuestions.length;
+
+
+    document.getElementById(
+        "questionNumber"
+    ).textContent =
+
+        "QUESTION "
+        +
+        String(currentQuestion + 1)
+            .padStart(2, "0");
+
+
+    document.getElementById(
+        "questionText"
+    ).textContent =
+        question.question;
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+
+        (
+            ((currentQuestion + 1)
+            / currentQuestions.length)
+            * 100
+        )
+        + "%";
+
+
+    const optionsContainer =
+        document.getElementById(
+            "options"
+        );
+
+
+    optionsContainer.innerHTML = "";
+
+
+    const letters =
+        ["A", "B", "C", "D"];
+
+
+    question.options.forEach(
+        (optionText, index) => {
+
+
+            const option =
+                document.createElement(
+                    "button"
+                );
+
+
+            option.className =
+                "option";
+
+
+            option.innerHTML = `
+
+                <span class="option-letter">
+
+                    ${letters[index]}
+
+                </span>
+
+                <span>
+                    ${optionText}
+                </span>
+
+            `;
+
+
+            option.addEventListener(
+                "click",
+                () => selectAnswer(
+                    index,
+                    option
+                )
+            );
+
+
+            optionsContainer.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    nextButton.classList.remove(
+        "ready"
+    );
+
+
+    nextButton.innerHTML = `
+        Next
+        <span>→</span>
+    `;
+
+
+    document.getElementById(
+        "quizMessage"
+    ).textContent =
+        "Choose one answer to continue.";
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(
+    selectedIndex,
+    selectedElement
+) {
+
+
+    if (selectedAnswer !== null) {
+        return;
+    }
+
+
+    selectedAnswer =
+        selectedIndex;
+
+
+    const question =
+        currentQuestions[currentQuestion];
+
+
+    const allOptions =
+        document.querySelectorAll(
+            ".option"
+        );
+
+
+    allOptions.forEach(
+        option => {
+
+            option.style.pointerEvents =
+                "none";
+
+        }
+    );
+
+
+    selectedElement.classList.add(
+        "selected"
+    );
+
+
+    if (
+        selectedIndex ===
+        question.answer
+    ) {
+
+
+        score++;
+
+
+        selectedElement.classList.remove(
+            "selected"
+        );
+
+
+        selectedElement.classList.add(
+            "correct"
+        );
+
+
+        document.getElementById(
+            "quizMessage"
+        ).textContent =
+            "🎉 Correct! Great job!";
+
+
+    } else {
+
+
+        selectedElement.classList.remove(
+            "selected"
+        );
+
+
+        selectedElement.classList.add(
+            "wrong"
+        );
+
+
+        allOptions[
+            question.answer
+        ].classList.add(
+            "correct"
+        );
+
+
+        document.getElementById(
+            "quizMessage"
+        ).textContent =
+            "💡 Not quite! The correct answer is highlighted.";
+
+    }
+
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    nextButton.classList.add(
+        "ready"
+    );
+
+
+    if (
+        currentQuestion ===
+        currentQuestions.length - 1
+    ) {
+
+
+        nextButton.innerHTML = `
+            See Result
+            <span>🏆</span>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+
+    if (selectedAnswer === null) {
+        return;
+    }
+
+
+    if (
+        currentQuestion <
+        currentQuestions.length - 1
+    ) {
+
+
+        currentQuestion++;
+
+
+        loadQuestion();
+
+
+    } else {
+
+
+        showResult();
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW RESULT
+========================================================= */
+
+function showResult() {
+
+
+    document.getElementById(
+        "quizArea"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "resultScreen"
+    ).classList.add("show");
+
+
+    document.getElementById(
+        "scoreNumber"
+    ).textContent =
+
+        score
+        +
+        "/"
+        +
+        currentQuestions.length;
+
+
+    const percentage =
+        (
+            score /
+            currentQuestions.length
+        ) * 100;
+
+
+    let message = "";
+
+
+    if (percentage === 100) {
+
+        message =
+            "🌟 Perfect score! Amazing work! You really know your stuff!";
+
+    }
+
+    else if (percentage >= 80) {
+
+        message =
+            "🎉 Excellent! You have a strong understanding of this subject.";
+
+    }
+
+    else if (percentage >= 60) {
+
+        message =
+            "👏 Good job! Keep practising and you can score even higher.";
+
+    }
+
+    else if (percentage >= 40) {
+
+        message =
+            "💡 Nice try! Review the topic and give the quiz another go.";
+
+    }
+
+    else {
+
+        message =
+            "🚀 Every quiz is a chance to learn. Keep going and try again!";
+
+    }
+
+
+    document.getElementById(
+        "resultMessage"
+    ).textContent =
+        message;
+
+
+    const scoreCircle =
+        document.querySelector(
+            ".score-circle"
+        );
+
+
+    const degree =
+        percentage * 3.6;
+
+
+    scoreCircle.style.background =
+
+        `conic-gradient(
+            #f5c329 0deg,
+            #ff7a45 ${degree}deg,
+            #e7eef1 ${degree}deg
+        )`;
+
+}
+
+
+/* =========================================================
+   RESTART QUIZ
+========================================================= */
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    selectedAnswer = null;
+
+
+    document.getElementById(
+        "resultScreen"
+    ).classList.remove("show");
+
+
+    document.getElementById(
+        "quizArea"
+    ).style.display = "block";
+
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   BACK TO SUBJECTS
+========================================================= */
+
+function backToSubjects() {
+
+    closeQuiz();
+
+
+    setTimeout(() => {
+
+        document.querySelector(
+            ".quiz-section"
+        ).scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 100);
+
+}
+
+
+/* =========================================================
+   CLOSE QUIZ
+========================================================= */
+
+function closeQuiz() {
+
+    document.getElementById(
+        "quizScreen"
     ).classList.remove("show");
 
 }
 
 
+/* =========================================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.getElementById(
+    "quizScreen"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            this
+        ) {
+
+            closeQuiz();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeQuiz();
+
+        }
+
+    }
+);
+
 </script>
-
-
-
-<style>
-
-
-/* =====================================================
-   BASIC
-===================================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-
-    font-family: "Poppins", sans-serif;
-
-    color: #182b62;
-
-    background: #fff8e9;
-
-}
-
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.top-bar {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 18px 6%;
-
-    background: white;
-
-    border-bottom: 3px solid #182b62;
-
-}
-
-
-.logo {
-
-    text-decoration: none;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 24px;
-
-    line-height: .8;
-
-    font-weight: 800;
-
-    color: #182b62;
-
-}
-
-
-.logo small {
-
-    display: block;
-
-    margin-top: 8px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 1.5px;
-
-    color: #f05a67;
-
-}
-
-
-.home-button {
-
-    text-decoration: none;
-
-    color: #182b62;
-
-    background: #ffd83d;
-
-    border: 3px solid #182b62;
-
-    padding: 10px 20px;
-
-    border-radius: 30px;
-
-    font-weight: 700;
-
-    box-shadow: 3px 4px 0 #182b62;
-
-    transition: .25s;
-
-}
-
-
-.home-button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 5px 6px 0 #182b62;
-
-}
-
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.quiz-hero {
-
-    position: relative;
-
-    overflow: hidden;
-
-    min-height: 430px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    background:
-
-        radial-gradient(
-            circle at 10% 30%,
-            #72e0ff 0,
-            #72e0ff 12%,
-            transparent 13%
-        ),
-
-        radial-gradient(
-            circle at 90% 70%,
-            #9bea70 0,
-            #9bea70 14%,
-            transparent 15%
-        ),
-
-        linear-gradient(
-            135deg,
-            #ffd83d,
-            #ffad65,
-            #ff91a5
-        );
-
-}
-
-
-.quiz-hero-content {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding: 60px 20px;
-
-}
-
-
-.quiz-badge {
-
-    display: inline-block;
-
-    padding: 9px 20px;
-
-    background: #182b62;
-
-    color: white;
-
-    border-radius: 30px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    box-shadow: 5px 5px 0 white;
-
-}
-
-
-.quiz-hero h1 {
-
-    margin-top: 20px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: clamp(52px, 8vw, 90px);
-
-    line-height: .9;
-
-    font-weight: 800;
-
-    color: #182b62;
-
-    text-shadow: 5px 5px 0 white;
-
-}
-
-
-.quiz-hero h1 span {
-
-    color: #f05a67;
-
-}
-
-
-.quiz-hero p {
-
-    margin-top: 22px;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    color: #293760;
-
-}
-
-
-.quiz-pills {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-
-}
-
-
-.quiz-pills span {
-
-    background: white;
-
-    border: 3px solid #182b62;
-
-    border-radius: 30px;
-
-    padding: 10px 17px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    box-shadow: 4px 4px 0 #182b62;
-
-    animation: pillFloat 3s ease-in-out infinite;
-
-}
-
-
-.quiz-pills span:nth-child(2) {
-
-    background: #72e0ff;
-
-    animation-delay: .5s;
-
-}
-
-
-.quiz-pills span:nth-child(3) {
-
-    background: #9bea70;
-
-    animation-delay: 1s;
-
-}
-
-
-@keyframes pillFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-
-}
-
-
-
-/* =====================================================
-   FLOATING OBJECTS
-===================================================== */
-
-.floating {
-
-    position: absolute;
-
-    z-index: 2;
-
-    font-size: 42px;
-
-    animation: floatingObject 4s ease-in-out infinite;
-
-}
-
-
-.q-one {
-    top: 50px;
-    left: 8%;
-}
-
-
-.q-two {
-    top: 90px;
-    right: 10%;
-    animation-delay: .5s;
-}
-
-
-.q-three {
-    bottom: 50px;
-    left: 13%;
-    animation-delay: 1s;
-}
-
-
-.q-four {
-    top: 40%;
-    right: 5%;
-    animation-delay: 1.5s;
-}
-
-
-.q-five {
-    bottom: 35px;
-    right: 20%;
-    animation-delay: 2s;
-}
-
-
-.q-six {
-    top: 70px;
-    left: 25%;
-    animation-delay: 2.5s;
-}
-
-
-@keyframes floatingObject {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(-5deg);
-    }
-
-    50% {
-        transform: translateY(-17px) rotate(7deg);
-    }
-
-}
-
-
-
-/* =====================================================
-   QUIZ SECTION
-===================================================== */
-
-.quiz-section {
-
-    padding: 75px 6%;
-
-    background: #fff8e9;
-
-}
-
-
-.quiz-intro {
-
-    max-width: 1000px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    margin-bottom: 40px;
-
-}
-
-
-.intro-icon {
-
-    width: 70px;
-
-    height: 70px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #c7a4ff;
-
-    border: 4px solid #182b62;
-
-    border-radius: 23px;
-
-    font-size: 35px;
-
-    box-shadow: 5px 6px 0 #182b62;
-
-    transform: rotate(-5deg);
-
-}
-
-
-.quiz-intro h2 {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 38px;
-
-    line-height: 1;
-
-}
-
-
-.quiz-intro h2 span {
-
-    color: #f05a67;
-
-}
-
-
-.quiz-intro p {
-
-    margin-top: 8px;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    color: #68718a;
-
-    max-width: 650px;
-
-}
-
-
-
-/* =====================================================
-   QUIZ GRID
-===================================================== */
-
-.quiz-grid {
-
-    max-width: 1050px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 22px;
-
-}
-
-
-.quiz-card {
-
-    position: relative;
-
-    min-height: 290px;
-
-    padding: 23px;
-
-    border: 4px solid #182b62;
-
-    border-radius: 25px;
-
-    box-shadow: 7px 8px 0 #182b62;
-
-    transition: .3s;
-
-    overflow: hidden;
-
-}
-
-
-.quiz-card:hover {
-
-    transform:
-        translateY(-8px)
-        rotate(-1deg);
-
-    box-shadow: 9px 12px 0 #182b62;
-
-}
-
-
-.science {
-    background: #ffd83d;
-}
-
-
-.maths {
-    background: #ff91a5;
-}
-
-
-.history {
-    background: #72e0ff;
-}
-
-
-.civics {
-    background: #c7a4ff;
-}
-
-
-.technology {
-    background: #9bea70;
-}
-
-
-.general {
-    background: #ffad65;
-}
-
-
-.quiz-icon {
-
-    width: 58px;
-
-    height: 58px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: white;
-
-    border: 3px solid #182b62;
-
-    border-radius: 17px;
-
-    font-size: 28px;
-
-    box-shadow: 3px 4px 0 #182b62;
-
-    margin-bottom: 17px;
-
-}
-
-
-.quiz-number {
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    opacity: .65;
-
-}
-
-
-.quiz-card h3 {
-
-    margin-top: 4px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 28px;
-
-    line-height: 1;
-
-}
-
-
-.quiz-card p {
-
-    margin-top: 10px;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    max-width: 240px;
-
-}
-
-
-.start-button {
-
-    position: absolute;
-
-    bottom: 20px;
-
-    left: 23px;
-
-    border: 3px solid #182b62;
-
-    border-radius: 30px;
-
-    padding: 9px 17px;
-
-    background: #182b62;
-
-    color: white;
-
-    font-family: "Poppins", sans-serif;
-
-    font-weight: 700;
-
-    font-size: 12px;
-
-    cursor: pointer;
-
-    transition: .25s;
-
-}
-
-
-.start-button:hover {
-
-    background: white;
-
-    color: #182b62;
-
-    transform: translateX(4px);
-
-}
-
-
-
-/* =====================================================
-   CHALLENGE
-===================================================== */
-
-.challenge-section {
-
-    position: relative;
-
-    overflow: hidden;
-
-    padding: 80px 6%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #72e0ff,
-            #c7a4ff
-        );
-
-    text-align: center;
-
-}
-
-
-.challenge-content {
-
-    max-width: 850px;
-
-    margin: auto;
-
-}
-
-
-.challenge-icon {
-
-    font-size: 65px;
-
-    animation: trophyBounce 2s ease-in-out infinite;
-
-}
-
-
-@keyframes trophyBounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(4deg);
-    }
-
-}
-
-
-.challenge-section h2 {
-
-    margin-top: 10px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 48px;
-
-    line-height: 1;
-
-}
-
-
-.challenge-section p {
-
-    margin-top: 12px;
-
-    color: #293760;
-
-}
-
-
-.challenge-section strong {
-
-    color: #f05a67;
-
-}
-
-
-.challenge-points {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-
-}
-
-
-.challenge-points div {
-
-    width: 160px;
-
-    padding: 18px;
-
-    background: white;
-
-    border: 3px solid #182b62;
-
-    border-radius: 20px;
-
-    box-shadow: 4px 5px 0 #182b62;
-
-    transition: .25s;
-
-}
-
-
-.challenge-points div:hover {
-
-    transform: translateY(-6px);
-
-}
-
-
-.challenge-points span {
-
-    display: block;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 22px;
-
-    color: #f05a67;
-
-}
-
-
-.challenge-points strong {
-
-    display: block;
-
-    color: #182b62;
-
-}
-
-
-.challenge-points small {
-
-    color: #6d758b;
-
-}
-
-
-
-/* Decorations */
-
-.challenge-decoration {
-
-    position: absolute;
-
-    font-size: 55px;
-
-    animation: decorationFloat 4s ease-in-out infinite;
-
-}
-
-
-.challenge-decoration.left {
-
-    left: 8%;
-
-    top: 25%;
-
-}
-
-
-.challenge-decoration.right {
-
-    right: 8%;
-
-    bottom: 20%;
-
-    animation-delay: 1s;
-
-}
-
-
-@keyframes decorationFloat {
-
-    0%,
-    100% {
-        transform: rotate(-8deg);
-    }
-
-    50% {
-        transform: translateY(-15px) rotate(8deg);
-    }
-
-}
-
-
-
-/* =====================================================
-   POPUP
-===================================================== */
-
-.quiz-popup {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 100;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
-    background: rgba(24, 43, 98, .75);
-
-}
-
-
-.quiz-popup.show {
-
-    display: flex;
-
-}
-
-
-.popup-box {
-
-    position: relative;
-
-    width: min(450px, 100%);
-
-    padding: 40px 30px;
-
-    text-align: center;
-
-    background: #fff;
-
-    border: 4px solid #182b62;
-
-    border-radius: 30px;
-
-    box-shadow: 10px 11px 0 #ffd83d;
-
-    animation: popupIn .35s ease;
-
-}
-
-
-@keyframes popupIn {
-
-    from {
-        transform: scale(.7) rotate(-4deg);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1) rotate(0);
-        opacity: 1;
-    }
-
-}
-
-
-.close-popup {
-
-    position: absolute;
-
-    top: 12px;
-
-    right: 15px;
-
-    width: 35px;
-
-    height: 35px;
-
-    border: 0;
-
-    border-radius: 50%;
-
-    background: #ff91a5;
-
-    color: #182b62;
-
-    font-size: 23px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-}
-
-
-.popup-icon {
-
-    font-size: 55px;
-
-}
-
-
-.popup-box h2 {
-
-    margin-top: 10px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 36px;
-
-}
-
-
-.popup-box h2 span {
-
-    color: #f05a67;
-
-}
-
-
-.popup-box p {
-
-    margin-top: 12px;
-
-    color: #69718a;
-
-    line-height: 1.7;
-
-    font-size: 13px;
-
-}
-
-
-.popup-button {
-
-    margin-top: 22px;
-
-    padding: 11px 25px;
-
-    border: 3px solid #182b62;
-
-    border-radius: 30px;
-
-    background: #ffd83d;
-
-    color: #182b62;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow: 4px 5px 0 #182b62;
-
-}
-
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.quiz-footer {
-
-    padding: 45px 6% 25px;
-
-    background: #182b62;
-
-    color: white;
-
-    text-align: center;
-
-}
-
-
-.footer-logo {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 30px;
-
-    line-height: .85;
-
-    font-weight: 800;
-
-    color: #ffd83d;
-
-}
-
-
-.quiz-footer > p {
-
-    margin-top: 10px;
-
-    color: #72e0ff;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-}
-
-
-.footer-links {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 24px;
-
-    flex-wrap: wrap;
-
-    margin: 22px 0;
-
-}
-
-
-.footer-links a {
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-}
-
-
-.footer-links a:hover {
-
-    color: #ffd83d;
-
-}
-
-
-.footer-social {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-}
-
-
-.footer-social a {
-
-    width: 42px;
-
-    height: 42px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 13px;
-
-    background: #ff91a5;
-
-    color: #182b62;
-
-    text-decoration: none;
-
-    font-size: 20px;
-
-    font-weight: 800;
-
-    border: 2px solid #101a3e;
-
-    transition: .25s;
-
-}
-
-
-.footer-social a:hover {
-
-    transform: translateY(-5px);
-
-}
-
-
-.copyright {
-
-    margin-top: 25px;
-
-    padding-top: 18px;
-
-    border-top: 1px solid rgba(255,255,255,.2);
-
-    color: #cbd4ef;
-
-    font-size: 11px;
-
-}
-
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .quiz-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .top-bar {
-
-        padding: 15px 20px;
-
-    }
-
-
-    .logo {
-
-        font-size: 19px;
-
-    }
-
-
-    .home-button {
-
-        padding: 8px 14px;
-
-        font-size: 12px;
-
-    }
-
-
-    .quiz-hero {
-
-        min-height: 400px;
-
-    }
-
-
-    .floating {
-
-        font-size: 28px;
-
-    }
-
-
-    .quiz-section {
-
-        padding: 55px 20px;
-
-    }
-
-
-    .quiz-intro {
-
-        align-items: flex-start;
-
-    }
-
-
-    .quiz-intro h2 {
-
-        font-size: 31px;
-
-    }
-
-
-    .quiz-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .quiz-card {
-
-        min-height: 275px;
-
-    }
-
-
-    .challenge-section {
-
-        padding: 60px 20px;
-
-    }
-
-
-    .challenge-section h2 {
-
-        font-size: 38px;
-
-    }
-
-
-    .challenge-decoration {
-
-        display: none;
-
-    }
-
-}
-
-</style>
 
 
 </body>

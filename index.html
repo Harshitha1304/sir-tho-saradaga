@@ -18,7 +18,7 @@
           crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -33,7 +33,7 @@
      NAVBAR
 ===================================================== -->
 
-<header class="navbar">
+<header class="navbar" id="navbar">
 
     <div class="nav-container">
 
@@ -42,15 +42,20 @@
 
         <a href="#home" class="logo">
 
-            <div class="logo-name">
-                SIR THO<br>
-                SARADHAGA
+            <div class="logo-mark">
+                STS
             </div>
 
-            <div class="logo-underline"></div>
+            <div class="logo-text">
 
-            <div class="logo-tagline">
-                Learn • Laugh • Grow
+                <strong>
+                    Sir Tho Saradhaga
+                </strong>
+
+                <span>
+                    LEARN • LAUGH • GROW
+                </span>
+
             </div>
 
         </a>
@@ -87,36 +92,46 @@
         </nav>
 
 
-        <!-- SEARCH + LOGIN + MOBILE MENU -->
+        <!-- RIGHT -->
 
         <div class="nav-right">
 
-            <div class="search-box">
+            <div class="search-icon">
 
-                <span>⌕</span>
+                <svg viewBox="0 0 24 24">
 
-                <input
-                    type="text"
-                    placeholder="Search videos, topics or questions..."
-                >
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="6.5">
+                    </circle>
+
+                    <path
+                        d="M16 16L21 21">
+                    </path>
+
+                </svg>
 
             </div>
 
 
-            <a href="login.html" class="login-btn">
+            <a
+                href="login.html"
+                class="login-btn">
+
                 Login
+
             </a>
 
-
-            <!-- MOBILE MENU BUTTON -->
 
             <button
                 class="menu-toggle"
                 id="menuToggle"
                 type="button"
-                aria-label="Open menu"
-            >
+                aria-label="Open menu">
+
                 ☰
+
             </button>
 
         </div>
@@ -134,18 +149,21 @@
 <section class="hero" id="home">
 
 
-    <!-- HERO IMAGE -->
-
     <img
         class="hero-background"
-        src="images/Hero/hero_person.png"
-        alt=""
+        src="images/Hero/Hero-image.png"
+        alt="Sir Tho Saradhaga"
     >
 
 
-    <!-- TEXT READABILITY OVERLAY -->
-
     <div class="hero-overlay"></div>
+
+
+    <!-- GLASS LIGHT EFFECTS -->
+
+    <div class="hero-light hero-light-one"></div>
+
+    <div class="hero-light hero-light-two"></div>
 
 
     <!-- HERO CONTENT -->
@@ -153,17 +171,35 @@
     <div class="hero-content">
 
 
+        <div class="hero-eyebrow">
+            EDUCATION • ENTERTAINMENT • CURIOSITY
+        </div>
+
+
         <h1>
 
-            Learning is more fun
+            Learning Gets
 
             <br>
 
-            when you know the
+            Better
 
-            <span>WHY!</span>
+            <span>
+                with Fun.
+            </span>
 
         </h1>
+
+
+        <div class="yellow-stroke"></div>
+
+
+        <h2>
+
+            Education + Entertainment =
+            <strong>Better Tomorrow</strong>
+
+        </h2>
 
 
         <p class="hero-description">
@@ -172,54 +208,73 @@
 
             <br>
 
-            For curious minds.
+            Interesting ideas for curious minds.
 
         </p>
 
 
-        <!-- BUTTONS -->
-
         <div class="hero-buttons">
 
-            <a href="videos.html" class="watch-btn">
 
-                <span>▶</span>
+            <a
+                href="videos.html"
+                class="watch-btn">
+
+                <span class="play-circle">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M8 5L19 12L8 19Z">
+                        </path>
+
+                    </svg>
+
+                </span>
 
                 Watch Latest Videos
+
+                <span class="arrow">
+                    →
+                </span>
 
             </a>
 
 
-            <a href="subjects.html" class="subjects-btn">
-
-                <span>💡</span>
+            <a
+                href="subjects.html"
+                class="subjects-btn">
 
                 Explore Subjects
+
+                <span>
+                    →
+                </span>
 
             </a>
 
         </div>
 
 
-        <!-- FEATURES -->
+        <!-- HERO FEATURES -->
 
         <div class="hero-features">
 
 
-            <div class="feature-item">
+            <div class="feature">
 
-                <div class="feature-icon">
-                    💡
-                </div>
+                <span>
+                    01
+                </span>
 
                 <div>
 
                     <strong>
-                        Learn
+                        Learn Easy
                     </strong>
 
                     <small>
-                        Easy
+                        Simple explanations
                     </small>
 
                 </div>
@@ -227,21 +282,20 @@
             </div>
 
 
+            <div class="feature">
 
-            <div class="feature-item">
-
-                <div class="feature-icon">
-                    😊
-                </div>
+                <span>
+                    02
+                </span>
 
                 <div>
 
                     <strong>
-                        Stay
+                        Stay Curious
                     </strong>
 
                     <small>
-                        Curious
+                        Keep asking why
                     </small>
 
                 </div>
@@ -249,21 +303,20 @@
             </div>
 
 
+            <div class="feature">
 
-            <div class="feature-item">
-
-                <div class="feature-icon">
-                    📊
-                </div>
+                <span>
+                    03
+                </span>
 
                 <div>
 
                     <strong>
-                        Grow
+                        Grow Everyday
                     </strong>
 
                     <small>
-                        Everyday
+                        One idea at a time
                     </small>
 
                 </div>
@@ -273,55 +326,365 @@
 
         </div>
 
-
     </div>
-
 
 </section>
 
 
 
 <!-- =====================================================
-     FUTURE SECTIONS
+     ABOUT ME SECTION
 ===================================================== -->
 
-<section id="videos"></section>
+<section class="about-section" id="about-me">
 
-<section id="subjects"></section>
 
-<section id="quiz"></section>
+    <!-- ANIMATED BACKGROUND -->
 
-<section id="questions"></section>
+    <div class="about-bg-circle about-bg-circle-one"></div>
+
+    <div class="about-bg-circle about-bg-circle-two"></div>
+
+    <div class="about-bg-circle about-bg-circle-three"></div>
+
+
+    <div class="section-container about-container">
+
+
+        <!-- =================================================
+             LEFT IMAGE
+        ================================================= -->
+
+        <div class="about-visual">
+
+
+            <!-- POLAROID -->
+
+            <div class="about-polaroid">
+
+
+                <div class="about-photo">
+
+                    <img
+                        src="images/Hero/about-image.png"
+                        alt="Sir Tho Saradhaga"
+                    >
+
+                </div>
+
+
+                <div class="polaroid-caption">
+
+                    <span>
+                        Sir Tho Saradhaga
+                    </span>
+
+                    <div class="caption-line"></div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SIDE NOTE -->
+
+            <div class="about-side-note">
+
+                <div class="note-small">
+                    Same Sir...
+                </div>
+
+                <div class="note-big">
+                    New Stories!
+                </div>
+
+                <div class="note-arrow">
+                    ↙
+                </div>
+
+            </div>
+
+
+            <!-- DECORATIVE DOTS -->
+
+            <div class="about-yellow-dot dot-one"></div>
+
+            <div class="about-yellow-dot dot-two"></div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT CONTENT
+        ================================================= -->
+
+        <div class="about-content">
+
+
+            <div class="about-label">
+
+                <span class="label-line"></span>
+
+                ABOUT ME
+
+            </div>
+
+
+            <h2>
+
+                Hi, I'm Sir!
+
+                <span class="wave">
+                    👋
+                </span>
+
+            </h2>
+
+
+            <p class="about-intro">
+
+                I'm not just a teacher, I'm a friend who loves
+                to make learning fun! Through
+                <strong>"Sir Tho Saradhaga"</strong>,
+                I create educational and entertaining content
+                that makes you think, smile and grow.
+
+            </p>
+
+
+
+            <!-- ABOUT CARDS -->
+
+            <div class="about-cards">
+
+
+                <div class="about-card">
+
+                    <div class="about-card-icon yellow-icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Concepts Made Simple
+                    </h3>
+
+                    <p>
+                        Easy to understand, for everyone.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <div class="about-card-icon blue-icon">
+                        😊
+                    </div>
+
+                    <h3>
+                        Fun & Entertaining
+                    </h3>
+
+                    <p>
+                        Because learning should be enjoyable.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <div class="about-card-icon purple-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        For a Better You
+                    </h3>
+
+                    <p>
+                        More knowledge. Bigger dreams.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="about-bottom-message">
+
+                <span>✨</span>
+
+                Learn something new.
+                Think differently.
+                Grow every day.
+
+                <span>✨</span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
 
 
 
 <!-- =====================================================
-     SPECIAL FOOTER
+     EXPLORE CONTENT
 ===================================================== -->
 
-<footer class="special-footer" id="about">
+<section class="explore-section">
+
+    <div class="explore-glow explore-glow-one"></div>
+    <div class="explore-glow explore-glow-two"></div>
+
+    <div class="section-container">
+
+        <!-- HEADING -->
+
+        <div class="explore-heading">
+
+            <div class="section-label dark-label">
+                <span></span>
+                EXPLORE CONTENT
+            </div>
+
+            <h2>
+                Learn Something.
+                <em>Watch Something.</em>
+            </h2>
+
+            <p>
+                Explore our latest educational videos,
+                explained simply and made fun.
+            </p>
+
+        </div>
 
 
-    <!-- Floating decorations -->
+        <!-- =================================================
+             5 THUMBNAILS
+        ================================================= -->
 
-    <div class="footer-star star-one">
-        ⭐
+        <div class="thumbnail-grid">
+
+            <!-- NEPHRON -->
+            <a href="videos.html" class="thumbnail-item">
+
+                <div class="thumbnail-image">
+                    <img
+                        src="images/Thumbnails/Nephron.jpeg"
+                        alt="Nephron and Ultrafiltration"
+                    >
+                </div>
+
+                <div class="thumbnail-title">
+                    Nephron & Ultrafiltration
+                </div>
+
+            </a>
+
+
+            <!-- PANIPURI -->
+            <a href="videos.html" class="thumbnail-item">
+
+                <div class="thumbnail-image">
+                    <img
+                        src="images/Thumbnails/panipuri.jpeg"
+                        alt="Panipuri and Gut Bacteria"
+                    >
+                </div>
+
+                <div class="thumbnail-title">
+                    Panipuri & Gut Bacteria
+                </div>
+
+            </a>
+
+
+            <!-- PARENTING -->
+            <a href="videos.html" class="thumbnail-item">
+
+                <div class="thumbnail-image">
+                    <img
+                        src="images/Thumbnails/parents-meet.jpeg"
+                        alt="Parenting and Children"
+                    >
+                </div>
+
+                <div class="thumbnail-title">
+                    Parenting & Children
+                </div>
+
+            </a>
+
+
+            <!-- PHOTOSYNTHESIS -->
+            <a href="videos.html" class="thumbnail-item">
+
+                <div class="thumbnail-image">
+                    <img
+                        src="images/Thumbnails/photosynthesis.jpeg"
+                        alt="Photosynthesis"
+                    >
+                </div>
+
+                <div class="thumbnail-title">
+                    Photosynthesis
+                </div>
+
+            </a>
+
+
+            <!-- STARS & THE PAST -->
+            <a href="videos.html" class="thumbnail-item">
+
+                <div class="thumbnail-image">
+                    <img
+                        src="images/Thumbnails/star-past.jpeg"
+                        alt="Stars and the Past"
+                    >
+                </div>
+
+                <div class="thumbnail-title">
+                    Stars & The Past
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             EXPLORE MORE BUTTON
+        ================================================= -->
+
+        <div class="explore-more-wrapper">
+
+            <a href="videos.html" class="explore-more-btn">
+                Explore More
+                <span>→</span>
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="footer-star star-two">
-        ✨
-    </div>
+</section><!-- =====================================================
+     FOOTER
+===================================================== -->
 
-    <div class="footer-star star-three">
-        💡
-    </div>
-
-    <div class="footer-star star-four">
-        📚
-    </div>
+<footer class="special-footer">
 
 
-    <div class="footer-container">
+    <div class="footer-main">
 
 
         <!-- BRAND -->
@@ -330,51 +693,51 @@
 
             <div class="footer-logo">
 
-                SIR THO
-                <br>
-                SARADHAGA
+                <span class="footer-sts">
+                    STS
+                </span>
+
+                <span class="footer-brand-name">
+                    Sir Tho Saradhaga
+                </span>
 
             </div>
 
-            <div class="footer-line"></div>
 
-            <p class="footer-tagline">
-                Learn • Laugh • Grow 🌈
-            </p>
-
-            <p class="footer-description">
-
-                Simple explanations, interesting ideas
-                and a little curiosity every day! 💡
-
+            <p>
+                Learn • Laugh • Grow
             </p>
 
         </div>
 
 
 
-        <!-- QUICK LINKS -->
+        <!-- LINKS -->
 
         <div class="footer-links">
 
-            <h3>
-                Explore 🚀
-            </h3>
-
             <a href="index.html">
-                🏠 Home
+                Home
             </a>
 
             <a href="videos.html">
-                🎬 Videos
+                Videos
             </a>
 
             <a href="subjects.html">
-                📚 Subjects
+                Subjects
+            </a>
+
+            <a href="quiz.html">
+                Quizzes
+            </a>
+
+            <a href="ask-question.html">
+                Ask a Question
             </a>
 
             <a href="about.html">
-                💛 About
+                About
             </a>
 
         </div>
@@ -385,12 +748,8 @@
 
         <div class="footer-social">
 
-            <h3>
-                Let's Connect! 💬
-            </h3>
-
             <p>
-                Follow, watch and learn with us.
+                Let's Learn & Grow Together!
             </p>
 
 
@@ -404,10 +763,25 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="social youtube"
-                    aria-label="YouTube"
-                >
-                    ▶
+                    aria-label="YouTube">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+
+                        <path
+                            d="M21.5 7.2a2.9 2.9 0 0 0-2-2C17.7 4.7 12 4.7 12 4.7s-5.7 0-7.5.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .5 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.9 2.9 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8z">
+                        </path>
+
+                        <path
+                            class="social-play"
+                            d="M10 9l5 3-5 3z">
+                        </path>
+
+                    </svg>
+
                 </a>
+
 
 
                 <!-- INSTAGRAM -->
@@ -417,10 +791,37 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     class="social instagram"
-                    aria-label="Instagram"
-                >
-                    ◎
+                    aria-label="Instagram">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+
+                        <rect
+                            x="3"
+                            y="3"
+                            width="18"
+                            height="18"
+                            rx="5">
+                        </rect>
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4">
+                        </circle>
+
+                        <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r="1"
+                            class="social-dot">
+                        </circle>
+
+                    </svg>
+
                 </a>
+
 
 
                 <!-- EMAIL -->
@@ -428,17 +829,30 @@
                 <a
                     href="mailto:bandhilavijaysekhar@gmail.com"
                     class="social email"
-                    aria-label="Email"
-                >
-                    ✉
+                    aria-label="Email">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="14"
+                            rx="2">
+                        </rect>
+
+                        <path
+                            d="M4 7l8 6 8-6">
+                        </path>
+
+                    </svg>
+
                 </a>
 
+
             </div>
-
-
-            <p class="social-text">
-                Stay curious. Keep learning. 🌟
-            </p>
 
         </div>
 
@@ -450,96 +864,112 @@
 
     <div class="footer-bottom">
 
-        <div>
-            © 2026 <strong>Sir Tho Saradhaga</strong>
-        </div>
+        <span>
+            © 2026 Sir Tho Saradhaga.
+            All rights reserved.
+        </span>
 
-        <div>
-            Made with ❤️ for curious minds
-        </div>
+        <span>
+            Made with ❤️ for curious minds.
+        </span>
 
     </div>
-
 
 </footer>
 
 
 
 <!-- =====================================================
-     MOBILE MENU JAVASCRIPT
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
 
-    const menuToggle =
-        document.getElementById("menuToggle");
 
-    const navLinks =
-        document.getElementById("navLinks");
+/* =====================================================
+   NAVBAR GLASS EFFECT
+===================================================== */
+
+const navbar =
+    document.getElementById("navbar");
 
 
-    menuToggle.addEventListener(
-        "click",
-        function () {
+window.addEventListener(
+    "scroll",
+    function () {
 
-            navLinks.classList.toggle(
+        if (window.scrollY > 30) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function () {
+
+        navLinks.classList.toggle(
+            "mobile-open"
+        );
+
+
+        if (
+            navLinks.classList.contains(
                 "mobile-open"
-            );
+            )
+        ) {
+
+            menuToggle.textContent = "✕";
+
+        } else {
+
+            menuToggle.textContent = "☰";
+
+        }
+
+    }
+);
 
 
-            if (
-                navLinks.classList.contains(
+navLinks
+    .querySelectorAll("a")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.remove(
                     "mobile-open"
-                )
-            ) {
-
-                menuToggle.textContent = "✕";
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Close menu"
                 );
-
-            } else {
 
                 menuToggle.textContent = "☰";
 
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open menu"
-                );
-
             }
+        );
 
-        }
-    );
+    });
 
-
-    /* CLOSE MENU AFTER CLICKING A LINK */
-
-    navLinks
-        .querySelectorAll("a")
-        .forEach(function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    navLinks.classList.remove(
-                        "mobile-open"
-                    );
-
-                    menuToggle.textContent = "☰";
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
-
-                }
-            );
-
-        });
 
 </script>
 

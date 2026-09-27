@@ -4,12 +4,32 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Create Account | Sir Tho Saradhaga</title>
 
 
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -20,25 +40,41 @@
 
         body {
 
-            font-family: Arial, sans-serif;
+            font-family: "Poppins", sans-serif;
 
             min-height: 100vh;
 
-            background: #fff4d6;
+            background: #f6f8f7;
+
+            color: #172d40;
 
             overflow-x: hidden;
         }
 
 
-        /* =========================
-           PAGE
-        ========================= */
+        a {
+            text-decoration: none;
+        }
 
-        .page {
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .signup-page {
 
             min-height: 100vh;
 
             position: relative;
+
+            overflow: hidden;
 
             display: flex;
 
@@ -46,157 +82,239 @@
 
             justify-content: center;
 
-            padding: 30px;
-
-            overflow: hidden;
+            padding: 35px 25px;
         }
 
 
-        /* =========================
-           BACKGROUND
-        ========================= */
 
-        .circle {
+        /* =====================================================
+           BACKGROUND BOUNCY EFFECTS
+        ===================================================== */
+
+        .bg-effect {
 
             position: absolute;
 
             border-radius: 50%;
+
+            pointer-events: none;
+
+            filter: blur(4px);
+
+            z-index: 0;
         }
 
 
-        .circle.one {
+        .bg-one {
 
-            width: 300px;
-            height: 300px;
+            width: 430px;
+            height: 430px;
 
-            background: #ffd84d;
+            left: -170px;
+            top: -150px;
 
-            top: -120px;
-            right: -90px;
-        }
-
-
-        .circle.two {
-
-            width: 230px;
-            height: 230px;
-
-            background: #ff6b8a;
-
-            bottom: -100px;
-            left: -70px;
-        }
-
-
-        .circle.three {
-
-            width: 120px;
-            height: 120px;
-
-            background: #61d4ff;
-
-            top: 10%;
-            left: 7%;
-        }
-
-
-        .circle.four {
-
-            width: 100px;
-            height: 100px;
-
-            background: #9be564;
-
-            bottom: 12%;
-            right: 8%;
-        }
-
-
-        /* =========================
-           DECORATIONS
-        ========================= */
-
-        .decoration {
-
-            position: absolute;
-
-            font-size: 42px;
-
-            z-index: 2;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(23,45,64,0.22) 0%,
+                    rgba(23,45,64,0.12) 40%,
+                    transparent 72%
+                );
 
             animation:
-                float 3s ease-in-out infinite;
+                signupBounceOne
+                7s
+                ease-in-out
+                infinite;
         }
 
 
-        .book {
+        .bg-two {
 
+            width: 370px;
+            height: 370px;
+
+            right: -130px;
+            bottom: -140px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(25,60,80,0.25) 0%,
+                    rgba(25,60,80,0.12) 42%,
+                    transparent 72%
+                );
+
+            animation:
+                signupBounceTwo
+                8s
+                ease-in-out
+                infinite;
+        }
+
+
+        .bg-three {
+
+            width: 170px;
+            height: 170px;
+
+            right: 18%;
             top: 8%;
-            right: 15%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(245,195,41,0.30),
+                    rgba(245,195,41,0.07) 55%,
+                    transparent 75%
+                );
+
+            animation:
+                signupBounceThree
+                6s
+                ease-in-out
+                infinite;
         }
 
 
-        .bulb {
-
-            top: 35%;
-            left: 4%;
-
-            animation-delay: .5s;
-        }
-
-
-        .pencil {
-
-            bottom: 12%;
-            right: 14%;
-
-            animation-delay: 1s;
-        }
-
-
-        .rocket {
-
-            bottom: 12%;
-            left: 12%;
-
-            animation-delay: 1.5s;
-        }
-
-
-        .star {
-
-            top: 20%;
-            left: 20%;
-
-            animation-delay: 2s;
-        }
-
-
-        @keyframes float {
+        @keyframes signupBounceOne {
 
             0%,
             100% {
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
 
+            50% {
+                transform:
+                    translate(110px,70px)
+                    scale(1.12);
+            }
+        }
+
+
+        @keyframes signupBounceTwo {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-100px,-70px)
+                    scale(1.12);
+            }
+        }
+
+
+        @keyframes signupBounceThree {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-50px,55px)
+                    scale(1.2);
+            }
+        }
+
+
+
+        /* =====================================================
+           FLOATING OBJECTS
+        ===================================================== */
+
+        .floating {
+
+            position: absolute;
+
+            z-index: 1;
+
+            font-size: 30px;
+
+            pointer-events: none;
+
+            animation:
+                floatingObject
+                4s
+                ease-in-out
+                infinite;
+        }
+
+
+        .float-book {
+
+            right: 7%;
+            top: 18%;
+        }
+
+
+        .float-bulb {
+
+            left: 6%;
+            top: 30%;
+
+            animation-delay:
+                1s;
+        }
+
+
+        .float-star {
+
+            left: 8%;
+            bottom: 18%;
+
+            animation-delay:
+                1.5s;
+        }
+
+
+        .float-pencil {
+
+            right: 8%;
+            bottom: 17%;
+
+            animation-delay:
+                2s;
+        }
+
+
+        @keyframes floatingObject {
+
+            0%,
+            100% {
                 transform:
                     translateY(0)
                     rotate(-5deg);
             }
 
             50% {
-
                 transform:
-                    translateY(-12px)
+                    translateY(-14px)
                     rotate(5deg);
             }
-
         }
 
 
-        /* =========================
-           CARD
-        ========================= */
+
+        /* =====================================================
+           MAIN CARD
+        ===================================================== */
 
         .signup-card {
+
+            position: relative;
+
+            z-index: 5;
 
             width: 100%;
 
@@ -204,44 +322,45 @@
 
             min-height: 680px;
 
-            background: white;
-
-            border-radius: 30px;
-
-            overflow: hidden;
-
             display: grid;
 
             grid-template-columns:
                 45% 55%;
 
-            position: relative;
+            overflow: hidden;
 
-            z-index: 5;
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.84);
+
+            border:
+                1px solid rgba(255,255,255,0.95);
 
             box-shadow:
-                0 20px 60px
-                rgba(39,51,89,.20);
+                0 30px 70px rgba(23,45,64,0.16);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
         }
 
 
-        /* =========================
-           LEFT
-        ========================= */
 
-        .left-side {
+        /* =====================================================
+           LEFT SIDE
+        ===================================================== */
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #182b62,
-                    #3154ad,
-                    #6b55d9
-                );
+        .signup-left {
 
-            color: white;
+            position: relative;
 
-            padding: 55px 45px;
+            overflow: hidden;
+
+            padding:
+                55px 48px;
 
             display: flex;
 
@@ -249,51 +368,285 @@
 
             justify-content: center;
 
-            position: relative;
+            background:
+                linear-gradient(
+                    145deg,
+                    #172d40,
+                    #23445a
+                );
 
-            overflow: hidden;
+            color: white;
         }
 
 
-        .logo {
+        .signup-left::before {
 
-            font-size: 27px;
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            right: -130px;
+            top: -120px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            animation:
+                leftCircle
+                7s
+                ease-in-out
+                infinite;
+        }
+
+
+        .signup-left::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            left: -100px;
+            bottom: -100px;
+
+            background:
+                rgba(245,195,41,0.12);
+
+            animation:
+                leftCircleTwo
+                8s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes leftCircle {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+                transform:
+                    translate(-45px,60px);
+            }
+        }
+
+
+        @keyframes leftCircleTwo {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+                transform:
+                    translate(60px,-45px);
+            }
+        }
+
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .signup-logo {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .signup-logo-mark {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                #f5c329;
+
+            color:
+                #172d40;
+
+            font-size: 15px;
 
             font-weight: 800;
 
-            color: #ffd84d;
-
-            margin-bottom: 30px;
+            box-shadow:
+                0 8px 20px rgba(245,195,41,0.22);
         }
 
 
-        .left-side h1 {
+        .signup-logo-text {
 
-            font-size: 42px;
+            display: flex;
 
-            line-height: 1.15;
-
-            margin-bottom: 20px;
+            flex-direction: column;
         }
 
 
-        .left-side p {
+        .signup-logo-text strong {
 
             font-size: 18px;
 
-            line-height: 1.6;
+            font-weight: 800;
 
-            color: #eef2ff;
-
-            max-width: 390px;
+            line-height: 1.1;
         }
 
 
-        /* =========================
+        .signup-logo-text span {
+
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            color:
+                rgba(255,255,255,0.55);
+        }
+
+
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .signup-left-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .left-small-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px 12px;
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid rgba(255,255,255,0.20);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color:
+                #f5c329;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.3px;
+        }
+
+
+        .left-small-label span {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                #f5c329;
+        }
+
+
+        .signup-left h1 {
+
+            max-width: 430px;
+
+            margin-bottom: 20px;
+
+            font-size:
+                clamp(40px,5vw,58px);
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -2px;
+
+            font-weight:
+                800;
+        }
+
+
+        .signup-left h1 span {
+
+            color:
+                #f5c329;
+        }
+
+
+        .signup-left-description {
+
+            max-width: 410px;
+
+            color:
+                rgba(255,255,255,0.68);
+
+            font-size:
+                14px;
+
+            line-height:
+                1.8;
+        }
+
+
+
+        /* =====================================================
            BENEFITS
-        ========================= */
+        ===================================================== */
 
         .benefits {
+
+            position: relative;
+
+            z-index: 2;
 
             margin-top: 35px;
 
@@ -301,7 +654,7 @@
 
             flex-direction: column;
 
-            gap: 14px;
+            gap: 12px;
         }
 
 
@@ -313,428 +666,725 @@
 
             gap: 12px;
 
-            font-size: 16px;
+            color:
+                rgba(255,255,255,0.84);
+
+            font-size:
+                13px;
         }
 
 
         .benefit-icon {
 
-            width: 42px;
-            height: 42px;
-
-            background:
-                rgba(255,255,255,.15);
-
-            border-radius: 12px;
+            width: 43px;
+            height: 43px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            font-size: 22px;
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
+            font-size:
+                21px;
+
+            transition:
+                0.3s ease;
         }
 
 
-        /* =========================
-           RIGHT
-        ========================= */
+        .benefit:hover .benefit-icon {
 
-        .right-side {
+            transform:
+                translateY(-4px);
 
-            padding: 45px 60px;
+            background:
+                rgba(245,195,41,0.15);
 
-            background: #fffdf8;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
+            border-color:
+                rgba(245,195,41,0.30);
         }
 
 
-        .right-side h2 {
 
-            font-size: 36px;
+        /* =====================================================
+           RIGHT SIDE
+        ===================================================== */
 
-            color: #182b62;
+        .signup-right {
 
-            margin-bottom: 7px;
+            padding:
+                42px 60px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                center;
+
+            background:
+                rgba(255,255,255,0.72);
+        }
+
+
+        .signup-right-label {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-bottom:
+                11px;
+
+            color:
+                #172d40;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1.6px;
+        }
+
+
+        .signup-right-label span {
+
+            width:
+                38px;
+
+            height:
+                4px;
+
+            border-radius:
+                10px;
+
+            background:
+                #f5c329;
+        }
+
+
+        .signup-right h2 {
+
+            margin-bottom:
+                7px;
+
+            color:
+                #172d40;
+
+            font-size:
+                35px;
+
+            line-height:
+                1.1;
+
+            font-weight:
+                800;
         }
 
 
         .subtitle {
 
-            color: #777;
+            margin-bottom:
+                24px;
 
-            margin-bottom: 25px;
+            color:
+                #71808a;
 
-            font-size: 15px;
+            font-size:
+                13px;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            FORM
-        ========================= */
+        ===================================================== */
 
         .form-group {
 
-            margin-bottom: 14px;
+            margin-bottom:
+                13px;
         }
 
 
         .form-group label {
 
-            display: block;
+            display:
+                block;
 
-            font-size: 13px;
+            margin-bottom:
+                6px;
 
-            font-weight: bold;
+            color:
+                #172d40;
 
-            color: #27304f;
+            font-size:
+                12px;
 
-            margin-bottom: 7px;
+            font-weight:
+                700;
         }
 
 
         .form-group > input {
 
-            width: 100%;
+            width:
+                100%;
 
-            padding: 13px 15px;
+            height:
+                45px;
 
-            border: 2px solid #e5e7ef;
+            padding:
+                0 15px;
 
-            border-radius: 13px;
+            border:
+                1.5px solid #dce3e6;
 
-            font-size: 14px;
+            border-radius:
+                13px;
 
-            outline: none;
+            outline:
+                none;
 
-            background: white;
+            background:
+                rgba(255,255,255,0.9);
+
+            color:
+                #172d40;
+
+            font-size:
+                13px;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .form-group > input::placeholder {
+
+            color:
+                #9ba6ad;
         }
 
 
         .form-group > input:focus {
 
-            border-color: #5b6ee1;
+            border-color:
+                #f5c329;
 
             box-shadow:
                 0 0 0 4px
-                rgba(91,110,225,.10);
+                rgba(245,195,41,0.12);
+
+            background:
+                white;
         }
 
 
-        /* =========================
-           PASSWORD WRAPPER
-        ========================= */
+
+        /* =====================================================
+           PASSWORD INPUT
+        ===================================================== */
 
         .password-input {
 
-            position: relative;
+            position:
+                relative;
 
-            width: 100%;
+            width:
+                100%;
         }
 
 
         .password-input input {
 
-            width: 100%;
+            width:
+                100%;
 
-            padding: 13px 50px 13px 15px;
+            height:
+                45px;
 
-            border: 2px solid #e5e7ef;
+            padding:
+                0 50px 0 15px;
 
-            border-radius: 13px;
+            border:
+                1.5px solid #dce3e6;
 
-            font-size: 14px;
+            border-radius:
+                13px;
 
-            outline: none;
+            outline:
+                none;
 
-            background: white;
+            background:
+                rgba(255,255,255,0.9);
+
+            color:
+                #172d40;
+
+            font-size:
+                13px;
+
+            transition:
+                0.25s ease;
         }
 
 
         .password-input input:focus {
 
-            border-color: #5b6ee1;
+            border-color:
+                #f5c329;
 
             box-shadow:
                 0 0 0 4px
-                rgba(91,110,225,.10);
+                rgba(245,195,41,0.12);
+
+            background:
+                white;
         }
 
 
-        /* REAL EYE */
+        /* EYE */
 
         .eye-btn {
 
-            position: absolute;
+            position:
+                absolute;
 
-            right: 10px;
-            top: 50%;
+            right:
+                9px;
+
+            top:
+                50%;
 
             transform:
                 translateY(-50%);
 
-            width: 34px;
-            height: 34px;
+            width:
+                34px;
 
-            border: none;
+            height:
+                34px;
 
-            background: transparent;
+            border:
+                none;
 
-            display: flex;
+            background:
+                transparent;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                flex;
 
-            cursor: pointer;
+            align-items:
+                center;
 
-            font-size: 19px;
+            justify-content:
+                center;
 
-            color: #536078;
+            cursor:
+                pointer;
 
-            padding: 0;
+            font-size:
+                18px;
 
-            z-index: 10;
+            color:
+                #687781;
+
+            padding:
+                0;
+
+            transition:
+                0.2s ease;
         }
 
 
         .eye-btn:hover {
 
-            color: #273f91;
+            color:
+                #172d40;
 
             transform:
                 translateY(-50%)
-                scale(1.12);
+                scale(1.1);
         }
 
 
-        /* =========================
+
+        /* =====================================================
            PASSWORD RULES
-        ========================= */
+        ===================================================== */
 
         .password-rules {
 
-            margin-top: 8px;
+            margin-top:
+                7px;
 
-            margin-bottom: 5px;
+            margin-bottom:
+                3px;
 
-            padding: 10px 13px;
+            padding:
+                8px 12px;
 
-            border-radius: 12px;
+            border-radius:
+                11px;
 
-            background: #f4f6ff;
+            background:
+                rgba(23,45,64,0.035);
 
-            font-size: 12px;
+            border:
+                1px solid rgba(23,45,64,0.05);
+
+            font-size:
+                10px;
         }
 
 
         .password-rules p {
 
-            margin: 3px 0;
+            margin:
+                2px 0;
         }
 
 
         .invalid {
 
-            color: #e05263;
+            color:
+                #d85a68;
         }
 
 
         .valid {
 
-            color: #2b9b62;
+            color:
+                #299260;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            TERMS
-        ========================= */
+        ===================================================== */
 
         .terms {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: flex-start;
+            align-items:
+                flex-start;
 
-            gap: 8px;
+            gap:
+                8px;
 
-            margin: 15px 0 18px;
+            margin:
+                12px 0 16px;
 
-            font-size: 12px;
+            color:
+                #69757d;
 
-            color: #666;
+            font-size:
+                11px;
 
-            line-height: 1.5;
+            line-height:
+                1.5;
         }
 
 
         .terms input {
 
-            margin-top: 3px;
+            margin-top:
+                3px;
+
+            accent-color:
+                #f5c329;
         }
 
 
         .terms a {
 
-            color: #e94f64;
+            color:
+                #172d40;
 
-            font-weight: bold;
+            font-weight:
+                700;
         }
 
 
-        /* =========================
-           BUTTON
-        ========================= */
+
+        /* =====================================================
+           SIGNUP BUTTON
+        ===================================================== */
 
         .signup-submit {
 
-            width: 100%;
+            width:
+                100%;
 
-            border: none;
+            height:
+                50px;
 
-            border-radius: 14px;
+            border:
+                none;
 
-            padding: 15px;
+            border-radius:
+                14px;
 
             background:
-                linear-gradient(
-                    90deg,
-                    #ff5f6d,
-                    #ff8a5b
-                );
+                #172d40;
 
-            color: white;
+            color:
+                white;
 
-            font-size: 16px;
+            font-size:
+                14px;
 
-            font-weight: bold;
+            font-weight:
+                700;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             box-shadow:
-                0 8px 20px
-                rgba(255,95,109,.25);
+                0 10px 22px
+                rgba(23,45,64,0.18);
 
-            transition: .2s;
+            transition:
+                0.3s ease;
         }
 
 
         .signup-submit:hover {
 
             transform:
-                translateY(-2px);
+                translateY(-3px);
+
+            background:
+                #f5c329;
+
+            color:
+                #172d40;
 
             box-shadow:
-                0 12px 25px
-                rgba(255,95,109,.35);
+                0 14px 28px
+                rgba(23,45,64,0.18);
         }
 
 
-        /* =========================
-           LINKS
-        ========================= */
+
+        /* =====================================================
+           LOGIN LINK
+        ===================================================== */
 
         .login-text {
 
-            text-align: center;
+            text-align:
+                center;
 
-            margin-top: 18px;
+            margin-top:
+                15px;
 
-            font-size: 13px;
+            color:
+                #738089;
 
-            color: #666;
+            font-size:
+                12px;
         }
 
 
         .login-text a {
 
-            color: #e94f64;
+            color:
+                #172d40;
 
-            font-weight: bold;
+            font-weight:
+                700;
+        }
 
-            text-decoration: none;
+
+        .login-text a:hover {
+
+            color:
+                #b58a00;
         }
 
 
         .back-home {
 
-            display: block;
+            display:
+                block;
 
-            text-align: center;
+            width:
+                fit-content;
 
-            margin-top: 15px;
+            margin:
+                13px auto 0;
 
-            color: #273f91;
+            color:
+                #687781;
 
-            text-decoration: none;
+            font-size:
+                11px;
 
-            font-size: 13px;
+            font-weight:
+                600;
 
-            font-weight: bold;
+            transition:
+                0.2s ease;
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        .back-home:hover {
 
-        @media (max-width: 850px) {
+            color:
+                #172d40;
+
+            transform:
+                translateX(-3px);
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
 
             .signup-card {
 
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
 
-                max-width: 550px;
+                max-width:
+                    550px;
             }
 
-            .left-side {
 
-                padding: 40px;
+            .signup-left {
+
+                padding:
+                    45px 40px;
             }
 
-            .left-side h1 {
 
-                font-size: 32px;
+            .signup-left h1 {
+
+                font-size:
+                    46px;
             }
 
-            .right-side {
 
-                padding: 40px;
+            .signup-right {
+
+                padding:
+                    45px 40px;
             }
 
         }
 
 
-        @media (max-width: 500px) {
 
-            .page {
+        @media (max-width: 600px) {
 
-                padding: 15px;
+            .signup-page {
+
+                padding:
+                    20px 15px;
             }
 
-            .left-side,
-            .right-side {
 
-                padding: 30px 25px;
+            .signup-card {
+
+                border-radius:
+                    24px;
             }
 
-            .left-side h1 {
 
-                font-size: 28px;
+            .signup-left {
+
+                padding:
+                    35px 28px;
             }
 
-            .right-side h2 {
 
-                font-size: 30px;
+            .signup-logo {
+
+                margin-bottom:
+                    35px;
             }
 
-            .decoration {
 
-                display: none;
+            .signup-left h1 {
+
+                font-size:
+                    38px;
+            }
+
+
+            .signup-left-description {
+
+                font-size:
+                    13px;
+            }
+
+
+            .signup-right {
+
+                padding:
+                    35px 28px;
+            }
+
+
+            .signup-right h2 {
+
+                font-size:
+                    29px;
+            }
+
+
+            .floating {
+
+                display:
+                    none;
+            }
+
+        }
+
+
+
+        @media (max-width: 400px) {
+
+            .signup-left h1 {
+
+                font-size:
+                    34px;
+            }
+
+
+            .signup-right h2 {
+
+                font-size:
+                    27px;
             }
 
         }
@@ -747,91 +1397,159 @@
 <body>
 
 
-<div class="page">
+<div class="signup-page">
 
 
-    <!-- BACKGROUND -->
+    <!-- =================================================
+         BACKGROUND EFFECTS
+    ================================================= -->
 
-    <div class="circle one"></div>
-    <div class="circle two"></div>
-    <div class="circle three"></div>
-    <div class="circle four"></div>
+    <div class="bg-effect bg-one"></div>
 
-    <div class="decoration book">📚</div>
-    <div class="decoration bulb">💡</div>
-    <div class="decoration pencil">✏️</div>
-    <div class="decoration rocket">🚀</div>
-    <div class="decoration star">⭐</div>
+    <div class="bg-effect bg-two"></div>
+
+    <div class="bg-effect bg-three"></div>
 
 
-    <!-- CARD -->
+    <!-- FLOATING OBJECTS -->
+
+    <div class="floating float-book">
+        📚
+    </div>
+
+    <div class="floating float-bulb">
+        💡
+    </div>
+
+    <div class="floating float-star">
+        ⭐
+    </div>
+
+    <div class="floating float-pencil">
+        ✏️
+    </div>
+
+
+
+    <!-- =================================================
+         SIGNUP CARD
+    ================================================= -->
 
     <div class="signup-card">
 
 
-        <!-- LEFT -->
+        <!-- =============================================
+             LEFT SIDE
+        ============================================== -->
 
-        <div class="left-side">
+        <div class="signup-left">
 
-            <div class="logo">
-                SIR THO SARADHAGA
+
+            <!-- LOGO -->
+
+            <div class="signup-logo">
+
+                <div class="signup-logo-mark">
+                    STS
+                </div>
+
+                <div class="signup-logo-text">
+
+                    <strong>
+                        Sir Tho Saradhaga
+                    </strong>
+
+                    <span>
+                        LEARN • LAUGH • GROW
+                    </span>
+
+                </div>
+
             </div>
 
 
-            <h1>
-                Start Your Learning Journey! 🚀
-            </h1>
+            <div class="signup-left-content">
 
 
-            <p>
-                Create your account and discover
-                interesting videos, notes, quizzes
-                and lots of new things to learn! 🌈
-            </p>
+                <div class="left-small-label">
 
+                    <span></span>
 
-            <div class="benefits">
-
-                <div class="benefit">
-
-                    <div class="benefit-icon">
-                        📚
-                    </div>
-
-                    Learn interesting topics
+                    JOIN THE JOURNEY
 
                 </div>
 
 
-                <div class="benefit">
+                <h1>
 
-                    <div class="benefit-icon">
-                        🎯
+                    Start your
+
+                    <br>
+
+                    <span>
+                        learning journey.
+                    </span>
+
+                </h1>
+
+
+                <p class="signup-left-description">
+
+                    Create your account and discover
+                    interesting videos, notes, quizzes
+                    and new things to learn every day.
+
+                </p>
+
+
+                <!-- BENEFITS -->
+
+                <div class="benefits">
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            📚
+                        </div>
+
+                        Learn interesting topics
+
                     </div>
 
-                    Test your knowledge
 
-                </div>
+                    <div class="benefit">
 
+                        <div class="benefit-icon">
+                            🎯
+                        </div>
 
-                <div class="benefit">
+                        Test your knowledge
 
-                    <div class="benefit-icon">
-                        💡
                     </div>
 
-                    Stay curious
 
-                </div>
+                    <div class="benefit">
 
+                        <div class="benefit-icon">
+                            💡
+                        </div>
 
-                <div class="benefit">
+                        Stay curious
 
-                    <div class="benefit-icon">
-                        🌟
                     </div>
 
-                    Grow every day
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            🌱
+                        </div>
+
+                        Grow every day
+
+                    </div>
+
 
                 </div>
 
@@ -840,9 +1558,21 @@
         </div>
 
 
-        <!-- RIGHT -->
 
-        <div class="right-side">
+        <!-- =============================================
+             RIGHT SIDE
+        ============================================== -->
+
+        <div class="signup-right">
+
+
+            <div class="signup-right-label">
+
+                <span></span>
+
+                STUDENT SIGN UP
+
+            </div>
 
 
             <h2>
@@ -854,6 +1584,9 @@
                 Let's get you started!
             </p>
 
+
+
+            <!-- FORM -->
 
             <form id="signupForm">
 
@@ -870,10 +1603,12 @@
                         type="text"
                         id="fullName"
                         placeholder="Enter your full name"
+                        autocomplete="name"
                         required
                     >
 
                 </div>
+
 
 
                 <!-- EMAIL -->
@@ -888,10 +1623,12 @@
                         type="email"
                         id="signupEmail"
                         placeholder="Enter your email"
+                        autocomplete="email"
                         required
                     >
 
                 </div>
+
 
 
                 <!-- PASSWORD -->
@@ -909,6 +1646,7 @@
                             type="password"
                             id="signupPassword"
                             placeholder="Create a strong password"
+                            autocomplete="new-password"
                             required
                         >
 
@@ -924,6 +1662,8 @@
 
                     </div>
 
+
+                    <!-- PASSWORD RULES -->
 
                     <div class="password-rules">
 
@@ -967,6 +1707,7 @@
                 </div>
 
 
+
                 <!-- CONFIRM PASSWORD -->
 
                 <div class="form-group">
@@ -982,6 +1723,7 @@
                             type="password"
                             id="confirmPassword"
                             placeholder="Enter password again"
+                            autocomplete="new-password"
                             required
                         >
 
@@ -1000,6 +1742,7 @@
                 </div>
 
 
+
                 <!-- TERMS -->
 
                 <label class="terms">
@@ -1012,6 +1755,7 @@
                     <span>
 
                         I agree to the
+
                         <a href="#">
                             Terms & Conditions
                         </a>
@@ -1027,15 +1771,22 @@
                 </label>
 
 
+
+                <!-- CREATE ACCOUNT -->
+
                 <button
                     type="submit"
                     class="signup-submit"
                 >
-                    Create My Account 🎉
+                    Create My Account →
                 </button>
+
 
             </form>
 
+
+
+            <!-- LOGIN -->
 
             <p class="login-text">
 
@@ -1048,12 +1799,15 @@
             </p>
 
 
+            <!-- HOME -->
+
             <a
                 href="index.html"
                 class="back-home"
             >
                 ← Back to Home
             </a>
+
 
         </div>
 
@@ -1062,12 +1816,13 @@
 </div>
 
 
+
 <script>
 
 
-/* =========================
-   PASSWORD SHOW/HIDE
-========================= */
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
 
 function setupPasswordToggle(
     inputId,
@@ -1086,14 +1841,18 @@ function setupPasswordToggle(
         function () {
 
             if (
-                input.type ===
-                "password"
+                input.type === "password"
             ) {
 
                 input.type = "text";
 
                 button.textContent =
                     "🙈";
+
+                button.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
 
             } else {
 
@@ -1102,6 +1861,11 @@ function setupPasswordToggle(
 
                 button.textContent =
                     "👁";
+
+                button.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
 
             }
 
@@ -1123,9 +1887,10 @@ setupPasswordToggle(
 );
 
 
-/* =========================
+
+/* =====================================================
    PASSWORD RULES
-========================= */
+===================================================== */
 
 const password =
     document.getElementById(
@@ -1246,9 +2011,10 @@ password.addEventListener(
 );
 
 
-/* =========================
+
+/* =====================================================
    CREATE ACCOUNT
-========================= */
+===================================================== */
 
 const signupForm =
     document.getElementById(
@@ -1306,6 +2072,7 @@ signupForm.addEventListener(
                 .checked;
 
 
+
         /* NAME */
 
         if (name.length < 2) {
@@ -1316,6 +2083,7 @@ signupForm.addEventListener(
 
             return;
         }
+
 
 
         /* EMAIL */
@@ -1334,6 +2102,7 @@ signupForm.addEventListener(
 
             return;
         }
+
 
 
         /* PASSWORD */
@@ -1358,7 +2127,8 @@ signupForm.addEventListener(
         }
 
 
-        /* CONFIRM */
+
+        /* CONFIRM PASSWORD */
 
         if (
             passwordValue !==
@@ -1373,6 +2143,7 @@ signupForm.addEventListener(
         }
 
 
+
         /* TERMS */
 
         if (!terms) {
@@ -1385,17 +2156,21 @@ signupForm.addEventListener(
         }
 
 
-        /* =========================
+
+        /* =================================================
            SAVE ACCOUNT
-        ========================= */
+        ================================================= */
 
         const user = {
 
-            name: name,
+            name:
+                name,
 
-            email: email,
+            email:
+                email,
 
-            password: passwordValue
+            password:
+                passwordValue
 
         };
 
@@ -1414,7 +2189,7 @@ signupForm.addEventListener(
         );
 
 
-        /* GO HOME */
+        /* GO TO STUDENT PROFILE */
 
         window.location.href =
             "student-profile.html";
@@ -1426,4 +2201,5 @@ signupForm.addEventListener(
 
 
 </body>
+
 </html>

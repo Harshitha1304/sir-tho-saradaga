@@ -4,29 +4,22 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Video Library | Sir Tho Saradhaga</title>
 
-    <title>Video World | Sir Tho Saradhaga</title>
-
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 <style>
 
 /* =========================================================
-   RESET
+   GLOBAL
 ========================================================= */
 
 * {
@@ -35,510 +28,901 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
     font-family: "Poppins", sans-serif;
-
-    background: #fff1a8;
-
-    color: #182b62;
-
+    color: #102238;
+    background: #f5f9fb;
     overflow-x: hidden;
 }
-
 
 a {
     text-decoration: none;
 }
 
 
-
 /* =========================================================
-   TOP MINI BAR
-========================================================= */
-
-.top-bar {
-
-    height: 70px;
-
-    background: #182b62;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 35px;
-
-    position: relative;
-
-    z-index: 50;
-}
-
-
-.logo {
-
-    color: #ffd83d;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 22px;
-
-    font-weight: 800;
-
-    line-height: .8;
-}
-
-
-.logo small {
-
-    display: block;
-
-    color: white;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-
-    margin-top: 8px;
-}
-
-
-.home-button {
-
-    background: #ff6374;
-
-    color: white;
-
-    padding: 9px 18px;
-
-    border-radius: 25px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    transition: .25s;
-}
-
-
-.home-button:hover {
-
-    transform: translateY(-3px);
-
-    background: #ff4559;
-}
-
-
-
-/* =========================================================
-   VIDEO HERO
+   HERO
 ========================================================= */
 
 .video-hero {
 
-    min-height: 500px;
-
     position: relative;
 
-    overflow: hidden;
+    min-height: 230px;
 
-    background:
-
-        radial-gradient(
-            circle at 8% 20%,
-            #ffd83d 0,
-            #ffd83d 90px,
-            transparent 91px
-        ),
-
-        radial-gradient(
-            circle at 93% 20%,
-            #ff7f91 0,
-            #ff7f91 110px,
-            transparent 111px
-        ),
-
-        linear-gradient(
-            135deg,
-            #ffe970,
-            #ffb8ce 50%,
-            #82e6ff
-        );
+    padding: 38px 20px 42px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(245,195,41,0.30),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(65,170,215,0.26),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0b3047,
+            #124863,
+            #0d3046
+        );
 }
 
 
+/* HERO GLOWS */
 
-/* FLOATING OBJECTS */
-
-.float {
+.hero-glow {
 
     position: absolute;
 
-    font-size: 45px;
+    border-radius: 50%;
 
-    animation: floatAround 5s ease-in-out infinite;
-
-    user-select: none;
+    pointer-events: none;
 }
 
 
-.float-one {
+.hero-glow-one {
 
-    left: 7%;
+    width: 400px;
+    height: 400px;
 
-    top: 90px;
+    left: -180px;
+    top: -220px;
 
-    animation-delay: 0s;
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,195,41,0.30),
+            transparent 70%
+        );
+
+    animation:
+        heroGlow 8s ease-in-out infinite;
 }
 
 
-.float-two {
+.hero-glow-two {
 
-    left: 18%;
+    width: 430px;
+    height: 430px;
 
-    bottom: 55px;
+    right: -210px;
+    bottom: -240px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(62,174,218,0.27),
+            transparent 70%
+        );
+
+    animation:
+        heroGlow 10s ease-in-out infinite reverse;
+}
+
+
+/* HERO DOTS */
+
+.hero-dot {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: #f5c329;
+
+    box-shadow:
+        0 0 14px rgba(245,195,41,0.55);
+
+    animation:
+        heroDot 5s ease-in-out infinite;
+}
+
+
+.hero-dot.one {
+
+    width: 9px;
+    height: 9px;
+
+    left: 12%;
+    top: 30%;
+}
+
+
+.hero-dot.two {
+
+    width: 6px;
+    height: 6px;
+
+    left: 26%;
+    bottom: 20%;
 
     animation-delay: 1s;
 }
 
 
-.float-three {
+.hero-dot.three {
 
-    right: 12%;
+    width: 10px;
+    height: 10px;
 
-    top: 100px;
+    right: 17%;
+    top: 27%;
 
-    animation-delay: 1.7s;
+    animation-delay: 2s;
 }
 
 
-.float-four {
+.hero-dot.four {
 
-    right: 20%;
+    width: 5px;
+    height: 5px;
 
-    bottom: 60px;
+    right: 30%;
+    bottom: 18%;
 
-    animation-delay: 2.5s;
+    animation-delay: 3s;
 }
-
-
-.float-five {
-
-    left: 45%;
-
-    top: 35px;
-
-    font-size: 30px;
-
-    animation-delay: .7s;
-}
-
-
-@keyframes floatAround {
-
-    0%, 100% {
-
-        transform:
-            translateY(0)
-            rotate(-5deg);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(-20px)
-            rotate(8deg);
-
-    }
-}
-
 
 
 /* HERO CONTENT */
 
-.hero-content {
+.video-hero-content {
 
     position: relative;
 
     z-index: 5;
 
-    max-width: 850px;
+    max-width: 700px;
 
-    padding: 65px 25px;
+    animation:
+        heroReveal 0.9s ease both;
 }
 
 
-.hero-badge {
+.video-label {
 
-    display: inline-block;
+    display: inline-flex;
 
-    background: #182b62;
+    align-items: center;
 
-    color: #ffd83d;
+    gap: 9px;
 
-    padding: 9px 20px;
+    margin-bottom: 8px;
 
-    border-radius: 30px;
+    color: #f5c329;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.video-label span {
+
+    width: 28px;
+    height: 4px;
+
+    border-radius: 20px;
+
+    background: #f5c329;
+}
+
+
+.video-hero h1 {
+
+    color: #ffffff;
+
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 8px;
+}
+
+
+.video-hero h1 em {
+
+    color: #f5c329;
+
+    font-style: normal;
+}
+
+
+.video-hero p {
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    max-width: 550px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   MAIN VIDEO SECTION
+========================================================= */
+
+.video-library {
+
+    position: relative;
+
+    padding: 65px 20px 95px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbfd 55%,
+            #ffffff 100%
+        );
+}
+
+
+/* =========================================================
+   ANIMATED EDUCATIONAL BACKGROUND
+========================================================= */
+
+.education-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   SOFT GLOWS
+========================================================= */
+
+.edu-glow-yellow {
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -180px;
+    top: 120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,195,41,0.19),
+            transparent 70%
+        );
+
+    animation:
+        glowFloat 9s ease-in-out infinite;
+}
+
+
+.edu-glow-blue {
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -200px;
+    top: 350px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(50,170,215,0.17),
+            transparent 70%
+        );
+
+    animation:
+        glowFloat 11s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   BOOKS
+========================================================= */
+
+.edu-book {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+
+    filter:
+        drop-shadow(
+            0 10px 12px
+            rgba(14,45,66,0.12)
+        );
+
+    animation:
+        bookBounce 4.5s ease-in-out infinite;
+}
+
+
+.book-one {
+
+    left: 3%;
+    top: 24%;
+
+    transform: rotate(-14deg);
+
+    animation-delay: 0.5s;
+}
+
+
+.book-two {
+
+    right: 4%;
+    top: 54%;
+
+    font-size: 42px;
+
+    transform: rotate(13deg);
+
+    animation-delay: 1.5s;
+}
+
+
+.book-three {
+
+    left: 18%;
+    bottom: 10%;
+
+    font-size: 30px;
+
+    animation-delay: 2.5s;
+}
+
+
+/* =========================================================
+   PLANETS
+========================================================= */
+
+.edu-planet {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    animation:
+        planetFloat 7s ease-in-out infinite;
+}
+
+
+.planet-one {
+
+    right: 8%;
+    top: 16%;
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 47px;
+
+    animation-delay: 1s;
+}
+
+
+.planet-two {
+
+    left: 7%;
+    bottom: 20%;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 32px;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.edu-star {
+
+    position: absolute;
+
+    color: #f5c329;
+
+    font-size: 24px;
+
+    text-shadow:
+        0 0 10px rgba(245,195,41,0.35);
+
+    animation:
+        starBounce 3.5s ease-in-out infinite;
+}
+
+
+.star-one {
+
+    left: 12%;
+    top: 10%;
+}
+
+
+.star-two {
+
+    left: 31%;
+    top: 25%;
+
+    font-size: 17px;
+
+    animation-delay: 0.8s;
+}
+
+
+.star-three {
+
+    right: 20%;
+    top: 33%;
+
+    font-size: 20px;
+
+    animation-delay: 1.6s;
+}
+
+
+.star-four {
+
+    right: 9%;
+    bottom: 18%;
+
+    font-size: 27px;
+
+    animation-delay: 2.4s;
+}
+
+
+.star-five {
+
+    left: 38%;
+    bottom: 12%;
+
+    font-size: 15px;
+
+    animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.sparkle {
+
+    position: absolute;
+
+    color: #38a7d4;
+
+    font-size: 20px;
+
+    animation:
+        sparkleAnimation 3s ease-in-out infinite;
+}
+
+
+.sparkle-one {
+
+    left: 23%;
+    top: 48%;
+}
+
+
+.sparkle-two {
+
+    right: 29%;
+    top: 13%;
+
+    animation-delay: 1s;
+}
+
+
+.sparkle-three {
+
+    right: 14%;
+    bottom: 35%;
+
+    animation-delay: 2s;
+}
+
+
+.sparkle-four {
+
+    left: 42%;
+    top: 65%;
+
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================================
+   PENCILS
+========================================================= */
+
+.edu-pencil {
+
+    position: absolute;
+
+    font-size: 31px;
+
+    animation:
+        pencilFloat 5s ease-in-out infinite;
+}
+
+
+.pencil-one {
+
+    left: 8%;
+    top: 72%;
+
+    transform: rotate(-20deg);
+}
+
+
+.pencil-two {
+
+    right: 12%;
+    top: 76%;
+
+    transform: rotate(20deg);
+
+    animation-delay: 2s;
+}
+
+
+/* =========================================================
+   SPACE OBJECTS
+========================================================= */
+
+.space-object {
+
+    position: absolute;
+
+    font-size: 22px;
+
+    animation:
+        spaceFloat 6s ease-in-out infinite;
+}
+
+
+.space-one {
+
+    left: 29%;
+    top: 12%;
+}
+
+
+.space-two {
+
+    right: 35%;
+    top: 74%;
+
+    animation-delay: 2s;
+}
+
+
+.space-three {
+
+    right: 7%;
+    top: 38%;
+
+    font-size: 18px;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================================================
+   SMALL DOTS
+========================================================= */
+
+.edu-dot {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #f5c329;
+
+    box-shadow:
+        0 0 12px rgba(245,195,41,0.40);
+
+    animation:
+        dotFloat 5s ease-in-out infinite;
+}
+
+
+.edu-dot.one {
+
+    left: 17%;
+    top: 35%;
+}
+
+
+.edu-dot.two {
+
+    left: 34%;
+    top: 58%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-delay: 1s;
+}
+
+
+.edu-dot.three {
+
+    right: 25%;
+    top: 48%;
+
+    width: 8px;
+    height: 8px;
+
+    animation-delay: 2s;
+}
+
+
+.edu-dot.four {
+
+    right: 18%;
+    bottom: 15%;
+
+    width: 5px;
+    height: 5px;
+
+    animation-delay: 3s;
+}
+
+
+/* =========================================================
+   CONTENT CONTAINER
+========================================================= */
+
+.video-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1180px, 100%);
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.library-heading {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    animation:
+        sectionReveal 0.8s ease both;
+}
+
+
+.library-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #0e2d42;
 
     font-size: 13px;
 
     font-weight: 800;
 
-    margin-bottom: 18px;
+    letter-spacing: 1.8px;
 
-    box-shadow:
-        5px 5px 0 #ff6374;
-
-    animation: badgePop 1s ease;
+    margin-bottom: 9px;
 }
 
 
-@keyframes badgePop {
+.library-label span {
 
-    0% {
+    width: 30px;
+    height: 4px;
 
-        opacity: 0;
+    border-radius: 20px;
 
-        transform: scale(.7);
-
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform: scale(1);
-
-    }
+    background: #f5c329;
 }
 
 
-.hero-content h1 {
+.library-heading h2 {
 
-    font-family: "Baloo 2", sans-serif;
+    color: #0e2d42;
 
-    font-size: 72px;
+    font-size:
+        clamp(32px, 4vw, 47px);
 
-    line-height: .95;
+    line-height: 1.1;
 
-    color: #182b62;
+    font-weight: 800;
 
-    margin-bottom: 20px;
-
-    animation: titleUp .8s ease;
+    letter-spacing: -1.5px;
 }
 
 
-.hero-content h1 span {
+.library-heading h2 em {
 
-    color: #ff5368;
+    color: #e5ae08;
 
-    display: inline-block;
-
-    animation: wiggle 2.5s ease-in-out infinite;
+    font-style: normal;
 }
 
 
-@keyframes titleUp {
+.library-heading p {
 
-    from {
+    color: #637482;
 
-        opacity: 0;
+    max-width: 600px;
 
-        transform: translateY(25px);
+    margin: 11px auto 0;
 
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
-    }
-}
-
-
-@keyframes wiggle {
-
-    0%, 100% {
-
-        transform: rotate(0);
-
-    }
-
-    50% {
-
-        transform: rotate(-3deg);
-
-    }
-}
-
-
-.hero-content p {
-
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #394566;
-
-    font-size: 16px;
+    font-size: 13px;
 
     line-height: 1.7;
 }
-
-
-
-/* =========================================================
-   VIDEO SECTION
-========================================================= */
-
-.video-section {
-
-    padding: 80px 25px;
-
-    background: #72e0ff;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-
-.video-section::before {
-
-    content: "✦";
-
-    position: absolute;
-
-    left: 4%;
-
-    top: 30px;
-
-    font-size: 100px;
-
-    color: #ffffff;
-
-    opacity: .4;
-}
-
-
-.video-section::after {
-
-    content: "✦";
-
-    position: absolute;
-
-    right: 5%;
-
-    bottom: 40px;
-
-    font-size: 110px;
-
-    color: #ffd83d;
-
-    opacity: .5;
-}
-
-
-
-/* =========================================================
-   SECTION HEADING
-========================================================= */
-
-.section-heading {
-
-    max-width: 900px;
-
-    margin: 0 auto 40px;
-
-    text-align: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-.section-heading h2 {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 45px;
-
-    line-height: 1;
-
-    color: #182b62;
-
-    margin-bottom: 10px;
-}
-
-
-.section-heading p {
-
-    color: #42506e;
-
-    font-size: 14px;
-}
-
 
 
 /* =========================================================
    SEARCH
 ========================================================= */
 
-.search-area {
+.video-tools {
 
-    max-width: 650px;
+    display: flex;
 
-    margin: 0 auto 35px;
+    justify-content: center;
 
-    position: relative;
+    margin-bottom: 22px;
 
-    z-index: 5;
+    animation:
+        sectionReveal 0.9s ease 0.1s both;
 }
 
 
 .search-box {
 
+    position: relative;
+
+    width: min(520px, 100%);
+}
+
+
+.search-box input {
+
     width: 100%;
 
-    background: white;
+    padding:
+        14px
+        20px
+        14px
+        48px;
 
-    border: 4px solid #182b62;
+    border:
+        1px solid rgba(14,45,66,0.10);
 
-    border-radius: 20px;
-
-    padding: 15px 50px 15px 20px;
+    border-radius: 50px;
 
     outline: none;
 
-    font-family: "Poppins", sans-serif;
+    background:
+        rgba(255,255,255,0.90);
 
-    font-size: 14px;
+    backdrop-filter:
+        blur(12px);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    color: #102238;
 
     box-shadow:
-        6px 7px 0 #182b62;
+        0 10px 28px rgba(14,45,66,0.07);
+
+    transition:
+        0.3s ease;
+}
+
+
+.search-box input:focus {
+
+    border-color: #f5c329;
+
+    box-shadow:
+        0 0 0 4px rgba(245,195,41,0.12),
+        0 12px 30px rgba(14,45,66,0.10);
 }
 
 
@@ -546,22 +930,23 @@ a {
 
     position: absolute;
 
-    right: 20px;
-
+    left: 18px;
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
-    font-size: 22px;
+    font-size: 16px;
+
+    color: #0e2d42;
 }
 
 
-
 /* =========================================================
-   CATEGORY BUTTONS
+   FILTERS
 ========================================================= */
 
-.filters {
+.video-filters {
 
     display: flex;
 
@@ -569,89 +954,66 @@ a {
 
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 9px;
 
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 
-    position: relative;
-
-    z-index: 5;
+    animation:
+        sectionReveal 1s ease 0.2s both;
 }
 
 
 .filter-btn {
 
-    border: 3px solid #182b62;
+    border:
+        1px solid rgba(14,45,66,0.10);
 
-    background: #ffd83d;
+    background:
+        rgba(255,255,255,0.86);
 
-    color: #182b62;
+    color: #355066;
 
-    padding: 9px 17px;
+    padding:
+        9px 19px;
 
     border-radius: 30px;
 
-    font-family: "Poppins", sans-serif;
+    font-family: inherit;
 
     font-size: 12px;
 
-    font-weight: 800;
+    font-weight: 700;
 
     cursor: pointer;
 
-    box-shadow:
-        4px 4px 0 #182b62;
-
-    transition: .2s;
-}
-
-
-.filter-btn:nth-child(2) {
-
-    background: #ff91a5;
-}
-
-
-.filter-btn:nth-child(3) {
-
-    background: #9bea70;
-}
-
-
-.filter-btn:nth-child(4) {
-
-    background: #c7a4ff;
-}
-
-
-.filter-btn:nth-child(5) {
-
-    background: #ffad65;
-}
-
-
-.filter-btn:nth-child(6) {
-
-    background: #72e0ff;
+    transition:
+        0.3s ease;
 }
 
 
 .filter-btn:hover {
 
-    transform: translateY(-4px);
+    transform:
+        translateY(-3px);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(14,45,66,0.10);
 }
 
 
 .filter-btn.active {
 
-    background: #182b62;
+    background: #0e2d42;
 
-    color: white;
+    color: #ffffff;
+
+    border-color: #0e2d42;
 
     box-shadow:
-        4px 4px 0 #ff5368;
+        0 8px 20px rgba(14,45,66,0.18);
 }
-
 
 
 /* =========================================================
@@ -660,22 +1022,13 @@ a {
 
 .video-grid {
 
-    max-width: 1200px;
-
-    margin: auto;
-
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3, minmax(0,1fr));
 
-    gap: 28px;
-
-    position: relative;
-
-    z-index: 5;
+    gap: 30px;
 }
-
 
 
 /* =========================================================
@@ -684,156 +1037,175 @@ a {
 
 .video-card {
 
-    background: #ffffff;
+    position: relative;
 
-    border-radius: 28px;
+    display: block;
 
     overflow: hidden;
 
-    border: 4px solid #182b62;
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border:
+        1px solid rgba(255,255,255,0.98);
 
     box-shadow:
-        8px 9px 0 #182b62;
+        0 12px 35px rgba(14,45,66,0.09);
 
-    transition: .3s;
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease;
 
-    position: relative;
+    animation:
+        cardReveal 0.75s ease both;
 }
 
+
+.video-card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+.video-card:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.video-card:nth-child(3) {
+    animation-delay: 0.26s;
+}
+
+.video-card:nth-child(4) {
+    animation-delay: 0.34s;
+}
+
+.video-card:nth-child(5) {
+    animation-delay: 0.42s;
+}
+
+
+/* CARD HOVER */
 
 .video-card:hover {
 
     transform:
         translateY(-10px)
-        rotate(-1deg);
+        scale(1.015);
 
     box-shadow:
-        12px 14px 0 #182b62;
+        0 25px 50px rgba(14,45,66,0.18);
 }
-
 
 
 /* =========================================================
-   THUMBNAIL
+   VIDEO THUMBNAIL
+   IMPORTANT FIX
 ========================================================= */
 
-.thumbnail {
-
-    height: 215px;
+.video-thumbnail {
 
     position: relative;
 
-    display: flex;
+    width: 100%;
 
-    align-items: center;
+    /*
+       Changed from 16 / 9 to 4 / 3.
 
-    justify-content: center;
+       This gives the portrait-style thumbnails
+       more vertical space without making them A4.
+    */
+
+    aspect-ratio: 4 / 3;
 
     overflow: hidden;
+
+    background: #0e2d42;
 }
 
 
-.thumbnail-one {
+/* IMAGE */
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffd83d,
-            #ff8d69
-        );
+.video-thumbnail img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    /*
+       Keep cover so the card is filled.
+    */
+
+    object-fit: cover;
+
+    /*
+       IMPORTANT:
+       Start cropping from the TOP,
+       so heads are not cut.
+    */
+
+    object-position: center top;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.5s ease;
 }
 
 
-.thumbnail-two {
+/* IMAGE HOVER */
 
-    background:
-        linear-gradient(
-            135deg,
-            #72e0ff,
-            #6874ff
-        );
-}
+.video-card:hover
+.video-thumbnail img {
 
-
-.thumbnail-three {
-
-    background:
-        linear-gradient(
-            135deg,
-            #9bea70,
-            #45c9a3
-        );
-}
-
-
-.thumbnail-four {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff91b1,
-            #b36ce8
-        );
-}
-
-
-.thumbnail-five {
-
-    background:
-        linear-gradient(
-            135deg,
-            #82ddff,
-            #7c82ff
-        );
-}
-
-
-.thumbnail-six {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffe66b,
-            #ff718d
-        );
-}
-
-
-
-/* BIG EMOJI */
-
-.thumbnail-emoji {
-
-    font-size: 82px;
-
-    animation:
-        thumbnailFloat 3s ease-in-out infinite;
+    transform:
+        scale(1.05);
 
     filter:
-        drop-shadow(
-            0 8px 5px
-            rgba(0,0,0,.15)
+        brightness(0.80);
+}
+
+
+/* =========================================================
+   IMAGE SHINE
+========================================================= */
+
+.video-thumbnail::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.24),
+            transparent
         );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.8s ease;
+
+    pointer-events: none;
+
+    z-index: 3;
 }
 
 
-@keyframes thumbnailFloat {
+.video-card:hover
+.video-thumbnail::after {
 
-    0%, 100% {
-
-        transform: translateY(0)
-                   rotate(-3deg);
-
-    }
-
-    50% {
-
-        transform: translateY(-12px)
-                   rotate(3deg);
-
-    }
+    left: 140%;
 }
-
 
 
 /* =========================================================
@@ -844,151 +1216,132 @@ a {
 
     position: absolute;
 
-    width: 68px;
+    left: 50%;
+    top: 50%;
 
-    height: 68px;
+    width: 58px;
+    height: 58px;
 
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    border: 4px solid #182b62;
-
-    color: #ff5368;
+    transform:
+        translate(-50%,-50%);
 
     display: flex;
 
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    padding-left: 3px;
 
-    font-size: 25px;
+    border-radius: 50%;
 
-    padding-left: 4px;
+    background: #f5c329;
+
+    color: #0e2d42;
+
+    font-size: 21px;
 
     box-shadow:
-        5px 6px 0 #182b62;
+        0 8px 25px rgba(0,0,0,0.24);
 
-    transition: .3s;
+    transition:
+        0.35s ease;
+
+    z-index: 5;
 }
 
 
-.video-card:hover .play-button {
+.play-button::before {
 
-    transform: scale(1.15);
-
-    background: #ffd83d;
-}
-
-
-
-/* DURATION */
-
-.duration {
+    content: "";
 
     position: absolute;
 
-    right: 12px;
+    inset: -8px;
 
-    bottom: 12px;
+    border-radius: 50%;
 
-    background: #182b62;
+    border:
+        2px solid rgba(245,195,41,0.65);
 
-    color: white;
+    animation:
+        playPulse 2s ease-out infinite;
+}
 
-    padding: 5px 9px;
 
-    border-radius: 8px;
+.video-card:hover
+.play-button {
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.16);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,0.30);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.video-category {
+
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    padding:
+        6px 12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(14,45,66,0.84);
+
+    backdrop-filter:
+        blur(10px);
+
+    color: #ffffff;
 
     font-size: 10px;
 
     font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    z-index: 5;
 }
 
 
-
 /* =========================================================
-   VIDEO CONTENT
+   CARD CONTENT
 ========================================================= */
 
 .video-content {
 
-    padding: 22px;
-}
-
-
-.video-subject {
-
-    display: inline-block;
-
-    padding: 6px 11px;
-
-    border-radius: 20px;
-
-    background: #ffd83d;
-
-    color: #182b62;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    margin-bottom: 10px;
-}
-
-
-.video-card:nth-child(2)
-.video-subject {
-
-    background: #72e0ff;
-}
-
-
-.video-card:nth-child(3)
-.video-subject {
-
-    background: #9bea70;
-}
-
-
-.video-card:nth-child(4)
-.video-subject {
-
-    background: #ff91b1;
-}
-
-
-.video-card:nth-child(5)
-.video-subject {
-
-    background: #c7a4ff;
-}
-
-
-.video-card:nth-child(6)
-.video-subject {
-
-    background: #ffad65;
+    padding:
+        19px 20px 22px;
 }
 
 
 .video-content h3 {
 
-    font-family: "Baloo 2", sans-serif;
+    color: #0e2d42;
 
-    font-size: 22px;
+    font-size: 17px;
 
-    line-height: 1.15;
+    line-height: 1.35;
 
-    color: #182b62;
+    font-weight: 800;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 
 .video-content p {
 
-    color: #687189;
+    color: #71808c;
 
     font-size: 12px;
 
@@ -1000,25 +1353,175 @@ a {
 
 .watch-link {
 
-    display: inline-block;
+    display: inline-flex;
 
-    color: #ff5368;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #0e2d42;
 
     font-size: 12px;
 
     font-weight: 800;
 
-    transition: .2s;
+    transition:
+        0.3s ease;
 }
 
 
-.watch-link:hover {
+.watch-link span {
 
-    transform: translateX(5px);
+    color: #e5ae08;
 
-    color: #182b62;
+    font-size: 18px;
+
+    transition:
+        transform 0.3s ease;
 }
 
+
+.video-card:hover
+.watch-link {
+
+    color: #d19e00;
+
+    gap: 11px;
+}
+
+
+.video-card:hover
+.watch-link span {
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.video-cta {
+
+    position: relative;
+
+    margin-top: 70px;
+
+    padding:
+        38px 30px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0e2d42,
+            #174f69
+        );
+
+    box-shadow:
+        0 20px 45px rgba(14,45,66,0.18);
+
+    animation:
+        sectionReveal 1s ease 0.4s both;
+}
+
+
+.video-cta::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    right: -110px;
+    top: -140px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,195,41,0.28),
+            transparent 70%
+        );
+
+    animation:
+        glowFloat 8s ease-in-out infinite;
+}
+
+
+.video-cta h3 {
+
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+
+.video-cta p {
+
+    position: relative;
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+.youtube-btn {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        12px 23px;
+
+    background: #f5c329;
+
+    color: #0e2d42;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition:
+        0.3s ease;
+}
+
+
+.youtube-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,0.20);
+}
 
 
 /* =========================================================
@@ -1031,172 +1534,297 @@ a {
 
     text-align: center;
 
-    padding: 50px 20px;
+    padding: 50px;
 
-    position: relative;
-
-    z-index: 5;
-}
-
-
-.no-results .emoji {
-
-    font-size: 60px;
-
-    margin-bottom: 10px;
-}
-
-
-.no-results h3 {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 30px;
-
-    color: #182b62;
-}
-
-
-
-/* =========================================================
-   BOTTOM MESSAGE
-========================================================= */
-
-.bottom-message {
-
-    padding: 70px 25px;
-
-    background: #c7a4ff;
-
-    text-align: center;
-}
-
-
-.bottom-message .emoji {
-
-    font-size: 55px;
-
-    margin-bottom: 10px;
-}
-
-
-.bottom-message h2 {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 43px;
-
-    color: #182b62;
-
-    margin-bottom: 8px;
-}
-
-
-.bottom-message p {
-
-    color: #394566;
+    color: #71808c;
 
     font-size: 14px;
-
-    margin-bottom: 22px;
 }
-
-
-.home-cta {
-
-    display: inline-block;
-
-    background: #182b62;
-
-    color: white;
-
-    padding: 13px 24px;
-
-    border-radius: 14px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    box-shadow:
-        0 5px 0 #0b1637;
-
-    transition: .2s;
-}
-
-
-.home-cta:hover {
-
-    transform: translateY(4px);
-}
-
 
 
 /* =========================================================
-   FOOTER
+   ANIMATIONS
 ========================================================= */
 
-footer {
+@keyframes heroReveal {
 
-    background: #182b62;
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-    color: white;
-
-    text-align: center;
-
-    padding: 32px 20px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-.footer-logo {
+@keyframes heroGlow {
 
-    font-family: "Baloo 2", sans-serif;
+    0%,
+    100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
 
-    color: #ffd83d;
-
-    font-size: 24px;
-
-    font-weight: 800;
+    50% {
+        transform:
+            translate(35px,-25px)
+            scale(1.12);
+    }
 }
 
 
-footer p {
+@keyframes heroDot {
 
-    font-size: 12px;
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
 
-    opacity: .8;
-
-    margin-top: 5px;
+    50% {
+        transform:
+            translateY(-18px)
+            scale(1.25);
+    }
 }
 
+
+@keyframes sectionReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes cardReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* BOOK BOUNCE */
+
+@keyframes bookBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-14deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(-8deg);
+    }
+}
+
+
+/* PLANET FLOAT */
+
+@keyframes planetFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-28px)
+            rotate(15deg);
+    }
+}
+
+
+/* STAR BOUNCE */
+
+@keyframes starBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(20deg)
+            scale(1.2);
+    }
+}
+
+
+/* SPARKLE */
+
+@keyframes sparkleAnimation {
+
+    0%,
+    100% {
+        opacity: 0.3;
+
+        transform:
+            scale(0.7)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.3)
+            rotate(90deg);
+    }
+}
+
+
+/* PENCIL */
+
+@keyframes pencilFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-20deg);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(-8deg);
+    }
+}
+
+
+/* SPACE OBJECT */
+
+@keyframes spaceFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0,0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate(18px,-22px)
+            rotate(15deg);
+    }
+}
+
+
+/* DOT */
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0,0);
+
+        opacity: 0.4;
+    }
+
+    50% {
+        transform:
+            translate(12px,-25px);
+
+        opacity: 1;
+    }
+}
+
+
+/* GLOW */
+
+@keyframes glowFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(30px,-25px)
+            scale(1.1);
+    }
+}
+
+
+/* PLAY PULSE */
+
+@keyframes playPulse {
+
+    0% {
+        transform:
+            scale(0.8);
+
+        opacity: 0.8;
+    }
+
+    70% {
+        transform:
+            scale(1.25);
+
+        opacity: 0;
+    }
+
+    100% {
+        transform:
+            scale(1.25);
+
+        opacity: 0;
+    }
+}
 
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
 
     .video-grid {
 
         grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 750px) {
-
-    .hero-content h1 {
-
-        font-size: 55px;
-    }
-
-
-    .float {
-
-        font-size: 32px;
+            repeat(2, minmax(0,1fr));
     }
 
 }
@@ -1204,105 +1832,78 @@ footer p {
 
 @media (max-width: 600px) {
 
-    .top-bar {
-
-        padding: 0 18px;
-    }
-
-
-    .logo {
-
-        font-size: 19px;
-    }
-
-
     .video-hero {
 
-        min-height: 460px;
+        min-height: 215px;
+
+        padding:
+            32px 18px 38px;
     }
 
 
-    .hero-content h1 {
+    .video-hero h1 {
 
-        font-size: 43px;
+        font-size: 31px;
     }
 
 
-    .hero-content p {
+    .video-library {
 
-        font-size: 14px;
-    }
-
-
-    .video-section {
-
-        padding: 60px 18px;
-    }
-
-
-    .section-heading h2 {
-
-        font-size: 37px;
+        padding:
+            55px 16px 70px;
     }
 
 
     .video-grid {
 
         grid-template-columns: 1fr;
+
+        gap: 22px;
     }
 
 
-    .float-one {
+    .video-filters {
 
-        left: 3%;
-    }
-
-
-    .float-two {
-
-        left: 8%;
-    }
-
-
-    .float-three {
-
-        right: 5%;
-    }
-
-
-    .float-four {
-
-        right: 8%;
-    }
-
-
-    .float-five {
-
-        display: none;
-    }
-
-}
-
-
-@media (max-width: 400px) {
-
-    .hero-content h1 {
-
-        font-size: 38px;
-    }
-
-
-    .filters {
-
-        gap: 8px;
+        gap: 7px;
     }
 
 
     .filter-btn {
 
-        padding: 8px 12px;
+        padding:
+            8px 15px;
+    }
 
-        font-size: 11px;
+
+    .video-cta {
+
+        padding:
+            30px 20px;
+    }
+
+
+    /* Decorative objects stay smaller on mobile */
+
+    .book-one {
+        left: -8px;
+        font-size: 32px;
+    }
+
+
+    .book-two {
+        right: -8px;
+        font-size: 32px;
+    }
+
+
+    .planet-one {
+        right: 2%;
+        font-size: 35px;
+    }
+
+
+    .edu-star {
+        font-size: 18px;
     }
 
 }
@@ -1315,93 +1916,54 @@ footer p {
 <body>
 
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
-
-<header class="top-bar">
-
-
-    <a href="index.html" class="logo">
-
-        SIR THO<br>
-        SARADHAGA
-
-        <small>
-            LEARN • LAUGH • GROW
-        </small>
-
-    </a>
-
-
-    <a
-        href="index.html"
-        class="home-button"
-    >
-
-        ← Home
-
-    </a>
-
-
-</header>
-
-
-
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section class="video-hero">
 
 
-    <!-- FLOATING OBJECTS -->
+    <div class="hero-glow hero-glow-one"></div>
 
-    <div class="float float-one">
-        🎬
-    </div>
-
-    <div class="float float-two">
-        📚
-    </div>
-
-    <div class="float float-three">
-        💡
-    </div>
-
-    <div class="float float-four">
-        🚀
-    </div>
-
-    <div class="float float-five">
-        ⭐
-    </div>
+    <div class="hero-glow hero-glow-two"></div>
 
 
+    <div class="hero-dot one"></div>
 
-    <div class="hero-content">
+    <div class="hero-dot two"></div>
+
+    <div class="hero-dot three"></div>
+
+    <div class="hero-dot four"></div>
 
 
-        <div class="hero-badge">
+    <div class="video-hero-content">
 
-            🎥 WATCH • LEARN • DISCOVER
+
+        <div class="video-label">
+
+            <span></span>
+
+            VIDEO LIBRARY
+
+            <span></span>
 
         </div>
 
 
         <h1>
 
-            Welcome to
-            <span>Video World!</span> 🌈
+            Learn through
+
+            <em>Stories.</em>
 
         </h1>
 
 
         <p>
 
-            Pick a topic, press play and discover
-            something interesting. Learning doesn't
-            have to be boring! 🚀
+            Simple explanations, interesting stories and
+            useful knowledge — all in one place.
 
         </p>
 
@@ -1412,534 +1974,691 @@ footer p {
 
 
 
-<!-- =====================================================
-     VIDEOS
-===================================================== -->
+<!-- =========================================================
+     VIDEO LIBRARY
+========================================================= -->
 
-<section class="video-section">
+<section class="video-library">
 
 
-    <div class="section-heading">
+    <!-- =====================================================
+         EDUCATIONAL ANIMATED BACKGROUND
+    ====================================================== -->
 
-        <h2>
-            🎬 Pick Something to Learn
-        </h2>
+    <div class="education-background">
 
-        <p>
-            Explore our latest educational videos.
-        </p>
 
-    </div>
+        <!-- GLOWS -->
 
+        <div class="edu-glow-yellow"></div>
 
+        <div class="edu-glow-blue"></div>
 
-    <!-- SEARCH -->
 
-    <div class="search-area">
+        <!-- BOOKS -->
 
-        <input
-            type="text"
-            id="videoSearch"
-            class="search-box"
-            placeholder="🔍  Search for a topic..."
-        >
-
-    </div>
-
-
-
-    <!-- FILTERS -->
-
-    <div class="filters">
-
-
-        <button
-            class="filter-btn active"
-            data-filter="all"
-        >
-
-            🌟 All
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="science"
-        >
-
-            🔬 Science
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="technology"
-        >
-
-            💻 Technology
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="civics"
-        >
-
-            🏛️ Civics
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="history"
-        >
-
-            📜 History
-
-        </button>
-
-
-        <button
-            class="filter-btn"
-            data-filter="general"
-        >
-
-            🌍 General
-
-        </button>
-
-
-    </div>
-
-
-
-    <!-- VIDEO GRID -->
-
-    <div
-        class="video-grid"
-        id="videoGrid"
-    >
-
-
-
-        <!-- VIDEO 1 -->
-
-        <article
-            class="video-card"
-            data-category="science"
-            data-title="Why Does the Sky Appear Blue?"
-        >
-
-            <div class="thumbnail thumbnail-one">
-
-                <div class="thumbnail-emoji">
-                    🌈
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    1:24
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    🔬 Science
-                </span>
-
-                <h3>
-                    Why Does the Sky Appear Blue?
-                </h3>
-
-                <p>
-                    A simple explanation of the
-                    science behind our blue sky.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEO 2 -->
-
-        <article
-            class="video-card"
-            data-category="technology"
-            data-title="How Does the Internet Work?"
-        >
-
-            <div class="thumbnail thumbnail-two">
-
-                <div class="thumbnail-emoji">
-                    🌐
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    2:10
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    💻 Technology
-                </span>
-
-                <h3>
-                    How Does the Internet Work?
-                </h3>
-
-                <p>
-                    Let's understand what happens
-                    when you open a website.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEO 3 -->
-
-        <article
-            class="video-card"
-            data-category="civics"
-            data-title="What Is Legislature?"
-        >
-
-            <div class="thumbnail thumbnail-three">
-
-                <div class="thumbnail-emoji">
-                    🏛️
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    1:45
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    🏛️ Civics
-                </span>
-
-                <h3>
-                    What Is Legislature?
-                </h3>
-
-                <p>
-                    Understand the basic idea of
-                    legislature in a simple way.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEO 4 -->
-
-        <article
-            class="video-card"
-            data-category="history"
-            data-title="Why Do We Study History?"
-        >
-
-            <div class="thumbnail thumbnail-four">
-
-                <div class="thumbnail-emoji">
-                    📜
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    1:38
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    📜 History
-                </span>
-
-                <h3>
-                    Why Do We Study History?
-                </h3>
-
-                <p>
-                    Discover why understanding the
-                    past helps us understand today.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEO 5 -->
-
-        <article
-            class="video-card"
-            data-category="science"
-            data-title="What Is Inflammation?"
-        >
-
-            <div class="thumbnail thumbnail-five">
-
-                <div class="thumbnail-emoji">
-                    🧬
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    1:52
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    🔬 Science
-                </span>
-
-                <h3>
-                    What Is Inflammation?
-                </h3>
-
-                <p>
-                    Understand the basic idea of
-                    inflammation using a simple example.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- VIDEO 6 -->
-
-        <article
-            class="video-card"
-            data-category="general"
-            data-title="Why Do We Need Sleep?"
-        >
-
-            <div class="thumbnail thumbnail-six">
-
-                <div class="thumbnail-emoji">
-                    😴
-                </div>
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-                <span class="duration">
-                    1:30
-                </span>
-
-            </div>
-
-
-            <div class="video-content">
-
-                <span class="video-subject">
-                    🌍 General
-                </span>
-
-                <h3>
-                    Why Do We Need Sleep?
-                </h3>
-
-                <p>
-                    Let's understand why sleep is
-                    important for our body and brain.
-                </p>
-
-                <a
-                    href="#"
-                    class="watch-link"
-                >
-                    Watch Video →
-                </a>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-
-
-    <!-- NO RESULTS -->
-
-    <div
-        class="no-results"
-        id="noResults"
-    >
-
-        <div class="emoji">
-            🔍
+        <div class="edu-book book-one">
+            📚
         </div>
 
-        <h3>
-            Hmm... nothing found!
-        </h3>
 
-        <p>
-            Try searching for another topic.
-        </p>
+        <div class="edu-book book-two">
+            📖
+        </div>
+
+
+        <div class="edu-book book-three">
+            📕
+        </div>
+
+
+        <!-- PLANETS -->
+
+        <div class="edu-planet planet-one">
+            🪐
+        </div>
+
+
+        <div class="edu-planet planet-two">
+            🌎
+        </div>
+
+
+        <!-- STARS -->
+
+        <div class="edu-star star-one">
+            ★
+        </div>
+
+
+        <div class="edu-star star-two">
+            ✦
+        </div>
+
+
+        <div class="edu-star star-three">
+            ★
+        </div>
+
+
+        <div class="edu-star star-four">
+            ✦
+        </div>
+
+
+        <div class="edu-star star-five">
+            ★
+        </div>
+
+
+        <!-- SPARKLES -->
+
+        <div class="sparkle sparkle-one">
+            ✨
+        </div>
+
+
+        <div class="sparkle sparkle-two">
+            ✦
+        </div>
+
+
+        <div class="sparkle sparkle-three">
+            ✨
+        </div>
+
+
+        <div class="sparkle sparkle-four">
+            ✦
+        </div>
+
+
+        <!-- PENCILS -->
+
+        <div class="edu-pencil pencil-one">
+            ✏️
+        </div>
+
+
+        <div class="edu-pencil pencil-two">
+            ✏️
+        </div>
+
+
+        <!-- SPACE OBJECTS -->
+
+        <div class="space-object space-one">
+            🚀
+        </div>
+
+
+        <div class="space-object space-two">
+            🌙
+        </div>
+
+
+        <div class="space-object space-three">
+            ☄️
+        </div>
+
+
+        <!-- DOTS -->
+
+        <div class="edu-dot one"></div>
+
+        <div class="edu-dot two"></div>
+
+        <div class="edu-dot three"></div>
+
+        <div class="edu-dot four"></div>
+
 
     </div>
 
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <div class="video-container">
+
+
+        <!-- =================================================
+             HEADING
+        ================================================== -->
+
+        <div class="library-heading">
+
+
+            <div class="library-label">
+
+                <span></span>
+
+                EXPLORE VIDEOS
+
+                <span></span>
+
+            </div>
+
+
+            <h2>
+
+                What do you want to
+
+                <em>learn?</em>
+
+            </h2>
+
+
+            <p>
+
+                Explore educational videos explained in a
+                simple and engaging way.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <div class="video-tools">
+
+
+            <div class="search-box">
+
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+
+                <input
+                    type="text"
+                    id="videoSearch"
+                    placeholder="Search videos..."
+                >
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <div class="video-filters">
+
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="science"
+            >
+                Science
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="health"
+            >
+                Health
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="education"
+            >
+                Education
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="general"
+            >
+                General
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             VIDEO GRID
+        ================================================== -->
+
+        <div
+            class="video-grid"
+            id="videoGrid"
+        >
+
+
+            <!-- =============================================
+                 VIDEO 1
+            ============================================== -->
+
+            <a
+                href="YOUR_YOUTUBE_LINK_1"
+                target="_blank"
+                class="video-card"
+                data-category="science"
+                data-title="Nephron Ultrafiltration"
+            >
+
+
+                <div class="video-thumbnail">
+
+
+                    <img
+                        src="images/Thumbnails/Nephron.jpeg"
+                        alt="Nephron and Ultrafiltration"
+                    >
+
+
+                    <div class="video-category">
+                        SCIENCE
+                    </div>
+
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="video-content">
+
+
+                    <h3>
+                        Nephron & Ultrafiltration
+                    </h3>
+
+
+                    <p>
+                        Understand how filtration happens
+                        inside the nephron.
+                    </p>
+
+
+                    <div class="watch-link">
+
+                        Watch on YouTube
+
+                        <span>
+                            →
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </a>
+
+
+
+            <!-- =============================================
+                 VIDEO 2
+            ============================================== -->
+
+            <a
+                href="YOUR_YOUTUBE_LINK_2"
+                target="_blank"
+                class="video-card"
+                data-category="health"
+                data-title="Panipuri Gut Bacteria"
+            >
+
+
+                <div class="video-thumbnail">
+
+
+                    <img
+                        src="images/Thumbnails/panipuri.jpeg"
+                        alt="Panipuri and Gut Bacteria"
+                    >
+
+
+                    <div class="video-category">
+                        HEALTH
+                    </div>
+
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="video-content">
+
+
+                    <h3>
+                        Panipuri & Gut Bacteria
+                    </h3>
+
+
+                    <p>
+                        A simple look at food and the
+                        bacteria living in our gut.
+                    </p>
+
+
+                    <div class="watch-link">
+
+                        Watch on YouTube
+
+                        <span>
+                            →
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </a>
+
+
+
+            <!-- =============================================
+                 VIDEO 3
+            ============================================== -->
+
+            <a
+                href="YOUR_YOUTUBE_LINK_3"
+                target="_blank"
+                class="video-card"
+                data-category="education"
+                data-title="Parenting Children"
+            >
+
+
+                <div class="video-thumbnail">
+
+
+                    <img
+                        src="images/Thumbnails/parents-meet.jpeg"
+                        alt="Parenting and Children"
+                    >
+
+
+                    <div class="video-category">
+                        EDUCATION
+                    </div>
+
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="video-content">
+
+
+                    <h3>
+                        Parenting & Children
+                    </h3>
+
+
+                    <p>
+                        Simple ideas that help parents
+                        understand children better.
+                    </p>
+
+
+                    <div class="watch-link">
+
+                        Watch on YouTube
+
+                        <span>
+                            →
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </a>
+
+
+
+            <!-- =============================================
+                 VIDEO 4
+            ============================================== -->
+
+            <a
+                href="YOUR_YOUTUBE_LINK_4"
+                target="_blank"
+                class="video-card"
+                data-category="science"
+                data-title="Photosynthesis"
+            >
+
+
+                <div class="video-thumbnail">
+
+
+                    <img
+                        src="images/Thumbnails/photosynthesis.jpeg"
+                        alt="Photosynthesis"
+                    >
+
+
+                    <div class="video-category">
+                        SCIENCE
+                    </div>
+
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="video-content">
+
+
+                    <h3>
+                        Photosynthesis
+                    </h3>
+
+
+                    <p>
+                        Learn how plants prepare their
+                        food using sunlight.
+                    </p>
+
+
+                    <div class="watch-link">
+
+                        Watch on YouTube
+
+                        <span>
+                            →
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </a>
+
+
+
+            <!-- =============================================
+                 VIDEO 5
+            ============================================== -->
+
+            <a
+                href="YOUR_YOUTUBE_LINK_5"
+                target="_blank"
+                class="video-card"
+                data-category="general"
+                data-title="Stars The Past"
+            >
+
+
+                <div class="video-thumbnail">
+
+
+                    <img
+                        src="images/Thumbnails/star-past.jpeg"
+                        alt="Stars and the Past"
+                    >
+
+
+                    <div class="video-category">
+                        GENERAL
+                    </div>
+
+
+                    <div class="play-button">
+                        ▶
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="video-content">
+
+
+                    <h3>
+                        Stars & The Past
+                    </h3>
+
+
+                    <p>
+                        Discover how looking at stars
+                        means looking into the past.
+                    </p>
+
+
+                    <div class="watch-link">
+
+                        Watch on YouTube
+
+                        <span>
+                            →
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             NO RESULTS
+        ================================================== -->
+
+        <div
+            class="no-results"
+            id="noResults"
+        >
+
+            No videos found.
+            Try another search.
+
+        </div>
+
+
+
+        <!-- =================================================
+             YOUTUBE CTA
+        ================================================== -->
+
+        <div class="video-cta">
+
+
+            <h3>
+                More Stories. More Learning.
+            </h3>
+
+
+            <p>
+                Follow Sir Tho Saradhaga on YouTube
+                for more educational videos.
+            </p>
+
+
+            <a
+                href="YOUR_YOUTUBE_CHANNEL_LINK"
+                target="_blank"
+                class="youtube-btn"
+            >
+
+                ▶ Visit YouTube Channel
+
+            </a>
+
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     BOTTOM CTA
-===================================================== -->
-
-<section class="bottom-message">
-
-
-    <div class="emoji">
-        🌟
-    </div>
-
-
-    <h2>
-        Keep Your Curiosity Alive!
-    </h2>
-
-
-    <p>
-
-        One video can lead to one question,
-        and one question can lead to something amazing.
-
-    </p>
-
-
-    <a
-        href="index.html"
-        class="home-cta"
-    >
-
-        🏠 Back to Home
-
-    </a>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-
-    <div class="footer-logo">
-
-        SIR THO SARADHAGA
-
-    </div>
-
-
-    <p>
-        Learn • Laugh • Grow
-    </p>
-
-
-</footer>
-
-
-
-<!-- =====================================================
-     SEARCH + FILTER JAVASCRIPT
-===================================================== -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
+
+
+const searchInput =
+    document.getElementById("videoSearch");
 
 
 const filterButtons =
@@ -1950,10 +2669,6 @@ const videoCards =
     document.querySelectorAll(".video-card");
 
 
-const searchInput =
-    document.getElementById("videoSearch");
-
-
 const noResults =
     document.getElementById("noResults");
 
@@ -1961,15 +2676,17 @@ const noResults =
 let currentFilter = "all";
 
 
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
 
-/* FILTER BUTTONS */
-
-filterButtons.forEach(function(button) {
-
-    button.addEventListener("click", function() {
+filterButtons.forEach(button => {
 
 
-        filterButtons.forEach(function(btn) {
+    button.addEventListener("click", () => {
+
+
+        filterButtons.forEach(btn => {
 
             btn.classList.remove("active");
 
@@ -1985,13 +2702,16 @@ filterButtons.forEach(function(button) {
 
         filterVideos();
 
+
     });
+
 
 });
 
 
-
-/* SEARCH */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 searchInput.addEventListener(
     "input",
@@ -1999,8 +2719,9 @@ searchInput.addEventListener(
 );
 
 
-
-/* FILTER FUNCTION */
+/* =========================================================
+   FILTER FUNCTION
+========================================================= */
 
 function filterVideos() {
 
@@ -2014,7 +2735,7 @@ function filterVideos() {
     let visibleCount = 0;
 
 
-    videoCards.forEach(function(card) {
+    videoCards.forEach(card => {
 
 
         const category =
@@ -2026,19 +2747,13 @@ function filterVideos() {
             .toLowerCase();
 
 
-        const content =
-            card.innerText
-            .toLowerCase();
-
-
         const categoryMatch =
             currentFilter === "all" ||
             category === currentFilter;
 
 
         const searchMatch =
-            title.includes(searchText) ||
-            content.includes(searchText);
+            title.includes(searchText);
 
 
         if (
@@ -2046,17 +2761,23 @@ function filterVideos() {
             searchMatch
         ) {
 
+
             card.style.display =
                 "block";
 
+
             visibleCount++;
 
+
         } else {
+
 
             card.style.display =
                 "none";
 
+
         }
+
 
     });
 
@@ -2072,6 +2793,7 @@ function filterVideos() {
             "none";
 
     }
+
 
 }
 

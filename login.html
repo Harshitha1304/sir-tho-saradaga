@@ -4,11 +4,32 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Login | Sir Tho Saradhaga</title>
 
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -16,342 +37,756 @@
             box-sizing: border-box;
         }
 
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
         body {
-            font-family: Arial, sans-serif;
+
+            font-family: "Poppins", sans-serif;
+
             min-height: 100vh;
-            background: #fff4d6;
+
+            background: #f6f8f7;
+
+            color: #172d40;
+
             overflow-x: hidden;
         }
 
-        /* =========================
-           PAGE
-        ========================= */
 
-        .page {
+        a {
+            text-decoration: none;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .login-page {
+
             min-height: 100vh;
+
             position: relative;
+
             overflow: hidden;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
-            padding: 30px;
+            padding: 40px 25px;
         }
 
 
-        /* =========================
-           BACKGROUND CIRCLES
-        ========================= */
 
-        .circle {
+        /* =====================================================
+           BACKGROUND BOUNCY EFFECTS
+        ===================================================== */
+
+        .bg-effect {
+
             position: absolute;
+
             border-radius: 50%;
+
+            pointer-events: none;
+
+            filter: blur(4px);
+
             z-index: 0;
         }
 
-        .circle.one {
-            width: 300px;
-            height: 300px;
-            background: #ffd84d;
 
-            top: -120px;
-            left: -90px;
-        }
+        .bg-one {
 
-        .circle.two {
-            width: 230px;
-            height: 230px;
-            background: #ff6b6b;
+            width: 430px;
+            height: 430px;
 
-            bottom: -100px;
-            right: -70px;
-        }
+            left: -180px;
+            top: -160px;
 
-        .circle.three {
-            width: 140px;
-            height: 140px;
-            background: #61d4ff;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(23,45,64,0.22) 0%,
+                    rgba(23,45,64,0.12) 40%,
+                    transparent 72%
+                );
 
-            top: 80px;
-            right: 8%;
-        }
-
-        .circle.four {
-            width: 100px;
-            height: 100px;
-            background: #9be564;
-
-            bottom: 100px;
-            left: 8%;
+            animation:
+                loginBounceOne
+                7s
+                ease-in-out
+                infinite;
         }
 
 
-        /* =========================
-           DECORATIONS
-        ========================= */
+        .bg-two {
 
-        .decoration {
-            position: absolute;
-            z-index: 2;
+            width: 360px;
+            height: 360px;
 
-            font-size: 42px;
+            right: -120px;
+            bottom: -130px;
 
-            animation: float 3s ease-in-out infinite;
-        }
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(23,60,80,0.25) 0%,
+                    rgba(23,60,80,0.12) 42%,
+                    transparent 72%
+                );
 
-        .book {
-            top: 12%;
-            left: 10%;
-        }
-
-        .bulb {
-            top: 15%;
-            right: 17%;
-
-            animation-delay: .5s;
-        }
-
-        .pencil {
-            bottom: 15%;
-            left: 16%;
-
-            animation-delay: 1s;
-        }
-
-        .rocket {
-            bottom: 12%;
-            right: 12%;
-
-            animation-delay: 1.5s;
-        }
-
-        .star {
-            top: 40%;
-            left: 4%;
-
-            animation-delay: 2s;
+            animation:
+                loginBounceTwo
+                8s
+                ease-in-out
+                infinite;
         }
 
 
-        @keyframes float {
+        .bg-three {
+
+            width: 170px;
+            height: 170px;
+
+            right: 18%;
+            top: 8%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(245,195,41,0.30),
+                    rgba(245,195,41,0.07) 55%,
+                    transparent 75%
+                );
+
+            animation:
+                loginBounceThree
+                6s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes loginBounceOne {
 
             0%,
             100% {
-                transform: translateY(0) rotate(-5deg);
+                transform:
+                    translate(0,0)
+                    scale(1);
             }
 
             50% {
-                transform: translateY(-12px) rotate(5deg);
+                transform:
+                    translate(110px,70px)
+                    scale(1.12);
             }
-
         }
 
 
-        /* =========================
-           MAIN CARD
-        ========================= */
+        @keyframes loginBounceTwo {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-100px,-70px)
+                    scale(1.12);
+            }
+        }
+
+
+        @keyframes loginBounceThree {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-50px,55px)
+                    scale(1.2);
+            }
+        }
+
+
+
+        /* =====================================================
+           FLOATING DECORATIONS
+        ===================================================== */
+
+        .floating {
+
+            position: absolute;
+
+            z-index: 1;
+
+            font-size: 30px;
+
+            pointer-events: none;
+
+            animation:
+                floatingObject
+                4s
+                ease-in-out
+                infinite;
+        }
+
+
+        .float-book {
+
+            left: 7%;
+            top: 22%;
+        }
+
+
+        .float-bulb {
+
+            right: 8%;
+            top: 24%;
+
+            animation-delay:
+                1s;
+        }
+
+
+        .float-star {
+
+            left: 9%;
+            bottom: 20%;
+
+            animation-delay:
+                1.5s;
+        }
+
+
+        .float-pencil {
+
+            right: 9%;
+            bottom: 18%;
+
+            animation-delay:
+                2s;
+        }
+
+
+        @keyframes floatingObject {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-14px)
+                    rotate(5deg);
+            }
+        }
+
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
 
         .login-card {
 
+            position: relative;
+
+            z-index: 5;
+
             width: 100%;
-            max-width: 1050px;
-            min-height: 620px;
 
-            background: white;
+            max-width: 1080px;
 
-            border-radius: 30px;
+            min-height: 610px;
+
+            display: grid;
+
+            grid-template-columns:
+                45% 55%;
 
             overflow: hidden;
 
-            display: grid;
-            grid-template-columns: 48% 52%;
+            border-radius: 30px;
 
-            position: relative;
-            z-index: 5;
+            background:
+                rgba(255,255,255,0.82);
+
+            border:
+                1px solid rgba(255,255,255,0.95);
 
             box-shadow:
-                0 20px 60px rgba(39, 51, 89, .20);
+                0 30px 70px rgba(23,45,64,0.16);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
         }
 
 
-        /* =========================
-           LEFT SIDE
-        ========================= */
 
-        .left-side {
+        /* =====================================================
+           LEFT SIDE
+        ===================================================== */
+
+        .login-left {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                55px 48px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
 
             background:
                 linear-gradient(
                     145deg,
-                    #182b62,
-                    #27469d,
-                    #4c62d8
+                    #172d40,
+                    #23445a
                 );
 
             color: white;
+        }
 
-            padding: 55px 45px;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        /* LEFT DECORATION */
+
+        .login-left::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            right: -130px;
+            top: -120px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            animation:
+                leftCircle
+                7s
+                ease-in-out
+                infinite;
+        }
+
+
+        .login-left::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            left: -100px;
+            bottom: -100px;
+
+            background:
+                rgba(245,195,41,0.12);
+
+            animation:
+                leftCircleTwo
+                8s
+                ease-in-out
+                infinite;
+        }
+
+
+        @keyframes leftCircle {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+                transform:
+                    translate(-45px,60px);
+            }
+        }
+
+
+        @keyframes leftCircleTwo {
+
+            0%,
+            100% {
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+                transform:
+                    translate(60px,-45px);
+            }
+        }
+
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .login-logo {
 
             position: relative;
 
-            overflow: hidden;
-        }
-
-
-        .left-side::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 250px;
-            height: 250px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.08);
-
-            top: -100px;
-            right: -80px;
-        }
-
-
-        .left-side::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,216,70,.15);
-
-            bottom: -70px;
-            left: -50px;
-        }
-
-
-        .logo {
-
-            font-size: 27px;
-            font-weight: 800;
-
-            color: #ffd84d;
-
-            margin-bottom: 30px;
-        }
-
-
-        .left-side h1 {
-
-            font-size: 42px;
-            line-height: 1.15;
-
-            margin-bottom: 20px;
-        }
-
-
-        .left-side p {
-
-            font-size: 18px;
-            line-height: 1.6;
-
-            color: #eef2ff;
-
-            max-width: 380px;
-        }
-
-
-        /* =========================
-           LEARNING ICONS
-        ========================= */
-
-        .learning-icons {
+            z-index: 2;
 
             display: flex;
-            gap: 18px;
 
-            margin-top: 40px;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 55px;
         }
 
 
-        .learning-icon {
+        .login-logo-mark {
 
-            width: 65px;
-            height: 65px;
-
-            border-radius: 18px;
+            width: 50px;
+            height: 50px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            font-size: 32px;
+            border-radius: 15px;
+
+            background:
+                #f5c329;
+
+            color:
+                #172d40;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px rgba(245,195,41,0.22);
         }
 
 
-        .icon-yellow {
-            background: #ffd84d;
-        }
-
-        .icon-pink {
-            background: #ff6b8a;
-        }
-
-        .icon-green {
-            background: #78d98b;
-        }
-
-
-        /* =========================
-           RIGHT SIDE
-        ========================= */
-
-        .right-side {
-
-            padding: 55px 65px;
-
-            background: #fffdf8;
+        .login-logo-text {
 
             display: flex;
+
             flex-direction: column;
-            justify-content: center;
         }
 
 
-        .right-side h2 {
+        .login-logo-text strong {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            line-height: 1.1;
+        }
+
+
+        .login-logo-text span {
+
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            color:
+                rgba(255,255,255,0.55);
+        }
+
+
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .login-left-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .left-small-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                7px 12px;
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid rgba(255,255,255,0.20);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color:
+                #f5c329;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.3px;
+        }
+
+
+        .left-small-label span {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                #f5c329;
+        }
+
+
+        .login-left h1 {
+
+            max-width: 420px;
+
+            margin-bottom: 20px;
+
+            font-size:
+                clamp(42px,5vw,62px);
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -2px;
+
+            font-weight: 800;
+        }
+
+
+        .login-left h1 span {
+
+            color:
+                #f5c329;
+        }
+
+
+        .login-left-description {
+
+            max-width: 400px;
+
+            color:
+                rgba(255,255,255,0.68);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =====================================================
+           LEARNING ITEMS
+        ===================================================== */
+
+        .learning-items {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 38px;
+        }
+
+
+        .learning-item {
+
+            width: 72px;
+            height: 72px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 19px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
+            backdrop-filter:
+                blur(8px);
+
+            font-size: 29px;
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .learning-item:hover {
+
+            transform:
+                translateY(-6px);
+
+            background:
+                rgba(245,195,41,0.15);
+
+            border-color:
+                rgba(245,195,41,0.30);
+        }
+
+
+
+        /* =====================================================
+           RIGHT SIDE
+        ===================================================== */
+
+        .login-right {
+
+            padding:
+                55px 65px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background:
+                rgba(255,255,255,0.72);
+        }
+
+
+        .login-right-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 13px;
+
+            color:
+                #172d40;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.6px;
+        }
+
+
+        .login-right-label span {
+
+            width: 38px;
+
+            height: 4px;
+
+            border-radius: 10px;
+
+            background:
+                #f5c329;
+        }
+
+
+        .login-right h2 {
+
+            margin-bottom: 8px;
+
+            color:
+                #172d40;
 
             font-size: 38px;
 
-            color: #182b62;
+            line-height: 1.1;
 
-            margin-bottom: 8px;
+            font-weight: 800;
         }
 
 
-        .subtitle {
+        .login-subtitle {
 
-            color: #777;
+            margin-bottom: 32px;
 
-            margin-bottom: 30px;
+            color:
+                #71808a;
 
-            font-size: 16px;
+            font-size: 14px;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            FORM
-        ========================= */
+        ===================================================== */
 
         .form-group {
 
@@ -363,13 +798,20 @@
 
             display: block;
 
-            font-size: 14px;
-
-            font-weight: bold;
-
-            color: #27304f;
-
             margin-bottom: 8px;
+
+            color:
+                #172d40;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
         }
 
 
@@ -377,112 +819,136 @@
 
             width: 100%;
 
-            padding: 15px 17px;
+            height: 52px;
 
-            border: 2px solid #e5e7ef;
+            padding:
+                0 17px;
 
-            border-radius: 14px;
+            border:
+                1.5px solid #dce3e6;
 
-            font-size: 15px;
+            border-radius:
+                14px;
 
-            outline: none;
+            outline:
+                none;
 
-            background: white;
+            background:
+                rgba(255,255,255,0.88);
 
-            transition: .2s;
+            color:
+                #172d40;
+
+            font-size:
+                14px;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .form-group input::placeholder {
+
+            color:
+                #9ba6ad;
         }
 
 
         .form-group input:focus {
 
-            border-color: #5b6ee1;
+            border-color:
+                #f5c329;
 
             box-shadow:
-                0 0 0 4px rgba(91,110,225,.10);
+                0 0 0 4px
+                rgba(245,195,41,0.12);
+
+            background:
+                white;
         }
 
 
-        /* =========================
-           PASSWORD INPUT
-        ========================= */
 
-        .password-input {
+        /* =====================================================
+           PASSWORD
+        ===================================================== */
 
-            position: relative;
+        .password-wrapper input {
 
-            width: 100%;
+            padding-right:
+                52px;
         }
 
-
-        .password-input input {
-
-            width: 100%;
-
-            padding-right: 52px;
-        }
-
-
-        /* REAL EYE BUTTON */
 
         .eye-btn {
 
             position: absolute;
 
-            right: 12px;
+            right: 10px;
+
             top: 50%;
 
-            transform: translateY(-50%);
+            transform:
+                translateY(-50%);
 
-            width: 34px;
-            height: 34px;
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
 
             border: none;
 
-            background: transparent;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background:
+                transparent;
 
             cursor: pointer;
 
-            font-size: 19px;
+            color:
+                #687781;
 
-            color: #536078;
+            font-size:
+                18px;
 
-            padding: 0;
-
-            z-index: 10;
-
-            transition: .2s;
+            transition:
+                0.2s ease;
         }
 
 
         .eye-btn:hover {
 
-            color: #273f91;
+            color:
+                #172d40;
 
             transform:
                 translateY(-50%)
-                scale(1.12);
+                scale(1.1);
         }
 
 
-        /* =========================
+
+        /* =====================================================
            OPTIONS
-        ========================= */
+        ===================================================== */
 
         .form-options {
 
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
-            align-items: center;
+            align-items:
+                center;
 
-            margin: 5px 0 24px;
+            margin:
+                3px 0 24px;
 
-            font-size: 13px;
+            font-size:
+                12px;
         }
 
 
@@ -490,203 +956,372 @@
 
             display: flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 7px;
+            gap:
+                7px;
 
-            color: #666;
+            color:
+                #69757d;
+
+            cursor:
+                pointer;
+        }
+
+
+        .remember input {
+
+            accent-color:
+                #f5c329;
         }
 
 
         .forgot {
 
-            color: #e94f64;
+            color:
+                #526875;
 
-            text-decoration: none;
+            font-weight:
+                600;
 
-            font-weight: bold;
+            transition:
+                0.2s ease;
         }
 
 
-        /* =========================
+        .forgot:hover {
+
+            color:
+                #172d40;
+        }
+
+
+
+        /* =====================================================
            LOGIN BUTTON
-        ========================= */
+        ===================================================== */
 
         .login-submit {
 
             width: 100%;
 
+            height: 54px;
+
             border: none;
 
             border-radius: 14px;
 
-            padding: 16px;
-
             background:
-                linear-gradient(
-                    90deg,
-                    #ff5f6d,
-                    #ff8a5b
-                );
+                #172d40;
 
-            color: white;
+            color:
+                white;
 
-            font-size: 17px;
+            font-size:
+                15px;
 
-            font-weight: bold;
+            font-weight:
+                700;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
             box-shadow:
-                0 8px 20px
-                rgba(255,95,109,.25);
+                0 10px 22px
+                rgba(23,45,64,0.18);
 
-            transition: .2s;
+            transition:
+                0.3s ease;
         }
 
 
         .login-submit:hover {
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-3px);
+
+            background:
+                #f5c329;
+
+            color:
+                #172d40;
 
             box-shadow:
-                0 12px 25px
-                rgba(255,95,109,.35);
+                0 14px 28px
+                rgba(23,45,64,0.18);
         }
 
 
-        /* =========================
+
+        /* =====================================================
            DIVIDER
-        ========================= */
+        ===================================================== */
 
         .divider {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 12px;
+            gap:
+                12px;
 
-            margin: 25px 0;
+            margin:
+                25px 0;
 
-            color: #aaa;
+            color:
+                #a1aaaf;
 
-            font-size: 13px;
+            font-size:
+                11px;
         }
 
 
         .divider::before,
         .divider::after {
 
-            content: "";
+            content:
+                "";
 
-            height: 1px;
+            flex:
+                1;
 
-            flex: 1;
+            height:
+                1px;
 
-            background: #ddd;
+            background:
+                #e2e6e8;
         }
 
 
-        /* =========================
-           SIGNUP
-        ========================= */
+
+        /* =====================================================
+           SIGN UP
+        ===================================================== */
 
         .signup-text {
 
-            text-align: center;
+            text-align:
+                center;
 
-            color: #666;
+            color:
+                #738089;
 
-            font-size: 14px;
+            font-size:
+                13px;
         }
 
 
         .signup-text a {
 
-            color: #e94f64;
+            color:
+                #172d40;
 
-            font-weight: bold;
+            font-weight:
+                700;
 
-            text-decoration: none;
+            transition:
+                0.2s ease;
+        }
+
+
+        .signup-text a:hover {
+
+            color:
+                #b58a00;
         }
 
 
         .back-home {
 
-            display: block;
+            display:
+                block;
 
-            text-align: center;
+            width:
+                fit-content;
 
-            margin-top: 20px;
+            margin:
+                20px auto 0;
 
-            color: #273f91;
+            color:
+                #667781;
 
-            text-decoration: none;
+            font-size:
+                12px;
 
-            font-size: 14px;
+            font-weight:
+                600;
 
-            font-weight: bold;
+            transition:
+                0.2s ease;
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        .back-home:hover {
 
-        @media (max-width: 850px) {
+            color:
+                #172d40;
+
+            transform:
+                translateX(-3px);
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
 
             .login-card {
 
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
 
-                max-width: 550px;
+                max-width:
+                    550px;
             }
 
-            .left-side {
 
-                padding: 40px;
+            .login-left {
+
+                padding:
+                    45px 40px;
             }
 
-            .left-side h1 {
 
-                font-size: 32px;
+            .login-left h1 {
+
+                font-size:
+                    48px;
             }
 
-            .right-side {
 
-                padding: 40px;
+            .login-right {
+
+                padding:
+                    45px 40px;
+            }
+
+
+            .float-book,
+            .float-bulb,
+            .float-star,
+            .float-pencil {
+
+                opacity:
+                    0.45;
             }
 
         }
 
 
-        @media (max-width: 500px) {
 
-            .page {
+        @media (max-width: 600px) {
 
-                padding: 15px;
+            .login-page {
+
+                padding:
+                    20px 15px;
             }
 
-            .left-side,
-            .right-side {
 
-                padding: 30px 25px;
+            .login-card {
+
+                border-radius:
+                    24px;
             }
 
-            .left-side h1 {
 
-                font-size: 28px;
+            .login-left {
+
+                padding:
+                    35px 28px;
             }
 
-            .right-side h2 {
 
-                font-size: 30px;
+            .login-logo {
+
+                margin-bottom:
+                    35px;
             }
 
-            .decoration {
 
-                display: none;
+            .login-left h1 {
+
+                font-size:
+                    40px;
+            }
+
+
+            .login-left-description {
+
+                font-size:
+                    13px;
+            }
+
+
+            .learning-item {
+
+                width:
+                    58px;
+
+                height:
+                    58px;
+
+                font-size:
+                    24px;
+            }
+
+
+            .login-right {
+
+                padding:
+                    35px 28px;
+            }
+
+
+            .login-right h2 {
+
+                font-size:
+                    31px;
+            }
+
+
+            .floating {
+
+                display:
+                    none;
+            }
+
+        }
+
+
+
+        @media (max-width: 400px) {
+
+            .login-left h1 {
+
+                font-size:
+                    35px;
+            }
+
+
+            .login-right h2 {
+
+                font-size:
+                    28px;
+            }
+
+
+            .form-options {
+
+                font-size:
+                    11px;
             }
 
         }
@@ -696,61 +1331,132 @@
 </head>
 
 
+
 <body>
 
 
-<div class="page">
-
-    <!-- BACKGROUND DECORATIONS -->
-
-    <div class="circle one"></div>
-    <div class="circle two"></div>
-    <div class="circle three"></div>
-    <div class="circle four"></div>
-
-    <div class="decoration book">📚</div>
-    <div class="decoration bulb">💡</div>
-    <div class="decoration pencil">✏️</div>
-    <div class="decoration rocket">🚀</div>
-    <div class="decoration star">⭐</div>
+<div class="login-page">
 
 
-    <!-- LOGIN CARD -->
+    <!-- =================================================
+         BACKGROUND
+    ================================================= -->
+
+    <div class="bg-effect bg-one"></div>
+
+    <div class="bg-effect bg-two"></div>
+
+    <div class="bg-effect bg-three"></div>
+
+
+    <!-- FLOATING EDUCATION OBJECTS -->
+
+    <div class="floating float-book">
+        📚
+    </div>
+
+    <div class="floating float-bulb">
+        💡
+    </div>
+
+    <div class="floating float-star">
+        ⭐
+    </div>
+
+    <div class="floating float-pencil">
+        ✏️
+    </div>
+
+
+
+    <!-- =================================================
+         LOGIN CARD
+    ================================================= -->
 
     <div class="login-card">
 
 
-        <!-- LEFT -->
+        <!-- =============================================
+             LEFT SIDE
+        ============================================== -->
 
-        <div class="left-side">
+        <div class="login-left">
 
-            <div class="logo">
-                SIR THO SARADHAGA
+
+            <!-- LOGO -->
+
+            <div class="login-logo">
+
+                <div class="login-logo-mark">
+                    STS
+                </div>
+
+                <div class="login-logo-text">
+
+                    <strong>
+                        Sir Tho Saradhaga
+                    </strong>
+
+                    <span>
+                        LEARN • LAUGH • GROW
+                    </span>
+
+                </div>
+
             </div>
 
-            <h1>
-                Welcome Back! 👋
-            </h1>
 
-            <p>
-                Ready to learn something new today?
-                Come back, explore, ask questions
-                and keep your curiosity alive! 🌟
-            </p>
+            <!-- CONTENT -->
+
+            <div class="login-left-content">
 
 
-            <div class="learning-icons">
+                <div class="left-small-label">
 
-                <div class="learning-icon icon-yellow">
-                    💡
+                    <span></span>
+
+                    WELCOME BACK
+
                 </div>
 
-                <div class="learning-icon icon-pink">
-                    📖
-                </div>
 
-                <div class="learning-icon icon-green">
-                    🚀
+                <h1>
+
+                    Let's continue
+
+                    <br>
+
+                    <span>
+                        learning.
+                    </span>
+
+                </h1>
+
+
+                <p class="login-left-description">
+
+                    Come back, explore interesting ideas,
+                    ask questions and keep your curiosity alive.
+
+                </p>
+
+
+                <!-- LEARNING ICONS -->
+
+                <div class="learning-items">
+
+                    <div class="learning-item">
+                        💡
+                    </div>
+
+                    <div class="learning-item">
+                        📖
+                    </div>
+
+                    <div class="learning-item">
+                        🚀
+                    </div>
+
                 </div>
 
             </div>
@@ -758,18 +1464,37 @@
         </div>
 
 
-        <!-- RIGHT -->
 
-        <div class="right-side">
+        <!-- =============================================
+             RIGHT SIDE
+        ============================================== -->
+
+        <div class="login-right">
+
+
+            <div class="login-right-label">
+
+                <span></span>
+
+                STUDENT LOGIN
+
+            </div>
+
 
             <h2>
-                Let's Learn! 🎓
+                Let's Learn! 👋
             </h2>
 
-            <p class="subtitle">
+
+            <p class="login-subtitle">
+
                 Login to continue your learning journey.
+
             </p>
 
+
+
+            <!-- LOGIN FORM -->
 
             <form id="loginForm">
 
@@ -782,14 +1507,17 @@
                         Email Address
                     </label>
 
+
                     <input
                         type="email"
                         id="email"
                         placeholder="Enter your email"
+                        autocomplete="email"
                         required
                     >
 
                 </div>
+
 
 
                 <!-- PASSWORD -->
@@ -801,14 +1529,16 @@
                     </label>
 
 
-                    <div class="password-input">
+                    <div class="input-wrapper password-wrapper">
 
                         <input
                             type="password"
                             id="password"
                             placeholder="Enter your password"
+                            autocomplete="current-password"
                             required
                         >
+
 
                         <button
                             type="button"
@@ -824,9 +1554,11 @@
                 </div>
 
 
+
                 <!-- OPTIONS -->
 
                 <div class="form-options">
+
 
                     <label class="remember">
 
@@ -851,20 +1583,30 @@
                 </div>
 
 
+
+                <!-- LOGIN -->
+
                 <button
                     type="submit"
                     class="login-submit"
                 >
-                    Login 🚀
+                    Login →
                 </button>
+
 
             </form>
 
+
+
+            <!-- DIVIDER -->
 
             <div class="divider">
                 OR
             </div>
 
+
+
+            <!-- SIGNUP -->
 
             <p class="signup-text">
 
@@ -877,12 +1619,15 @@
             </p>
 
 
+            <!-- HOME -->
+
             <a
                 href="index.html"
                 class="back-home"
             >
                 ← Back to Home
             </a>
+
 
         </div>
 
@@ -891,12 +1636,13 @@
 </div>
 
 
+
 <script>
 
 
-/* =========================
+/* =====================================================
    SHOW / HIDE PASSWORD
-========================= */
+===================================================== */
 
 const passwordInput =
     document.getElementById("password");
@@ -910,15 +1656,12 @@ loginEye.addEventListener(
     function () {
 
         if (
-            passwordInput.type ===
-            "password"
+            passwordInput.type === "password"
         ) {
 
-            passwordInput.type =
-                "text";
+            passwordInput.type = "text";
 
-            loginEye.textContent =
-                "🙈";
+            loginEye.textContent = "🙈";
 
             loginEye.setAttribute(
                 "aria-label",
@@ -927,11 +1670,9 @@ loginEye.addEventListener(
 
         } else {
 
-            passwordInput.type =
-                "password";
+            passwordInput.type = "password";
 
-            loginEye.textContent =
-                "👁";
+            loginEye.textContent = "👁";
 
             loginEye.setAttribute(
                 "aria-label",
@@ -944,9 +1685,11 @@ loginEye.addEventListener(
 );
 
 
-/* =========================
+
+/* =====================================================
    LOGIN
-========================= */
+   Same functionality as your existing page
+===================================================== */
 
 const loginForm =
     document.getElementById("loginForm");
@@ -971,6 +1714,8 @@ loginForm.addEventListener(
             passwordInput.value;
 
 
+        /* EMAIL VALIDATION */
+
         const emailPattern =
             /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -985,6 +1730,8 @@ loginForm.addEventListener(
         }
 
 
+        /* PASSWORD LENGTH */
+
         if (password.length < 8) {
 
             alert(
@@ -995,7 +1742,7 @@ loginForm.addEventListener(
         }
 
 
-        /* Get saved account */
+        /* GET SAVED ACCOUNT */
 
         const savedUser =
             JSON.parse(
@@ -1016,7 +1763,7 @@ loginForm.addEventListener(
         }
 
 
-        /* Check email */
+        /* CHECK EMAIL */
 
         if (
             savedUser.email !== email
@@ -1030,7 +1777,7 @@ loginForm.addEventListener(
         }
 
 
-        /* Check password */
+        /* CHECK PASSWORD */
 
         if (
             savedUser.password !== password
@@ -1052,7 +1799,7 @@ loginForm.addEventListener(
         );
 
 
-        /* Go to landing page */
+        /* GO TO HOME */
 
         window.location.href =
             "index.html";
@@ -1064,4 +1811,5 @@ loginForm.addEventListener(
 
 
 </body>
+
 </html>
