@@ -5,21 +5,1906 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Ask a Question | Sir Tho Saradhaga</title>
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Poppins", sans-serif;
+
+            background: #071c2b;
+
+            color: #102238;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .top-bar {
+
+            height: 76px;
+
+            width: 100%;
+
+            padding: 0 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background:
+                rgba(7, 23, 36, 0.97);
+
+            border-bottom:
+                1px solid
+                rgba(245,195,41,.15);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,.15);
+
+            position: relative;
+
+            z-index: 50;
+        }
+
+
+
+        /* =====================================================
+           LOGO
+           SAME STYLE AS HOME PAGE
+        ===================================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo-mark {
+
+            position: relative;
+
+            width: 48px;
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            transform: rotate(-5deg);
+        }
+
+
+        .logo-mark::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 1px;
+
+            bottom: -5px;
+
+            width: 42px;
+
+            height: 3px;
+
+            background: #f5c329;
+
+            border-radius: 50%;
+
+            transform: rotate(-5deg);
+        }
+
+
+        .logo-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 1px;
+        }
+
+
+        .logo-text strong {
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 22px;
+
+            font-weight: 600;
+        }
+
+
+        .logo-text span {
+
+            color: #9baab8;
+
+            font-size: 7px;
+
+            letter-spacing: 1.4px;
+        }
+
+
+
+        /* =====================================================
+           HOME BUTTON
+        ===================================================== */
+
+        .home-button {
+
+            background: #f5c329;
+
+            color: #102238;
+
+            padding: 9px 19px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: .25s;
+
+            box-shadow:
+                0 7px 20px
+                rgba(245,195,41,.18);
+        }
+
+
+        .home-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            background: #ffd95c;
+
+            box-shadow:
+                0 12px 25px
+                rgba(245,195,41,.25);
+        }
+
+
+
+        /* =====================================================
+           HERO
+           SAME SIZE STYLE AS SUBJECTS PAGE
+        ===================================================== */
+
+        .question-hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 245px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(245,195,41,.18),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(53,200,237,.18),
+                    transparent 27%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #092238,
+                    #0e334b 55%,
+                    #09283d
+                );
+        }
+
+
+
+        /* =====================================================
+           HERO FLOATING ANIMATIONS
+        ===================================================== */
+
+        .floating-item {
+
+            position: absolute;
+
+            z-index: 2;
+
+            font-size: 35px;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 8px 12px
+                    rgba(0,0,0,.18)
+                );
+
+            animation:
+                floatAround 4s
+                ease-in-out infinite;
+        }
+
+
+        .item-one {
+
+            left: 9%;
+
+            bottom: 30px;
+        }
+
+
+        .item-two {
+
+            right: 10%;
+
+            top: 28px;
+
+            animation-delay: .6s;
+        }
+
+
+        .item-three {
+
+            left: 20%;
+
+            top: 35px;
+
+            animation-delay: 1s;
+        }
+
+
+        .item-four {
+
+            right: 5%;
+
+            bottom: 35px;
+
+            animation-delay: 1.4s;
+        }
+
+
+        .item-five {
+
+            left: 5%;
+
+            top: 75px;
+
+            animation-delay: 1.8s;
+        }
+
+
+        .item-six {
+
+            right: 24%;
+
+            bottom: 25px;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes floatAround {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-15px)
+                    rotate(7deg);
+            }
+        }
+
+
+
+        /* =====================================================
+           HERO INNER
+        ===================================================== */
+
+        .hero-inner {
+
+            position: relative;
+
+            z-index: 5;
+
+            padding: 30px 20px;
+
+            max-width: 750px;
+        }
+
+
+        .question-badge {
+
+            display: inline-block;
+
+            background:
+                rgba(245,195,41,.12);
+
+            color: #f5c329;
+
+            padding: 7px 16px;
+
+            border:
+                1px solid
+                rgba(245,195,41,.35);
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+
+            animation:
+                badgePulse 3s
+                ease-in-out infinite;
+        }
+
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-3px);
+            }
+        }
+
+
+        .question-hero h1 {
+
+            font-size: 43px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            color: #ffffff;
+
+            margin-bottom: 9px;
+        }
+
+
+        .question-hero h1 span {
+
+            color: #f5c329;
+        }
+
+
+        .question-hero p {
+
+            max-width: 560px;
+
+            margin: auto;
+
+            color:
+                rgba(255,255,255,.68);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+
+        /* =====================================================
+           QUESTION CLOUD
+        ===================================================== */
+
+        .question-cloud {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 18px;
+        }
+
+
+        .question-cloud span {
+
+            padding: 7px 14px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            color: #ffffff;
+
+            backdrop-filter:
+                blur(10px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,.12);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            animation:
+                cloudFloat 3s
+                ease-in-out infinite;
+        }
+
+
+        .question-cloud span:nth-child(2) {
+
+            animation-delay: .5s;
+
+            color: #f5c329;
+        }
+
+
+        .question-cloud span:nth-child(3) {
+
+            animation-delay: 1s;
+
+            color: #35c8ed;
+        }
+
+
+        @keyframes cloudFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-6px);
+            }
+        }
+
+
+
+        /* =====================================================
+           MAIN QUESTION SECTION
+        ===================================================== */
+
+        .question-section {
+
+            padding:
+                70px 20px 85px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 5% 10%,
+                    rgba(245,195,41,.10),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 95% 80%,
+                    rgba(53,200,237,.10),
+                    transparent 25%
+                ),
+
+                #0e2d42;
+        }
+
+
+        .question-section::before {
+
+            content: "✦";
+
+            position: absolute;
+
+            left: 3%;
+
+            top: 25px;
+
+            color: #f5c329;
+
+            font-size: 75px;
+
+            opacity: .25;
+
+            animation:
+                starFloat 4s
+                ease-in-out infinite;
+        }
+
+
+        .question-section::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            right: 4%;
+
+            bottom: 25px;
+
+            color: #35c8ed;
+
+            font-size: 85px;
+
+            opacity: .25;
+
+            animation:
+                starFloat 5s
+                ease-in-out infinite
+                reverse;
+        }
+
+
+        @keyframes starFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-15px)
+                    rotate(15deg);
+            }
+        }
+
+
+
+        /* =====================================================
+           LAYOUT
+        ===================================================== */
+
+        .question-layout {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            gap: 55px;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+
+        /* =====================================================
+           LEFT SIDE
+        ===================================================== */
+
+        .question-info {
+
+            padding: 10px;
+        }
+
+
+        .big-question {
+
+            width: 78px;
+
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 40px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5c329,
+                    #ffd95c
+                );
+
+            border:
+                2px solid
+                rgba(255,255,255,.35);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 15px 30px
+                rgba(0,0,0,.20);
+
+            transform:
+                rotate(-5deg);
+
+            animation:
+                questionBounce 3s
+                ease-in-out infinite;
+        }
+
+
+        @keyframes questionBounce {
+
+            0%,
+            100% {
+
+                transform:
+                    rotate(-5deg)
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    rotate(4deg)
+                    translateY(-8px);
+            }
+        }
+
+
+        .question-info h2 {
+
+            margin-top: 25px;
+
+            font-size: 38px;
+
+            line-height: 1.05;
+
+            font-weight: 800;
+
+            color: #ffffff;
+        }
+
+
+        .question-info h2 span {
+
+            color: #f5c329;
+        }
+
+
+        .question-info > p {
+
+            margin-top: 16px;
+
+            line-height: 1.8;
+
+            color:
+                rgba(255,255,255,.65);
+
+            max-width: 470px;
+
+            font-size: 13px;
+        }
+
+
+
+        /* =====================================================
+           IDEA LIST
+        ===================================================== */
+
+        .idea-list {
+
+            margin-top: 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+
+        .idea {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .idea-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            font-size: 22px;
+
+            box-shadow:
+                0 10px 20px
+                rgba(0,0,0,.15);
+
+            transition:
+                transform .3s ease;
+        }
+
+
+        .idea:hover .idea-icon {
+
+            transform:
+                scale(1.1)
+                rotate(5deg);
+        }
+
+
+        .idea-icon.yellow {
+
+            background:
+                rgba(245,195,41,.18);
+        }
+
+
+        .idea-icon.pink {
+
+            background:
+                rgba(255,125,160,.18);
+        }
+
+
+        .idea-icon.blue {
+
+            background:
+                rgba(53,200,237,.18);
+        }
+
+
+        .idea strong {
+
+            display: block;
+
+            font-size: 14px;
+
+            color: #ffffff;
+        }
+
+
+        .idea small {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color:
+                rgba(255,255,255,.52);
+
+            font-size: 10px;
+        }
+
+
+
+        /* =====================================================
+           QUESTION CARD
+        ===================================================== */
+
+        .question-card {
+
+            position: relative;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            border-radius: 26px;
+
+            padding: 30px;
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                0 25px 55px
+                rgba(0,0,0,.25);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .question-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 30px 65px
+                rgba(0,0,0,.30);
+        }
+
+
+
+        /* =====================================================
+           CARD TOP
+        ===================================================== */
+
+        .card-top {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 24px;
+        }
+
+
+        .mini-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5c329,
+                    #ffd95c
+                );
+
+            border-radius: 16px;
+
+            font-size: 27px;
+
+            box-shadow:
+                0 10px 20px
+                rgba(245,195,41,.18);
+
+            transform:
+                rotate(-5deg);
+
+            animation:
+                pencilFloat 3s
+                ease-in-out infinite;
+        }
+
+
+        @keyframes pencilFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    rotate(-5deg)
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    rotate(5deg)
+                    translateY(-5px);
+            }
+        }
+
+
+        .card-top h2 {
+
+            font-size: 24px;
+
+            color: #ffffff;
+
+            font-weight: 800;
+        }
+
+
+        .card-top p {
+
+            margin-top: 4px;
+
+            color:
+                rgba(255,255,255,.55);
+
+            font-size: 11px;
+        }
+
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 17px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #ffffff;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.16);
+
+            border-radius: 13px;
+
+            padding: 13px 14px;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            font-size: 12px;
+
+            color: #ffffff;
+
+            background:
+                rgba(255,255,255,.07);
+
+            outline: none;
+
+            transition:
+                .25s;
+        }
+
+
+        .form-group select option {
+
+            background: #102b40;
+
+            color: #ffffff;
+        }
+
+
+        .form-group textarea {
+
+            resize: vertical;
+
+            min-height: 115px;
+        }
+
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+
+            color:
+                rgba(255,255,255,.40);
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                #f5c329;
+
+            background:
+                rgba(255,255,255,.10);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(245,195,41,.10);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+
+        /* =====================================================
+           SUBMIT BUTTON
+        ===================================================== */
+
+        .submit-button {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 14px;
+
+            padding: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5c329,
+                    #ffd95c
+                );
+
+            color: #102238;
+
+            font-family:
+                "Poppins",
+                sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 25px
+                rgba(245,195,41,.18);
+
+            transition:
+                .25s;
+        }
+
+
+        .submit-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 18px 32px
+                rgba(245,195,41,.28);
+        }
+
+
+        .submit-button:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        .form-note {
+
+            text-align: center;
+
+            margin-top: 13px;
+
+            font-size: 10px;
+
+            color:
+                rgba(255,255,255,.45);
+        }
+
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        .success-message {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 30px 10px;
+        }
+
+
+        .success-icon {
+
+            width: 82px;
+
+            height: 82px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5c329,
+                    #ffd95c
+                );
+
+            border-radius: 50%;
+
+            font-size: 40px;
+
+            box-shadow:
+                0 15px 30px
+                rgba(245,195,41,.18);
+
+            animation:
+                successPop .6s ease;
+        }
+
+
+        @keyframes successPop {
+
+            0% {
+
+                transform:
+                    scale(0);
+            }
+
+            70% {
+
+                transform:
+                    scale(1.15);
+            }
+
+            100% {
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        .success-message h3 {
+
+            margin-top: 18px;
+
+            font-size: 28px;
+
+            color: #ffffff;
+
+            font-weight: 800;
+        }
+
+
+        .success-message p {
+
+            margin:
+                10px auto 20px;
+
+            max-width: 350px;
+
+            color:
+                rgba(255,255,255,.60);
+
+            line-height: 1.6;
+
+            font-size: 12px;
+        }
+
+
+        .success-message button {
+
+            border: none;
+
+            background: #f5c329;
+
+            color: #102238;
+
+            padding: 10px 20px;
+
+            border-radius: 25px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(245,195,41,.18);
+
+            transition:
+                .25s;
+        }
+
+
+        .success-message button:hover {
+
+            transform:
+                translateY(-3px);
+
+            background: #ffd95c;
+        }
+
+
+
+        /* =====================================================
+           CURIOSITY SECTION
+        ===================================================== */
+
+        .curiosity-section {
+
+            padding:
+                70px 20px;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 30%,
+                    rgba(245,195,41,.15),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(53,200,237,.16),
+                    transparent 25%
+                ),
+
+                #09283d;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+
+        .curiosity-section::before {
+
+            content: "💡";
+
+            position: absolute;
+
+            left: 8%;
+
+            top: 25px;
+
+            font-size: 45px;
+
+            animation:
+                floatAround 4s
+                ease-in-out infinite;
+        }
+
+
+        .curiosity-section::after {
+
+            content: "📚";
+
+            position: absolute;
+
+            right: 8%;
+
+            bottom: 25px;
+
+            font-size: 45px;
+
+            animation:
+                floatAround 4.5s
+                ease-in-out infinite
+                reverse;
+        }
+
+
+        .curiosity-content {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .curiosity-emoji {
+
+            font-size: 55px;
+
+            animation:
+                brainBounce 2s
+                ease-in-out infinite;
+        }
+
+
+        @keyframes brainBounce {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px);
+            }
+        }
+
+
+        .curiosity-section h2 {
+
+            margin-top: 12px;
+
+            font-size: 38px;
+
+            line-height: 1;
+
+            color: #ffffff;
+
+            font-weight: 800;
+        }
+
+
+        .curiosity-section h2 span {
+
+            color: #f5c329;
+        }
+
+
+        .curiosity-section p {
+
+            max-width: 650px;
+
+            margin:
+                16px auto;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255,255,255,.62);
+
+            font-size: 13px;
+        }
+
+
+
+        /* =====================================================
+           QUESTION STEPS
+        ===================================================== */
+
+        .question-steps {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 13px;
+
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+
+        .question-steps div {
+
+            min-width: 125px;
+
+            padding: 14px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            border-radius: 16px;
+
+            backdrop-filter:
+                blur(12px);
+
+            transition:
+                .25s;
+        }
+
+
+        .question-steps div:hover {
+
+            transform:
+                translateY(-6px)
+                rotate(-2deg);
+
+            background:
+                rgba(245,195,41,.12);
+        }
+
+
+        .question-steps strong {
+
+            display: block;
+
+            font-size: 19px;
+
+            color: #f5c329;
+        }
+
+
+        .question-steps span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            font-size: 11px;
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .question-footer {
+
+            padding:
+                40px 20px 25px;
+
+            background: #051521;
+
+            color: white;
+
+            text-align: center;
+        }
+
+
+        .footer-logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 28px;
+
+            font-weight: 700;
+        }
+
+
+        .footer-logo-mark {
+
+            color: #ffffff;
+
+            font-size: 28px;
+        }
+
+
+        .question-footer > p {
+
+            margin-top: 4px;
+
+            color:
+                #9baab8;
+
+            font-size: 9px;
+
+            letter-spacing: 1.4px;
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 24px;
+
+            margin: 20px 0;
+
+            flex-wrap: wrap;
+        }
+
+
+        .footer-links a {
+
+            color:
+                rgba(255,255,255,.70);
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            transition:
+                .25s;
+        }
+
+
+        .footer-links a:hover {
+
+            color: #f5c329;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .footer-social {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+
+        .footer-social a {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(245,195,41,.10);
+
+            color: #f5c329;
+
+            font-size: 17px;
+
+            border:
+                1px solid
+                rgba(245,195,41,.25);
+
+            transition:
+                .25s;
+        }
+
+
+        .footer-social a:hover {
+
+            transform:
+                translateY(-5px);
+
+            background:
+                rgba(245,195,41,.18);
+        }
+
+
+        .copyright {
+
+            margin-top: 20px;
+
+            padding-top: 16px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.10);
+
+            color:
+                rgba(255,255,255,.40);
+
+            font-size: 9px;
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .question-layout {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+
+            .question-info {
+
+                text-align: center;
+            }
+
+
+            .big-question {
+
+                margin: auto;
+            }
+
+
+            .question-info > p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .idea {
+
+                justify-content: center;
+
+                text-align: left;
+            }
+
+        }
+
+
+
+        @media (max-width: 600px) {
+
+            .top-bar {
+
+                padding:
+                    0 18px;
+            }
+
+
+            .logo-mark {
+
+                font-size: 28px;
+
+                width: 42px;
+            }
+
+
+            .logo-text strong {
+
+                font-size: 19px;
+            }
+
+
+            .home-button {
+
+                padding:
+                    8px 14px;
+
+                font-size: 11px;
+            }
+
+
+            .question-hero {
+
+                min-height: 220px;
+            }
+
+
+            .question-hero h1 {
+
+                font-size: 36px;
+            }
+
+
+            .question-hero p {
+
+                font-size: 12px;
+            }
+
+
+            .floating-item {
+
+                font-size: 27px;
+            }
+
+
+            .question-section {
+
+                padding:
+                    55px 18px;
+            }
+
+
+            .question-info h2 {
+
+                font-size: 34px;
+            }
+
+
+            .question-card {
+
+                padding: 22px;
+
+                border-radius: 22px;
+            }
+
+
+            .curiosity-section {
+
+                padding:
+                    60px 20px;
+            }
+
+
+            .curiosity-section h2 {
+
+                font-size: 32px;
+            }
+
+        }
+
+
+
+        @media (max-width: 400px) {
+
+            .logo-text span {
+
+                display: none;
+            }
+
+
+            .question-cloud span {
+
+                padding:
+                    6px 11px;
+
+                font-size: 10px;
+            }
+
+
+            .question-card {
+
+                padding: 18px;
+            }
+
+
+            .card-top h2 {
+
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -27,1921 +1912,734 @@
 <body>
 
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
 
-<header class="top-bar">
+    <!-- =====================================================
+         TOP BAR
+    ===================================================== -->
 
-    <a href="index.html" class="logo">
-
-        SIR THO
-        <br>
-        SARADHAGA
-
-        <small>
-            LEARN • LAUGH • GROW
-        </small>
-
-    </a>
+    <header class="top-bar">
 
 
-    <a href="index.html" class="home-button">
-        ← Home
-    </a>
+        <a
+            href="index.html"
+            class="logo"
+        >
 
-</header>
+            <div class="logo-mark">
+                STS
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Sir Tho Saradhaga
+                </strong>
+
+                <span>
+                    LEARN • LAUGH • GROW
+                </span>
+
+            </div>
+
+        </a>
 
 
+        <a
+            href="index.html"
+            class="home-button"
+        >
+            ← Home
+        </a>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
 
-<section class="question-hero">
-
-
-    <!-- Floating objects -->
-
-    <div class="floating-item item-one">
-        💭
-    </div>
-
-    <div class="floating-item item-two">
-        💡
-    </div>
-
-    <div class="floating-item item-three">
-        ⭐
-    </div>
-
-    <div class="floating-item item-four">
-        ❓
-    </div>
-
-    <div class="floating-item item-five">
-        📚
-    </div>
-
-    <div class="floating-item item-six">
-        🚀
-    </div>
+    </header>
 
 
 
-    <div class="hero-inner">
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
 
-        <div class="question-badge">
-            💬 ASK • THINK • DISCOVER
+    <section class="question-hero">
+
+
+        <!-- FLOATING ANIMATIONS -->
+
+        <div class="floating-item item-one">
+            💭
+        </div>
+
+        <div class="floating-item item-two">
+            💡
+        </div>
+
+        <div class="floating-item item-three">
+            ⭐
+        </div>
+
+        <div class="floating-item item-four">
+            ❓
+        </div>
+
+        <div class="floating-item item-five">
+            📚
+        </div>
+
+        <div class="floating-item item-six">
+            🚀
         </div>
 
 
-        <h1>
 
-            Have a
-            <span>Question?</span>
-
-            🤔
-
-        </h1>
+        <div class="hero-inner">
 
 
-        <p>
-
-            Don't keep your curiosity waiting!
-            <br>
-
-            Ask anything you're curious about
-            and let's learn together. 🌈
-
-        </p>
+            <div class="question-badge">
+                💬 ASK • THINK • DISCOVER
+            </div>
 
 
-        <div class="question-cloud">
+            <h1>
 
-            <span>Why? 🤔</span>
+                Have a
+                <span>Question?</span>
 
-            <span>How? 💡</span>
+                🤔
 
-            <span>What if? 🚀</span>
+            </h1>
+
+
+            <p>
+
+                Don't keep your curiosity waiting!
+
+                <br>
+
+                Ask anything you're curious about
+                and let's learn together.
+
+            </p>
+
+
+            <div class="question-cloud">
+
+                <span>
+                    Why? 🤔
+                </span>
+
+                <span>
+                    How? 💡
+                </span>
+
+                <span>
+                    What if? 🚀
+                </span>
+
+            </div>
+
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     MAIN QUESTION AREA
-===================================================== -->
+    <!-- =====================================================
+         MAIN QUESTION AREA
+    ===================================================== -->
 
-<section class="question-section">
-
-
-    <div class="question-layout">
+    <section class="question-section">
 
 
-        <!-- LEFT SIDE -->
-
-        <div class="question-info">
+        <div class="question-layout">
 
 
-            <div class="big-question">
-                ❓
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================= -->
+
+            <div class="question-info">
+
+
+                <div class="big-question">
+                    ❓
+                </div>
+
+
+                <h2>
+
+                    No question is
+                    <span>too small!</span>
+
+                </h2>
+
+
+                <p>
+
+                    Maybe you are wondering about science,
+                    technology, mathematics, geography,
+                    or something you simply don't understand.
+
+                </p>
+
+
+                <div class="idea-list">
+
+
+                    <div class="idea">
+
+                        <div class="idea-icon yellow">
+                            💡
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Be Curious
+                            </strong>
+
+                            <small>
+                                Curiosity is where learning begins.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="idea">
+
+                        <div class="idea-icon pink">
+                            🔍
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Ask Freely
+                            </strong>
+
+                            <small>
+                                There are no silly questions here.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="idea">
+
+                        <div class="idea-icon blue">
+                            🚀
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Keep Learning
+                            </strong>
+
+                            <small>
+                                Every question can lead to something new.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDE FORM
+            ================================================= -->
+
+            <div class="question-card">
+
+
+                <div class="card-top">
+
+
+                    <div class="mini-icon">
+                        ✏️
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Ask your question
+                        </h2>
+
+                        <p>
+                            Tell us what is on your mind!
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <form id="questionForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="studentName">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="studentEmail">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="studentEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-group">
+
+                        <label for="questionSubject">
+                            Choose a Subject
+                        </label>
+
+                        <select
+                            id="questionSubject"
+                            required
+                        >
+
+                            <option value="">
+                                Select a subject
+                            </option>
+
+                            <option value="Science">
+                                🔬 Science
+                            </option>
+
+                            <option value="Mathematics">
+                                🧮 Mathematics
+                            </option>
+
+                            <option value="Biology">
+                                🧬 Biology
+                            </option>
+
+                            <option value="English">
+                                📖 English
+                            </option>
+
+                            <option value="Geography">
+                                🗺️ Geography
+                            </option>
+
+                            <option value="Social Studies">
+                                🌍 Social Studies
+                            </option>
+
+                            <option value="Civics">
+                                🏛️ Civics
+                            </option>
+
+                            <option value="Technology">
+                                💻 Technology
+                            </option>
+
+                            <option value="General">
+                                🌈 General Question
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- QUESTION -->
+
+                    <div class="form-group">
+
+                        <label for="questionText">
+                            Your Question
+                        </label>
+
+                        <textarea
+                            id="questionText"
+                            rows="5"
+                            placeholder="Type your question here... 🤔"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+
+                        Send My Question 🚀
+
+                    </button>
+
+
+                    <p class="form-note">
+                        💛 Keep asking. Keep learning.
+                    </p>
+
+
+                </form>
+
+
+
+                <!-- SUCCESS MESSAGE -->
+
+                <div
+                    id="successMessage"
+                    class="success-message"
+                >
+
+                    <div class="success-icon">
+                        🎉
+                    </div>
+
+
+                    <h3>
+                        Question Sent!
+                    </h3>
+
+
+                    <p>
+
+                        Thanks for asking!
+
+                        Your question has been received.
+
+                        Keep being curious! 🌟
+
+                    </p>
+
+
+                    <button
+                        type="button"
+                        id="askAgain"
+                    >
+                        Ask Another Question
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CURIOSITY SECTION
+    ===================================================== -->
+
+    <section class="curiosity-section">
+
+
+        <div class="curiosity-content">
+
+
+            <div class="curiosity-emoji">
+                🧠
             </div>
 
 
             <h2>
 
-                No question is
-                <span>too small!</span>
+                Questions make
+                <span>learning exciting!</span>
 
             </h2>
 
 
             <p>
 
-                Maybe you are wondering about science,
-                technology, history, the world around you,
-                or something you simply don't understand.
+                Think of something.
+                Ask about it.
+                Discover the answer.
+                Then ask another question! 🔥
 
             </p>
 
 
-            <div class="idea-list">
 
+            <div class="question-steps">
 
-                <div class="idea">
-
-                    <div class="idea-icon yellow">
-                        💡
-                    </div>
-
-                    <div>
-                        <strong>Be Curious</strong>
-
-                        <small>
-                            Curiosity is where learning begins.
-                        </small>
-                    </div>
-
-                </div>
-
-
-
-                <div class="idea">
-
-                    <div class="idea-icon pink">
-                        🔍
-                    </div>
-
-                    <div>
-                        <strong>Ask Freely</strong>
-
-                        <small>
-                            There are no silly questions here.
-                        </small>
-                    </div>
-
-                </div>
-
-
-
-                <div class="idea">
-
-                    <div class="idea-icon blue">
-                        🚀
-                    </div>
-
-                    <div>
-                        <strong>Keep Learning</strong>
-
-                        <small>
-                            Every question can lead to something new.
-                        </small>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- RIGHT SIDE FORM -->
-
-        <div class="question-card">
-
-
-            <div class="card-top">
-
-                <div class="mini-icon">
-                    ✏️
-                </div>
 
                 <div>
 
-                    <h2>
-                        Ask your question
-                    </h2>
+                    <strong>
+                        01
+                    </strong>
 
-                    <p>
-                        Tell us what is on your mind!
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <form id="questionForm">
-
-
-                <!-- Name -->
-
-                <div class="form-group">
-
-                    <label for="studentName">
-                        Your Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="studentName"
-                        placeholder="Enter your name"
-                        required
-                    >
+                    <span>
+                        Wonder 🤔
+                    </span>
 
                 </div>
 
 
+                <div>
 
-                <!-- Email -->
+                    <strong>
+                        02
+                    </strong>
 
-                <div class="form-group">
-
-                    <label for="studentEmail">
-                        Your Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="studentEmail"
-                        placeholder="Enter your email"
-                        required
-                    >
+                    <span>
+                        Ask 💬
+                    </span>
 
                 </div>
 
 
+                <div>
 
-                <!-- Subject -->
+                    <strong>
+                        03
+                    </strong>
 
-                <div class="form-group">
-
-                    <label for="questionSubject">
-                        Choose a Subject
-                    </label>
-
-                    <select
-                        id="questionSubject"
-                        required
-                    >
-
-                        <option value="">
-                            Select a subject
-                        </option>
-
-                        <option>
-                            🔬 Science
-                        </option>
-
-                        <option>
-                            🧮 Mathematics
-                        </option>
-
-                        <option>
-                            📖 English
-                        </option>
-
-                        <option>
-                            🌍 Social Studies
-                        </option>
-
-                        <option>
-                            🏺 History
-                        </option>
-
-                        <option>
-                            🏛️ Civics
-                        </option>
-
-                        <option>
-                            💻 Technology
-                        </option>
-
-                        <option>
-                            ❤️ Health
-                        </option>
-
-                        <option>
-                            🌈 General Question
-                        </option>
-
-                    </select>
+                    <span>
+                        Learn 📚
+                    </span>
 
                 </div>
 
 
+                <div>
 
-                <!-- Question -->
+                    <strong>
+                        04
+                    </strong>
 
-                <div class="form-group">
-
-                    <label for="questionText">
-                        Your Question
-                    </label>
-
-                    <textarea
-                        id="questionText"
-                        rows="5"
-                        placeholder="Type your question here... 🤔"
-                        required
-                    ></textarea>
+                    <span>
+                        Grow 🚀
+                    </span>
 
                 </div>
 
-
-
-                <!-- Submit -->
-
-                <button
-                    type="submit"
-                    class="submit-button"
-                >
-
-                    Send My Question 🚀
-
-                </button>
-
-
-                <p class="form-note">
-                    💛 Keep asking. Keep learning.
-                </p>
-
-
-            </form>
-
-
-            <!-- Success message -->
-
-            <div
-                id="successMessage"
-                class="success-message"
-            >
-
-                <div class="success-icon">
-                    🎉
-                </div>
-
-                <h3>
-                    Question Sent!
-                </h3>
-
-                <p>
-                    Thanks for asking!
-                    Your question has been received.
-                    Keep being curious! 🌟
-                </p>
-
-                <button
-                    type="button"
-                    id="askAgain"
-                >
-                    Ask Another Question
-                </button>
 
             </div>
 
 
         </div>
 
-    </div>
 
-</section>
-
+    </section>
 
 
-<!-- =====================================================
-     FUN BOTTOM SECTION
-===================================================== -->
 
-<section class="curiosity-section">
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="question-footer">
 
 
-    <div class="curiosity-content">
+        <div class="footer-logo">
 
-        <div class="curiosity-emoji">
-            🧠
+            <span class="footer-logo-mark">
+                STS
+            </span>
+
+            Sir Tho Saradhaga
+
         </div>
-
-
-        <h2>
-
-            Questions make
-            <span>learning exciting!</span>
-
-        </h2>
 
 
         <p>
-
-            Think of something.
-            Ask about it.
-            Discover the answer.
-            Then ask another question! 🔥
-
+            LEARN • LAUGH • GROW
         </p>
 
 
-        <div class="question-steps">
 
-            <div>
-                <strong>01</strong>
-                <span>Wonder 🤔</span>
-            </div>
+        <div class="footer-links">
 
-            <div>
-                <strong>02</strong>
-                <span>Ask 💬</span>
-            </div>
+            <a href="index.html">
+                Home
+            </a>
 
-            <div>
-                <strong>03</strong>
-                <span>Learn 📚</span>
-            </div>
+            <a href="videos.html">
+                Videos
+            </a>
 
-            <div>
-                <strong>04</strong>
-                <span>Grow 🚀</span>
-            </div>
+            <a href="subjects.html">
+                Subjects
+            </a>
+
+            <a href="quiz.html">
+                Quizzes
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
 
         </div>
 
-    </div>
 
-</section>
 
+        <div class="footer-social">
 
+            <a
+                href="YOUR_YOUTUBE_LINK"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ▶
+            </a>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
-<footer class="question-footer">
+            <a
+                href="YOUR_INSTAGRAM_LINK"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ◎
+            </a>
 
-    <div class="footer-logo">
 
-        SIR THO
-        <br>
-        SARADHAGA
+            <a href="mailto:YOUR_EMAIL@gmail.com">
+                ✉
+            </a>
 
-    </div>
+        </div>
 
 
-    <p>
-        Learn • Laugh • Grow 🌈
-    </p>
 
+        <div class="copyright">
 
-    <div class="footer-links">
+            © 2026 Sir Tho Saradhaga
+            • Made for curious minds ❤️
 
-        <a href="index.html">
-            Home
-        </a>
+        </div>
 
-        <a href="videos.html">
-            Videos
-        </a>
 
-        <a href="subjects.html">
-            Subjects
-        </a>
+    </footer>
 
-        <a href="about.html">
-            About
-        </a>
 
-    </div>
 
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
 
-    <div class="footer-social">
+    <script>
 
-        <a
-            href="YOUR_YOUTUBE_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ▶
-        </a>
+        const form =
+            document.getElementById(
+                "questionForm"
+            );
 
-        <a
-            href="YOUR_INSTAGRAM_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ◎
-        </a>
 
-        <a href="mailto:YOUR_EMAIL@gmail.com">
-            ✉
-        </a>
+        const successMessage =
+            document.getElementById(
+                "successMessage"
+            );
 
-    </div>
 
+        const askAgain =
+            document.getElementById(
+                "askAgain"
+            );
 
-    <div class="copyright">
 
-        © 2026 Sir Tho Saradhaga
-        • Made for curious minds ❤️
 
-    </div>
+        /* =========================================
+           FORM SUBMIT
+        ========================================= */
 
-</footer>
+        form.addEventListener(
+            "submit",
+            function(event) {
 
+                event.preventDefault();
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+                form.style.display =
+                    "none";
 
-<script>
 
-const form =
-    document.getElementById("questionForm");
+                successMessage.style.display =
+                    "block";
 
-const successMessage =
-    document.getElementById("successMessage");
-
-const askAgain =
-    document.getElementById("askAgain");
-
-
-form.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-        form.style.display = "none";
-
-        successMessage.style.display = "block";
-
-    }
-);
-
-
-askAgain.addEventListener(
-    "click",
-    function() {
-
-        successMessage.style.display = "none";
-
-        form.style.display = "block";
-
-        form.reset();
-
-    }
-);
-
-</script>
-
-
-
-<!-- =====================================================
-     CSS
-===================================================== -->
-
-<style>
-
-
-/* =====================================================
-   BASIC
-===================================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-
-    font-family: "Poppins", sans-serif;
-
-    background: #fff8e9;
-
-    color: #182b62;
-
-}
-
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.top-bar {
-
-    width: 100%;
-
-    padding: 18px 6%;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    background: #fff;
-
-    border-bottom: 3px solid #182b62;
-
-}
-
-
-.logo {
-
-    text-decoration: none;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 24px;
-
-    line-height: 0.8;
-
-    font-weight: 800;
-
-    color: #182b62;
-
-}
-
-
-.logo small {
-
-    display: block;
-
-    margin-top: 8px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 1.5px;
-
-    color: #f05a67;
-
-}
-
-
-.home-button {
-
-    text-decoration: none;
-
-    color: #182b62;
-
-    background: #ffd83d;
-
-    border: 3px solid #182b62;
-
-    padding: 10px 20px;
-
-    border-radius: 30px;
-
-    font-weight: 700;
-
-    box-shadow: 3px 4px 0 #182b62;
-
-    transition: 0.25s;
-
-}
-
-
-.home-button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 5px 6px 0 #182b62;
-
-}
-
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.question-hero {
-
-    position: relative;
-
-    overflow: hidden;
-
-    min-height: 420px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-
-        radial-gradient(
-            circle at 15% 30%,
-            #72e0ff 0,
-            #72e0ff 12%,
-            transparent 13%
-        ),
-
-        radial-gradient(
-            circle at 85% 20%,
-            #ff91a5 0,
-            #ff91a5 13%,
-            transparent 14%
-        ),
-
-        linear-gradient(
-            135deg,
-            #ffd83d,
-            #ffcf72,
-            #ff91a5
+            }
         );
 
-}
 
 
-.hero-inner {
+        /* =========================================
+           ASK ANOTHER QUESTION
+        ========================================= */
 
-    position: relative;
+        askAgain.addEventListener(
+            "click",
+            function() {
 
-    z-index: 5;
+                successMessage.style.display =
+                    "none";
 
-    max-width: 800px;
 
-    padding: 60px 25px;
+                form.style.display =
+                    "block";
 
-}
 
+                form.reset();
 
-.question-badge {
-
-    display: inline-block;
-
-    background: #182b62;
-
-    color: white;
-
-    padding: 9px 20px;
-
-    border-radius: 30px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    box-shadow: 5px 5px 0 #fff;
-
-}
-
-
-.question-hero h1 {
-
-    margin-top: 20px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: clamp(48px, 7vw, 82px);
-
-    line-height: 0.95;
-
-    font-weight: 800;
-
-    color: #182b62;
-
-    text-shadow: 4px 4px 0 #fff;
-
-}
-
-
-.question-hero h1 span {
-
-    color: #f05a67;
-
-}
-
-
-.question-hero p {
-
-    margin-top: 20px;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    font-weight: 500;
-
-    color: #26345f;
-
-}
-
-
-.question-cloud {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-
-}
-
-
-.question-cloud span {
-
-    padding: 10px 18px;
-
-    border-radius: 30px;
-
-    background: white;
-
-    border: 3px solid #182b62;
-
-    box-shadow: 4px 4px 0 #182b62;
-
-    font-weight: 700;
-
-    animation: cloudFloat 3s ease-in-out infinite;
-
-}
-
-
-.question-cloud span:nth-child(2) {
-
-    animation-delay: .5s;
-
-    background: #72e0ff;
-
-}
-
-
-.question-cloud span:nth-child(3) {
-
-    animation-delay: 1s;
-
-    background: #9bea70;
-
-}
-
-
-@keyframes cloudFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-
-}
-
-
-
-/* =====================================================
-   FLOATING ITEMS
-===================================================== */
-
-.floating-item {
-
-    position: absolute;
-
-    font-size: 42px;
-
-    z-index: 2;
-
-    animation: floatAround 4s ease-in-out infinite;
-
-}
-
-
-.item-one {
-    top: 50px;
-    left: 7%;
-}
-
-
-.item-two {
-    top: 110px;
-    right: 9%;
-    animation-delay: .6s;
-}
-
-
-.item-three {
-    bottom: 55px;
-    left: 13%;
-    animation-delay: 1s;
-}
-
-
-.item-four {
-    top: 45%;
-    right: 5%;
-    animation-delay: 1.4s;
-}
-
-
-.item-five {
-    bottom: 35px;
-    right: 20%;
-    animation-delay: 1.8s;
-}
-
-
-.item-six {
-    top: 70px;
-    left: 24%;
-    animation-delay: 2s;
-}
-
-
-@keyframes floatAround {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(-5deg);
-    }
-
-    50% {
-        transform: translateY(-18px) rotate(8deg);
-    }
-
-}
-
-
-
-/* =====================================================
-   QUESTION SECTION
-===================================================== */
-
-.question-section {
-
-    padding: 80px 6%;
-
-    background: #fff8e9;
-
-}
-
-
-.question-layout {
-
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 0.9fr 1.1fr;
-
-    gap: 65px;
-
-    align-items: center;
-
-}
-
-
-/* LEFT */
-
-.question-info {
-
-    padding: 10px;
-
-}
-
-
-.big-question {
-
-    width: 82px;
-
-    height: 82px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 42px;
-
-    background: #c7a4ff;
-
-    border: 4px solid #182b62;
-
-    border-radius: 25px;
-
-    box-shadow: 6px 7px 0 #182b62;
-
-    transform: rotate(-5deg);
-
-}
-
-
-.question-info h2 {
-
-    margin-top: 30px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 42px;
-
-    line-height: 1;
-
-}
-
-
-.question-info h2 span {
-
-    color: #f05a67;
-
-}
-
-
-.question-info > p {
-
-    margin-top: 18px;
-
-    line-height: 1.8;
-
-    color: #59617a;
-
-    max-width: 470px;
-
-}
-
-
-.idea-list {
-
-    margin-top: 30px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
-
-}
-
-
-.idea {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-}
-
-
-.idea-icon {
-
-    width: 48px;
-
-    height: 48px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 15px;
-
-    border: 3px solid #182b62;
-
-    font-size: 23px;
-
-    box-shadow: 3px 4px 0 #182b62;
-
-}
-
-
-.yellow {
-    background: #ffd83d;
-}
-
-
-.pink {
-    background: #ff91a5;
-}
-
-
-.blue {
-    background: #72e0ff;
-}
-
-
-.idea strong {
-
-    display: block;
-
-    font-size: 15px;
-
-}
-
-
-.idea small {
-
-    display: block;
-
-    margin-top: 3px;
-
-    color: #69718a;
-
-}
-
-
-
-/* =====================================================
-   QUESTION CARD
-===================================================== */
-
-.question-card {
-
-    position: relative;
-
-    background: #fff;
-
-    border: 4px solid #182b62;
-
-    border-radius: 30px;
-
-    padding: 32px;
-
-    box-shadow: 10px 11px 0 #182b62;
-
-}
-
-
-.card-top {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.mini-icon {
-
-    width: 58px;
-
-    height: 58px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #ffd83d;
-
-    border: 3px solid #182b62;
-
-    border-radius: 17px;
-
-    font-size: 28px;
-
-    transform: rotate(-5deg);
-
-}
-
-
-.card-top h2 {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 29px;
-
-    line-height: 1;
-
-}
-
-
-.card-top p {
-
-    margin-top: 5px;
-
-    color: #69718a;
-
-    font-size: 13px;
-
-}
-
-
-
-/* =====================================================
-   FORM
-===================================================== */
-
-.form-group {
-
-    margin-bottom: 18px;
-
-}
-
-
-.form-group label {
-
-    display: block;
-
-    margin-bottom: 7px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    color: #182b62;
-
-}
-
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-
-    width: 100%;
-
-    border: 3px solid #b8bfd1;
-
-    border-radius: 14px;
-
-    padding: 13px 15px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 13px;
-
-    color: #182b62;
-
-    background: #fffdf7;
-
-    outline: none;
-
-    transition: .25s;
-
-}
-
-
-.form-group textarea {
-
-    resize: vertical;
-
-    min-height: 120px;
-
-}
-
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-
-    border-color: #182b62;
-
-    box-shadow: 4px 4px 0 #72e0ff;
-
-    transform: translateY(-2px);
-
-}
-
-
-.submit-button {
-
-    width: 100%;
-
-    border: 3px solid #182b62;
-
-    border-radius: 15px;
-
-    padding: 14px;
-
-    background: #f05a67;
-
-    color: white;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow: 5px 6px 0 #182b62;
-
-    transition: .25s;
-
-}
-
-
-.submit-button:hover {
-
-    transform: translateY(-4px);
-
-    background: #ff6d7a;
-
-    box-shadow: 6px 9px 0 #182b62;
-
-}
-
-
-.form-note {
-
-    text-align: center;
-
-    margin-top: 15px;
-
-    font-size: 11px;
-
-    color: #7b8297;
-
-}
-
-
-
-/* =====================================================
-   SUCCESS
-===================================================== */
-
-.success-message {
-
-    display: none;
-
-    text-align: center;
-
-    padding: 30px 10px;
-
-}
-
-
-.success-icon {
-
-    width: 85px;
-
-    height: 85px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #9bea70;
-
-    border: 4px solid #182b62;
-
-    border-radius: 50%;
-
-    font-size: 42px;
-
-    box-shadow: 5px 6px 0 #182b62;
-
-    animation: successPop .6s ease;
-
-}
-
-
-@keyframes successPop {
-
-    0% {
-        transform: scale(0);
-    }
-
-    70% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-
-.success-message h3 {
-
-    margin-top: 20px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 35px;
-
-    color: #182b62;
-
-}
-
-
-.success-message p {
-
-    margin: 10px auto 20px;
-
-    max-width: 350px;
-
-    color: #69718a;
-
-    line-height: 1.6;
-
-}
-
-
-.success-message button {
-
-    border: 3px solid #182b62;
-
-    background: #ffd83d;
-
-    color: #182b62;
-
-    padding: 11px 20px;
-
-    border-radius: 30px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow: 4px 5px 0 #182b62;
-
-}
-
-
-
-/* =====================================================
-   CURIOSITY SECTION
-===================================================== */
-
-.curiosity-section {
-
-    padding: 80px 6%;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #72e0ff,
-            #c7a4ff
+            }
         );
 
-    text-align: center;
-
-    overflow: hidden;
-
-}
-
-
-.curiosity-content {
-
-    max-width: 850px;
-
-    margin: auto;
-
-}
-
-
-.curiosity-emoji {
-
-    font-size: 65px;
-
-    animation: brainBounce 2s ease-in-out infinite;
-
-}
-
-
-@keyframes brainBounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-
-.curiosity-section h2 {
-
-    margin-top: 15px;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 45px;
-
-    line-height: 1;
-
-    color: #182b62;
-
-}
-
-
-.curiosity-section h2 span {
-
-    color: #f05a67;
-
-}
-
-
-.curiosity-section p {
-
-    max-width: 650px;
-
-    margin: 18px auto;
-
-    line-height: 1.7;
-
-    color: #293760;
-
-}
-
-
-.question-steps {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 14px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-
-}
-
-
-.question-steps div {
-
-    min-width: 130px;
-
-    padding: 16px;
-
-    background: #fff;
-
-    border: 3px solid #182b62;
-
-    border-radius: 18px;
-
-    box-shadow: 4px 5px 0 #182b62;
-
-    transition: .25s;
-
-}
-
-
-.question-steps div:hover {
-
-    transform: translateY(-6px) rotate(-2deg);
-
-}
-
-
-.question-steps strong {
-
-    display: block;
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 22px;
-
-    color: #f05a67;
-
-}
-
-
-.question-steps span {
-
-    display: block;
-
-    margin-top: 3px;
-
-    font-weight: 700;
-
-    font-size: 13px;
-
-}
-
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-.question-footer {
-
-    padding: 45px 6% 25px;
-
-    background: #182b62;
-
-    color: white;
-
-    text-align: center;
-
-}
-
-
-.footer-logo {
-
-    font-family: "Baloo 2", sans-serif;
-
-    font-size: 30px;
-
-    line-height: .85;
-
-    font-weight: 800;
-
-    color: #ffd83d;
-
-}
-
-
-.question-footer > p {
-
-    margin-top: 10px;
-
-    color: #72e0ff;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-}
-
-
-.footer-links {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    margin: 22px 0;
-
-    flex-wrap: wrap;
-
-}
-
-
-.footer-links a {
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-}
-
-
-.footer-links a:hover {
-
-    color: #ffd83d;
-
-}
-
-
-.footer-social {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-}
-
-
-.footer-social a {
-
-    width: 42px;
-
-    height: 42px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 13px;
-
-    background: #ff91a5;
-
-    color: #182b62;
-
-    text-decoration: none;
-
-    font-size: 20px;
-
-    font-weight: 800;
-
-    border: 2px solid #101a3e;
-
-    transition: .25s;
-
-}
-
-
-.footer-social a:hover {
-
-    transform: translateY(-5px);
-
-}
-
-
-.copyright {
-
-    margin-top: 25px;
-
-    padding-top: 18px;
-
-    border-top: 1px solid rgba(255,255,255,.2);
-
-    color: #cbd4ef;
-
-    font-size: 11px;
-
-}
-
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media (max-width: 850px) {
-
-    .question-layout {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-    }
-
-
-    .question-info {
-
-        text-align: center;
-
-    }
-
-
-    .big-question {
-
-        margin: auto;
-
-    }
-
-
-    .question-info > p {
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-    }
-
-
-    .idea {
-
-        justify-content: center;
-
-        text-align: left;
-
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .top-bar {
-
-        padding: 15px 20px;
-
-    }
-
-
-    .logo {
-
-        font-size: 19px;
-
-    }
-
-
-    .home-button {
-
-        padding: 8px 14px;
-
-        font-size: 12px;
-
-    }
-
-
-    .question-hero {
-
-        min-height: 390px;
-
-    }
-
-
-    .floating-item {
-
-        font-size: 28px;
-
-    }
-
-
-    .question-section {
-
-        padding: 55px 20px;
-
-    }
-
-
-    .question-card {
-
-        padding: 22px;
-
-        border-radius: 23px;
-
-        box-shadow: 7px 8px 0 #182b62;
-
-    }
-
-
-    .question-info h2 {
-
-        font-size: 36px;
-
-    }
-
-
-    .curiosity-section {
-
-        padding: 60px 20px;
-
-    }
-
-
-    .curiosity-section h2 {
-
-        font-size: 35px;
-
-    }
-
-}
-
-</style>
+    </script>
 
 
 </body>
+
 </html>

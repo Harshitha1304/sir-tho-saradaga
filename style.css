@@ -3663,3 +3663,371 @@ button {
         font-size: 13px;
     }
 }
+/* =========================================================
+   NEW EVERY DAY - SCROLLING VIDEO STRIP
+========================================================= */
+
+.daily-videos-strip {
+    width: 100%;
+    height: 92px;
+    background: #071724;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 20;
+}
+
+.daily-videos-label {
+    width: 155px;
+    min-width: 155px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0e2d42;
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 5;
+}
+
+.new-dot {
+    width: 7px;
+    height: 7px;
+    background: #f5c329;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(245,195,41,0.8);
+    animation: newDotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes newDotPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+    }
+}
+
+.daily-videos-track-wrapper {
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.daily-videos-track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: max-content;
+    padding-left: 15px;
+    animation: dailyVideoScroll 28s linear infinite;
+}
+
+.daily-videos-track:hover {
+    animation-play-state: paused;
+}
+
+.daily-video-card {
+    width: 220px;
+    height: 66px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px;
+
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+}
+
+.daily-video-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(245,195,41,0.6);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.daily-video-card img {
+    width: 78px;
+    height: 50px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    display: block;
+}
+
+.daily-video-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.daily-video-info span {
+    width: fit-content;
+
+    padding: 2px 6px;
+
+    background: #f5c329;
+    color: #071724;
+
+    border-radius: 4px;
+
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.daily-video-info strong {
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+@keyframes dailyVideoScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================================================
+   FLOATING WHATSAPP - HOVER EXPAND
+========================================================= */
+
+.floating-whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: #25D366;
+    border-radius: 50px;
+
+    text-decoration: none;
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25),
+        0 0 0 4px rgba(37,211,102,0.15);
+
+    z-index: 9999;
+
+    transition:
+        width 0.4s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Hover - button expands */
+.floating-whatsapp:hover {
+    width: 180px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.30),
+        0 0 0 6px rgba(37,211,102,0.15);
+
+    transform: translateY(-4px);
+}
+
+/* WhatsApp icon */
+.whatsapp-icon {
+    width: 58px;
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-icon svg {
+    width: 29px;
+    height: 29px;
+
+    display: block;
+    fill: #ffffff;
+
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover .whatsapp-icon svg {
+    transform: scale(1.08);
+}
+
+/* Text hidden initially */
+.whatsapp-text {
+    display: flex;
+    flex-direction: column;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    transform: translateX(-10px);
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    transition:
+        opacity 0.25s ease 0.12s,
+        transform 0.25s ease 0.12s;
+}
+
+/* Text appears after expansion */
+.floating-whatsapp:hover .whatsapp-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.whatsapp-text small {
+    margin-top: 2px;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .floating-whatsapp {
+        right: 16px;
+        bottom: 16px;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-icon {
+        width: 52px;
+        min-width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .floating-whatsapp:hover {
+        width: 165px;
+    }
+}
+/* =========================================================
+   LOGGED-IN USER NAME - PLAIN FLOATING TEXT
+========================================================= */
+
+#userLoginBtn {
+    position: relative !important;
+
+    display: inline-block !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+
+    padding: 6px 4px !important;
+
+    color: #f5c329 !important;
+    font-family: "Poppins", sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    
+
+    text-decoration: none !important;
+
+    animation: userNameFloat 3s ease-in-out infinite;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+/* Small yellow underline */
+#userLoginBtn::after {
+    content: "";
+
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+
+    width: 80%;
+    height: 2px;
+
+    background: #f5c329;
+    border-radius: 10px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+#userLoginBtn:hover {
+    color: #ffffff !important;
+
+    transform: translateY(-3px) !important;
+
+    text-shadow:
+        0 0 8px rgba(245, 195, 41, 0.6),
+        0 0 16px rgba(245, 195, 41, 0.25);
+}
+
+#userLoginBtn:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Gentle floating animation */
+@keyframes userNameFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}

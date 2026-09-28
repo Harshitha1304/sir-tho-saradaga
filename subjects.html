@@ -5,857 +5,1053 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Explore Subjects | Sir Tho Saradhaga</title>
 
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
 
-<style>
+    <style>
 
-/* =========================================================
-   RESET
-========================================================= */
+        /* =========================================
+           RESET
+        ========================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #071c2b;
+            color: #102238;
+            overflow-x: hidden;
+        }
 
+        a {
+            text-decoration: none;
+        }
 
-body {
 
-    font-family: "Poppins", sans-serif;
+        /* =========================================
+           TOP BAR
+        ========================================= */
 
-    background: #fff2a8;
+        .top-bar {
+            height: 76px;
+            background: rgba(7, 23, 36, 0.97);
 
-    color: #182b62;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    overflow-x: hidden;
-}
+            padding: 0 35px;
 
+            position: relative;
+            z-index: 50;
 
-a {
-    text-decoration: none;
-}
+            border-bottom: 1px solid rgba(245,195,41,.15);
 
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.15);
+        }
 
 
-/* =========================================================
-   TOP BAR
-========================================================= */
+        /* HOME LOGO - SAME STYLE */
 
-.top-bar {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
 
-    height: 70px;
+        .logo-mark {
+            position: relative;
 
-    background: #182b62;
+            width: 48px;
 
-    display: flex;
+            color: #ffffff;
 
-    align-items: center;
+            font-family: "Caveat", cursive;
 
-    justify-content: space-between;
+            font-size: 32px;
+            font-weight: 700;
 
-    padding: 0 35px;
+            line-height: 1;
 
-    position: relative;
+            transform: rotate(-5deg);
+        }
 
-    z-index: 50;
-}
+        .logo-mark::after {
+            content: "";
 
+            position: absolute;
 
-.logo {
+            left: 1px;
+            bottom: -5px;
 
-    font-family: "Baloo 2", sans-serif;
+            width: 42px;
+            height: 3px;
 
-    color: #ffd83d;
+            background: #f5c329;
 
-    font-size: 22px;
+            border-radius: 50%;
 
-    font-weight: 800;
+            transform: rotate(-5deg);
+        }
 
-    line-height: .8;
-}
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
 
+        .logo-text strong {
+            color: #ffffff;
 
-.logo small {
+            font-family: "Caveat", cursive;
 
-    display: block;
+            font-size: 22px;
+            font-weight: 600;
+        }
 
-    color: white;
+        .logo-text span {
+            color: #9baab8;
 
-    font-family: "Poppins", sans-serif;
+            font-size: 7px;
 
-    font-size: 7px;
+            letter-spacing: 1.4px;
+        }
 
-    letter-spacing: 2px;
 
-    margin-top: 8px;
-}
+        /* HOME BUTTON */
 
+        .home-button {
+            background: #f5c329;
 
-.home-button {
+            color: #102238;
 
-    background: #ff6374;
+            padding: 9px 19px;
 
-    color: white;
+            border-radius: 25px;
 
-    padding: 9px 18px;
+            font-size: 13px;
 
-    border-radius: 25px;
+            font-weight: 800;
 
-    font-size: 13px;
+            transition: .25s;
 
-    font-weight: 700;
+            box-shadow:
+                0 7px 20px rgba(245,195,41,.18);
+        }
 
-    transition: .25s;
-}
+        .home-button:hover {
+            transform: translateY(-3px);
 
+            background: #ffd95c;
+        }
 
-.home-button:hover {
 
-    transform: translateY(-3px);
+        /* =========================================
+           HERO
+        ========================================= */
 
-    background: #ff4559;
-}
+        .subject-hero {
+            min-height: 245px;
 
+            position: relative;
 
+            overflow: hidden;
 
-/* =========================================================
-   HERO
-========================================================= */
+            display: flex;
 
-.subject-hero {
+            align-items: center;
 
-    min-height: 370px;
+            justify-content: center;
 
-    position: relative;
+            text-align: center;
 
-    overflow: hidden;
+            background:
 
-    background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(245,195,41,.18),
+                    transparent 25%
+                ),
 
-        radial-gradient(
-            circle at 8% 25%,
-            #ffd83d 0,
-            #ffd83d 75px,
-            transparent 76px
-        ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(53,200,237,.18),
+                    transparent 27%
+                ),
 
-        radial-gradient(
-            circle at 93% 20%,
-            #ff91a5 0,
-            #ff91a5 85px,
-            transparent 86px
-        ),
+                linear-gradient(
+                    135deg,
+                    #092238,
+                    #0e334b 55%,
+                    #09283d
+                );
+        }
 
-        linear-gradient(
-            135deg,
-            #fff2a8,
-            #ffb9d1 50%,
-            #7de4ff
-        );
 
-    display: flex;
+        /* Floating Book */
 
-    align-items: center;
+        .subject-hero::before {
+            content: "📚";
 
-    justify-content: center;
+            position: absolute;
 
-    text-align: center;
-}
+            left: 10%;
+            bottom: 28px;
 
+            font-size: 35px;
 
-.subject-hero::before {
+            animation:
+                floatBook 3s
+                ease-in-out infinite;
+        }
 
-    content: "📚";
 
-    position: absolute;
+        /* Floating Bulb */
 
-    left: 12%;
+        .subject-hero::after {
+            content: "💡";
 
-    bottom: 35px;
+            position: absolute;
 
-    font-size: 45px;
+            right: 10%;
+            top: 28px;
 
-    animation: floatBook 3s ease-in-out infinite;
-}
+            font-size: 35px;
 
+            animation:
+                floatBook 3.5s
+                ease-in-out infinite;
+        }
 
-.subject-hero::after {
 
-    content: "💡";
+        @keyframes floatBook {
 
-    position: absolute;
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
 
-    right: 12%;
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(5deg);
+            }
 
-    top: 45px;
+        }
 
-    font-size: 45px;
 
-    animation: floatBook 3.5s ease-in-out infinite;
-}
+        .hero-content {
+            position: relative;
 
+            z-index: 5;
 
-@keyframes floatBook {
+            padding: 30px 20px;
+        }
 
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
-    }
 
-    50% {
-        transform: translateY(-13px) rotate(5deg);
-    }
-}
+        .hero-badge {
+            display: inline-block;
 
+            background: rgba(245,195,41,.12);
 
-.hero-content {
+            color: #f5c329;
 
-    max-width: 800px;
+            padding: 7px 16px;
 
-    padding: 55px 20px;
+            border:
+                1px solid
+                rgba(245,195,41,.35);
 
-    position: relative;
+            border-radius: 30px;
 
-    z-index: 5;
-}
+            font-size: 11px;
 
+            font-weight: 800;
 
-.hero-badge {
+            margin-bottom: 10px;
+        }
 
-    display: inline-block;
 
-    background: #182b62;
+        .hero-content h1 {
+            font-family: "Poppins", sans-serif;
 
-    color: #ffd83d;
+            font-size: 43px;
 
-    padding: 8px 18px;
+            line-height: 1;
 
-    border-radius: 30px;
+            color: white;
 
-    font-size: 12px;
+            margin-bottom: 8px;
 
-    font-weight: 800;
+            font-weight: 800;
+        }
 
-    margin-bottom: 15px;
 
-    box-shadow:
-        4px 5px 0 #ff6374;
-}
+        .hero-content h1 span {
+            color: #f5c329;
+        }
 
 
-.hero-content h1 {
+        .hero-content p {
+            max-width: 560px;
 
-    font-family: "Baloo 2", sans-serif;
+            margin: auto;
 
-    font-size: 61px;
+            color: rgba(255,255,255,.68);
 
-    line-height: .95;
+            font-size: 13px;
 
-    color: #182b62;
+            line-height: 1.5;
+        }
 
-    margin-bottom: 15px;
-}
 
+        /* =========================================
+           SUBJECT SECTION
+        ========================================= */
 
-.hero-content h1 span {
+        .subject-section {
+            padding: 65px 20px 80px;
 
-    color: #ff5368;
-}
+            position: relative;
 
+            overflow: hidden;
 
-.hero-content p {
+            background:
 
-    max-width: 620px;
+                radial-gradient(
+                    circle at 5% 10%,
+                    rgba(245,195,41,.12),
+                    transparent 22%
+                ),
 
-    margin: auto;
+                radial-gradient(
+                    circle at 95% 80%,
+                    rgba(53,200,237,.12),
+                    transparent 25%
+                ),
 
-    color: #414d6b;
+                #0e2d42;
+        }
 
-    font-size: 15px;
 
-    line-height: 1.7;
-}
+        /* Decorative Stars */
 
+        .subject-section::before {
+            content: "✦";
 
+            position: absolute;
 
-/* =========================================================
-   SUBJECT SECTION
-========================================================= */
+            left: 3%;
+            top: 30px;
 
-.subject-section {
+            font-size: 75px;
 
-    padding: 65px 20px 80px;
+            color: #f5c329;
 
-    background: #72e0ff;
+            opacity: .3;
 
-    position: relative;
-}
+            animation:
+                starFloat 4s
+                ease-in-out infinite;
+        }
 
 
-.subject-section::before {
+        .subject-section::after {
+            content: "✦";
 
-    content: "✦";
+            position: absolute;
 
-    position: absolute;
+            right: 4%;
+            bottom: 30px;
 
-    left: 3%;
+            font-size: 85px;
 
-    top: 30px;
+            color: #35c8ed;
 
-    font-size: 80px;
+            opacity: .3;
 
-    color: white;
+            animation:
+                starFloat 5s
+                ease-in-out infinite
+                reverse;
+        }
 
-    opacity: .4;
-}
 
+        @keyframes starFloat {
 
-.subject-section::after {
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    rotate(0);
+            }
 
-    content: "✦";
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(15deg);
+            }
 
-    position: absolute;
+        }
 
-    right: 4%;
 
-    bottom: 30px;
+        /* =========================================
+           HEADING
+        ========================================= */
 
-    font-size: 90px;
+        .section-heading {
+            text-align: center;
 
-    color: #ffd83d;
+            margin-bottom: 28px;
 
-    opacity: .5;
-}
+            position: relative;
 
+            z-index: 5;
+        }
 
 
-/* =========================================================
-   HEADING
-========================================================= */
+        .section-heading h2 {
+            font-family: "Poppins", sans-serif;
 
-.section-heading {
+            font-size: 40px;
 
-    text-align: center;
+            color: white;
 
-    margin-bottom: 30px;
+            margin-bottom: 5px;
 
-    position: relative;
+            font-weight: 800;
+        }
 
-    z-index: 5;
-}
 
+        .section-heading h2 span {
+            color: #f5c329;
+        }
 
-.section-heading h2 {
 
-    font-family: "Baloo 2", sans-serif;
+        .section-heading p {
+            font-size: 13px;
 
-    font-size: 39px;
+            color: rgba(255,255,255,.62);
+        }
 
-    line-height: 1;
 
-    color: #182b62;
+        /* =========================================
+           SEARCH
+        ========================================= */
 
-    margin-bottom: 7px;
-}
+        .search-wrapper {
+            width: 100%;
 
+            max-width: 500px;
 
-.section-heading p {
+            margin: 0 auto 30px;
 
-    font-size: 13px;
+            position: relative;
 
-    color: #465370;
-}
+            z-index: 5;
+        }
 
 
+        .search-input {
+            width: 100%;
 
-/* =========================================================
-   SEARCH
-========================================================= */
+            padding: 14px 48px 14px 18px;
 
-.search-wrapper {
+            border-radius: 18px;
 
-    width: 100%;
+            border:
+                1px solid
+                rgba(255,255,255,.18);
 
-    max-width: 500px;
+            outline: none;
 
-    margin: 0 auto 28px;
+            background:
+                rgba(255,255,255,.09);
 
-    position: relative;
+            backdrop-filter: blur(12px);
 
-    z-index: 5;
-}
+            color: white;
 
+            font-family: "Poppins", sans-serif;
 
-.search-input {
+            font-size: 13px;
 
-    width: 100%;
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,.12);
+        }
 
-    padding: 13px 45px 13px 18px;
 
-    border-radius: 18px;
+        .search-input::placeholder {
+            color: rgba(255,255,255,.55);
+        }
 
-    border: 3px solid #182b62;
 
-    outline: none;
+        .search-input:focus {
+            border-color: #f5c329;
 
-    background: white;
+            box-shadow:
+                0 0 0 4px
+                rgba(245,195,41,.10);
+        }
 
-    font-family: "Poppins", sans-serif;
 
-    font-size: 13px;
+        .search-icon {
+            position: absolute;
 
-    box-shadow:
-        5px 6px 0 #182b62;
-}
+            right: 17px;
+            top: 50%;
 
+            transform:
+                translateY(-50%);
 
-.search-icon {
+            color: #f5c329;
 
-    position: absolute;
+            pointer-events: none;
+        }
 
-    right: 17px;
 
-    top: 50%;
+        /* =========================================
+           SUBJECT GRID
+        ========================================= */
 
-    transform: translateY(-50%);
+        .subject-grid {
+            max-width: 950px;
 
-    font-size: 19px;
-}
+            margin: auto;
 
+            display: grid;
 
+            grid-template-columns:
+                repeat(4, 1fr);
 
-/* =========================================================
-   SUBJECT GRID
-========================================================= */
+            gap: 18px;
 
-.subject-grid {
+            position: relative;
 
-    max-width: 900px;
+            z-index: 5;
+        }
 
-    margin: auto;
 
-    display: grid;
+        /* =========================================
+           SUBJECT CARD
+        ========================================= */
 
-    grid-template-columns:
-        repeat(4, 1fr);
+        .subject-card {
+            min-height: 160px;
 
-    gap: 17px;
+            border-radius: 22px;
 
-    position: relative;
+            padding: 18px 13px;
 
-    z-index: 5;
-}
+            display: flex;
 
+            flex-direction: column;
 
+            align-items: center;
 
-/* =========================================================
-   SUBJECT TILE
-========================================================= */
+            justify-content: center;
 
-.subject-card {
+            text-align: center;
 
-    min-height: 155px;
+            cursor: pointer;
 
-    border-radius: 23px;
+            position: relative;
 
-    border: 3px solid #182b62;
+            overflow: hidden;
 
-    box-shadow:
-        5px 6px 0 #182b62;
+            border:
+                1px solid
+                rgba(255,255,255,.25);
 
-    padding: 18px 13px;
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,.15);
 
-    display: flex;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
 
-    flex-direction: column;
 
-    align-items: center;
+        /* Shine */
 
-    justify-content: center;
+        .subject-card::before {
+            content: "";
 
-    text-align: center;
+            position: absolute;
 
-    transition: .25s;
+            top: 0;
+            left: -120%;
 
-    cursor: pointer;
-}
+            width: 70%;
+            height: 100%;
 
+            background:
+                linear-gradient(
+                    110deg,
+                    transparent,
+                    rgba(255,255,255,.35),
+                    transparent
+                );
 
-.subject-card:hover {
+            transform: skewX(-20deg);
+        }
 
-    transform:
-        translateY(-7px)
-        rotate(1deg);
 
-    box-shadow:
-        8px 10px 0 #182b62;
-}
+        .subject-card:hover::before {
+            animation:
+                cardShine .7s ease;
+        }
 
 
+        @keyframes cardShine {
 
-/* DIFFERENT COLOURS */
+            from {
+                left: -120%;
+            }
 
-.subject-card:nth-child(1) {
+            to {
+                left: 140%;
+            }
 
-    background: #ffd83d;
-}
+        }
 
 
-.subject-card:nth-child(2) {
+        .subject-card:hover {
+            transform:
+                translateY(-9px)
+                rotate(1deg)
+                scale(1.02);
 
-    background: #ff91a5;
-}
+            box-shadow:
+                0 22px 45px
+                rgba(0,0,0,.25);
+        }
 
 
-.subject-card:nth-child(3) {
+        /* =========================================
+           CARD COLORS
+        ========================================= */
 
-    background: #9bea70;
-}
+        .subject-card:nth-child(1) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5c329,
+                    #ffd95c
+                );
+        }
 
+        .subject-card:nth-child(2) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #35c8ed,
+                    #6ee3ff
+                );
+        }
 
-.subject-card:nth-child(4) {
+        .subject-card:nth-child(3) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #8c7cff,
+                    #b3a9ff
+                );
+        }
 
-    background: #c7a4ff;
-}
+        .subject-card:nth-child(4) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #38d6a5,
+                    #79e8c4
+                );
+        }
 
+        .subject-card:nth-child(5) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff8aa0,
+                    #ffb0bf
+                );
+        }
 
-.subject-card:nth-child(5) {
+        .subject-card:nth-child(6) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffb15c,
+                    #ffd078
+                );
+        }
 
-    background: #72e0ff;
-}
+        .subject-card:nth-child(7) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #8c7cff,
+                    #b3a9ff
+                );
+        }
 
+        .subject-card:nth-child(8) {
+            background:
+                linear-gradient(
+                    135deg,
+                    #5ed2f0,
+                    #8ae7fa
+                );
+        }
 
-.subject-card:nth-child(6) {
 
-    background: #ffad65;
-}
+        /* =========================================
+           ICON
+        ========================================= */
 
+        .subject-icon {
+            width: 57px;
 
-.subject-card:nth-child(7) {
+            height: 57px;
 
-    background: #ffcf72;
-}
+            border-radius: 17px;
 
+            background:
+                rgba(255,255,255,.55);
 
-.subject-card:nth-child(8) {
+            display: flex;
 
-    background: #8ee8c5;
-}
+            align-items: center;
 
+            justify-content: center;
 
+            font-size: 30px;
 
-/* ICON */
+            margin-bottom: 9px;
 
-.subject-icon {
+            transition:
+                transform .3s ease;
+        }
 
-    width: 55px;
 
-    height: 55px;
+        .subject-card:hover
+        .subject-icon {
+            transform:
+                scale(1.15)
+                rotate(5deg);
+        }
 
-    border-radius: 17px;
 
-    background: rgba(255,255,255,.55);
+        .subject-card h3 {
+            font-family: "Poppins", sans-serif;
 
-    display: flex;
+            font-size: 18px;
 
-    align-items: center;
+            color: #102238;
 
-    justify-content: center;
+            line-height: 1;
 
-    font-size: 31px;
+            margin-bottom: 6px;
 
-    margin-bottom: 9px;
-}
+            font-weight: 800;
+        }
 
 
-.subject-card h3 {
+        .subject-card p {
+            color: #263c4d;
 
-    font-family: "Baloo 2", sans-serif;
+            font-size: 10px;
 
-    font-size: 20px;
+            line-height: 1.4;
 
-    color: #182b62;
+            max-width: 160px;
+        }
 
-    line-height: 1;
 
-    margin-bottom: 5px;
-}
+        /* =========================================
+           DISCOVER
+        ========================================= */
 
+        .discover-section {
+            background: #071c2b;
 
-.subject-card p {
+            padding: 70px 20px;
 
-    color: #2f3c60;
+            text-align: center;
+        }
 
-    font-size: 10px;
 
-    line-height: 1.4;
+        .discover-box {
+            max-width: 850px;
 
-    max-width: 150px;
-}
+            margin: auto;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #0e334b,
+                    #123f5d
+                );
 
+            border-radius: 28px;
 
-/* =========================================================
-   EXTRA DISCOVER SECTION
-========================================================= */
+            padding: 40px 25px;
 
-.discover-section {
+            border:
+                1px solid
+                rgba(245,195,41,.35);
 
-    background: #ff91b1;
+            box-shadow:
+                0 25px 55px
+                rgba(0,0,0,.25);
+        }
 
-    padding: 70px 20px;
 
-    text-align: center;
-}
+        .discover-box .emoji {
+            font-size: 43px;
 
+            margin-bottom: 5px;
 
-.discover-box {
+            animation:
+                rocketFloat 3s
+                ease-in-out infinite;
+        }
 
-    max-width: 850px;
 
-    margin: auto;
+        @keyframes rocketFloat {
 
-    background: #182b62;
+            0%,100% {
+                transform:
+                    translateY(0);
+            }
 
-    border-radius: 32px;
+            50% {
+                transform:
+                    translateY(-8px);
+            }
 
-    padding: 40px 25px;
+        }
 
-    border: 5px solid #ffd83d;
 
-    box-shadow:
-        9px 10px 0 #ff5368;
-}
+        .discover-box h2 {
+            font-family: "Poppins", sans-serif;
 
+            font-size: 32px;
 
-.discover-box .emoji {
+            color: #f5c329;
 
-    font-size: 45px;
+            margin-bottom: 8px;
 
-    margin-bottom: 5px;
-}
+            font-weight: 800;
+        }
 
 
-.discover-box h2 {
+        .discover-box p {
+            color: rgba(255,255,255,.72);
 
-    font-family: "Baloo 2", sans-serif;
+            font-size: 13px;
 
-    font-size: 39px;
+            line-height: 1.7;
 
-    color: #ffd83d;
+            max-width: 620px;
 
-    margin-bottom: 8px;
-}
+            margin: auto;
+        }
 
 
-.discover-box p {
+        /* =========================================
+           NO RESULTS
+        ========================================= */
 
-    color: white;
+        .no-results {
+            display: none;
 
-    font-size: 13px;
+            text-align: center;
 
-    line-height: 1.7;
+            padding: 35px;
 
-    max-width: 620px;
+            color: white;
+        }
 
-    margin: auto;
-}
 
+        .no-results .emoji {
+            font-size: 48px;
+        }
 
 
-/* =========================================================
-   NO RESULTS
-========================================================= */
+        .no-results h3 {
+            font-family: "Poppins", sans-serif;
 
-.no-results {
+            font-size: 28px;
 
-    display: none;
+            color: #f5c329;
+        }
 
-    text-align: center;
 
-    padding: 35px;
+        .no-results p {
+            margin-top: 5px;
 
-    position: relative;
+            color: rgba(255,255,255,.65);
 
-    z-index: 5;
-}
+            font-size: 12px;
+        }
 
 
-.no-results .emoji {
+        /* =========================================
+           FOOTER
+        ========================================= */
 
-    font-size: 48px;
-}
+        footer {
+            background: #051521;
 
+            color: white;
 
-.no-results h3 {
+            text-align: center;
 
-    font-family: "Baloo 2", sans-serif;
+            padding: 30px 20px;
+        }
 
-    font-size: 28px;
 
-    color: #182b62;
-}
+        .footer-logo {
+            color: #ffffff;
 
+            font-family: "Caveat", cursive;
 
+            font-size: 28px;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            font-weight: 700;
+        }
 
-footer {
 
-    background: #182b62;
+        footer p {
+            font-size: 11px;
 
-    color: white;
+            color: rgba(255,255,255,.55);
 
-    text-align: center;
+            margin-top: 4px;
 
-    padding: 30px 20px;
-}
+            letter-spacing: 1px;
+        }
 
 
-.footer-logo {
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
 
-    font-family: "Baloo 2", sans-serif;
+        @media (max-width: 850px) {
 
-    color: #ffd83d;
+            .subject-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
 
-    font-size: 23px;
+        }
 
-    font-weight: 800;
-}
 
+        @media (max-width: 650px) {
 
-footer p {
+            .top-bar {
+                padding: 0 18px;
+            }
 
-    font-size: 11px;
+            .logo-text strong {
+                font-size: 19px;
+            }
 
-    opacity: .8;
+            .logo-mark {
+                font-size: 28px;
+                width: 42px;
+            }
 
-    margin-top: 4px;
-}
+            .subject-hero {
+                min-height: 220px;
+            }
 
+            .hero-content h1 {
+                font-size: 38px;
+            }
 
+            .subject-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+                gap: 14px;
+            }
 
-@media (max-width: 850px) {
+            .subject-card {
+                min-height: 145px;
+            }
 
-    .subject-grid {
+            .discover-box h2 {
+                font-size: 26px;
+            }
 
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
+        }
 
-}
 
+        @media (max-width: 400px) {
 
-@media (max-width: 650px) {
+            .subject-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
 
-    .top-bar {
+            .subject-card {
+                min-height: 135px;
 
-        padding: 0 18px;
-    }
+                padding:
+                    12px 8px;
+            }
 
+            .subject-icon {
+                width: 48px;
 
-    .logo {
+                height: 48px;
 
-        font-size: 19px;
-    }
+                font-size: 26px;
+            }
 
+            .subject-card h3 {
+                font-size: 17px;
+            }
 
-    .subject-hero {
+            .subject-card p {
+                font-size: 9px;
+            }
 
-        min-height: 350px;
-    }
+        }
 
-
-    .hero-content h1 {
-
-        font-size: 48px;
-    }
-
-
-    .subject-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 14px;
-    }
-
-
-    .subject-card {
-
-        min-height: 145px;
-    }
-
-}
-
-
-@media (max-width: 400px) {
-
-    .subject-grid {
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-
-    .subject-card {
-
-        min-height: 135px;
-
-        padding: 12px 8px;
-    }
-
-
-    .subject-icon {
-
-        width: 48px;
-
-        height: 48px;
-
-        font-size: 26px;
-    }
-
-
-    .subject-card h3 {
-
-        font-size: 18px;
-    }
-
-
-    .subject-card p {
-
-        font-size: 9px;
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -863,454 +1059,452 @@ footer p {
 <body>
 
 
+    <!-- =========================================
+         TOP BAR
+    ========================================= -->
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+    <header class="top-bar">
 
-<header class="top-bar">
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <div class="logo-mark">
+                STS
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Sir Tho Saradhaga
+                </strong>
+
+                <span>
+                    LEARN • LAUGH • GROW
+                </span>
+
+            </div>
+
+        </a>
 
 
-    <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="home-button"
+        >
+            ← Home
+        </a>
 
-        SIR THO<br>
-        SARADHAGA
+    </header>
 
-        <small>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="subject-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                📚 EXPLORE • DISCOVER • LEARN
+            </div>
+
+            <h1>
+                What do you want
+                to <span>explore?</span> 🌈
+            </h1>
+
+            <p>
+                Choose a subject, open your notes and
+                start learning something new.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SUBJECTS
+    ========================================= -->
+
+    <section class="subject-section">
+
+
+        <div class="section-heading">
+
+            <h2>
+                🌟 Explore <span>Subjects</span>
+            </h2>
+
+            <p>
+                Choose a subject to view simple learning notes.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-wrapper">
+
+            <input
+                type="text"
+                id="subjectSearch"
+                class="search-input"
+                placeholder="🔍 Search a subject..."
+            >
+
+            <span class="search-icon">
+                🔎
+            </span>
+
+        </div>
+
+
+
+        <!-- SUBJECT GRID -->
+
+        <div
+            class="subject-grid"
+            id="subjectGrid"
+        >
+
+
+            <!-- SCIENCE -->
+
+            <a
+                href="subject-notes.html?subject=science"
+                class="subject-card"
+                data-title="science"
+            >
+
+                <div class="subject-icon">
+                    🔬
+                </div>
+
+                <h3>
+                    Science
+                </h3>
+
+                <p>
+                    Discover how the world works.
+                </p>
+
+            </a>
+
+
+
+            <!-- MATHEMATICS -->
+
+            <a
+                href="subject-notes.html?subject=mathematics"
+                class="subject-card"
+                data-title="mathematics maths"
+            >
+
+                <div class="subject-icon">
+                    🧮
+                </div>
+
+                <h3>
+                    Mathematics
+                </h3>
+
+                <p>
+                    Numbers, logic and problem solving.
+                </p>
+
+            </a>
+
+
+
+            <!-- ENGLISH -->
+
+            <a
+                href="subject-notes.html?subject=english"
+                class="subject-card"
+                data-title="english"
+            >
+
+                <div class="subject-icon">
+                    📖
+                </div>
+
+                <h3>
+                    English
+                </h3>
+
+                <p>
+                    Words, language and communication.
+                </p>
+
+            </a>
+
+
+
+            <!-- SOCIAL STUDIES -->
+
+            <a
+                href="subject-notes.html?subject=social"
+                class="subject-card"
+                data-title="social studies social"
+            >
+
+                <div class="subject-icon">
+                    🌍
+                </div>
+
+                <h3>
+                    Social Studies
+                </h3>
+
+                <p>
+                    People, places and society.
+                </p>
+
+            </a>
+
+
+
+            <!-- CIVICS -->
+
+            <a
+                href="subject-notes.html?subject=civics"
+                class="subject-card"
+                data-title="civics political science"
+            >
+
+                <div class="subject-icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Civics
+                </h3>
+
+                <p>
+                    Government, rights and society.
+                </p>
+
+            </a>
+
+
+
+            <!-- TECHNOLOGY -->
+
+            <a
+                href="subject-notes.html?subject=technology"
+                class="subject-card"
+                data-title="technology computer science computers"
+            >
+
+                <div class="subject-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Computers, AI and digital world.
+                </p>
+
+            </a>
+
+
+
+            <!-- BIOLOGY -->
+
+            <a
+                href="subject-notes.html?subject=biology"
+                class="subject-card"
+                data-title="biology life science"
+            >
+
+                <div class="subject-icon">
+                    🧬
+                </div>
+
+                <h3>
+                    Biology
+                </h3>
+
+                <p>
+                    Life, cells and living things.
+                </p>
+
+            </a>
+
+
+
+            <!-- GEOGRAPHY -->
+
+            <a
+                href="subject-notes.html?subject=geography"
+                class="subject-card"
+                data-title="geography maps earth places"
+            >
+
+                <div class="subject-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Geography
+                </h3>
+
+                <p>
+                    Earth, maps, places and environment.
+                </p>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            class="no-results"
+            id="noResults"
+        >
+
+            <div class="emoji">
+                🔍
+            </div>
+
+            <h3>
+                Hmm... subject not found!
+            </h3>
+
+            <p>
+                Try searching for another subject.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         DISCOVER
+    ========================================= -->
+
+    <section class="discover-section">
+
+        <div class="discover-box">
+
+            <div class="emoji">
+                🚀
+            </div>
+
+            <h2>
+                One Subject. Many Questions. Endless Learning!
+            </h2>
+
+            <p>
+                Choose a subject, explore simple notes,
+                understand concepts and keep learning.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Sir Tho Saradhaga
+        </div>
+
+        <p>
             LEARN • LAUGH • GROW
-        </small>
-
-    </a>
-
-
-    <a
-        href="index.html"
-        class="home-button"
-    >
-
-        ← Home
-
-    </a>
-
-
-</header>
-
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="subject-hero">
-
-
-    <div class="hero-content">
-
-
-        <div class="hero-badge">
-
-            📚 EXPLORE • DISCOVER • LEARN
-
-        </div>
-
-
-        <h1>
-
-            What do you want
-            to <span>explore?</span> 🌈
-
-        </h1>
-
-
-        <p>
-
-            Choose a subject that makes you curious.
-            Pick a topic, learn something new and
-            keep asking questions! 💡
-
         </p>
 
+    </footer>
 
-    </div>
 
-</section>
 
+    <!-- =========================================
+         SEARCH SCRIPT
+    ========================================= -->
 
+    <script>
 
-<!-- =====================================================
-     SUBJECTS
-===================================================== -->
+        const searchInput =
+            document.getElementById("subjectSearch");
 
-<section class="subject-section">
+        const subjectCards =
+            document.querySelectorAll(".subject-card");
 
+        const noResults =
+            document.getElementById("noResults");
 
-    <div class="section-heading">
 
-        <h2>
-            🌟 Explore Subjects
-        </h2>
+        searchInput.addEventListener(
+            "input",
+            function () {
 
-        <p>
-            Pick your favourite subject and start exploring.
-        </p>
+                const searchText =
+                    searchInput.value
+                    .toLowerCase()
+                    .trim();
 
-    </div>
+                let visibleCount = 0;
 
 
+                subjectCards.forEach(
+                    function (card) {
 
-    <!-- SEARCH -->
+                        const title =
+                            card.dataset.title
+                            .toLowerCase();
 
-    <div class="search-wrapper">
 
-        <input
-            type="text"
-            id="subjectSearch"
-            class="search-input"
-            placeholder="🔍  Search a subject..."
-        >
+                        if (
+                            title.includes(searchText)
+                        ) {
 
-        <span class="search-icon">
-            🔎
-        </span>
+                            card.style.display =
+                                "flex";
 
-    </div>
+                            visibleCount++;
 
+                        } else {
 
+                            card.style.display =
+                                "none";
 
-    <!-- SUBJECT GRID -->
+                        }
 
-    <div
-        class="subject-grid"
-        id="subjectGrid"
-    >
+                    }
+                );
 
 
-        <!-- SCIENCE -->
+                if (visibleCount === 0) {
 
-        <div
-            class="subject-card"
-            data-title="science"
-        >
-
-            <div class="subject-icon">
-                🔬
-            </div>
-
-            <h3>
-                Science
-            </h3>
-
-            <p>
-                Discover how the world works.
-            </p>
-
-        </div>
-
-
-
-        <!-- MATHEMATICS -->
-
-        <div
-            class="subject-card"
-            data-title="mathematics maths"
-        >
-
-            <div class="subject-icon">
-                🧮
-            </div>
-
-            <h3>
-                Mathematics
-            </h3>
-
-            <p>
-                Numbers, logic and problem solving.
-            </p>
-
-        </div>
-
-
-
-        <!-- ENGLISH -->
-
-        <div
-            class="subject-card"
-            data-title="english"
-        >
-
-            <div class="subject-icon">
-                📖
-            </div>
-
-            <h3>
-                English
-            </h3>
-
-            <p>
-                Words, language and communication.
-            </p>
-
-        </div>
-
-
-
-        <!-- SOCIAL -->
-
-        <div
-            class="subject-card"
-            data-title="social studies social"
-        >
-
-            <div class="subject-icon">
-                🌍
-            </div>
-
-            <h3>
-                Social Studies
-            </h3>
-
-            <p>
-                People, places, society and history.
-            </p>
-
-        </div>
-
-
-
-        <!-- HISTORY -->
-
-        <div
-            class="subject-card"
-            data-title="history"
-        >
-
-            <div class="subject-icon">
-                🏺
-            </div>
-
-            <h3>
-                History
-            </h3>
-
-            <p>
-                Explore stories from the past.
-            </p>
-
-        </div>
-
-
-
-        <!-- CIVICS -->
-
-        <div
-            class="subject-card"
-            data-title="civics political science"
-        >
-
-            <div class="subject-icon">
-                🏛️
-            </div>
-
-            <h3>
-                Civics
-            </h3>
-
-            <p>
-                Understand government and society.
-            </p>
-
-        </div>
-
-
-
-        <!-- TECHNOLOGY -->
-
-        <div
-            class="subject-card"
-            data-title="technology computer science computers"
-        >
-
-            <div class="subject-icon">
-                💻
-            </div>
-
-            <h3>
-                Technology
-            </h3>
-
-            <p>
-                Computers, AI and the digital world.
-            </p>
-
-        </div>
-
-
-
-        <!-- HEALTH -->
-
-        <div
-            class="subject-card"
-            data-title="health"
-        >
-
-            <div class="subject-icon">
-                ❤️
-            </div>
-
-            <h3>
-                Health
-            </h3>
-
-            <p>
-                Learn about our body and wellbeing.
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- NO RESULTS -->
-
-    <div
-        class="no-results"
-        id="noResults"
-    >
-
-        <div class="emoji">
-            🔍
-        </div>
-
-        <h3>
-            Hmm... subject not found!
-        </h3>
-
-        <p>
-            Try searching for another subject.
-        </p>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     DISCOVER
-===================================================== -->
-
-<section class="discover-section">
-
-
-    <div class="discover-box">
-
-
-        <div class="emoji">
-            🚀
-        </div>
-
-
-        <h2>
-            One Subject. Many Questions. Endless Learning!
-        </h2>
-
-
-        <p>
-
-            Don't worry if you don't know where to start.
-            Choose any subject that makes you curious.
-            Every question is a chance to learn something new.
-
-        </p>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-
-    <div class="footer-logo">
-
-        SIR THO SARADHAGA
-
-    </div>
-
-
-    <p>
-        Learn • Laugh • Grow
-    </p>
-
-
-</footer>
-
-
-
-<!-- =====================================================
-     SEARCH JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-const searchInput =
-    document.getElementById("subjectSearch");
-
-
-const subjectCards =
-    document.querySelectorAll(".subject-card");
-
-
-const noResults =
-    document.getElementById("noResults");
-
-
-
-searchInput.addEventListener(
-    "input",
-    function() {
-
-
-        const searchText =
-            searchInput.value
-            .toLowerCase()
-            .trim();
-
-
-        let visibleCount = 0;
-
-
-        subjectCards.forEach(
-            function(card) {
-
-
-                const title =
-                    card.dataset.title
-                    .toLowerCase();
-
-
-                if (
-                    title.includes(searchText)
-                ) {
-
-                    card.style.display =
-                        "flex";
-
-                    visibleCount++;
+                    noResults.style.display =
+                        "block";
 
                 } else {
 
-                    card.style.display =
+                    noResults.style.display =
                         "none";
 
                 }
@@ -1318,23 +1512,7 @@ searchInput.addEventListener(
             }
         );
 
-
-        if (visibleCount === 0) {
-
-            noResults.style.display =
-                "block";
-
-        } else {
-
-            noResults.style.display =
-                "none";
-
-        }
-
-    }
-);
-
-</script>
+    </script>
 
 
 </body>

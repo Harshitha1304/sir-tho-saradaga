@@ -1,0 +1,3285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Subject Notes | Sir Tho Saradhaga</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Poppins", sans-serif;
+
+            color: #102238;
+
+            background: #f4f7f8;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            background: rgba(7, 23, 36, 0.97);
+
+            backdrop-filter: blur(16px);
+
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 0 5%;
+        }
+
+
+        .nav-container {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+
+            text-decoration: none;
+        }
+
+
+        .logo-mark {
+
+            position: relative;
+
+            width: 48px;
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 32px;
+
+            font-weight: 700;
+
+            line-height: 1;
+
+            transform: rotate(-5deg);
+        }
+
+
+        .logo-mark::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 1px;
+
+            bottom: -5px;
+
+            width: 42px;
+
+            height: 3px;
+
+            background: #f5c329;
+
+            border-radius: 50%;
+
+            transform: rotate(-5deg);
+        }
+
+
+        .logo-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 1px;
+        }
+
+
+        .logo-text strong {
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 22px;
+
+            font-weight: 600;
+        }
+
+
+        .logo-text span {
+
+            color: #9baab8;
+
+            font-size: 7px;
+
+            letter-spacing: 1.4px;
+        }
+
+
+        /* =====================================================
+           NAV LINKS
+        ===================================================== */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 27px;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            color: #d8e0e6;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -8px;
+
+            width: 0;
+
+            height: 2px;
+
+            background: #f5c329;
+
+            border-radius: 10px;
+
+            transition: width 0.3s ease;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: #ffffff;
+        }
+
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+
+            width: 100%;
+        }
+
+
+        .login-btn {
+
+            padding: 9px 18px;
+
+            background: #f5c329;
+
+            color: #172d40 !important;
+
+            border-radius: 20px;
+
+            font-size: 11px !important;
+
+            font-weight: 800 !important;
+        }
+
+
+        /* =====================================================
+           DYNAMIC HERO
+        ===================================================== */
+
+        .subject-hero {
+
+            position: relative;
+
+            min-height: 280px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--dark),
+                    var(--mid),
+                    var(--light)
+                );
+        }
+
+
+        /* BIG ANIMATED CIRCLES */
+
+        .hero-circle {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        .hero-circle.one {
+
+            width: 360px;
+
+            height: 360px;
+
+            left: -150px;
+
+            top: -180px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 70%
+                );
+
+            animation:
+                heroMove 8s ease-in-out infinite;
+        }
+
+
+        .hero-circle.two {
+
+            width: 430px;
+
+            height: 430px;
+
+            right: -180px;
+
+            bottom: -230px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 70%
+                );
+
+            animation:
+                heroMove 9s ease-in-out infinite reverse;
+        }
+
+
+        .hero-circle.three {
+
+            width: 150px;
+
+            height: 150px;
+
+            left: 44%;
+
+            top: -50px;
+
+            border:
+                2px solid
+                rgba(255, 255, 255, 0.10);
+
+            animation:
+                rotateCircle 15s linear infinite;
+        }
+
+
+        .hero-circle.four {
+
+            width: 100px;
+
+            height: 100px;
+
+            right: 25%;
+
+            top: 50px;
+
+            background:
+                rgba(255, 255, 255, 0.04);
+
+            animation:
+                floatCircle 5s ease-in-out infinite;
+        }
+
+
+        @keyframes heroMove {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(30px, -25px)
+                    scale(1.12);
+            }
+        }
+
+
+        @keyframes rotateCircle {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        @keyframes floatCircle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-22px);
+            }
+        }
+
+
+        /* =====================================================
+           SUBJECT FLOATING ICONS
+        ===================================================== */
+
+        .floating-icon {
+
+            position: absolute;
+
+            z-index: 2;
+
+            font-size: 42px;
+
+            opacity: 0.30;
+
+            pointer-events: none;
+
+            animation:
+                bigFloat 5s ease-in-out infinite;
+        }
+
+
+        .floating-icon:nth-child(1) {
+
+            left: 8%;
+
+            top: 55px;
+        }
+
+
+        .floating-icon:nth-child(2) {
+
+            right: 10%;
+
+            top: 40px;
+
+            animation-delay: -2s;
+        }
+
+
+        .floating-icon:nth-child(3) {
+
+            left: 16%;
+
+            bottom: 30px;
+
+            animation-delay: -1s;
+        }
+
+
+        .floating-icon:nth-child(4) {
+
+            right: 20%;
+
+            bottom: 25px;
+
+            animation-delay: -3s;
+        }
+
+
+        @keyframes bigFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-18px)
+                    rotate(8deg);
+
+            }
+        }
+
+
+        /* =====================================================
+           HERO CONTENT
+        ===================================================== */
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 10;
+
+            max-width: 700px;
+
+            padding: 40px 20px;
+        }
+
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            padding: 8px 15px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255, 255, 255, 0.09);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+            color: var(--accent);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .hero-content h1 {
+
+            margin-top: 13px;
+
+            font-size:
+                clamp(34px, 5vw, 52px);
+
+            font-weight: 800;
+
+            line-height: 1.1;
+        }
+
+
+        .hero-content h1 span {
+
+            color: var(--accent);
+        }
+
+
+        .hero-content p {
+
+            margin-top: 10px;
+
+            color:
+                rgba(255, 255, 255, 0.72);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           NOTES AREA
+        ===================================================== */
+
+        .notes-section {
+
+            position: relative;
+
+            padding:
+                55px 25px 80px;
+
+            overflow: hidden;
+
+            background:
+                var(--section-bg);
+        }
+
+
+        /* DECORATIVE BACKGROUND */
+
+        .notes-section .bg-shape {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            opacity: 0.55;
+
+            filter: blur(2px);
+        }
+
+
+        .bg-shape.one {
+
+            width: 320px;
+
+            height: 320px;
+
+            left: -170px;
+
+            top: 180px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 70%
+                );
+
+            animation:
+                sectionFloat 8s ease-in-out infinite;
+        }
+
+
+        .bg-shape.two {
+
+            width: 350px;
+
+            height: 350px;
+
+            right: -180px;
+
+            bottom: 100px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--accent-soft),
+                    transparent 70%
+                );
+
+            animation:
+                sectionFloat 9s ease-in-out infinite reverse;
+        }
+
+
+        @keyframes sectionFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+
+                transform:
+                    translate(30px, -25px);
+            }
+        }
+
+
+        .notes-container {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 1180px;
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADING
+        ===================================================== */
+
+        .notes-heading {
+
+            text-align: center;
+
+            margin-bottom: 32px;
+        }
+
+
+        .notes-label {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            color: var(--dark);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .notes-label span {
+
+            width: 34px;
+
+            height: 3px;
+
+            background: var(--accent);
+
+            border-radius: 20px;
+        }
+
+
+        .notes-heading h2 {
+
+            margin-top: 10px;
+
+            color: #102238;
+
+            font-size:
+                clamp(27px, 3vw, 37px);
+
+            font-weight: 800;
+        }
+
+
+        .notes-heading h2 em {
+
+            color: var(--mid);
+
+            font-style: normal;
+        }
+
+
+        .notes-heading p {
+
+            margin-top: 5px;
+
+            color: #6d7d87;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           NOTES GRID - 2 PER ROW
+        ===================================================== */
+
+        .notes-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 24px;
+        }
+
+
+        /* =====================================================
+           NOTE CARD
+        ===================================================== */
+
+        .note-card {
+
+            position: relative;
+
+            min-height: 350px;
+
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            overflow: hidden;
+
+            background:
+                rgba(255, 255, 255, 0.88);
+
+            border:
+                1px solid
+                rgba(16, 34, 56, 0.07);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 14px 40px
+                rgba(16, 34, 56, 0.09);
+
+            backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .note-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 25px 55px
+                rgba(16, 34, 56, 0.15);
+        }
+
+
+        .note-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--mid)
+                );
+        }
+
+
+        /* =====================================================
+           NOTE VISUAL
+        ===================================================== */
+
+        .note-image-area {
+
+            position: relative;
+
+            min-height: 350px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--image-bg),
+                    var(--image-bg-two)
+                );
+        }
+
+
+        .note-image-area::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 210px;
+
+            height: 210px;
+
+            border-radius: 50%;
+
+            background:
+                var(--accent-soft);
+
+            animation:
+                imagePulse 6s ease-in-out infinite;
+        }
+
+
+        @keyframes imagePulse {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+                opacity: 0.6;
+            }
+
+            50% {
+
+                transform:
+                    scale(1.25);
+
+                opacity: 0.9;
+            }
+        }
+
+
+        .note-image-area::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            right: -35px;
+
+            bottom: -30px;
+
+            background:
+                rgba(255, 255, 255, 0.25);
+
+            animation:
+                smallFloat 5s ease-in-out infinite;
+        }
+
+
+        @keyframes smallFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-12px, -18px);
+            }
+        }
+
+
+        .visual-icon {
+
+            position: absolute;
+
+            z-index: 3;
+
+            font-size: 65px;
+
+            opacity: 0.30;
+
+            animation:
+                visualFloat 4s ease-in-out infinite;
+        }
+
+
+        @keyframes visualFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(5deg);
+            }
+        }
+
+
+        .note-image {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 45%;
+
+            max-width: 150px;
+
+            aspect-ratio: 3 / 4;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 15px 30px
+                rgba(0, 0, 0, 0.18);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .note-card:hover .note-image {
+
+            transform:
+                translateY(-7px)
+                rotate(-2deg)
+                scale(1.03);
+
+            box-shadow:
+                0 22px 40px
+                rgba(0, 0, 0, 0.22);
+        }
+
+
+        .image-label {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            z-index: 8;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            background:
+                var(--dark);
+
+            color: white;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.7px;
+        }
+
+
+        /* =====================================================
+           NOTE CONTENT
+        ===================================================== */
+
+        .note-content {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 27px;
+        }
+
+
+        .note-category {
+
+            color: var(--mid);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+        }
+
+
+        .note-content h3 {
+
+            margin-top: 7px;
+
+            color: #102238;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            line-height: 1.3;
+        }
+
+
+        .note-content h3 span {
+
+            color: var(--mid);
+        }
+
+
+        .note-description {
+
+            margin-top: 9px;
+
+            color: #667783;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           HIGHLIGHTS
+        ===================================================== */
+
+        .note-highlights {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 14px;
+        }
+
+
+        .highlight {
+
+            padding: 6px 9px;
+
+            background:
+                var(--highlight-bg);
+
+            border:
+                1px solid
+                rgba(16, 34, 56, 0.05);
+
+            border-radius: 15px;
+
+            color: #304b5b;
+
+            font-size: 8px;
+
+            font-weight: 600;
+
+            transition: 0.25s ease;
+        }
+
+
+        .highlight:hover {
+
+            transform:
+                translateY(-3px);
+
+            background:
+                var(--highlight-hover);
+        }
+
+
+        /* =====================================================
+           META
+        ===================================================== */
+
+        .note-meta {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 14px;
+        }
+
+
+        .meta-item {
+
+            color: #7b8992;
+
+            font-size: 8px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .open-note-btn {
+
+            align-self: flex-start;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 16px;
+
+            padding: 9px 17px;
+
+            background:
+                var(--accent);
+
+            color:
+                var(--button-text);
+
+            border-radius: 22px;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px
+                var(--button-shadow);
+
+            transition: 0.3s ease;
+        }
+
+
+        .open-note-btn span {
+
+            font-size: 15px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .open-note-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 13px 27px
+                var(--button-shadow);
+        }
+
+
+        .open-note-btn:hover span {
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* =====================================================
+           COMING SOON
+        ===================================================== */
+
+        .coming-soon {
+
+            grid-column: 1 / -1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            padding: 16px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255, 255, 255, 0.70);
+
+            border:
+                1px dashed
+                rgba(16, 34, 56, 0.12);
+
+            color: #71808b;
+
+            font-size: 10px;
+        }
+
+
+        .coming-soon span {
+
+            font-size: 20px;
+
+            animation:
+                floatCircle 3s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+
+            position: relative;
+
+            padding:
+                45px 25px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #071724,
+                    #0e3044
+                );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+
+        .footer::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+
+            height: 260px;
+
+            right: -110px;
+
+            top: -130px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(245, 195, 41, 0.07);
+
+            animation:
+                footerMove 8s ease-in-out infinite;
+        }
+
+
+        @keyframes footerMove {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0);
+            }
+
+            50% {
+                transform:
+                    translate(-25px, 20px);
+            }
+        }
+
+
+        .footer-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr;
+
+            gap: 45px;
+        }
+
+
+        .footer-logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+        }
+
+
+        .footer-description {
+
+            max-width: 350px;
+
+            margin-top: 12px;
+
+            color:
+                rgba(255,255,255,0.60);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        .footer-heading {
+
+            margin-bottom: 13px;
+
+            color: #f5c329;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+
+        .footer-links a {
+
+            width: fit-content;
+
+            color:
+                rgba(255,255,255,0.62);
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .footer-links a:hover {
+
+            color: white;
+
+            transform:
+                translateX(4px);
+        }
+
+
+        .footer-bottom {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1180px;
+
+            margin: 30px auto 0;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            text-align: center;
+
+            color:
+                rgba(255,255,255,0.40);
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .note-card {
+                grid-template-columns:
+                    0.9fr 1.1fr;
+            }
+
+            .footer-container {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .footer-brand {
+                grid-column:
+                    1 / -1;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 68px;
+
+                padding:
+                    0 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .subject-hero {
+                min-height: 230px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .floating-icon {
+                font-size: 30px;
+            }
+
+            .notes-section {
+                padding:
+                    42px 16px 60px;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .note-card {
+                grid-template-columns: 1fr;
+            }
+
+            .note-image-area {
+                min-height: 260px;
+            }
+
+            .note-content {
+                padding: 23px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+        }
+
+
+        @media (max-width: 430px) {
+
+            .logo-mark {
+                width: 40px;
+
+                font-size: 28px;
+            }
+
+            .logo-text strong {
+                font-size: 18px;
+            }
+
+            .logo-text span {
+                font-size: 5px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .note-image {
+                width: 40%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <div class="logo-mark">
+                STS
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Sir Tho Saradhaga
+                </strong>
+
+                <span>
+                    LEARN • LAUGH • GROW
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a
+                href="subjects.html"
+                class="active"
+            >
+                Subjects
+            </a>
+
+            <a href="quiz.html">
+                Quizzes
+            </a>
+
+            <a href="ask-question.html">
+                Ask a Question
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a
+                href="login.html"
+                class="login-btn"
+                id="userLoginBtn"
+            >
+                Login
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     DYNAMIC HERO
+===================================================== -->
+
+<section class="subject-hero">
+
+    <div class="hero-circle one"></div>
+
+    <div class="hero-circle two"></div>
+
+    <div class="hero-circle three"></div>
+
+    <div class="hero-circle four"></div>
+
+
+    <div
+        class="floating-icon"
+        id="float1"
+    >
+        📚
+    </div>
+
+    <div
+        class="floating-icon"
+        id="float2"
+    >
+        ✦
+    </div>
+
+    <div
+        class="floating-icon"
+        id="float3"
+    >
+        ✧
+    </div>
+
+    <div
+        class="floating-icon"
+        id="float4"
+    >
+        💡
+    </div>
+
+
+    <div class="hero-content">
+
+        <div
+            class="hero-badge"
+            id="heroBadge"
+        >
+            📖 SIMPLE NOTES
+        </div>
+
+
+        <h1 id="heroTitle">
+            Learn <span>Biology</span> Simply
+        </h1>
+
+
+        <p id="heroDescription">
+            Simple visual notes to understand concepts easily.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NOTES SECTION
+===================================================== -->
+
+<section class="notes-section">
+
+    <div class="bg-shape one"></div>
+
+    <div class="bg-shape two"></div>
+
+
+    <div class="notes-container">
+
+
+        <div class="notes-heading">
+
+            <div class="notes-label">
+
+                <span></span>
+
+                <span
+                    id="sectionLabel"
+                    style="
+                        width:auto;
+                        height:auto;
+                        background:none;
+                    "
+                >
+                    BIOLOGY NOTES
+                </span>
+
+                <span></span>
+
+            </div>
+
+
+            <h2 id="sectionTitle">
+                Learn it.
+                <em>Understand it.</em>
+            </h2>
+
+
+            <p id="sectionDescription">
+                Simple and visual learning material.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NOTES GRID
+        ================================================== -->
+
+        <div
+            class="notes-grid"
+            id="notesGrid"
+        >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+            >
+
+                <div class="logo-mark">
+                    STS
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        Sir Tho Saradhaga
+                    </strong>
+
+                    <span>
+                        LEARN • LAUGH • GROW
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <p class="footer-description">
+
+                Simple, engaging and visual learning content
+                designed to make education easier and more enjoyable.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-heading">
+                QUICK LINKS
+            </div>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="videos.html">
+                    Videos
+                </a>
+
+                <a href="subjects.html">
+                    Subjects
+                </a>
+
+                <a href="quiz.html">
+                    Quizzes
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div class="footer-heading">
+                LEARN WITH US
+            </div>
+
+            <div class="footer-links">
+
+                <a href="subject-notes.html?subject=biology">
+                    Biology Notes
+                </a>
+
+                <a href="subject-notes.html?subject=science">
+                    Science Notes
+                </a>
+
+                <a href="ask-question.html">
+                    Ask a Question
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Sir Tho Saradhaga.
+        Learn • Laugh • Grow.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SUBJECT DATA
+===================================================== */
+
+const subjects = {
+
+
+    biology: {
+
+        name: "Biology",
+
+        emoji: "🧬",
+
+        badge:
+            "🧬 BIOLOGY • SIMPLE NOTES",
+
+        description:
+            "Explore life, cells, plants, animals and the human body through simple visual notes.",
+
+        sectionLabel:
+            "BIOLOGY NOTES",
+
+        title:
+            "Learn it. Understand it.",
+
+        sectionDescription:
+            "Simple visual material to make biology easier.",
+
+        dark:
+            "#174d3c",
+
+        mid:
+            "#23966b",
+
+        light:
+            "#62c99a",
+
+        accent:
+            "#f5d34a",
+
+        accentSoft:
+            "rgba(245, 211, 74, 0.18)",
+
+        sectionBg:
+            "linear-gradient(135deg, #f4fbf7, #ffffff, #eefaf5)",
+
+        imageBg:
+            "#e3f5eb",
+
+        imageBgTwo:
+            "#cdebdc",
+
+        highlightBg:
+            "#eff9f3",
+
+        highlightHover:
+            "#dff5e9",
+
+        buttonText:
+            "#173c31",
+
+        buttonShadow:
+            "rgba(35,150,107,0.20)",
+
+        icon:
+            "🧬",
+
+        image:
+            "images/Thumbnails/photosynthesis.jpeg",
+
+        notes: [
+
+            {
+
+                category:
+                    "🌱 PHOTOSYNTHESIS",
+
+                title:
+                    "Light into Life",
+
+                description:
+                    "Understand how plants use sunlight to make food through photosynthesis.",
+
+                highlights: [
+                    "☀️ Light",
+                    "🌿 Chloroplast",
+                    "🧪 ATP & NADPH",
+                    "🔄 Calvin Cycle"
+                ],
+
+                meta:
+                    "📄 14 Pages • 📘 PDF Notes",
+
+                image:
+                    "images/Thumbnails/photosynthesis.jpeg",
+
+                pdf:
+                    "notes/Biology/Light_into_Life.pdf"
+
+            },
+
+            {
+
+                category:
+                    "🧬 BIOLOGY BASICS",
+
+                title:
+                    "Explore Life",
+
+                description:
+                    "Build a simple foundation in biology and understand the major ideas of living systems.",
+
+                highlights: [
+                    "🧫 Cells",
+                    "🌱 Plants",
+                    "🫀 Human Body",
+                    "🔬 Life Science"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image:
+                    "images/Thumbnails/photosynthesis.jpeg",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    },
+
+
+    science: {
+
+        name: "Science",
+
+        emoji: "🔬",
+
+        badge:
+            "🔬 SCIENCE • SIMPLE NOTES",
+
+        description:
+            "Discover how the world works through simple explanations, visuals and interesting concepts.",
+
+        sectionLabel:
+            "SCIENCE NOTES",
+
+        title:
+            "Discover. Explore. Understand.",
+
+        sectionDescription:
+            "Visual notes for curious minds.",
+
+        dark:
+            "#173b63",
+
+        mid:
+            "#287eb5",
+
+        light:
+            "#69bde8",
+
+        accent:
+            "#f5c329",
+
+        accentSoft:
+            "rgba(245,195,41,0.18)",
+
+        sectionBg:
+            "linear-gradient(135deg, #eef7fc, #ffffff, #eaf5fb)",
+
+        imageBg:
+            "#e4f3fb",
+
+        imageBgTwo:
+            "#cbe7f5",
+
+        highlightBg:
+            "#edf8fd",
+
+        highlightHover:
+            "#d9f0fb",
+
+        buttonText:
+            "#17334a",
+
+        buttonShadow:
+            "rgba(40,126,181,0.20)",
+
+        icon:
+            "🔬",
+
+        notes: [
+
+            {
+
+                category:
+                    "🔬 SCIENCE BASICS",
+
+                title:
+                    "Explore How Things Work",
+
+                description:
+                    "Learn scientific ideas through simple explanations and everyday examples.",
+
+                highlights: [
+                    "⚛️ Matter",
+                    "⚡ Energy",
+                    "🌍 Earth",
+                    "🔬 Experiments"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            },
+
+            {
+
+                category:
+                    "🌍 EVERYDAY SCIENCE",
+
+                title:
+                    "Science Around Us",
+
+                description:
+                    "Connect classroom science with things you see and experience every day.",
+
+                highlights: [
+                    "💡 Examples",
+                    "🧪 Concepts",
+                    "🌱 Nature",
+                    "💭 Why?"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    },
+
+
+    mathematics: {
+
+        name: "Mathematics",
+
+        emoji: "🧮",
+
+        badge:
+            "🧮 MATHEMATICS • SIMPLE NOTES",
+
+        description:
+            "Understand numbers, patterns, formulas and problem solving step by step.",
+
+        sectionLabel:
+            "MATHEMATICS NOTES",
+
+        title:
+            "Think. Solve. Master.",
+
+        sectionDescription:
+            "Make mathematics simple and visual.",
+
+        dark:
+            "#4b2a72",
+
+        mid:
+            "#7545ad",
+
+        light:
+            "#a47ad5",
+
+        accent:
+            "#f5c329",
+
+        accentSoft:
+            "rgba(245,195,41,0.18)",
+
+        sectionBg:
+            "linear-gradient(135deg, #f7f2fc, #ffffff, #f2ebfa)",
+
+        imageBg:
+            "#eee4f8",
+
+        imageBgTwo:
+            "#ddcef0",
+
+        highlightBg:
+            "#f5effb",
+
+        highlightHover:
+            "#eadcf7",
+
+        buttonText:
+            "#39234f",
+
+        buttonShadow:
+            "rgba(117,69,173,0.20)",
+
+        icon:
+            "🧮",
+
+        notes: [
+
+            {
+
+                category:
+                    "➗ NUMBER SYSTEM",
+
+                title:
+                    "Numbers Made Simple",
+
+                description:
+                    "Build a strong understanding of numbers, operations and mathematical thinking.",
+
+                highlights: [
+                    "🔢 Numbers",
+                    "➕ Operations",
+                    "🧠 Logic",
+                    "✏️ Practice"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            },
+
+            {
+
+                category:
+                    "📐 MATHEMATICS",
+
+                title:
+                    "Formulas & Problem Solving",
+
+                description:
+                    "Learn how to understand formulas and approach problems step by step.",
+
+                highlights: [
+                    "📐 Formulas",
+                    "🧩 Problems",
+                    "📊 Patterns",
+                    "💡 Tricks"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    },
+    
+
+    english: {
+
+        name: "English",
+
+        emoji: "📖",
+
+        badge:
+            "📖 ENGLISH • SIMPLE NOTES",
+
+        description:
+            "Improve language, vocabulary, grammar and communication through simple learning notes.",
+
+        sectionLabel:
+            "ENGLISH NOTES",
+
+        title:
+            "Read. Learn. Express.",
+
+        sectionDescription:
+            "Make language learning easier.",
+
+        dark:
+            "#713344",
+
+        mid:
+            "#a44e69",
+
+        light:
+            "#d9849c",
+
+        accent:
+            "#f5c329",
+
+        accentSoft:
+            "rgba(245,195,41,0.18)",
+
+        sectionBg:
+            "linear-gradient(135deg, #fff3f6, #ffffff, #fcecf1)",
+
+        imageBg:
+            "#f9e5eb",
+
+        imageBgTwo:
+            "#f3d0db",
+
+        highlightBg:
+            "#fff1f4",
+
+        highlightHover:
+            "#fbe0e8",
+
+        buttonText:
+            "#4e2633",
+
+        buttonShadow:
+            "rgba(164,78,105,0.20)",
+
+        icon:
+            "📖",
+
+        notes: [
+
+            {
+
+                category:
+                    "✏️ GRAMMAR",
+
+                title:
+                    "Grammar Made Simple",
+
+                description:
+                    "Understand important grammar concepts with simple examples.",
+
+                highlights: [
+                    "🔤 Parts of Speech",
+                    "📝 Tenses",
+                    "✏️ Grammar",
+                    "💡 Examples"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            },
+
+            {
+
+                category:
+                    "📚 VOCABULARY",
+
+                title:
+                    "Words & Communication",
+
+                description:
+                    "Build vocabulary and learn how to express your ideas clearly.",
+
+                highlights: [
+                    "📚 Words",
+                    "💬 Speaking",
+                    "🧠 Meaning",
+                    "✍️ Writing"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    },
+
+
+    social: {
+
+        name: "Social Studies",
+
+        emoji: "🌍",
+
+        badge:
+            "🌍 SOCIAL STUDIES • SIMPLE NOTES",
+
+        description:
+            "Understand people, places, society, geography and the world around us.",
+
+        sectionLabel:
+            "SOCIAL STUDIES NOTES",
+
+        title:
+            "Know the World. Understand Society.",
+
+        sectionDescription:
+            "Explore people, places and society.",
+
+        dark:
+            "#6b4a20",
+
+        mid:
+            "#a87935",
+
+        light:
+            "#d0a766",
+
+        accent:
+            "#f5c329",
+
+        accentSoft:
+            "rgba(245,195,41,0.20)",
+
+        sectionBg:
+            "linear-gradient(135deg, #fff9ed, #ffffff, #fdf4df)",
+
+        imageBg:
+            "#f8edcf",
+
+        imageBgTwo:
+            "#eeddb4",
+
+        highlightBg:
+            "#fff8e9",
+
+        highlightHover:
+            "#f8ebc9",
+
+        buttonText:
+            "#4e391d",
+
+        buttonShadow:
+            "rgba(168,121,53,0.20)",
+
+        icon:
+            "🌍",
+
+        notes: [
+
+            {
+
+                category:
+                    "🌍 GEOGRAPHY",
+
+                title:
+                    "Our World",
+
+                description:
+                    "Understand places, maps, landforms, climate and the world around us.",
+
+                highlights: [
+                    "🗺️ Maps",
+                    "🌍 Earth",
+                    "⛰️ Landforms",
+                    "☁️ Climate"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            },
+
+            {
+
+                category:
+                    "👥 SOCIETY",
+
+                title:
+                    "People & Society",
+
+                description:
+                    "Learn how people, communities and societies develop and interact.",
+
+                highlights: [
+                    "👥 People",
+                    "🏘️ Community",
+                    "🌎 Society",
+                    "💡 Ideas"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    },
+
+    geography: {
+
+    name: "Geography",
+
+    emoji: "🌍",
+
+    badge: "🌍 GEOGRAPHY • SIMPLE NOTES",
+
+    description:
+        "Explore maps, Earth, landforms, climate and the amazing world around us.",
+
+    sectionLabel: "GEOGRAPHY NOTES",
+
+    title: "Explore the World. Understand the Earth.",
+
+    sectionDescription:
+        "Simple visual notes to make geography interesting.",
+
+    dark: "#31552f",
+
+    mid: "#4f8b43",
+
+    light: "#82b96d",
+
+    accent: "#f5c329",
+
+    accentSoft:
+        "rgba(245,195,41,0.20)",
+
+    sectionBg:
+        "linear-gradient(135deg, #f1f8ed, #ffffff, #eef7e9)",
+
+    imageBg: "#e4f1dc",
+
+    imageBgTwo: "#cfe5c4",
+
+    highlightBg: "#f0f8eb",
+
+    highlightHover: "#deefd6",
+
+    buttonText: "#284426",
+
+    buttonShadow:
+        "rgba(79,139,67,0.22)",
+
+    icon: "🌍",
+
+    notes: [
+
+        {
+            category: "🗺️ MAPS & EARTH",
+
+            title: "Our Amazing Earth",
+
+            description:
+                "Understand Earth, maps, continents, oceans and the different places around our planet.",
+
+            highlights: [
+                "🌍 Earth",
+                "🗺️ Maps",
+                "🌊 Oceans",
+                "🏔️ Landforms"
+            ],
+
+            meta: "📘 Notes Coming Soon",
+
+            image: "",
+
+            pdf: ""
+        },
+
+        {
+            category: "☁️ CLIMATE",
+
+            title: "Weather & Climate",
+
+            description:
+                "Learn about weather, climate, seasons and the factors that shape our environment.",
+
+            highlights: [
+                "☀️ Weather",
+                "☁️ Climate",
+                "🌧️ Rainfall",
+                "🌡️ Temperature"
+            ],
+
+            meta: "📘 Notes Coming Soon",
+
+            image: "",
+
+            pdf: ""
+        }
+
+    ]
+
+},
+
+
+technology: {
+
+    name: "Technology",
+
+    emoji: "💻",
+
+    badge: "💻 TECHNOLOGY • SIMPLE NOTES",
+
+    description:
+        "Explore computers, artificial intelligence, the internet and the digital world.",
+
+    sectionLabel: "TECHNOLOGY NOTES",
+
+    title: "Understand Technology. Explore the Digital World.",
+
+    sectionDescription:
+        "Simple notes to understand technology and computing.",
+
+    dark: "#253b68",
+
+    mid: "#416ec0",
+
+    light: "#72a0e8",
+
+    accent: "#f5c329",
+
+    accentSoft:
+        "rgba(245,195,41,0.20)",
+
+    sectionBg:
+        "linear-gradient(135deg, #edf3ff, #ffffff, #e9f0ff)",
+
+    imageBg: "#e2ebff",
+
+    imageBgTwo: "#cedcff",
+
+    highlightBg: "#edf3ff",
+
+    highlightHover: "#dce7ff",
+
+    buttonText: "#233553",
+
+    buttonShadow:
+        "rgba(65,110,192,0.22)",
+
+    icon: "💻",
+
+    notes: [
+
+        {
+            category: "💻 COMPUTER BASICS",
+
+            title: "Understanding Computers",
+
+            description:
+                "Learn the basic parts of a computer and understand how computers process information.",
+
+            highlights: [
+                "🖥️ Hardware",
+                "⚙️ Software",
+                "💾 Storage",
+                "⌨️ Input"
+            ],
+
+            meta: "📘 Notes Coming Soon",
+
+            image: "",
+
+            pdf: ""
+        },
+
+        {
+            category: "🤖 ARTIFICIAL INTELLIGENCE",
+
+            title: "Introduction to AI",
+
+            description:
+                "Understand artificial intelligence, machine learning and how intelligent systems work.",
+
+            highlights: [
+                "🤖 AI",
+                "🧠 Machine Learning",
+                "📊 Data",
+                "💡 Smart Systems"
+            ],
+
+            meta: "📘 Notes Coming Soon",
+
+            image: "",
+
+            pdf: ""
+        }
+
+    ]
+
+},
+    civics: {
+
+        name: "Civics",
+
+        emoji: "🏛️",
+
+        badge:
+            "🏛️ CIVICS • SIMPLE NOTES",
+
+        description:
+            "Understand government, citizenship, rights, responsibilities and society.",
+
+        sectionLabel:
+            "CIVICS NOTES",
+
+        title:
+            "Know Your Rights. Understand Society.",
+
+        sectionDescription:
+            "Simple notes for understanding civics.",
+
+        dark:
+            "#304d68",
+
+        mid:
+            "#426f96",
+
+        light:
+            "#79a6c8",
+
+        accent:
+            "#f5c329",
+
+        accentSoft:
+            "rgba(245,195,41,0.18)",
+
+        sectionBg:
+            "linear-gradient(135deg, #eef5fa, #ffffff, #e9f1f7)",
+
+        imageBg:
+            "#e3eef6",
+
+        imageBgTwo:
+            "#cddfea",
+
+        highlightBg:
+            "#edf5fa",
+
+        highlightHover:
+            "#dcecf6",
+
+        buttonText:
+            "#263b4d",
+
+        buttonShadow:
+            "rgba(66,111,150,0.20)",
+
+        icon:
+            "🏛️",
+
+        notes: [
+
+            {
+
+                category:
+                    "🏛️ GOVERNMENT",
+
+                title:
+                    "Understanding Government",
+
+                description:
+                    "Learn the basic ideas of government and how public institutions work.",
+
+                highlights: [
+                    "🏛️ Government",
+                    "📜 Constitution",
+                    "👥 Citizens",
+                    "⚖️ Law"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            },
+
+            {
+
+                category:
+                    "⚖️ CITIZENSHIP",
+
+                title:
+                    "Rights & Responsibilities",
+
+                description:
+                    "Understand the basic relationship between citizens, rights and responsibilities.",
+
+                highlights: [
+                    "⚖️ Rights",
+                    "🤝 Duties",
+                    "👤 Citizen",
+                    "📜 Law"
+                ],
+
+                meta:
+                    "📘 Notes Coming Soon",
+
+                image: "",
+
+                pdf: ""
+
+            }
+
+        ]
+
+    }
+
+};
+
+
+
+/* =====================================================
+   GET SUBJECT FROM URL
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+let subjectKey =
+    urlParams.get("subject");
+
+
+if (!subjectKey) {
+
+    subjectKey = "biology";
+
+}
+
+
+subjectKey =
+    subjectKey.toLowerCase();
+
+
+const subject =
+    subjects[subjectKey] ||
+    subjects.biology;
+
+
+
+/* =====================================================
+   APPLY SUBJECT THEME
+===================================================== */
+
+document.documentElement.style.setProperty(
+    "--dark",
+    subject.dark
+);
+
+document.documentElement.style.setProperty(
+    "--mid",
+    subject.mid
+);
+
+document.documentElement.style.setProperty(
+    "--light",
+    subject.light
+);
+
+document.documentElement.style.setProperty(
+    "--accent",
+    subject.accent
+);
+
+document.documentElement.style.setProperty(
+    "--accent-soft",
+    subject.accentSoft
+);
+
+document.documentElement.style.setProperty(
+    "--section-bg",
+    subject.sectionBg
+);
+
+document.documentElement.style.setProperty(
+    "--image-bg",
+    subject.imageBg
+);
+
+document.documentElement.style.setProperty(
+    "--image-bg-two",
+    subject.imageBgTwo
+);
+
+document.documentElement.style.setProperty(
+    "--highlight-bg",
+    subject.highlightBg
+);
+
+document.documentElement.style.setProperty(
+    "--highlight-hover",
+    subject.highlightHover
+);
+
+document.documentElement.style.setProperty(
+    "--button-text",
+    subject.buttonText
+);
+
+document.documentElement.style.setProperty(
+    "--button-shadow",
+    subject.buttonShadow
+);
+
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+document.getElementById(
+    "heroBadge"
+).textContent =
+    subject.badge;
+
+
+document.getElementById(
+    "heroTitle"
+).innerHTML =
+    `Learn <span>${subject.name}</span> Simply`;
+
+
+document.getElementById(
+    "heroDescription"
+).textContent =
+    subject.description;
+
+
+
+/* =====================================================
+   SECTION CONTENT
+===================================================== */
+
+document.getElementById(
+    "sectionLabel"
+).textContent =
+    subject.sectionLabel;
+
+
+document.getElementById(
+    "sectionTitle"
+).innerHTML =
+    subject.title;
+
+
+document.getElementById(
+    "sectionDescription"
+).textContent =
+    subject.sectionDescription;
+
+
+
+/* =====================================================
+   FLOATING ICONS
+===================================================== */
+
+document.getElementById(
+    "float1"
+).textContent =
+    subject.emoji;
+
+document.getElementById(
+    "float2"
+).textContent =
+    subject.emoji;
+
+document.getElementById(
+    "float3"
+).textContent =
+    "✦";
+
+document.getElementById(
+    "float4"
+).textContent =
+    subject.emoji;
+
+
+
+/* =====================================================
+   CREATE NOTES
+===================================================== */
+
+const notesGrid =
+    document.getElementById(
+        "notesGrid"
+    );
+
+
+notesGrid.innerHTML = "";
+
+
+subject.notes.forEach(
+    function(note, index) {
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "note-card";
+
+
+        let imageHTML;
+
+
+        if (note.image) {
+
+            imageHTML = `
+                <img
+                    src="${note.image}"
+                    alt="${note.title}"
+                    class="note-image"
+                >
+            `;
+
+        } else {
+
+            imageHTML = `
+                <div
+                    class="visual-icon"
+                    style="
+                        font-size: 75px;
+                        opacity: 0.45;
+                    "
+                >
+                    ${subject.icon}
+                </div>
+            `;
+
+        }
+
+
+        let buttonHTML;
+
+
+        if (note.pdf) {
+
+            buttonHTML = `
+                <a
+                    href="${note.pdf}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="open-note-btn"
+                >
+                    Open Notes
+                    <span>→</span>
+                </a>
+            `;
+
+        } else {
+
+            buttonHTML = `
+                <div
+                    class="open-note-btn"
+                    style="
+                        cursor: default;
+                        opacity: 0.65;
+                    "
+                >
+                    Coming Soon
+                    <span>⌛</span>
+                </div>
+            `;
+
+        }
+
+
+        card.innerHTML = `
+
+            <div class="note-image-area">
+
+                <div class="image-label">
+                    ${index === 0
+                        ? "✨ FEATURED NOTE"
+                        : subject.name.toUpperCase()}
+                </div>
+
+                <div class="visual-icon">
+                    ${subject.icon}
+                </div>
+
+                ${imageHTML}
+
+            </div>
+
+
+            <div class="note-content">
+
+                <div class="note-category">
+                    ${note.category}
+                </div>
+
+
+                <h3>
+                    ${note.title}
+                </h3>
+
+
+                <p class="note-description">
+                    ${note.description}
+                </p>
+
+
+                <div class="note-highlights">
+
+                    ${note.highlights
+                        .map(
+                            item =>
+                                `<div class="highlight">
+                                    ${item}
+                                </div>`
+                        )
+                        .join("")
+                    }
+
+                </div>
+
+
+                <div class="note-meta">
+
+                    <div class="meta-item">
+                        ${note.meta}
+                    </div>
+
+                </div>
+
+
+                ${buttonHTML}
+
+            </div>
+
+        `;
+
+
+        notesGrid.appendChild(card);
+
+    }
+);
+
+
+
+/* =====================================================
+   LOGIN USER
+===================================================== */
+
+const loginButton =
+    document.getElementById(
+        "userLoginBtn"
+    );
+
+
+if (loginButton) {
+
+    const loggedIn =
+        localStorage.getItem(
+            "sirThoLoggedIn"
+        );
+
+
+    const savedUser =
+        JSON.parse(
+            localStorage.getItem(
+                "sirThoUser"
+            )
+        );
+
+
+    if (
+        loggedIn === "true" &&
+        savedUser &&
+        savedUser.name
+    ) {
+
+        loginButton.textContent =
+            "Hi, " + savedUser.name;
+
+        loginButton.href =
+            "student-profile.html";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
