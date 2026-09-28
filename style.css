@@ -4470,35 +4470,59 @@ button {
 
 
 /* =========================================================
-   MOBILE
+   EXPLORE - MOBILE FIX
+   Keep 2 cards in one row on phone
 ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
     .explore-section .thumbnail-grid {
+        display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 14px !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .explore-section .thumbnail-item {
+        width: 100% !important;
+        min-width: 0 !important;
     }
 
     .explore-section .thumbnail-image {
+        width: 100% !important;
         height: 230px !important;
+        aspect-ratio: auto !important;
     }
 
+    .explore-section .thumbnail-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .explore-section .thumbnail-title {
+        font-size: 11px !important;
+        margin-top: 7px !important;
+    }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 430px) {
+@media (max-width: 400px) {
 
     .explore-section .thumbnail-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
     }
 
     .explore-section .thumbnail-image {
-        height: 300px !important;
+        height: 200px !important;
     }
 
+    .explore-section .thumbnail-title {
+        font-size: 10px !important;
+    }
 }
