@@ -1,10 +1,11 @@
 /* =========================================================
-   SIR THO SARADHAGA - AUTHENTICATION SYSTEM
+   SIR THO SARADHAGA
+   AUTHENTICATION CONTROLLER
 ========================================================= */
 
 
 /* =========================================================
-   PAGES THAT REQUIRE LOGIN
+   PROTECTED PAGES
 ========================================================= */
 
 const PROTECTED_PAGES = [
@@ -18,12 +19,14 @@ const PROTECTED_PAGES = [
 
 
 /* =========================================================
-   CHECK WHETHER USER IS LOGGED IN
+   CHECK LOGIN STATUS
 ========================================================= */
 
 function isUserLoggedIn() {
 
-    return localStorage.getItem("sirThoLoggedIn") === "true";
+    return (
+        localStorage.getItem("sirThoLoggedIn") === "true"
+    );
 
 }
 
@@ -50,22 +53,7 @@ function getSavedUser() {
 
 
 /* =========================================================
-   PROTECT CURRENT PAGE
-========================================================= */
-
-function requireLogin() {
-
-    if (!isUserLoggedIn()) {
-
-        window.location.replace("login.html");
-
-    }
-
-}
-
-
-/* =========================================================
-   LOGOUT
+   LOGOUT USER
 ========================================================= */
 
 function logoutUser() {
@@ -78,7 +66,7 @@ function logoutUser() {
 
 
 /* =========================================================
-   UPDATE LOGIN / USERNAME
+   UPDATE NAVBAR
 ========================================================= */
 
 function updateAuthUI() {
@@ -86,16 +74,11 @@ function updateAuthUI() {
     const loginButton =
         document.getElementById("userLoginBtn");
 
-    const logoutButton =
-        document.getElementById("logoutBtn");
+    const userName =
+        document.getElementById("loggedUserName");
 
-
-    if (!loginButton) {
-
-        return;
-
-    }
-
+    const profileButton =
+        document.getElementById("studentProfileBtn");
 
     const loggedIn =
         isUserLoggedIn();
@@ -114,23 +97,70 @@ function updateAuthUI() {
         savedUser.name
     ) {
 
-        loginButton.textContent =
-            "✨ Hi, " + savedUser.name;
+        /* ---------------------------------------------
+           HIDE LOGIN BUTTON
+        --------------------------------------------- */
 
-        loginButton.href =
-            "student-profile.html";
+        if (loginButton) {
 
-        loginButton.classList.add(
-            "logged-in-user"
-        );
+            loginButton.style.display = "none";
+
+        }
 
 
-        if (logoutButton) {
+        /* ---------------------------------------------
+           SHOW USER NAME
+        --------------------------------------------- */
 
-            logoutButton.hidden = false;
+        if (userName) {
 
-            logoutButton.onclick =
-                logoutUser;
+            userName.textContent =
+                "✨ Hi, " +
+                savedUser.name +
+                " 👋";
+
+            userName.hidden = false;
+
+            userName.style.display =
+                "inline-flex";
+
+
+            /* -----------------------------------------
+               CLICK USER NAME → LOGOUT CONFIRMATION
+            ----------------------------------------- */
+
+            userName.onclick = function () {
+
+                const shouldLogout =
+                    confirm(
+                        "Do you want to logout?"
+                    );
+
+
+                if (shouldLogout) {
+
+                    logoutUser();
+
+                }
+
+            };
+
+        }
+
+
+        /* ---------------------------------------------
+           SHOW STUDENT PROFILE
+        --------------------------------------------- */
+
+        if (profileButton) {
+
+            profileButton.hidden = false;
+
+            profileButton.style.display =
+                "inline-flex";
+
+            profileButton.href =
+                "student-profile.html";
 
         }
 
@@ -143,22 +173,78 @@ function updateAuthUI() {
 
     else {
 
-        loginButton.textContent =
-            "Login";
+        /* ---------------------------------------------
+           SHOW LOGIN
+        --------------------------------------------- */
 
-        loginButton.href =
-            "login.html";
+        if (loginButton) {
 
-        loginButton.classList.remove(
-            "logged-in-user"
+            loginButton.style.display =
+                "inline-block";
+
+            loginButton.textContent =
+                "Login";
+
+            loginButton.href =
+                "login.html";
+
+        }
+
+
+        /* ---------------------------------------------
+           HIDE USER NAME
+        --------------------------------------------- */
+
+        if (userName) {
+
+            userName.hidden = true;
+
+            userName.style.display =
+                "none";
+
+            userName.onclick = null;
+
+        }
+
+
+        /* ---------------------------------------------
+           HIDE STUDENT PROFILE
+        --------------------------------------------- */
+
+        if (profileButton) {
+
+            profileButton.hidden = true;
+
+            profileButton.style.display =
+                "none";
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN REQUIRED MESSAGE
+========================================================= */
+
+function showLoginRequired(event) {
+
+    event.preventDefault();
+
+    const shouldLogin =
+        confirm(
+            "🔐 Login Required\n\n" +
+            "Please login to access this content.\n\n" +
+            "Click OK to login."
         );
 
 
-        if (logoutButton) {
+    if (shouldLogin) {
 
-            logoutButton.hidden = true;
-
-        }
+        window.location.href =
+            "login.html";
 
     }
 
@@ -171,62 +257,78 @@ function updateAuthUI() {
 
 function protectLinks() {
 
-    const protectedPages = [
-
-        "videos.html",
-        "subjects.html",
-        "subject-notes.html",
-        "quiz.html",
-        "ask-question.html",
-        "student-profile.html"
-
-    ];
+    const allLinks =
+        document.querySelectorAll("a[href]");
 
 
-    document.querySelectorAll("a").forEach(
-        function (link) {
+    allLinks.forEach(function (link) {
 
-            const href =
-                link.getAttribute("href") || "";
+        const href =
+            link.getAttribute("href");
 
 
-            const isProtectedLink =
-                protectedPages.some(
-                    function (page) {
+        if (!href) {
+            return;
+        }
 
-                        return href
-                            .toLowerCase()
-                            .startsWith(page);
 
-                    }
+        /* ---------------------------------------------
+           IGNORE EMPTY / NORMAL LINKS
+        --------------------------------------------- */
+
+        if (
+            href === "#" ||
+            href.startsWith("#") ||
+            href.startsWith("javascript:")
+        ) {
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           CHECK PROTECTED PAGES
+        --------------------------------------------- */
+
+        const isProtectedPage =
+            PROTECTED_PAGES.some(function (page) {
+
+                return (
+                    href === page ||
+                    href.startsWith(page + "?")
                 );
 
+            });
 
-            if (!isProtectedLink) {
 
-                return;
+        /* ---------------------------------------------
+           PROTECT DAILY VIDEO CARDS
+        --------------------------------------------- */
 
-            }
+        const isDailyVideo =
+            link.classList.contains(
+                "daily-video-card"
+            );
 
+
+        /* ---------------------------------------------
+           APPLY LOGIN PROTECTION
+        --------------------------------------------- */
+
+        if (
+            (isProtectedPage || isDailyVideo) &&
+            !isUserLoggedIn()
+        ) {
 
             link.addEventListener(
                 "click",
-                function (event) {
-
-                    if (!isUserLoggedIn()) {
-
-                        event.preventDefault();
-
-                        window.location.href =
-                            "login.html";
-
-                    }
-
-                }
+                showLoginRequired
             );
 
         }
-    );
+
+    });
 
 }
 
@@ -240,18 +342,43 @@ function checkCurrentPage() {
     const currentPage =
         window.location.pathname
             .split("/")
-            .pop()
-            .toLowerCase();
+            .pop();
 
+
+    /* ---------------------------------------------
+       IGNORE EMPTY PAGE NAME
+    --------------------------------------------- */
+
+    if (!currentPage) {
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       CHECK WHETHER CURRENT PAGE IS PROTECTED
+    --------------------------------------------- */
+
+    const isProtectedPage =
+        PROTECTED_PAGES.some(function (page) {
+
+            return (
+                currentPage === page
+            );
+
+        });
+
+
+    /* ---------------------------------------------
+       REDIRECT IF NOT LOGGED IN
+    --------------------------------------------- */
 
     if (
-        PROTECTED_PAGES.includes(currentPage) &&
+        isProtectedPage &&
         !isUserLoggedIn()
     ) {
 
-        window.location.replace(
-            "login.html"
-        );
+        window.location.href =
+            "login.html";
 
     }
 
@@ -259,45 +386,23 @@ function checkCurrentPage() {
 
 
 /* =========================================================
-   HIDE VIDEO STRIP WHEN LOGGED OUT
-========================================================= */
-
-function protectDailyVideos() {
-
-    const dailyStrip =
-        document.querySelector(
-            ".daily-videos-strip"
-        );
-
-
-    if (
-        dailyStrip &&
-        !isUserLoggedIn()
-    ) {
-
-        dailyStrip.style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =========================================================
-   START AUTHENTICATION
+   RUN AUTHENTICATION
 ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+        /* Check protected page */
         checkCurrentPage();
 
+
+        /* Update navbar */
         updateAuthUI();
 
-        protectLinks();
 
-        protectDailyVideos();
+        /* Protect links */
+        protectLinks();
 
     }
 );

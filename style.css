@@ -4526,3 +4526,197 @@ button {
         font-size: 10px !important;
     }
 }
+/* =========================================================
+   LOGIN / USER / LOGOUT
+========================================================= */
+
+.nav-user-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+/* LOGOUT BUTTON */
+
+.logout-btn {
+
+    display: none;
+
+    border: none;
+    outline: none;
+
+    background: transparent !important;
+
+    color: #f5c329 !important;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 8px 4px;
+
+    transition: all 0.25s ease;
+}
+
+
+.logout-btn:hover {
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    text-shadow:
+        0 0 10px rgba(245,195,41,0.6);
+}
+
+
+/* LOGGED-IN USER NAME */
+
+#userLoginBtn.logged-in-user {
+
+    background: transparent !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+
+    color: #f5c329 !important;
+
+    padding: 8px 4px;
+
+}
+
+
+#userLoginBtn.logged-in-user:hover {
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    text-shadow:
+        0 0 10px rgba(245,195,41,0.7);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .nav-user-area {
+
+        gap: 6px;
+
+    }
+
+    #userLoginBtn.logged-in-user {
+
+        font-size: 10px;
+
+    }
+
+    .logout-btn {
+
+        font-size: 10px;
+
+        padding: 6px 3px;
+
+    }
+
+}
+/* =========================================================
+   LOGGED-IN USER AREA
+========================================================= */
+
+.nav-user-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+
+/* STUDENT NAME */
+
+.logged-user-name {
+
+    align-items: center;
+
+    color: #f5c329;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* STUDENT PROFILE */
+
+.student-profile-nav {
+    display: none;
+    align-items: center;
+    color: #f5c329;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* MOVE LEFT */
+    transform: translateX(-45px);
+
+    transition: all 0.25s ease;
+}
+
+.student-profile-nav:hover {
+    color: #ffffff;
+    transform: translateX(-45px) translateY(-2px);
+    text-shadow: 0 0 10px rgba(216, 164, 8, 0.7);
+}
+
+
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .nav-user-area {
+
+        gap: 7px;
+
+    }
+
+    .logged-user-name {
+
+        font-size: 10px;
+
+    }
+
+    .student-profile-nav {
+
+        font-size: 10px;
+
+    }
+
+    .logout-btn {
+
+        font-size: 10px;
+
+    }
+
+}

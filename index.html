@@ -96,16 +96,33 @@
 
         
 
+<div class="nav-user-area">
 
-            <a
-                href="login.html"
-                class="login-btn"
-                id="userLoginBtn">
-                Login
+    <div class="nav-user-area">
 
-            </a>
+    <div class="nav-user-area">
 
+    <!-- Logged-in name / Logout trigger -->
+  
 
+    <!-- Student Profile -->
+    <a
+        href="student-profile.html"
+        class="student-profile-nav"
+        id="studentProfileBtn"
+        hidden>
+        👤 Student Profile
+    </a>
+
+    <!-- Login -->
+    <a
+        href="login.html"
+        class="login-btn"
+        id="userLoginBtn">
+        Login
+    </a>
+
+</div>
             <button
                 class="menu-toggle"
                 id="menuToggle"
@@ -1153,81 +1170,9 @@ navLinks
 
 </script>
 
-<script>
 
-/* =====================================================
-   SHOW LOGGED-IN USER NAME
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const loginButton =
-            document.getElementById(
-                "userLoginBtn"
-            );
-
-
-        if (!loginButton) {
-            return;
-        }
-
-
-        const loggedIn =
-            localStorage.getItem(
-                "sirThoLoggedIn"
-            );
-
-
-        const savedUser =
-            JSON.parse(
-                localStorage.getItem(
-                    "sirThoUser"
-                )
-            );
-
-
-        /* =========================
-           USER IS LOGGED IN
-        ========================= */
-
-        if (
-            loggedIn === "true" &&
-            savedUser &&
-            savedUser.name
-        ) {
-
-            loginButton.textContent =
-                "✨ Hi, " + savedUser.name;
-
-
-            loginButton.href =
-                "student-profile.html";
-
-
-        }
-
-
-        /* =========================
-           USER IS NOT LOGGED IN
-        ========================= */
-
-        else {
-
-            loginButton.textContent =
-                "Login";
-
-
-            loginButton.href =
-                "login.html";
-
-        }
-
-    }
-);
-
-</script>
+<script src="script.js"></script>
+<script src="auth.js"></script>
 </body>
 
 </html>
