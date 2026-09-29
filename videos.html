@@ -7,26 +7,27 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
 
     <title>Videos | Sir Tho Saradhaga</title>
 
 
-    <!-- GOOGLE FONTS -->
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
-        crossorigin
-    >
+        crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
 
 
     <style>
@@ -56,6 +57,7 @@
             overflow-x: hidden;
 
             background:
+
                 radial-gradient(
                     circle at 10% 15%,
                     rgba(245,195,41,0.12),
@@ -81,7 +83,6 @@
         a {
             text-decoration: none;
         }
-
 
 
         /* =====================================================
@@ -117,7 +118,6 @@
             backdrop-filter: blur(18px);
 
         }
-
 
 
         /* LOGO */
@@ -214,7 +214,6 @@
         }
 
 
-
         /* BACK HOME */
 
         .back-home {
@@ -260,7 +259,6 @@
         }
 
 
-
         /* =====================================================
            FLOATING BACKGROUND
         ===================================================== */
@@ -290,7 +288,8 @@
 
             opacity: 0.55;
 
-            animation: glowMove 8s ease-in-out infinite;
+            animation:
+                glowMove 8s ease-in-out infinite;
 
         }
 
@@ -402,7 +401,6 @@
             animation-delay: 3s;
 
         }
-
 
 
         /* =====================================================
@@ -630,7 +628,6 @@
         }
 
 
-
         /* =====================================================
            MAIN SECTION
         ===================================================== */
@@ -680,7 +677,6 @@
             z-index: 5;
 
         }
-
 
 
         /* =====================================================
@@ -782,7 +778,6 @@
         }
 
 
-
         /* =====================================================
            SEARCH
         ===================================================== */
@@ -878,7 +873,6 @@
         }
 
 
-
         /* =====================================================
            VIDEO GRID
         ===================================================== */
@@ -893,7 +887,6 @@
             gap: 20px;
 
         }
-
 
 
         /* =====================================================
@@ -936,27 +929,6 @@
             animation:
                 cardAppear 0.7s ease both;
 
-        }
-
-
-        .video-card:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-
-        .video-card:nth-child(2) {
-            animation-delay: 0.12s;
-        }
-
-        .video-card:nth-child(3) {
-            animation-delay: 0.19s;
-        }
-
-        .video-card:nth-child(4) {
-            animation-delay: 0.26s;
-        }
-
-        .video-card:nth-child(5) {
-            animation-delay: 0.33s;
         }
 
 
@@ -1017,7 +989,6 @@
         }
 
 
-
         /* =====================================================
            THUMBNAIL
         ===================================================== */
@@ -1069,8 +1040,6 @@
         }
 
 
-        /* IMAGE GLOW */
-
         .video-thumbnail::after {
 
             content: "";
@@ -1089,7 +1058,6 @@
             pointer-events: none;
 
         }
-
 
 
         /* =====================================================
@@ -1157,7 +1125,6 @@
         }
 
 
-
         /* =====================================================
            CATEGORY
         ===================================================== */
@@ -1193,7 +1160,6 @@
             backdrop-filter: blur(10px);
 
         }
-
 
 
         /* =====================================================
@@ -1283,7 +1249,6 @@
         }
 
 
-
         /* =====================================================
            NO RESULTS
         ===================================================== */
@@ -1330,7 +1295,6 @@
             font-size: 11px;
 
         }
-
 
 
         /* =====================================================
@@ -1483,7 +1447,6 @@
         }
 
 
-
         /* =====================================================
            FOOTER
         ===================================================== */
@@ -1565,7 +1528,6 @@
         }
 
 
-
         /* =====================================================
            ANIMATIONS
         ===================================================== */
@@ -1579,38 +1541,49 @@
             50% {
                 transform: translateY(-12px);
             }
+
         }
 
 
         @keyframes glowMove {
 
             0%, 100% {
+
                 transform:
                     translate(0,0)
                     scale(1);
+
             }
 
             50% {
+
                 transform:
                     translate(25px,-20px)
                     scale(1.12);
+
             }
+
         }
 
 
         @keyframes symbolFloat {
 
             0%, 100% {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
+
             }
 
             50% {
+
                 transform:
                     translateY(-20px)
                     rotate(8deg);
+
             }
+
         }
 
 
@@ -1623,6 +1596,7 @@
             to {
                 transform: rotate(360deg);
             }
+
         }
 
 
@@ -1633,88 +1607,116 @@
             }
 
             50% {
+
                 opacity: 1;
+
                 text-shadow:
                     0 0 15px
                     rgba(245,195,41,0.40);
+
             }
+
         }
 
 
         @keyframes heroText {
 
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(15px);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0);
+
             }
+
         }
 
 
         @keyframes lineReveal {
 
             to {
+
                 transform:
                     scaleX(1);
+
             }
+
         }
 
 
         @keyframes cardAppear {
 
             from {
+
                 opacity: 0;
 
                 transform:
                     translateY(25px);
+
             }
 
             to {
+
                 opacity: 1;
 
                 transform:
                     translateY(0);
+
             }
+
         }
 
 
         @keyframes playPulse {
 
             0%, 100% {
+
                 box-shadow:
                     0 12px 30px
                     rgba(0,0,0,0.30);
+
             }
 
             50% {
+
                 box-shadow:
                     0 12px 35px
                     rgba(245,195,41,0.28);
+
             }
+
         }
 
 
         @keyframes activePulse {
 
             0%, 100% {
+
                 box-shadow:
                     0 8px 25px
                     rgba(245,195,41,0.18);
+
             }
 
             50% {
+
                 box-shadow:
                     0 10px 30px
                     rgba(245,195,41,0.30);
-            }
-        }
 
+            }
+
+        }
 
 
         /* =====================================================
@@ -1737,7 +1739,6 @@
             }
 
         }
-
 
 
         @media (max-width: 650px) {
@@ -1902,7 +1903,6 @@
         }
 
 
-
         @media (max-width: 400px) {
 
             .logo-text {
@@ -1958,7 +1958,6 @@
     </div>
 
 
-
     <!-- =====================================================
          NAVBAR
     ===================================================== -->
@@ -1967,8 +1966,7 @@
 
         <a
             href="index.html"
-            class="logo"
-        >
+            class="logo">
 
             <div class="logo-mark">
                 STS
@@ -1991,13 +1989,13 @@
 
         <a
             href="index.html"
-            class="back-home"
-        >
+            class="back-home">
+
             ← Back to Home
+
         </a>
 
     </header>
-
 
 
     <!-- =====================================================
@@ -2016,6 +2014,7 @@
             <h1>
 
                 Learn Something.
+
                 <span>
                     Watch Something.
                 </span>
@@ -2033,7 +2032,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2055,46 +2053,50 @@
 
                     <button
                         class="filter-btn active"
-                        data-filter="all"
-                    >
+                        data-filter="all">
+
                         All
+
                     </button>
 
 
                     <button
                         class="filter-btn"
-                        data-filter="science"
-                    >
+                        data-filter="science">
+
                         Science
+
                     </button>
 
 
                     <button
                         class="filter-btn"
-                        data-filter="health"
-                    >
+                        data-filter="health">
+
                         Health
+
                     </button>
 
 
                     <button
                         class="filter-btn"
-                        data-filter="education"
-                    >
+                        data-filter="education">
+
                         Education
+
                     </button>
 
 
                     <button
                         class="filter-btn"
-                        data-filter="general"
-                    >
+                        data-filter="general">
+
                         General
+
                     </button>
 
 
                 </div>
-
 
 
                 <!-- SEARCH -->
@@ -2109,8 +2111,7 @@
                         type="text"
                         id="videoSearch"
                         placeholder="Search videos..."
-                        autocomplete="off"
-                    >
+                        autocomplete="off">
 
                 </div>
 
@@ -2118,328 +2119,14 @@
             </div>
 
 
-
             <!-- =================================================
-                 VIDEO GRID
+                 DYNAMIC VIDEO GRID
             ================================================= -->
 
             <div
                 class="video-grid"
-                id="videoGrid"
-            >
-
-
-                <!-- =================================================
-                     VIDEO 1
-                ================================================= -->
-
-                <a
-                    href="https://youtube.com/shorts/AMEDxcV47SM"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-card"
-                    data-category="science"
-                    data-title="Nephron Ultrafiltration"
-                >
-
-                    <div class="video-thumbnail">
-
-                        <img
-                            src="images/Thumbnails/Nephron.jpeg"
-                            alt="Nephron and Ultrafiltration"
-                        >
-
-
-                        <div class="video-category">
-                            SCIENCE
-                        </div>
-
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </div>
-
-
-                    <div class="video-info">
-
-                        <h3>
-                            Nephron & Ultrafiltration
-                        </h3>
-
-
-                        <p>
-                            Understand how the nephron filters
-                            blood and forms urine.
-                        </p>
-
-
-                        <div class="watch-link">
-
-                            Watch on YouTube
-
-                            <span>
-                                →
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     VIDEO 2
-                ================================================= -->
-
-                <a
-                    href="https://youtube.com/shorts/-CyUkCTb61w"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-card"
-                    data-category="health"
-                    data-title="Panipuri Gut Bacteria"
-                >
-
-                    <div class="video-thumbnail">
-
-                        <img
-                            src="images/Thumbnails/panipuri.jpeg"
-                            alt="Panipuri and Gut Bacteria"
-                        >
-
-
-                        <div class="video-category">
-                            HEALTH
-                        </div>
-
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </div>
-
-
-                    <div class="video-info">
-
-                        <h3>
-                            Panipuri & Gut Bacteria
-                        </h3>
-
-
-                        <p>
-                            Explore the interesting connection between
-                            food and the bacteria living in our gut.
-                        </p>
-
-
-                        <div class="watch-link">
-
-                            Watch on YouTube
-
-                            <span>
-                                →
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     VIDEO 3
-                ================================================= -->
-
-                <a
-                    href="https://youtube.com/shorts/3kxKhLNZGsw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-card"
-                    data-category="education"
-                    data-title="Parenting Children"
-                >
-
-                    <div class="video-thumbnail">
-
-                        <img
-                            src="images/Thumbnails/parents-meet.jpeg"
-                            alt="Parenting and Children"
-                        >
-
-
-                        <div class="video-category">
-                            EDUCATION
-                        </div>
-
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </div>
-
-
-                    <div class="video-info">
-
-                        <h3>
-                            Parenting & Children
-                        </h3>
-
-
-                        <p>
-                            A simple look at parenting and the
-                            way children learn and grow.
-                        </p>
-
-
-                        <div class="watch-link">
-
-                            Watch on YouTube
-
-                            <span>
-                                →
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     VIDEO 4
-                ================================================= -->
-
-                <a
-                    href="https://youtube.com/shorts/b_0upbknCYw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-card"
-                    data-category="science"
-                    data-title="Photosynthesis"
-                >
-
-                    <div class="video-thumbnail">
-
-                        <img
-                            src="images/Thumbnails/photosynthesis.jpeg"
-                            alt="Photosynthesis"
-                        >
-
-
-                        <div class="video-category">
-                            SCIENCE
-                        </div>
-
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </div>
-
-
-                    <div class="video-info">
-
-                        <h3>
-                            Photosynthesis
-                        </h3>
-
-
-                        <p>
-                            Learn how plants use light energy
-                            to make their food.
-                        </p>
-
-
-                        <div class="watch-link">
-
-                            Watch on YouTube
-
-                            <span>
-                                →
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- =================================================
-                     VIDEO 5
-                ================================================= -->
-
-                <a
-                    href="https://youtube.com/shorts/idlSICQLoqE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="video-card"
-                    data-category="general"
-                    data-title="Stars The Past"
-                >
-
-                    <div class="video-thumbnail">
-
-                        <img
-                            src="images/Thumbnails/star-past.jpeg"
-                            alt="Stars and the Past"
-                        >
-
-
-                        <div class="video-category">
-                            GENERAL
-                        </div>
-
-
-                        <div class="play-button">
-                            ▶
-                        </div>
-
-                    </div>
-
-
-                    <div class="video-info">
-
-                        <h3>
-                            Stars & The Past
-                        </h3>
-
-
-                        <p>
-                            Discover how looking at distant stars
-                            also means looking into the past.
-                        </p>
-
-
-                        <div class="watch-link">
-
-                            Watch on YouTube
-
-                            <span>
-                                →
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
+                id="videoGrid">
             </div>
-
 
 
             <!-- =================================================
@@ -2448,8 +2135,7 @@
 
             <div
                 class="no-results"
-                id="noResults"
-            >
+                id="noResults">
 
                 <div class="emoji">
                     🔍
@@ -2466,7 +2152,6 @@
                 </p>
 
             </div>
-
 
 
             <!-- =================================================
@@ -2492,8 +2177,7 @@
 
                 <a
                     href="subjects.html"
-                    class="cta-button"
-                >
+                    class="cta-button">
 
                     📚 Explore Subjects →
 
@@ -2505,7 +2189,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =====================================================
@@ -2555,38 +2238,295 @@
     </footer>
 
 
-
     <!-- =====================================================
          JAVASCRIPT
     ===================================================== -->
 
     <script>
 
+        /* =====================================================
+           GET ELEMENTS
+        ===================================================== */
+
+        const videoGrid =
+            document.getElementById(
+                "videoGrid"
+            );
+
+
         const filterButtons =
-            document.querySelectorAll(".filter-btn");
-
-
-        const videoCards =
-            document.querySelectorAll(".video-card");
+            document.querySelectorAll(
+                ".filter-btn"
+            );
 
 
         const searchInput =
-            document.getElementById("videoSearch");
+            document.getElementById(
+                "videoSearch"
+            );
 
 
         const noResults =
-            document.getElementById("noResults");
+            document.getElementById(
+                "noResults"
+            );
 
 
-        let currentFilter = "all";
+        let currentFilter =
+            "all";
 
+
+        let allVideos =
+            [];
 
 
         /* =====================================================
-           FILTER VIDEOS
+           LOAD ADMIN VIDEOS
         ===================================================== */
 
-        function filterVideos() {
+        function loadVideosFromAdmin() {
+
+            let savedVideos = null;
+
+
+            try {
+
+                savedVideos =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "sirThoAdminVideos"
+                        )
+                    );
+
+            }
+
+            catch (error) {
+
+                savedVideos =
+                    null;
+
+            }
+
+
+            /*
+             * If Admin → Manage Videos has already
+             * created the video list, use it.
+             */
+
+            if (
+                Array.isArray(savedVideos)
+            ) {
+
+                allVideos =
+                    savedVideos.filter(
+                        function(video) {
+
+                            return (
+                                video.visible === true
+                            );
+
+                        }
+                    );
+
+            }
+
+            /*
+             * If Admin data does not exist yet,
+             * create the same original 5 videos.
+             *
+             * This prevents the page from becoming
+             * empty for existing users.
+             */
+
+            else {
+
+                allVideos = [
+
+                    {
+                        id: 1,
+
+                        title:
+                            "Nephron & Ultrafiltration",
+
+                        subject:
+                            "Science",
+
+                        url:
+                            "https://youtube.com/shorts/AMEDxcV47SM",
+
+                        thumbnail:
+                            "images/Thumbnails/Nephron.jpeg",
+
+                        description:
+                            "Understand how the nephron filters blood and forms urine.",
+
+                        visible:
+                            true
+
+                    },
+
+
+                    {
+                        id: 2,
+
+                        title:
+                            "Panipuri & Gut Bacteria",
+
+                        subject:
+                            "Health",
+
+                        url:
+                            "https://youtube.com/shorts/-CyUkCTb61w",
+
+                        thumbnail:
+                            "images/Thumbnails/panipuri.jpeg",
+
+                        description:
+                            "Explore the interesting connection between food and the bacteria living in our gut.",
+
+                        visible:
+                            true
+
+                    },
+
+
+                    {
+                        id: 3,
+
+                        title:
+                            "Parenting & Children",
+
+                        subject:
+                            "Education",
+
+                        url:
+                            "https://youtube.com/shorts/3kxKhLNZGsw",
+
+                        thumbnail:
+                            "images/Thumbnails/parents-meet.jpeg",
+
+                        description:
+                            "A simple look at parenting and the way children learn and grow.",
+
+                        visible:
+                            true
+
+                    },
+
+
+                    {
+                        id: 4,
+
+                        title:
+                            "Photosynthesis",
+
+                        subject:
+                            "Science",
+
+                        url:
+                            "https://youtube.com/shorts/b_0upbknCYw",
+
+                        thumbnail:
+                            "images/Thumbnails/photosynthesis.jpeg",
+
+                        description:
+                            "Learn how plants use light energy to make their food.",
+
+                        visible:
+                            true
+
+                    },
+
+
+                    {
+                        id: 5,
+
+                        title:
+                            "Stars & The Past",
+
+                        subject:
+                            "General",
+
+                        url:
+                            "https://youtube.com/shorts/idlSICQLoqE",
+
+                        thumbnail:
+                            "images/Thumbnails/star-past.jpeg",
+
+                        description:
+                            "Discover how looking at distant stars also means looking into the past.",
+
+                        visible:
+                            true
+
+                    }
+
+                ];
+
+            }
+
+
+            renderVideos();
+
+        }
+
+
+        /* =====================================================
+           GET CATEGORY
+        ===================================================== */
+
+        function getCategory(
+            subject
+        ) {
+
+            const value =
+                String(
+                    subject || ""
+                )
+                .toLowerCase()
+                .trim();
+
+
+            if (
+                value === "science" ||
+                value === "biology"
+            ) {
+
+                return "science";
+
+            }
+
+
+            if (
+                value === "health"
+            ) {
+
+                return "health";
+
+            }
+
+
+            if (
+                value === "education" ||
+                value === "english" ||
+                value === "mathematics"
+            ) {
+
+                return "education";
+
+            }
+
+
+            return "general";
+
+        }
+
+
+        /* =====================================================
+           RENDER VIDEOS
+        ===================================================== */
+
+        function renderVideos() {
 
             const searchText =
                 searchInput.value
@@ -2594,55 +2534,178 @@
                     .trim();
 
 
-            let visibleCount = 0;
+            videoGrid.innerHTML = "";
 
 
-            videoCards.forEach(function(card) {
-
-                const category =
-                    card.dataset.category;
+            let visibleCount =
+                0;
 
 
-                const title =
-                    card.dataset.title
+            allVideos.forEach(
+                function(video, index) {
+
+
+                    const category =
+                        getCategory(
+                            video.subject
+                        );
+
+
+                    const title =
+                        String(
+                            video.title || ""
+                        )
                         .toLowerCase();
 
 
-                const matchesCategory =
-                    currentFilter === "all" ||
-                    category === currentFilter;
+                    const subject =
+                        String(
+                            video.subject || ""
+                        )
+                        .toLowerCase();
 
 
-                const matchesSearch =
-                    title.includes(searchText);
+                    const description =
+                        String(
+                            video.description || ""
+                        )
+                        .toLowerCase();
 
 
-                if (
-                    matchesCategory &&
-                    matchesSearch
-                ) {
+                    const matchesCategory =
+                        currentFilter === "all" ||
+                        category === currentFilter;
 
-                    card.style.display =
-                        "block";
+
+                    const matchesSearch =
+                        title.includes(
+                            searchText
+                        ) ||
+
+                        subject.includes(
+                            searchText
+                        ) ||
+
+                        description.includes(
+                            searchText
+                        );
+
+
+                    if (
+                        !matchesCategory ||
+                        !matchesSearch
+                    ) {
+
+                        return;
+
+                    }
+
 
                     visibleCount++;
 
-                } else {
 
-                    card.style.display =
-                        "none";
+                    const card =
+                        document.createElement(
+                            "a"
+                        );
+
+
+                    card.href =
+                        video.url;
+
+
+                    card.target =
+                        "_blank";
+
+
+                    card.rel =
+                        "noopener noreferrer";
+
+
+                    card.className =
+                        "video-card";
+
+
+                    card.style.animationDelay =
+                        (
+                            index * 0.07
+                        ) + "s";
+
+
+                    const displayCategory =
+                        category.toUpperCase();
+
+
+                    card.innerHTML = `
+
+                        <div class="video-thumbnail">
+
+                            <img
+                                src="${video.thumbnail}"
+                                alt="${escapeHTML(video.title)}"
+                                onerror="this.style.opacity='0.25'"
+                            >
+
+
+                            <div class="video-category">
+                                ${displayCategory}
+                            </div>
+
+
+                            <div class="play-button">
+                                ▶
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-info">
+
+                            <h3>
+                                ${escapeHTML(video.title)}
+                            </h3>
+
+
+                            <p>
+                                ${escapeHTML(
+                                    video.description || ""
+                                )}
+                            </p>
+
+
+                            <div class="watch-link">
+
+                                Watch on YouTube
+
+                                <span>
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    videoGrid.appendChild(
+                        card
+                    );
 
                 }
+            );
 
-            });
 
-
-            if (visibleCount === 0) {
+            if (
+                visibleCount === 0
+            ) {
 
                 noResults.style.display =
                     "block";
 
-            } else {
+            }
+
+            else {
 
                 noResults.style.display =
                     "none";
@@ -2652,45 +2715,80 @@
         }
 
 
+        /* =====================================================
+           SAFE TEXT
+        ===================================================== */
+
+        function escapeHTML(
+            text
+        ) {
+
+            return String(
+                text || ""
+            )
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+        }
+
 
         /* =====================================================
            FILTER BUTTONS
         ===================================================== */
 
-        filterButtons.forEach(function(button) {
+        filterButtons.forEach(
+            function(button) {
 
-            button.addEventListener(
-                "click",
-                function() {
-
-
-                    filterButtons.forEach(
-                        function(btn) {
-
-                            btn.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
+                button.addEventListener(
+                    "click",
+                    function() {
 
 
-                    this.classList.add(
-                        "active"
-                    );
+                        filterButtons.forEach(
+                            function(btn) {
+
+                                btn.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
 
 
-                    currentFilter =
-                        this.dataset.filter;
+                        this.classList.add(
+                            "active"
+                        );
 
 
-                    filterVideos();
+                        currentFilter =
+                            this.dataset.filter;
 
-                }
-            );
 
-        });
+                        renderVideos();
 
+                    }
+                );
+
+            }
+        );
 
 
         /* =====================================================
@@ -2701,18 +2799,28 @@
             "input",
             function() {
 
-                filterVideos();
+                renderVideos();
 
             }
         );
 
+
+        /* =====================================================
+           INITIAL LOAD
+        ===================================================== */
+
+        loadVideosFromAdmin();
+
     </script>
 
-<script src="auth.js"></script>
 
-<script>
-    requireLogin();
-</script>
+    <!-- =====================================================
+         AUTHENTICATION
+    ===================================================== -->
+
+    <script src="auth.js"></script>
+
+
 </body>
 
 </html>

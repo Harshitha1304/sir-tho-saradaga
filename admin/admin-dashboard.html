@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | Sir Tho Saradhaga</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4f7f8;
+            color: #102238;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================================
+           ANIMATED BACKGROUND
+        ========================================================= */
+
+        .dashboard-background {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(5px);
+            opacity: 0.45;
+            animation: floatingOrb 9s ease-in-out infinite;
+        }
+
+        .bg-orb.one {
+            width: 260px;
+            height: 260px;
+            background: rgba(245, 195, 41, 0.12);
+            top: -100px;
+            right: 15%;
+        }
+
+        .bg-orb.two {
+            width: 340px;
+            height: 340px;
+            background: rgba(14, 45, 66, 0.09);
+            right: -130px;
+            bottom: -130px;
+            animation-delay: 2s;
+        }
+
+        .bg-orb.three {
+            width: 180px;
+            height: 180px;
+            background: rgba(52, 152, 219, 0.08);
+            left: 20%;
+            bottom: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatingOrb {
+
+            0%,
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            50% {
+                transform: translate3d(0, -22px, 0);
+            }
+
+        }
+
+
+        /* =========================================================
+           MAIN LAYOUT
+        ========================================================= */
+
+        .admin-layout {
+            min-height: 100vh;
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .admin-sidebar {
+
+            width: 255px;
+            min-height: 100vh;
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #071724 0%,
+                    #0a2030 100%
+                );
+
+            padding: 24px 16px;
+
+            z-index: 1000;
+
+            box-shadow:
+                8px 0 35px rgba(7, 23, 36, 0.10);
+
+            transition:
+                transform 0.35s ease;
+        }
+
+
+        /* =========================================================
+           SIDEBAR LOGO
+        ========================================================= */
+
+        .sidebar-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                0 10px 25px;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+        }
+
+        .sidebar-logo-mark {
+
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #f5c329;
+
+            color: #071724;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            transform:
+                rotate(-4deg);
+
+            box-shadow:
+                0 8px 20px
+                rgba(245, 195, 41, 0.18);
+
+            animation:
+                logoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+                transform:
+                    rotate(-4deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    rotate(-4deg)
+                    translateY(-3px);
+            }
+
+        }
+
+        .sidebar-logo-text {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .sidebar-logo-text strong {
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 22px;
+
+            font-weight: 600;
+
+            line-height: 1;
+        }
+
+        .sidebar-logo-text span {
+
+            color: #8497a5;
+
+            font-size: 7px;
+
+            letter-spacing: 1.3px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =========================================================
+           SIDEBAR LABEL
+        ========================================================= */
+
+        .admin-label {
+
+            color: #f5c329;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            padding:
+                25px 12px 10px;
+        }
+
+
+        /* =========================================================
+           SIDEBAR NAV
+        ========================================================= */
+
+        .admin-nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+        .admin-nav a {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                13px 13px;
+
+            border-radius: 11px;
+
+            color: #a9b8c3;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            transition:
+                all 0.25s ease;
+        }
+
+        .admin-nav a:hover {
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            color: #ffffff;
+
+            transform:
+                translateX(3px);
+        }
+
+        .admin-nav a.active {
+
+            background:
+                rgba(245, 195, 41, 0.13);
+
+            color: #f5c329;
+
+            font-weight: 700;
+        }
+
+        .nav-icon {
+
+            width: 24px;
+
+            text-align: center;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+           SIDEBAR BOTTOM
+        ========================================================= */
+
+        .sidebar-bottom {
+
+            position: absolute;
+
+            left: 16px;
+            right: 16px;
+
+            bottom: 20px;
+        }
+
+        .website-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                12px 13px;
+
+            color: #8fa0ad;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            border-radius: 10px;
+
+            transition:
+                all 0.25s ease;
+        }
+
+        .website-link:hover {
+
+            color: #f5c329;
+
+            background:
+                rgba(255, 255, 255, 0.05);
+        }
+
+        .admin-logout {
+
+            width: 100%;
+
+            margin-top: 5px;
+
+            padding:
+                12px 13px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(220, 53, 69, 0.08);
+
+            color: #ff8994;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 11px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition:
+                all 0.25s ease;
+        }
+
+        .admin-logout:hover {
+
+            background:
+                rgba(220, 53, 69, 0.15);
+
+            color: #ffb0b8;
+        }
+
+
+        /* =========================================================
+           MAIN AREA
+        ========================================================= */
+
+        .admin-main {
+
+            width:
+                calc(100% - 255px);
+
+            margin-left: 255px;
+
+            min-height: 100vh;
+
+            padding:
+                30px 34px 45px;
+        }
+
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .admin-topbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 28px;
+        }
+
+        .admin-heading h1 {
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: #102238;
+
+            margin-bottom: 6px;
+        }
+
+        .admin-heading p {
+
+            color: #71808c;
+
+            font-size: 11px;
+        }
+
+        .admin-profile {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            background:
+                rgba(255, 255, 255, 0.85);
+
+            border:
+                1px solid #e5ebee;
+
+            border-radius: 14px;
+
+            padding:
+                8px 12px;
+
+            box-shadow:
+                0 7px 22px
+                rgba(16, 34, 56, 0.05);
+        }
+
+        .admin-avatar {
+
+            width: 41px;
+            height: 41px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #0e2d42;
+
+            color: #f5c329;
+
+            font-size: 17px;
+        }
+
+        .admin-profile-text {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .admin-profile-text strong {
+
+            font-size: 11px;
+
+            color: #102238;
+        }
+
+        .admin-profile-text span {
+
+            font-size: 9px;
+
+            color: #82909b;
+
+            margin-top: 2px;
+        }
+
+
+        /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================= */
+
+        .mobile-menu-btn {
+
+            display: none;
+
+            border: none;
+
+            background: #071724;
+
+            color: #f5c329;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 11px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           STATISTICS
+        ========================================================= */
+
+        .stats-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+
+            background:
+                rgba(255, 255, 255, 0.94);
+
+            border:
+                1px solid #e4eaed;
+
+            border-radius: 17px;
+
+            padding: 21px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            box-shadow:
+                0 8px 26px
+                rgba(16, 34, 56, 0.055);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 32px
+                rgba(16, 34, 56, 0.10);
+        }
+
+        .stat-icon {
+
+            width: 49px;
+            height: 49px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            font-size: 20px;
+        }
+
+        .stat-icon.yellow {
+            background: #fff4c9;
+        }
+
+        .stat-icon.blue {
+            background: #dff2fc;
+        }
+
+        .stat-icon.green {
+            background: #e0f7eb;
+        }
+
+        .stat-icon.purple {
+            background: #eee3fb;
+        }
+
+        .stat-info strong {
+
+            display: block;
+
+            color: #102238;
+
+            font-size: 23px;
+
+            line-height: 1;
+        }
+
+        .stat-info span {
+
+            display: block;
+
+            color: #71808c;
+
+            font-size: 9px;
+
+            margin-top: 7px;
+        }
+
+
+        /* =========================================================
+           MAIN DASHBOARD GRID
+        ========================================================= */
+
+        .dashboard-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(350px, 0.9fr)
+                minmax(430px, 1.3fr);
+
+            gap: 22px;
+
+            align-items: stretch;
+        }
+
+
+        /* =========================================================
+           DASHBOARD CARD
+        ========================================================= */
+
+        .dashboard-card {
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            border:
+                1px solid #e3e9ec;
+
+            border-radius: 19px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 9px 28px
+                rgba(16, 34, 56, 0.045);
+        }
+
+        .card-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 21px;
+
+            padding-bottom: 14px;
+
+            border-bottom:
+                1px solid #edf1f3;
+        }
+
+        .card-header h2 {
+
+            font-size: 16px;
+
+            color: #102238;
+
+            font-weight: 700;
+        }
+
+        .card-header span {
+
+            font-size: 9px;
+
+            color: #7e8b95;
+
+            background: #f3f6f7;
+
+            padding:
+                6px 10px;
+
+            border-radius: 20px;
+        }
+
+
+        /* =========================================================
+           QUICK ACTIONS
+        ========================================================= */
+
+        .quick-actions {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+        }
+
+        .quick-action {
+
+            min-height: 100px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 17px;
+
+            background: #f7f9fa;
+
+            border:
+                1px solid #edf1f3;
+
+            border-radius: 14px;
+
+            color: #102238;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .quick-action:hover {
+
+            background: #fffbea;
+
+            border-color:
+                rgba(245, 195, 41, 0.35);
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 23px
+                rgba(16, 34, 56, 0.07);
+        }
+
+        .quick-action-icon {
+
+            width: 46px;
+            height: 46px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #0e2d42;
+
+            color: #f5c329;
+
+            font-size: 19px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .quick-action:hover
+        .quick-action-icon {
+
+            transform:
+                rotate(-7deg)
+                scale(1.08);
+        }
+
+        .quick-action-text {
+
+            min-width: 0;
+        }
+
+        .quick-action strong {
+
+            display: block;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #102238;
+        }
+
+        .quick-action span {
+
+            display: block;
+
+            color: #7d8b95;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+
+            margin-top: 4px;
+        }
+
+
+        /* =========================================================
+           RECENT ACTIVITY
+        ========================================================= */
+
+        .activity-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 0;
+        }
+
+        .activity-item {
+
+            min-height: 67px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding:
+                12px 7px;
+
+            border-bottom:
+                1px solid #edf0f2;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .activity-item:first-child {
+
+            padding-top: 4px;
+        }
+
+        .activity-item:last-child {
+
+            border-bottom: none;
+
+            padding-bottom: 4px;
+        }
+
+        .activity-item:hover {
+
+            background: #fafcfc;
+
+            border-radius: 11px;
+
+            transform:
+                translateX(3px);
+        }
+
+        .activity-icon {
+
+            width: 43px;
+            height: 43px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                #f0f5f7;
+
+            border-radius: 12px;
+
+            font-size: 17px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .activity-item:hover
+        .activity-icon {
+
+            transform:
+                rotate(-7deg)
+                scale(1.07);
+        }
+
+        .activity-info {
+
+            min-width: 0;
+
+            flex: 1;
+        }
+
+        .activity-info strong {
+
+            display: block;
+
+            color: #253748;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+        .activity-info span {
+
+            display: block;
+
+            color: #87949d;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+
+            margin-top: 4px;
+        }
+
+        .activity-time {
+
+            flex-shrink: 0;
+
+            color: #7e8b95;
+
+            font-size: 7px;
+
+            background: #f5f7f8;
+
+            padding:
+                5px 8px;
+
+            border-radius: 20px;
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .quick-actions {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .admin-sidebar {
+
+                transform:
+                    translateX(-100%);
+            }
+
+            .admin-sidebar.open {
+
+                transform:
+                    translateX(0);
+            }
+
+            .admin-main {
+
+                width: 100%;
+
+                margin-left: 0;
+
+                padding:
+                    18px 14px 30px;
+            }
+
+            .mobile-menu-btn {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+            }
+
+            .admin-topbar {
+
+                display: grid;
+
+                grid-template-columns:
+                    auto 1fr auto;
+
+                gap: 10px;
+
+                align-items: center;
+
+                margin-bottom: 21px;
+            }
+
+            .admin-heading h1 {
+
+                font-size: 21px;
+            }
+
+            .admin-heading p {
+
+                font-size: 8px;
+
+                line-height: 1.5;
+            }
+
+            .admin-profile {
+
+                padding: 5px;
+            }
+
+            .admin-avatar {
+
+                width: 37px;
+                height: 37px;
+
+                font-size: 15px;
+            }
+
+            .admin-profile-text {
+
+                display: none;
+            }
+
+
+            /* MOBILE STATS */
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 10px;
+
+                margin-bottom: 17px;
+            }
+
+            .stat-card {
+
+                padding:
+                    15px 12px;
+
+                gap: 10px;
+
+                min-height: 78px;
+
+                border-radius: 14px;
+            }
+
+            .stat-icon {
+
+                width: 38px;
+                height: 38px;
+
+                border-radius: 10px;
+
+                font-size: 15px;
+            }
+
+            .stat-info strong {
+
+                font-size: 18px;
+            }
+
+            .stat-info span {
+
+                font-size: 7px;
+
+                margin-top: 5px;
+            }
+
+
+            /* MOBILE CONTENT */
+
+            .dashboard-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 15px;
+            }
+
+            .dashboard-card {
+
+                padding: 17px;
+
+                border-radius: 16px;
+            }
+
+            .card-header {
+
+                margin-bottom: 17px;
+            }
+
+            .card-header h2 {
+
+                font-size: 14px;
+            }
+
+            .card-header span {
+
+                font-size: 7px;
+
+                padding:
+                    5px 8px;
+            }
+
+
+            /* MOBILE QUICK ACTIONS */
+
+            .quick-actions {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 10px;
+            }
+
+            .quick-action {
+
+                min-height: 100px;
+
+                padding:
+                    13px 11px;
+
+                gap: 9px;
+
+                border-radius: 12px;
+
+                align-items: center;
+            }
+
+            .quick-action-icon {
+
+                width: 39px;
+                height: 39px;
+
+                border-radius: 10px;
+
+                font-size: 16px;
+            }
+
+            .quick-action strong {
+
+                font-size: 9px;
+            }
+
+            .quick-action span {
+
+                font-size: 7px;
+
+                line-height: 1.4;
+            }
+
+
+            /* MOBILE ACTIVITY */
+
+            .activity-item {
+
+                min-height: 65px;
+
+                padding:
+                    11px 4px;
+
+                gap: 10px;
+            }
+
+            .activity-icon {
+
+                width: 39px;
+                height: 39px;
+
+                border-radius: 10px;
+
+                font-size: 15px;
+            }
+
+            .activity-info strong {
+
+                font-size: 9px;
+            }
+
+            .activity-info span {
+
+                font-size: 7px;
+
+                margin-top: 3px;
+            }
+
+            .activity-time {
+
+                font-size: 6px;
+
+                padding:
+                    4px 6px;
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 430px) {
+
+            .admin-main {
+
+                padding-left: 11px;
+
+                padding-right: 11px;
+            }
+
+            .admin-heading h1 {
+
+                font-size: 19px;
+            }
+
+            .admin-heading p {
+
+                font-size: 7px;
+            }
+
+            .stats-grid {
+
+                gap: 8px;
+            }
+
+            .stat-card {
+
+                padding:
+                    13px 10px;
+            }
+
+            .stat-icon {
+
+                width: 35px;
+                height: 35px;
+
+                font-size: 14px;
+            }
+
+            .stat-info strong {
+
+                font-size: 16px;
+            }
+
+            .stat-info span {
+
+                font-size: 6.5px;
+            }
+
+            .quick-actions {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .quick-action {
+
+                min-height: 94px;
+
+                padding:
+                    11px 9px;
+            }
+
+            .quick-action-icon {
+
+                width: 35px;
+                height: 35px;
+
+                font-size: 14px;
+            }
+
+            .quick-action strong {
+
+                font-size: 8px;
+            }
+
+            .quick-action span {
+
+                font-size: 6.5px;
+            }
+
+            .activity-time {
+
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         ANIMATED BACKGROUND
+    ========================================================= -->
+
+    <div class="dashboard-background">
+
+        <div class="bg-orb one"></div>
+
+        <div class="bg-orb two"></div>
+
+        <div class="bg-orb three"></div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         ADMIN LAYOUT
+    ========================================================= -->
+
+    <div class="admin-layout">
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar"
+        >
+
+
+            <!-- LOGO -->
+
+            <div class="sidebar-logo">
+
+                <div class="sidebar-logo-mark">
+                    STS
+                </div>
+
+                <div class="sidebar-logo-text">
+
+                    <strong>
+                        Sir Tho Saradhaga
+                    </strong>
+
+                    <span>
+                        ADMIN PANEL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- LABEL -->
+
+            <div class="admin-label">
+                MANAGEMENT
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="admin-nav">
+
+                <a
+                    href="admin-dashboard.html"
+                    class="active"
+                >
+
+                    <span class="nav-icon">
+                        📊
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="admin-videos.html">
+
+                    <span class="nav-icon">
+                        🎥
+                    </span>
+
+                    Videos
+
+                </a>
+
+
+                <a href="admin-notes.html">
+
+                    <span class="nav-icon">
+                        📖
+                    </span>
+
+                    Notes
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        🧠
+                    </span>
+
+                    Quizzes
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        ❓
+                    </span>
+
+                    Questions
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        👨‍🎓
+                    </span>
+
+                    Students
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        ⚙️
+                    </span>
+
+                    Settings
+
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="index.html"
+                    class="website-link"
+                >
+
+                    🌐
+                    View Website
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="admin-logout"
+                    id="adminLogout"
+                >
+
+                    🚪
+                    Logout
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ===================================================== -->
+
+        <main class="admin-main">
+
+
+            <!-- TOP BAR -->
+
+            <div class="admin-topbar">
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    type="button"
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    ☰
+                </button>
+
+
+                <!-- HEADING -->
+
+                <div class="admin-heading">
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Welcome back, Admin. Here's what's happening.
+                    </p>
+
+                </div>
+
+
+                <!-- ADMIN PROFILE -->
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        👤
+                    </div>
+
+                    <div class="admin-profile-text">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            Website Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================= -->
+
+            <div class="stats-grid">
+
+
+                <!-- STUDENTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon yellow">
+                        👨‍🎓
+                    </div>
+
+                    <div class="stat-info">
+
+                        <strong id="studentCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Total Students
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VIDEOS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        🎥
+                    </div>
+
+                    <div class="stat-info">
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <span>
+                            Videos
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBJECTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        📖
+                    </div>
+
+                    <div class="stat-info">
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <span>
+                            Subjects
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUIZ QUESTIONS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        🧠
+                    </div>
+
+                    <div class="stat-info">
+
+                        <strong>
+                            60
+                        </strong>
+
+                        <span>
+                            Quiz Questions
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DASHBOARD CONTENT
+            ================================================= -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- =================================================
+                     QUICK ACTIONS
+                ================================================= -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-header">
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                        <span>
+                            Manage Content
+                        </span>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <!-- ADD VIDEO -->
+
+                        <a
+                            href="admin-videos.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                🎥
+                            </div>
+
+                            <div class="quick-action-text">
+
+                                <strong>
+                                    Add Video
+                                </strong>
+
+                                <span>
+                                    Add a YouTube video
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- ADD NOTES -->
+
+                        <a
+                            href="admin-notes.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                📖
+                            </div>
+
+                            <div class="quick-action-text">
+
+                                <strong>
+                                    Add Notes
+                                </strong>
+
+                                <span>
+                                    Upload study material
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- ADD QUIZ -->
+
+                        <a
+                            href="#"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                🧠
+                            </div>
+
+                            <div class="quick-action-text">
+
+                                <strong>
+                                    Add Quiz
+                                </strong>
+
+                                <span>
+                                    Create questions
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- MANAGE SUBJECTS -->
+
+                        <a
+                            href="#"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                📚
+                            </div>
+
+                            <div class="quick-action-text">
+
+                                <strong>
+                                    Manage Subjects
+                                </strong>
+
+                                <span>
+                                    Add or edit subjects
+                                </span>
+
+                            </div>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RECENT ACTIVITY
+                ================================================= -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-header">
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                        <span>
+                            Latest Updates
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+
+                        <!-- ACTIVITY 1 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🎥
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Videos section is ready
+                                </strong>
+
+                                <span>
+                                    YouTube content management
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Today
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY 2 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                📖
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Biology notes available
+                                </strong>
+
+                                <span>
+                                    Study material is available
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Today
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY 3 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🧠
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Quiz section is active
+                                </strong>
+
+                                <span>
+                                    60 quiz questions available
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Today
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY 4 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🌐
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Website is live
+                                </strong>
+
+                                <span>
+                                    Student portal is available
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Active
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY 5 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                👨‍🎓
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Student registration system
+                                </strong>
+
+                                <span>
+                                    Student login and profile system
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Active
+                            </div>
+
+                        </div>
+
+
+                        <!-- ACTIVITY 6 -->
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🔐
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Admin access enabled
+                                </strong>
+
+                                <span>
+                                    Admin dashboard is protected
+                                </span>
+
+                            </div>
+
+                            <div class="activity-time">
+                                Active
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+
+        /* =====================================================
+           ADMIN ACCESS PROTECTION
+        ===================================================== */
+
+        const adminLoggedIn =
+            localStorage.getItem(
+                "sirThoAdminLoggedIn"
+            );
+
+
+        if (
+            adminLoggedIn !== "true"
+        ) {
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+
+
+        /* =====================================================
+           ADMIN LOGOUT
+        ===================================================== */
+
+        const adminLogout =
+            document.getElementById(
+                "adminLogout"
+            );
+
+
+        if (adminLogout) {
+
+            adminLogout.addEventListener(
+                "click",
+                function () {
+
+
+                    const confirmLogout =
+                        confirm(
+                            "Do you want to logout from the Admin Panel?"
+                        );
+
+
+                    if (confirmLogout) {
+
+                        localStorage.removeItem(
+                            "sirThoAdminLoggedIn"
+                        );
+
+
+                        window.location.href =
+                            "admin-login.html";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE SIDEBAR
+        ===================================================== */
+
+        const mobileMenuBtn =
+            document.getElementById(
+                "mobileMenuBtn"
+            );
+
+
+        const adminSidebar =
+            document.getElementById(
+                "adminSidebar"
+            );
+
+
+        if (
+            mobileMenuBtn &&
+            adminSidebar
+        ) {
+
+            mobileMenuBtn.addEventListener(
+                "click",
+                function () {
+
+                    adminSidebar.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           STUDENT COUNT
+        ===================================================== */
+
+        const studentCount =
+            document.getElementById(
+                "studentCount"
+            );
+
+
+        try {
+
+            const savedUser =
+                JSON.parse(
+                    localStorage.getItem(
+                        "sirThoUser"
+                    )
+                );
+
+
+            if (
+                savedUser &&
+                savedUser.name
+            ) {
+
+                studentCount.textContent =
+                    "1";
+
+            }
+
+            else {
+
+                studentCount.textContent =
+                    "0";
+
+            }
+
+        }
+
+        catch (error) {
+
+            studentCount.textContent =
+                "0";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

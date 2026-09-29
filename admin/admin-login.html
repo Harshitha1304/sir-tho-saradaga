@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Sir Tho Saradhaga</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(245, 195, 41, 0.12),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(38, 126, 170, 0.20),
+                    transparent 30%
+                ),
+                #071724;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+            overflow: hidden;
+        }
+
+
+        /* =================================================
+           BACKGROUND CIRCLES
+        ================================================= */
+
+        .bg-circle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(2px);
+            animation: floatCircle 6s ease-in-out infinite;
+        }
+
+        .circle-one {
+            width: 220px;
+            height: 220px;
+            background: rgba(245, 195, 41, 0.06);
+            top: -80px;
+            left: -60px;
+        }
+
+        .circle-two {
+            width: 300px;
+            height: 300px;
+            background: rgba(52, 152, 219, 0.07);
+            right: -100px;
+            bottom: -120px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes floatCircle {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+
+        }
+
+
+        /* =================================================
+           LOGIN CARD
+        ================================================= */
+
+        .admin-card {
+
+            width: 100%;
+            max-width: 430px;
+
+            padding: 42px 38px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            border-radius: 24px;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+
+            position: relative;
+            z-index: 2;
+
+            animation: cardIn 0.7s ease;
+        }
+
+        @keyframes cardIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        /* =================================================
+           LOGO
+        ================================================= */
+
+        .admin-logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .admin-logo-mark {
+
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: #f5c329;
+
+            color: #071724;
+
+            font-family: "Caveat", cursive;
+            font-size: 34px;
+            font-weight: 700;
+
+            transform: rotate(-4deg);
+
+            box-shadow:
+                0 10px 25px rgba(245, 195, 41, 0.22);
+        }
+
+        .admin-logo h1 {
+
+            color: #ffffff;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 31px;
+            font-weight: 600;
+
+            line-height: 1;
+        }
+
+        .admin-logo p {
+
+            color: #9baab8;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            margin-top: 7px;
+        }
+
+
+        /* =================================================
+           TITLE
+        ================================================= */
+
+        .admin-title {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .admin-title h2 {
+
+            color: #ffffff;
+
+            font-size: 21px;
+
+            font-weight: 600;
+
+            margin-bottom: 6px;
+        }
+
+        .admin-title p {
+
+            color: #9baab8;
+
+            font-size: 12px;
+        }
+
+
+        /* =================================================
+           FORM
+        ================================================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+
+            display: block;
+
+            color: #d9e2e8;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+
+            width: 100%;
+
+            height: 48px;
+
+            border: 1px solid rgba(255, 255, 255, 0.14);
+
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            color: #ffffff;
+
+            padding: 0 14px;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 13px;
+
+            outline: none;
+
+            transition: all 0.25s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #728493;
+        }
+
+        .form-group input:focus {
+
+            border-color: #f5c329;
+
+            background: rgba(255, 255, 255, 0.09);
+
+            box-shadow:
+                0 0 0 3px rgba(245, 195, 41, 0.08);
+        }
+
+
+        /* =================================================
+           LOGIN BUTTON
+        ================================================= */
+
+        .admin-login-btn {
+
+            width: 100%;
+
+            height: 49px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #f5c329;
+
+            color: #071724;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            margin-top: 7px;
+
+            transition: all 0.25s ease;
+        }
+
+        .admin-login-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(245, 195, 41, 0.22);
+        }
+
+        .admin-login-btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* =================================================
+           ERROR MESSAGE
+        ================================================= */
+
+        .error-message {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 10px 12px;
+
+            border-radius: 10px;
+
+            background: rgba(220, 53, 69, 0.12);
+
+            border: 1px solid rgba(220, 53, 69, 0.25);
+
+            color: #ff9da7;
+
+            font-size: 11px;
+
+            text-align: center;
+        }
+
+
+        /* =================================================
+           BACK TO WEBSITE
+        ================================================= */
+
+        .back-home {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #9baab8;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            transition: color 0.25s ease;
+        }
+
+        .back-home:hover {
+            color: #f5c329;
+        }
+
+
+        /* =================================================
+           SECURITY NOTE
+        ================================================= */
+
+        .security-note {
+
+            text-align: center;
+
+            color: #627584;
+
+            font-size: 9px;
+
+            margin-top: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .admin-card {
+
+                padding: 32px 23px;
+
+                border-radius: 20px;
+            }
+
+            .admin-logo h1 {
+                font-size: 28px;
+            }
+
+            .admin-title h2 {
+                font-size: 19px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="bg-circle circle-one"></div>
+    <div class="bg-circle circle-two"></div>
+
+
+    <div class="admin-card">
+
+        <!-- LOGO -->
+
+        <div class="admin-logo">
+
+            <div class="admin-logo-mark">
+                STS
+            </div>
+
+            <h1>
+                Sir Tho Saradhaga
+            </h1>
+
+            <p>
+                LEARN • LAUGH • GROW
+            </p>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <div class="admin-title">
+
+            <h2>
+                🔐 Admin Login
+            </h2>
+
+            <p>
+                Sign in to manage your website
+            </p>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form id="adminLoginForm">
+
+            <div class="form-group">
+
+                <label for="adminUsername">
+                    Admin Username
+                </label>
+
+                <input
+                    type="text"
+                    id="adminUsername"
+                    placeholder="Enter admin username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="adminPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="adminPassword"
+                    placeholder="Enter admin password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="admin-login-btn">
+                Login to Admin Panel
+            </button>
+
+
+            <div
+                class="error-message"
+                id="adminError">
+                Invalid admin username or password.
+            </div>
+
+        </form>
+
+
+        <!-- BACK -->
+
+        <a
+            href="index.html"
+            class="back-home">
+            ← Back to Website
+        </a>
+
+
+        <div class="security-note">
+            🔒 Admin access is restricted to authorized users.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =================================================
+           TEMPORARY ADMIN LOGIN
+           
+           This is only for frontend development.
+           We will replace this with real backend
+           authentication later.
+        ================================================= */
+
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "admin123";
+
+
+        const adminForm =
+            document.getElementById(
+                "adminLoginForm"
+            );
+
+
+        const adminError =
+            document.getElementById(
+                "adminError"
+            );
+
+
+        adminForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const username =
+                    document.getElementById(
+                        "adminUsername"
+                    ).value.trim();
+
+
+                const password =
+                    document.getElementById(
+                        "adminPassword"
+                    ).value;
+
+
+                if (
+                    username === ADMIN_USERNAME &&
+                    password === ADMIN_PASSWORD
+                ) {
+
+                    localStorage.setItem(
+                        "sirThoAdminLoggedIn",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "admin-dashboard.html";
+
+                }
+
+                else {
+
+                    adminError.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

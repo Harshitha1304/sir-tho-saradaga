@@ -1,0 +1,2814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Notes | Sir Tho Saradhaga</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4f7f8;
+            color: #102238;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(5px);
+            opacity: .45;
+            animation: floatOrb 9s ease-in-out infinite;
+        }
+
+        .orb.one {
+            width: 260px;
+            height: 260px;
+            background: rgba(245, 195, 41, .12);
+            top: -100px;
+            right: 15%;
+        }
+
+        .orb.two {
+            width: 340px;
+            height: 340px;
+            background: rgba(14, 45, 66, .09);
+            right: -130px;
+            bottom: -130px;
+            animation-delay: 2s;
+        }
+
+        .orb.three {
+            width: 180px;
+            height: 180px;
+            background: rgba(52, 152, 219, .08);
+            left: 20%;
+            bottom: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-22px);
+            }
+        }
+
+
+        /* =====================================================
+           LAYOUT
+        ===================================================== */
+
+        .admin-layout {
+            min-height: 100vh;
+            display: flex;
+            position: relative;
+            z-index: 1;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .admin-sidebar {
+            width: 255px;
+            min-height: 100vh;
+
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #071724 0%,
+                    #0a2030 100%
+                );
+
+            padding: 24px 16px;
+
+            z-index: 1000;
+
+            box-shadow:
+                8px 0 35px rgba(7, 23, 36, .10);
+
+            transition: transform .35s ease;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            padding: 0 10px 25px;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, .08);
+        }
+
+        .sidebar-logo-mark {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #f5c329;
+            color: #071724;
+
+            font-family: "Caveat", cursive;
+            font-size: 24px;
+            font-weight: 700;
+
+            transform: rotate(-4deg);
+
+            box-shadow:
+                0 8px 20px rgba(245, 195, 41, .18);
+
+            animation:
+                logoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+                transform:
+                    rotate(-4deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    rotate(-4deg)
+                    translateY(-3px);
+            }
+        }
+
+        .sidebar-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-logo-text strong {
+            color: #ffffff;
+            font-family: "Caveat", cursive;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .sidebar-logo-text span {
+            color: #8497a5;
+            font-size: 7px;
+            letter-spacing: 1.3px;
+            margin-top: 3px;
+        }
+
+        .admin-label {
+            color: #f5c329;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+
+            padding:
+                25px 12px 10px;
+        }
+
+        .admin-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .admin-nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 13px;
+
+            border-radius: 11px;
+
+            color: #a9b8c3;
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            transition: all .25s ease;
+        }
+
+        .admin-nav a:hover {
+            background:
+                rgba(255, 255, 255, .06);
+
+            color: #ffffff;
+
+            transform:
+                translateX(3px);
+        }
+
+        .admin-nav a.active {
+            background:
+                rgba(245, 195, 41, .13);
+
+            color: #f5c329;
+
+            font-weight: 700;
+        }
+
+        .nav-icon {
+            width: 24px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 20px;
+        }
+
+        .website-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 12px 13px;
+
+            color: #8fa0ad;
+            text-decoration: none;
+
+            font-size: 11px;
+
+            border-radius: 10px;
+
+            transition: all .25s ease;
+        }
+
+        .website-link:hover {
+            color: #f5c329;
+            background:
+                rgba(255, 255, 255, .05);
+        }
+
+        .admin-logout {
+            width: 100%;
+
+            margin-top: 5px;
+
+            padding: 12px 13px;
+
+            border: none;
+            border-radius: 10px;
+
+            background:
+                rgba(220, 53, 69, .08);
+
+            color: #ff8994;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 11px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition: all .25s ease;
+        }
+
+        .admin-logout:hover {
+            background:
+                rgba(220, 53, 69, .15);
+
+            color: #ffb0b8;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .admin-main {
+            width: calc(100% - 255px);
+
+            margin-left: 255px;
+
+            min-height: 100vh;
+
+            padding:
+                30px 34px 45px;
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .admin-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+        .admin-heading h1 {
+            font-size: 28px;
+            font-weight: 700;
+
+            color: #102238;
+
+            margin-bottom: 6px;
+        }
+
+        .admin-heading p {
+            color: #71808c;
+            font-size: 11px;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            background:
+                rgba(255, 255, 255, .85);
+
+            border:
+                1px solid #e5ebee;
+
+            border-radius: 14px;
+
+            padding: 8px 12px;
+
+            box-shadow:
+                0 7px 22px
+                rgba(16, 34, 56, .05);
+        }
+
+        .admin-avatar {
+            width: 41px;
+            height: 41px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #0e2d42;
+            color: #f5c329;
+
+            font-size: 17px;
+        }
+
+        .admin-profile-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-profile-text strong {
+            font-size: 11px;
+            color: #102238;
+        }
+
+        .admin-profile-text span {
+            font-size: 9px;
+            color: #82909b;
+
+            margin-top: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+
+            border: none;
+
+            background: #071724;
+            color: #f5c329;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 11px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           TOOLBAR
+        ===================================================== */
+
+        .notes-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 22px;
+        }
+
+        .search-box {
+            position: relative;
+
+            flex: 1;
+
+            max-width: 420px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding:
+                13px 18px 13px 43px;
+
+            border:
+                1px solid #e1e8eb;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255, 255, 255, .95);
+
+            color: #102238;
+
+            font-family:
+                "Poppins", sans-serif;
+
+            font-size: 11px;
+
+            outline: none;
+
+            transition: all .25s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #f5c329;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(245, 195, 41, .10);
+        }
+
+        .search-icon {
+            position: absolute;
+
+            left: 16px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 15px;
+        }
+
+        .add-note-btn {
+            border: none;
+
+            background: #0e2d42;
+            color: #f5c329;
+
+            padding:
+                13px 20px;
+
+            border-radius: 13px;
+
+            font-family:
+                "Poppins", sans-serif;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(14, 45, 66, .15);
+
+            transition: all .25s ease;
+        }
+
+        .add-note-btn:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(14, 45, 66, .22);
+        }
+
+
+        /* =====================================================
+           STATISTICS
+        ===================================================== */
+
+        .note-stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 22px;
+        }
+
+        .note-stat {
+            background:
+                rgba(255, 255, 255, .94);
+
+            border:
+                1px solid #e4eaed;
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(16, 34, 56, .045);
+        }
+
+        .note-stat-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+        }
+
+        .note-stat-icon.yellow {
+            background: #fff4c9;
+        }
+
+        .note-stat-icon.green {
+            background: #e0f7eb;
+        }
+
+        .note-stat-icon.red {
+            background: #ffe4e7;
+        }
+
+        .note-stat strong {
+            display: block;
+
+            font-size: 20px;
+            line-height: 1;
+
+            color: #102238;
+        }
+
+        .note-stat span {
+            display: block;
+
+            font-size: 8px;
+
+            color: #7c8993;
+
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           NOTES CARD
+        ===================================================== */
+
+        .notes-card {
+            background:
+                rgba(255, 255, 255, .96);
+
+            border:
+                1px solid #e3e9ec;
+
+            border-radius: 19px;
+
+            padding: 22px;
+
+            box-shadow:
+                0 9px 28px
+                rgba(16, 34, 56, .045);
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 16px;
+
+            margin-bottom: 5px;
+
+            border-bottom:
+                1px solid #edf1f3;
+        }
+
+        .card-heading h2 {
+            font-size: 16px;
+            color: #102238;
+        }
+
+        .card-heading span {
+            font-size: 9px;
+
+            color: #7e8b95;
+
+            background: #f3f6f7;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+        }
+
+
+        /* =====================================================
+           NOTE LIST
+        ===================================================== */
+
+        .note-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-item {
+            display: grid;
+
+            grid-template-columns:
+                90px
+                minmax(180px, 1fr)
+                120px
+                80px
+                150px;
+
+            gap: 18px;
+
+            align-items: center;
+
+            padding: 15px 8px;
+
+            border-bottom:
+                1px solid #edf0f2;
+
+            transition:
+                background .25s ease;
+        }
+
+        .note-item:hover {
+            background: #fafcfc;
+
+            border-radius: 12px;
+        }
+
+        .note-item:last-child {
+            border-bottom: none;
+        }
+
+        .note-thumbnail {
+            width: 90px;
+            height: 62px;
+
+            object-fit: cover;
+
+            border-radius: 9px;
+
+            background: #dfe7ea;
+        }
+
+        .note-info {
+            min-width: 0;
+        }
+
+        .note-info strong {
+            display: block;
+
+            font-size: 11px;
+
+            color: #253748;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .note-info span {
+            display: block;
+
+            font-size: 8px;
+
+            color: #87949d;
+
+            margin-top: 5px;
+        }
+
+        .subject-badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                5px 9px;
+
+            border-radius: 20px;
+
+            background: #eef4f7;
+
+            color: #365568;
+
+            font-size: 8px;
+
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: fit-content;
+
+            padding:
+                5px 9px;
+
+            border-radius: 20px;
+
+            font-size: 8px;
+            font-weight: 700;
+        }
+
+        .status-badge.visible {
+            background: #e0f7eb;
+            color: #22834d;
+        }
+
+        .status-badge.hidden {
+            background: #ffe4e7;
+            color: #c63b4b;
+        }
+
+        .note-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn {
+            width: 31px;
+            height: 31px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            transition: all .2s ease;
+        }
+
+        .action-btn.view {
+            background: #e7f3fb;
+        }
+
+        .action-btn.edit {
+            background: #fff4c9;
+        }
+
+        .action-btn.hide {
+            background: #eee3fb;
+        }
+
+        .action-btn.delete {
+            background: #ffe4e7;
+        }
+
+        .action-btn:hover {
+            transform:
+                translateY(-2px)
+                scale(1.05);
+        }
+
+
+        /* =====================================================
+           EMPTY STATE
+        ===================================================== */
+
+        .empty-state {
+            display: none;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: #7d8b95;
+        }
+
+        .empty-state .emoji {
+            font-size: 40px;
+
+            margin-bottom: 12px;
+        }
+
+        .empty-state h3 {
+            font-size: 15px;
+
+            color: #253748;
+
+            margin-bottom: 5px;
+        }
+
+        .empty-state p {
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(7, 23, 36, .68);
+
+            backdrop-filter: blur(7px);
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 5000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .note-modal {
+            width: min(570px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: #ffffff;
+
+            border-radius: 22px;
+
+            padding: 27px;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0, 0, 0, .25);
+
+            animation:
+                modalIn .3s ease;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(20px)
+                    scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+            color: #102238;
+        }
+
+        .close-modal {
+            width: 34px;
+            height: 34px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #f1f4f5;
+
+            color: #52616d;
+
+            cursor: pointer;
+
+            font-size: 17px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #344a5b;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border:
+                1px solid #dfe7ea;
+
+            border-radius: 11px;
+
+            padding:
+                11px 13px;
+
+            background: #f9fbfb;
+
+            color: #102238;
+
+            font-family:
+                "Poppins", sans-serif;
+
+            font-size: 10px;
+
+            outline: none;
+
+            transition: all .2s ease;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #f5c329;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(245, 195, 41, .10);
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 13px;
+        }
+
+        .pdf-help {
+            display: block;
+
+            margin-top: 6px;
+
+            color: #8a969e;
+
+            font-size: 7px;
+
+            line-height: 1.5;
+        }
+
+        .thumbnail-preview {
+            width: 120px;
+            height: 75px;
+
+            object-fit: cover;
+
+            border-radius: 9px;
+
+            display: none;
+
+            margin-top: 9px;
+        }
+
+        .modal-buttons {
+            display: flex;
+
+            justify-content: flex-end;
+
+            gap: 9px;
+
+            margin-top: 22px;
+        }
+
+        .modal-btn {
+            border: none;
+
+            border-radius: 10px;
+
+            padding:
+                11px 17px;
+
+            font-family:
+                "Poppins", sans-serif;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .cancel-btn {
+            background: #edf1f3;
+
+            color: #52616d;
+        }
+
+        .save-btn {
+            background: #0e2d42;
+
+            color: #f5c329;
+        }
+
+        .save-btn:hover,
+        .cancel-btn:hover {
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .note-item {
+                grid-template-columns:
+                    80px
+                    minmax(160px, 1fr)
+                    100px
+                    75px
+                    125px;
+            }
+
+            .note-thumbnail {
+                width: 80px;
+                height: 57px;
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .admin-sidebar {
+                transform:
+                    translateX(-100%);
+            }
+
+            .admin-sidebar.open {
+                transform:
+                    translateX(0);
+            }
+
+            .admin-main {
+                width: 100%;
+                margin-left: 0;
+
+                padding:
+                    18px 14px 30px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+
+                align-items: center;
+                justify-content: center;
+            }
+
+            .admin-topbar {
+                display: grid;
+
+                grid-template-columns:
+                    auto 1fr auto;
+
+                gap: 10px;
+
+                align-items: center;
+            }
+
+            .admin-heading h1 {
+                font-size: 21px;
+            }
+
+            .admin-heading p {
+                font-size: 8px;
+            }
+
+            .admin-profile {
+                padding: 5px;
+            }
+
+            .admin-profile-text {
+                display: none;
+            }
+
+            .admin-avatar {
+                width: 37px;
+                height: 37px;
+            }
+
+            .notes-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+
+            .add-note-btn {
+                width: 100%;
+            }
+
+            .note-stats {
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap: 8px;
+            }
+
+            .note-stat {
+                padding: 13px 10px;
+                gap: 8px;
+            }
+
+            .note-stat-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .note-stat strong {
+                font-size: 16px;
+            }
+
+            .note-stat span {
+                font-size: 6.5px;
+            }
+
+            .notes-card {
+                padding: 15px;
+            }
+
+            .note-item {
+                display: grid;
+
+                grid-template-columns:
+                    85px 1fr;
+
+                gap: 12px;
+
+                padding: 15px 4px;
+            }
+
+            .note-thumbnail {
+                width: 85px;
+                height: 55px;
+
+                grid-row:
+                    span 2;
+            }
+
+            .note-info strong {
+                font-size: 10px;
+            }
+
+            .note-info span {
+                font-size: 7px;
+            }
+
+            .subject-badge {
+                font-size: 7px;
+            }
+
+            .status-badge {
+                font-size: 7px;
+            }
+
+            .note-actions {
+                grid-column:
+                    2;
+
+                margin-top: 2px;
+            }
+
+            .action-btn {
+                width: 29px;
+                height: 29px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .admin-main {
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+            .note-stats {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .note-stat {
+                min-height: 55px;
+            }
+
+            .card-heading h2 {
+                font-size: 14px;
+            }
+
+            .card-heading span {
+                font-size: 7px;
+            }
+
+            .note-item {
+                grid-template-columns:
+                    75px 1fr;
+
+                gap: 9px;
+            }
+
+            .note-thumbnail {
+                width: 75px;
+                height: 50px;
+            }
+
+            .note-info strong {
+                font-size: 9px;
+            }
+
+            .note-info span {
+                font-size: 6.5px;
+            }
+
+            .action-btn {
+                width: 27px;
+                height: 27px;
+
+                font-size: 11px;
+            }
+
+            .note-modal {
+                padding: 20px;
+                border-radius: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ===================================================== -->
+
+    <div class="background">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+
+    </div>
+
+
+    <div class="admin-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================= -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar">
+
+
+            <div class="sidebar-logo">
+
+                <div class="sidebar-logo-mark">
+                    STS
+                </div>
+
+                <div class="sidebar-logo-text">
+
+                    <strong>
+                        Sir Tho Saradhaga
+                    </strong>
+
+                    <span>
+                        ADMIN PANEL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-label">
+                MANAGEMENT
+            </div>
+
+
+            <nav class="admin-nav">
+
+
+                <a href="admin-dashboard.html">
+
+                    <span class="nav-icon">
+                        📊
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="admin-videos.html">
+
+                    <span class="nav-icon">
+                        🎥
+                    </span>
+
+                    Videos
+
+                </a>
+
+
+                <a
+                    href="admin-notes.html"
+                    class="active">
+
+                    <span class="nav-icon">
+                        📖
+                    </span>
+
+                    Notes
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        🧠
+                    </span>
+
+                    Quizzes
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        ❓
+                    </span>
+
+                    Questions
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        👨‍🎓
+                    </span>
+
+                    Students
+
+                </a>
+
+
+                <a href="#">
+
+                    <span class="nav-icon">
+                        ⚙️
+                    </span>
+
+                    Settings
+
+                </a>
+
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="../index.html"
+                    class="website-link">
+
+                    🌐
+
+                    View Website
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="admin-logout"
+                    id="adminLogout">
+
+                    🚪
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN
+        ================================================= -->
+
+        <main class="admin-main">
+
+
+            <!-- TOP BAR -->
+
+            <div class="admin-topbar">
+
+
+                <button
+                    type="button"
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn">
+
+                    ☰
+
+                </button>
+
+
+                <div class="admin-heading">
+
+                    <h1>
+                        Manage Notes
+                    </h1>
+
+                    <p>
+                        Add, edit and manage study notes for students.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        👤
+                    </div>
+
+                    <div class="admin-profile-text">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            Website Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+
+            <div class="notes-toolbar">
+
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search notes...">
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-note-btn"
+                    id="addNoteBtn">
+
+                    ＋ Add New Note
+
+                </button>
+
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="note-stats">
+
+
+                <div class="note-stat">
+
+                    <div class="note-stat-icon yellow">
+                        📖
+                    </div>
+
+                    <div>
+
+                        <strong id="totalNotes">
+                            0
+                        </strong>
+
+                        <span>
+                            Total Notes
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="note-stat">
+
+                    <div class="note-stat-icon green">
+                        👁️
+                    </div>
+
+                    <div>
+
+                        <strong id="visibleNotes">
+                            0
+                        </strong>
+
+                        <span>
+                            Visible on Website
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="note-stat">
+
+                    <div class="note-stat-icon red">
+                        🙈
+                    </div>
+
+                    <div>
+
+                        <strong id="hiddenNotes">
+                            0
+                        </strong>
+
+                        <span>
+                            Hidden Notes
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- NOTES LIST -->
+
+            <div class="notes-card">
+
+
+                <div class="card-heading">
+
+                    <h2>
+                        Study Notes
+                    </h2>
+
+                    <span id="noteCountLabel">
+                        0 Notes
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="note-list"
+                    id="noteList">
+                </div>
+
+
+                <div
+                    class="empty-state"
+                    id="emptyState">
+
+                    <div class="emoji">
+                        📖
+                    </div>
+
+                    <h3>
+                        No notes found
+                    </h3>
+
+                    <p>
+                        Try another search or add a new note.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         ADD / EDIT MODAL
+    ===================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="noteModal">
+
+
+        <div class="note-modal">
+
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+                    Add New Note
+                </h2>
+
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="closeModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="noteForm">
+
+
+                <input
+                    type="hidden"
+                    id="editNoteId">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Note Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteTitle"
+                        placeholder="Example: Photosynthesis"
+                        required>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Subject
+                        </label>
+
+                        <select
+                            id="noteSubject"
+                            required>
+
+                            <option value="">
+                                Select Subject
+                            </option>
+
+                            <option value="Science">
+                                Science
+                            </option>
+
+                            <option value="Mathematics">
+                                Mathematics
+                            </option>
+
+                            <option value="Biology">
+                                Biology
+                            </option>
+
+                            <option value="English">
+                                English
+                            </option>
+
+                            <option value="Social Studies">
+                                Social Studies
+                            </option>
+
+                            <option value="Civics">
+                                Civics
+                            </option>
+
+                            <option value="Geography">
+                                Geography
+                            </option>
+
+                            <option value="Technology">
+                                Technology
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Note Type
+                        </label>
+
+                        <select
+                            id="noteType"
+                            required>
+
+                            <option value="PDF">
+                                PDF
+                            </option>
+
+                            <option value="Link">
+                                External Link
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        PDF / Note Path
+                    </label>
+
+                    <input
+                        type="text"
+                        id="notePath"
+                        placeholder="notes/Biology/Light_into_Life.pdf"
+                        required>
+
+                    <span class="pdf-help">
+                        Example: notes/Biology/Light_into_Life.pdf
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Thumbnail Image Path
+                    </label>
+
+                    <input
+                        type="text"
+                        id="noteThumbnail"
+                        placeholder="images/Thumbnails/photosynthesis.jpeg">
+
+                    <img
+                        id="thumbnailPreview"
+                        class="thumbnail-preview"
+                        alt="Thumbnail Preview">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="noteDescription"
+                        placeholder="Short description of this note..."></textarea>
+
+                </div>
+
+
+                <div class="modal-buttons">
+
+
+                    <button
+                        type="button"
+                        class="modal-btn cancel-btn"
+                        id="cancelModal">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="modal-btn save-btn">
+
+                        Save Note
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =====================================================
+           ADMIN ACCESS
+        ===================================================== */
+
+        if (
+            localStorage.getItem(
+                "sirThoAdminLoggedIn"
+            ) !== "true"
+        ) {
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+
+        /* =====================================================
+           DEFAULT NOTES
+        ===================================================== */
+
+        const defaultNotes = [
+
+            {
+                id: 1,
+
+                title:
+                    "Light into Life",
+
+                subject:
+                    "Biology",
+
+                type:
+                    "PDF",
+
+                path:
+                    "../notes/Biology/Light_into_Life.pdf",
+
+                thumbnail:
+                    "../images/Thumbnails/photosynthesis.jpeg",
+
+                description:
+                    "Visual study notes explaining photosynthesis.",
+
+                visible:
+                    true
+
+            }
+
+        ];
+
+
+        /* =====================================================
+           LOAD NOTES
+        ===================================================== */
+
+        let notes =
+            JSON.parse(
+                localStorage.getItem(
+                    "sirThoAdminNotes"
+                )
+            );
+
+
+        if (
+            !Array.isArray(notes)
+        ) {
+
+            notes =
+                defaultNotes;
+
+            saveNotes();
+
+        }
+
+
+        function saveNotes() {
+
+            localStorage.setItem(
+                "sirThoAdminNotes",
+                JSON.stringify(notes)
+            );
+
+        }
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const noteList =
+            document.getElementById(
+                "noteList"
+            );
+
+        const emptyState =
+            document.getElementById(
+                "emptyState"
+            );
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+        const noteModal =
+            document.getElementById(
+                "noteModal"
+            );
+
+        const noteForm =
+            document.getElementById(
+                "noteForm"
+            );
+
+        const modalTitle =
+            document.getElementById(
+                "modalTitle"
+            );
+
+
+        /* =====================================================
+           RENDER NOTES
+        ===================================================== */
+
+        function renderNotes() {
+
+            const searchTerm =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const filteredNotes =
+                notes.filter(
+                    function(note) {
+
+                        return (
+
+                            note.title
+                                .toLowerCase()
+                                .includes(searchTerm)
+
+                            ||
+
+                            note.subject
+                                .toLowerCase()
+                                .includes(searchTerm)
+
+                        );
+
+                    }
+                );
+
+
+            noteList.innerHTML = "";
+
+
+            filteredNotes.forEach(
+                function(note) {
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "note-item";
+
+
+                    item.innerHTML = `
+
+                        <img
+                            class="note-thumbnail"
+                            src="${note.thumbnail || "../images/Hero/Hero-image.png"}"
+                            alt="${note.title}"
+                            onerror="this.style.opacity='0.25'">
+
+
+                        <div class="note-info">
+
+                            <strong>
+                                ${note.title}
+                            </strong>
+
+                            <span>
+                                ${note.description || "No description added."}
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="subject-badge">
+                                ${note.subject}
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <span class="status-badge ${note.visible ? "visible" : "hidden"}">
+
+                                ${note.visible ? "Visible" : "Hidden"}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="note-actions">
+
+
+                            <button
+                                class="action-btn view"
+                                onclick="viewNote(${note.id})"
+                                title="Open Note">
+
+                                📄
+
+                            </button>
+
+
+                            <button
+                                class="action-btn edit"
+                                onclick="editNote(${note.id})"
+                                title="Edit">
+
+                                ✏️
+
+                            </button>
+
+
+                            <button
+                                class="action-btn hide"
+                                onclick="toggleVisibility(${note.id})"
+                                title="Show / Hide">
+
+                                ${note.visible ? "🙈" : "👁️"}
+
+                            </button>
+
+
+                            <button
+                                class="action-btn delete"
+                                onclick="deleteNote(${note.id})"
+                                title="Delete">
+
+                                🗑️
+
+                            </button>
+
+
+                        </div>
+
+                    `;
+
+
+                    noteList.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+
+            emptyState.style.display =
+                filteredNotes.length === 0
+                    ? "block"
+                    : "none";
+
+
+            document.getElementById(
+                "noteCountLabel"
+            ).textContent =
+                filteredNotes.length +
+                (
+                    filteredNotes.length === 1
+                        ? " Note"
+                        : " Notes"
+                );
+
+
+            updateStats();
+
+        }
+
+
+        /* =====================================================
+           STATISTICS
+        ===================================================== */
+
+        function updateStats() {
+
+            const total =
+                notes.length;
+
+
+            const visible =
+                notes.filter(
+                    note =>
+                        note.visible
+                ).length;
+
+
+            const hidden =
+                total - visible;
+
+
+            document.getElementById(
+                "totalNotes"
+            ).textContent =
+                total;
+
+
+            document.getElementById(
+                "visibleNotes"
+            ).textContent =
+                visible;
+
+
+            document.getElementById(
+                "hiddenNotes"
+            ).textContent =
+                hidden;
+
+        }
+
+
+        /* =====================================================
+           ADD NOTE
+        ===================================================== */
+
+        document.getElementById(
+            "addNoteBtn"
+        ).addEventListener(
+            "click",
+            function() {
+
+                openAddModal();
+
+            }
+        );
+
+
+        function openAddModal() {
+
+            modalTitle.textContent =
+                "Add New Note";
+
+
+            noteForm.reset();
+
+
+            document.getElementById(
+                "editNoteId"
+            ).value = "";
+
+
+            document.getElementById(
+                "thumbnailPreview"
+            ).style.display =
+                "none";
+
+
+            noteModal.classList.add(
+                "show"
+            );
+
+        }
+
+
+        /* =====================================================
+           EDIT NOTE
+        ===================================================== */
+
+        function editNote(id) {
+
+            const note =
+                notes.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if (!note) {
+                return;
+            }
+
+
+            modalTitle.textContent =
+                "Edit Note";
+
+
+            document.getElementById(
+                "editNoteId"
+            ).value =
+                note.id;
+
+
+            document.getElementById(
+                "noteTitle"
+            ).value =
+                note.title;
+
+
+            document.getElementById(
+                "noteSubject"
+            ).value =
+                note.subject;
+
+
+            document.getElementById(
+                "noteType"
+            ).value =
+                note.type || "PDF";
+
+
+            document.getElementById(
+                "notePath"
+            ).value =
+                note.path;
+
+
+            document.getElementById(
+                "noteThumbnail"
+            ).value =
+                note.thumbnail || "";
+
+
+            document.getElementById(
+                "noteDescription"
+            ).value =
+                note.description || "";
+
+
+            showThumbnailPreview(
+                note.thumbnail
+            );
+
+
+            noteModal.classList.add(
+                "show"
+            );
+
+        }
+
+
+        /* =====================================================
+           SAVE NOTE
+        ===================================================== */
+
+        noteForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const editId =
+                    document.getElementById(
+                        "editNoteId"
+                    ).value;
+
+
+                const noteData = {
+
+                    title:
+                        document.getElementById(
+                            "noteTitle"
+                        ).value.trim(),
+
+                    subject:
+                        document.getElementById(
+                            "noteSubject"
+                        ).value,
+
+                    type:
+                        document.getElementById(
+                            "noteType"
+                        ).value,
+
+                    path:
+                        document.getElementById(
+                            "notePath"
+                        ).value.trim(),
+
+                    thumbnail:
+                        document.getElementById(
+                            "noteThumbnail"
+                        ).value.trim(),
+
+                    description:
+                        document.getElementById(
+                            "noteDescription"
+                        ).value.trim()
+
+                };
+
+
+                if (editId) {
+
+                    const index =
+                        notes.findIndex(
+                            note =>
+                                note.id ==
+                                editId
+                        );
+
+
+                    if (index !== -1) {
+
+                        notes[index] = {
+
+                            ...notes[index],
+
+                            ...noteData
+
+                        };
+
+                    }
+
+                }
+
+                else {
+
+                    notes.push({
+
+                        id:
+                            Date.now(),
+
+                        ...noteData,
+
+                        visible:
+                            true
+
+                    });
+
+                }
+
+
+                saveNotes();
+
+                renderNotes();
+
+                closeModal();
+
+
+                alert(
+                    "✅ Note saved successfully!"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           DELETE NOTE
+        ===================================================== */
+
+        function deleteNote(id) {
+
+            const note =
+                notes.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if (!note) {
+                return;
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    `Do you want to delete "${note.title}"?`
+                );
+
+
+            if (!confirmDelete) {
+                return;
+            }
+
+
+            notes =
+                notes.filter(
+                    item =>
+                        item.id !== id
+                );
+
+
+            saveNotes();
+
+            renderNotes();
+
+
+            alert(
+                "🗑️ Note deleted successfully."
+            );
+
+        }
+
+
+        /* =====================================================
+           SHOW / HIDE
+        ===================================================== */
+
+        function toggleVisibility(id) {
+
+            const note =
+                notes.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if (!note) {
+                return;
+            }
+
+
+            note.visible =
+                !note.visible;
+
+
+            saveNotes();
+
+            renderNotes();
+
+        }
+
+
+        /* =====================================================
+           OPEN NOTE
+        ===================================================== */
+
+        function viewNote(id) {
+
+            const note =
+                notes.find(
+                    item =>
+                        item.id === id
+                );
+
+
+            if (!note) {
+                return;
+            }
+
+
+            window.open(
+                note.path,
+                "_blank"
+            );
+
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        searchInput.addEventListener(
+            "input",
+            renderNotes
+        );
+
+
+        /* =====================================================
+           MODAL CLOSE
+        ===================================================== */
+
+        document.getElementById(
+            "closeModal"
+        ).addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        document.getElementById(
+            "cancelModal"
+        ).addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        function closeModal() {
+
+            noteModal.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        noteModal.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    noteModal
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           THUMBNAIL PREVIEW
+        ===================================================== */
+
+        document.getElementById(
+            "noteThumbnail"
+        ).addEventListener(
+            "input",
+            function() {
+
+                showThumbnailPreview(
+                    this.value.trim()
+                );
+
+            }
+        );
+
+
+        function showThumbnailPreview(
+            path
+        ) {
+
+            const preview =
+                document.getElementById(
+                    "thumbnailPreview"
+                );
+
+
+            if (!path) {
+
+                preview.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            preview.src =
+                path;
+
+            preview.style.display =
+                "block";
+
+        }
+
+
+        /* =====================================================
+           MOBILE SIDEBAR
+        ===================================================== */
+
+        document.getElementById(
+            "mobileMenuBtn"
+        ).addEventListener(
+            "click",
+            function() {
+
+                document
+                    .getElementById(
+                        "adminSidebar"
+                    )
+                    .classList.toggle(
+                        "open"
+                    );
+
+            }
+        );
+
+
+        /* =====================================================
+           ADMIN LOGOUT
+        ===================================================== */
+
+        document.getElementById(
+            "adminLogout"
+        ).addEventListener(
+            "click",
+            function() {
+
+                const shouldLogout =
+                    confirm(
+                        "Do you want to logout from the Admin Panel?"
+                    );
+
+
+                if (shouldLogout) {
+
+                    localStorage.removeItem(
+                        "sirThoAdminLoggedIn"
+                    );
+
+
+                    window.location.href =
+                        "admin-login.html";
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           INITIAL LOAD
+        ===================================================== */
+
+        renderNotes();
+
+    </script>
+
+
+</body>
+
+</html>
